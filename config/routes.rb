@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'registrations/after_sign_up_path_for'
+
   root 'home#welcome'
   devise_for :users
 
-  resources :user_profiles do
-    resources :index
-  end
+  resources :user_profiles 
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
