@@ -9,7 +9,7 @@ describe 'registering' do
     fill_in 'Password confirmation', with: '12345678'
     click_button 'Sign up'		
     expect(page).to have_content 'signed up successfully'
-    expect(current_path).to eq '/user_profiles/1'
+    expect(current_path).to eq '/user_profiles/new'
 	end
 
 
