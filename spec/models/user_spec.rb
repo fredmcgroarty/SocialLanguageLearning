@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+	before (:each) do 
+		@user = create(:user)
+	end
+
+	it "registers in database" do 
+		expect(User.first).to eq @user
+	end
 end
