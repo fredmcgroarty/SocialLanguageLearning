@@ -14,6 +14,10 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL 
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
+
 
   # ## Mock Framework
   #
@@ -42,3 +46,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+
+

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :user_info do
-    user_id 1
     native_lang 1
     first_lang 1
     second_lang 1
