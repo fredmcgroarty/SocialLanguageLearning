@@ -13,6 +13,7 @@
 
     if @user_profile.save
       redirect_to '/'
+      flash[:notice] = "Account created, please update your language profile"
     else
       render 'new'
     end
@@ -23,6 +24,14 @@
   end
 
   def update
+    @user_profile = UserProfile.find params[:id]
+
+    if @user_profile.update params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang)
+      redirect_to '/'
+      flash[:notice] = "You have succesfully updated your profile"
+    else
+      render 'new'
+    end
   end
 
   def destroy
