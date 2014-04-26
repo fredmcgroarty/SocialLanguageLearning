@@ -1,0 +1,13 @@
+<%= form_for @user_profile, html: { multipart: true } do |f| %>
+
+	<%= f.label :native_tongue %>
+	<%= f.select :native_lang, ['English', 'French', 'Spanish'] %>
+	<br>
+	<%= f.label :first_language %>
+	<%= f.select :first_lang, ['English', 'French', 'Spanish'] %>
+	<br>
+	<%= f.label :second_language %>
+	<%= f.select :second_lang, ['English', 'French', 'Spanish'] %>
+	<br>
+	<%= f.submit :class => 'post-button' %>
+<% end %>

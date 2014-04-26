@@ -28,6 +28,7 @@ describe 'registering' do
     click_button 'Create User profile'
     expect(User.first.user_profile).not_to eq 'nil'
     expect(current_path).to eq '/'
+    expect(page).to have_content 'Account created, please update your language profile'
   end
 
   context "a user has registered and added a profile" do 
@@ -38,6 +39,14 @@ describe 'registering' do
       visit '/'
       expect(page).to have_content "Create your language profile"
       click_link 'Create your language profile'
+      select "English", :from => "user_profile[native_lang]"
+      select "French", :from => "user_profile[first_lang]"
+      select "Spanish", :from => "user_profile[second_lang]"
+      click_button 'Update User profile'
+      expect(current_path).to eq '/'
+      expect(User.first.user_profile.native_lang).to eq ('English')
+      expect(page).to have_content "You have succesfully updated your profile"
     end
   end
+  
 end
