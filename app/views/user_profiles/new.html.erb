@@ -1,2 +1,15 @@
 <h1>UserProfiles#new</h1>
 <p>Find me in app/views/user_profiles/new.html.erb</p>
+<%= form_for @user_profile, html: { multipart: true } do |f| %>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+	<%= f.label :dob %>
+	<%= f.date_select :dob, start_year: 1925, end_year: 2010 %>
+	<%= f.label :gender %>
+	<%= f.text_field :gender %>
+	<%= f.file_field :picture %>
+	<%= f.submit :class => 'post-button' %>
+
+<% end %>

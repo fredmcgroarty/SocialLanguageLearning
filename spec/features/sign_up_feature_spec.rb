@@ -12,6 +12,19 @@ describe 'registering' do
     expect(current_path).to eq '/user_profiles/new'
 	end
 
-
+	it "fills in user profile page and redirects to the home page" do
+    sign_up_email
+    expect(current_path).to eq '/user_profiles/new'
+    fill_in 'First name', with: 'test'
+    fill_in 'Last name', with: 'test'
+    select "1990", :from => "user_profile[dob(1i)]"
+    select "April", :from => "user_profile[dob(2i)]"
+    select "20", :from => "user_profile[dob(3i)]"
+    fill_in 'Gender', with: 'male'
+    attach_file 'user_profile_picture', Rails.root.join('spec/images/owl-in-a-hat.jpg')
+    click_button 'Create User profile'
+    expect(User.first.user_profile).not_to eq 'nil'
+    expect(current_path).to eq '/'
+  end
 
 end
