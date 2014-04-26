@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140425110805) do
     t.integer  "first_lang_lvl"
     t.integer  "second_lang_lvl"
     t.integer  "third_lang_lvl"
+    t.integer  "exp_pts"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
