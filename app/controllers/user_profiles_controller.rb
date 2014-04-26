@@ -8,10 +8,8 @@
   end
 
   def create
-
     @user_profile = UserProfile.new params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture)
     @user_profile.user = current_user
-#raise params.inspect
 
     if @user_profile.save
       redirect_to '/'
@@ -21,6 +19,7 @@
   end
 
   def edit
+    @user_profile = UserProfile.find params[:id]
   end
 
   def update
@@ -31,4 +30,6 @@
 
   def index 
   end
+
+
 end

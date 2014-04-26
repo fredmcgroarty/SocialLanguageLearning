@@ -11,14 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425110805) do
+ActiveRecord::Schema.define(version: 20140426153903) do
 
   create_table "user_infos", force: true do |t|
     t.integer  "user_id"
-    t.integer  "native_lang"
-    t.integer  "first_lang"
-    t.integer  "second_lang"
-    t.integer  "third_lang"
     t.integer  "first_lang_lvl"
     t.integer  "second_lang_lvl"
     t.integer  "third_lang_lvl"
@@ -32,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140425110805) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "dob"
-    t.string   "pic_url"
     t.integer  "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,6 +35,9 @@ ActiveRecord::Schema.define(version: 20140425110805) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.string   "native_lang"
+    t.string   "first_lang"
+    t.string   "second_lang"
   end
 
   create_table "users", force: true do |t|

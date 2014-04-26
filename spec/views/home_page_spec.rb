@@ -29,5 +29,20 @@ describe 'Home page' do
 			visit '/'
 			expect(page).to have_content("Sign out")
 		end
+
+	context "user has registered account and profile" do 
+			before(:each) do
+				@fred = create(:user)
+				create(:user_profile, user: @fred)
+			end
+
+		it "sees a link to update their language info if empty" do 
+			login_as @fred
+			visit '/'
+			expect(page).not_to have_content("Sign up" && "Sign in")
+			expect(page).to have_content "Create your language profile"
+		end
+
 	end
+end
 end
