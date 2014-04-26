@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
+  get 'user_infos/new'
+
+  get 'user_infos/show'
+
+  get 'user_infos/create'
+
+  get 'user_infos/edit'
+
+  get 'user_infos/update'
+
+  get 'user_infos/destroy'
+
+  get 'user_infos/index'
+
   get 'registrations/after_sign_up_path_for'
 
   root 'home#welcome'
   devise_for :users
 
   resources :user_profiles 
+  resources :user_infos
   
 
   # Example of regular route:
