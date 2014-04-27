@@ -19,6 +19,7 @@ describe 'Viewing edit user profile' do
 		end
 
 		it "shows basic profile data" do 
+			
 		end
 	end
 

@@ -1,7 +1,15 @@
 <title>Welcome to langlang</title>
 <h1>langlang</h1>
  <% #render "devise/registrations/new" %>
+
 <p>In development</p>
 	<% if user_signed_in? && current_user.user_profile.native_lang.nil? %>
 		<%= link_to 'Create your language profile', edit_user_profile_path(@user) %>
 	<% end %>
+
+<p>User Profiles</p>
+<% @user_list.each do |users| %>
+<%= image_tag users.user_profile.picture.url(:thumb) %>
+<%= users.user_profile.first_name %> 
+<%= users.user_profile.last_name %>
+<% end %>
