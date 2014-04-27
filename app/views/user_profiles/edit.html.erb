@@ -13,11 +13,11 @@
   </tr>
   <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? || @user_profile.second_lang.nil? %>
   <p>You need to update your language profile!</p>
-  	  <%= render 'edit_languages' %>
+      <%= render 'edit_languages' %>
   <% else %>
   <tr>
     <td>Native Tongue</td>
-    <td><%= @user_profile.native_lang %></td>		
+    <td><%= @user_profile.native_lang %></td>   
   </tr>
   <tr>
     <td>First Language Choice</td>
@@ -29,3 +29,4 @@
   </tr>
   <% end %>
   </table>
+

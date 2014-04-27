@@ -23,11 +23,9 @@ describe 'Home page' do
 
 		it "should have devise registration form on homepage" do
 			visit '/'
-    	find_field('user[email]').value
-    	find_field('user[password]').value
-     	find_field('user[password_confirmation]').value
-
-
+			expect(page).to have_css '#user_email'
+			expect(page).to have_css '#user_password'
+			expect(page).to have_css '#user_password_confirmation'
 		end
 	end
 
@@ -71,6 +69,7 @@ describe "personalised Home Page" do
 			expect(page).to have_content ('Mark M')
 			expect(page).to have_content('Tiff C')
 		end
+
 
 	end
 end
