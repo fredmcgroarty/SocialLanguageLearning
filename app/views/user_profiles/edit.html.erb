@@ -11,8 +11,8 @@
     <td><%= @user_profile.dob %> </td>    
     <td><%= @user_profile.first_name %></td>
   </tr>
-  <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? %>
-  You need to update your language profile!
+  <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? || @user_profile.second_lang.nil? %>
+  <p>You need to update your language profile!</p>
   	  <%= render 'edit_languages' %>
   <% else %>
   <tr>
