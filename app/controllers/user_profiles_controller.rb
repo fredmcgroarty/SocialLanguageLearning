@@ -1,10 +1,16 @@
  class UserProfilesController < ApplicationController 
+  
+  def index 
+    @user_profiles = UserProfile.all
+  end
+
   def new
     @user_profile = UserProfile.new
   end
 
   def show
     @user_profile = UserProfile.find params[:id]
+    @user = @user_profile.user
   end
 
   def create
@@ -35,10 +41,9 @@
   end
 
   def destroy
+    
   end
 
-  def index 
-  end
 
   private
 
