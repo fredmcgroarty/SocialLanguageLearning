@@ -1,11 +1,19 @@
-<% if user_signed_in? %>
-
-CURRENT USER ID: <%= current_user.id %>
-
-<%= link_to 'Settings', edit_user_profile_path %>
-
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to('Sign in', new_user_session_path) %>
-<%= link_to('Sign up', new_user_registration_path) %>
-<% end %>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">LANGLANG</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in?%>
+            <li><div class="log-in-message">Logged in as <%= current_user.email %></div></li>
+            <li><%= link_to 'Settings', edit_user_profile_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>

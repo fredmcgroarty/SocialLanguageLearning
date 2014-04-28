@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+1.upto(10) do |i|
+   User.create(:email => "test#{i}@test.com", :password => "test_user#{i}", :password_confirmation => "test_user#{i}")
+   profile = UserProfile.find({"#{i}"})
+   profile.update(:first_name => "test#{i}")
+   profile.save
+end
+
