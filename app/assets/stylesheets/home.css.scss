@@ -3,13 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .welcome-container {
+	background-color: green;
+}
+
+.welcome {
 	background-color: #4863A0;
+	height: 400px;
 }
 
 .not-logged-in {
-	margin-left: 60%;
-	padding-top: 3%;
-	padding-bottom: 3%;
 	background-color: white;
 }
 

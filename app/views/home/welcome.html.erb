@@ -1,8 +1,8 @@
 <title>
 	Welcome to langlang 
 </title>
-			<% if user_signed_in? %>
-				<h1>
+	<% if user_signed_in? %>
+		<h1>
 				Welcome to langlang <%= @user.email %>
 				</h1>
 <div class="col-md-2">
@@ -38,8 +38,10 @@
 	</div>
 </div>
 <% else %>
-	<div class='welcome-container'>
+<div class='welcome-container'>
+<div class='col-md-6 welcome'>
 		<h1><span>LANG LANG DESCRIPTION</span></h1>
-		<%= render 'not_logged_in'  %>
-	</div>
+</div>
+	<%= render 'not_logged_in'  %>
 <% end %>
+</div>
