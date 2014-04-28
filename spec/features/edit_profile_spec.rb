@@ -18,8 +18,9 @@ describe 'editting users profile' do
 		it "should display user profile" do 
             visit '/user_profile/edit'
             expect(current_path).to eq edit_user_profile_path(current_user)
-            expect(page).to have_content(@mark.user_info && @mark.user_profile)
-           
+            expect(page).to have_content(@mark.user_info && @mark.user_profile && @mark.email)
+
+
 	end
 
   
