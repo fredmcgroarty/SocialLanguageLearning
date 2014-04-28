@@ -16,28 +16,28 @@ describe 'registering' do
       expect(current_path).to eq '/'     
     end
 
-  context "On user home page without profile" do 
-    before(:each) do
-      @fred = create(:user)
-    end
+#   context "On user home page without profile" do 
+#     # before(:each) do
+#     #   @fred = create(:user)
+#     # end
 
-    it "fred adds his profile" do
-      login_as @fred
-      visit '/'
-      click_link 'You need to create your language profile'
-      # fill_in 'First name', with: 'test'
-      # fill_in 'Last name', with: 'test'
-      # select "1990", :from => "user_profile[dob(1i)]"
-      # select "April", :from => "user_profile[dob(2i)]"
-      # select "20", :from => "user_profile[dob(3i)]"
-      # fill_in 'Gender', with: 'male'
-      # attach_file 'user_profile_picture', Rails.root.join('spec/images/owl-in-a-hat.jpg')
-      # click_button 'Create User profile'
-      # expect(User.first.user_profile).not_to eq 'nil'
-      # expect(current_path).to eq '/'
-      # expect(page).to have_content 'Account created, please update your language profile'
-    end
-
+#     # it "fred adds his profile" do
+#     #   login_as @fred
+#     #   visit '/'
+#     #   click_link 'You need to create your language profile'
+#     #   # fill_in 'First name', with: 'test'
+#     #   # fill_in 'Last name', with: 'test'
+#     #   # select "1990", :from => "user_profile[dob(1i)]"
+#     #   # select "April", :from => "user_profile[dob(2i)]"
+#     #   # select "20", :from => "user_profile[dob(3i)]"
+#     #   # fill_in 'Gender', with: 'male'
+#     #   # attach_file 'user_profile_picture', Rails.root.join('spec/images/owl-in-a-hat.jpg')
+#     #   # click_button 'Create User profile'
+#     #   # expect(User.first.user_profile).not_to eq 'nil'
+#     #   # expect(current_path).to eq '/'
+#     #   # expect(page).to have_content 'Account created, please update your language profile'
+#     # end
+# end
   context "a user has registered and added a profile" do 
 
     it "should prompt the user to complete their language profile" do
@@ -56,4 +56,5 @@ describe 'registering' do
     end
   end
   
+end
 end

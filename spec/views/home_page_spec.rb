@@ -5,15 +5,7 @@ describe 'Home page' do
 		it "should have the content 'langlang'" do
 			visit '/'
 			expect(page).to have_content('langlang')
-		end
-
-	context "user isnt logged in" do 
-	
-		it "should have login and sign in forms" do
-			visit '/'
-			expect(page).to have_link('Sign in')
-			expect(page).to have_link('Sign up')
-		end
+		end	
 
 		it "cant see references to other profiles" do
 			@tiff = login_as create(:user)
@@ -22,12 +14,8 @@ describe 'Home page' do
 		end
 
 		it "should have devise registration form on homepage" do
-			visit '/'
-			expect(page).to have_css '#user_email'
-			expect(page).to have_css '#user_password'
-			expect(page).to have_css '#user_password_confirmation'
+
 		end
-	end
 
 	context "user is logged in" do 
 
@@ -55,7 +43,7 @@ describe "personalised Home Page" do
 
 		it "sees a link to update their language info if empty" do 
 			expect(page).not_to have_content("Sign up" && "Sign in")
-			expect(page).to have_content "Create your language profile"
+			expect(page).to have_content "You need to create your language profile"
 		end
 	end
 
@@ -66,8 +54,10 @@ describe "personalised Home Page" do
 	context "user has registered account and full language profile" do 
 
 		it "can see a list of users' profiles" do 
-			expect(page).to have_content ('Mark M')
-			expect(page).to have_content('Tiff C')
+			within(:css, ".row.matched-users") do
+				expect(page).to have_content ('Mark M')
+				expect(page).to have_content('Tiff C')
+			end
 		end
 
 

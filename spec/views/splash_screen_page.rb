@@ -20,7 +20,6 @@ describe 'splash page' do
 		end
 	end
 
-
 	it "should have login and sign in forms" do
 		visit '/'
 		expect(page).to have_link('Sign in')
