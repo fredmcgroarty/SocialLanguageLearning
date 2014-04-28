@@ -26,6 +26,25 @@
 # 	end
 
 #   context "if no image is uploaded" do 
+# 	context "user should see its curent profile records" do 
+# 		before(:each) do
+#       login_as @mark
+#   		visit '/user_profile/edit' 
+#   		expect(current_path).to eq edit_user_profile_path
+#   	end
+
+# 		it "should display user profile" do 
+#             visit '/user_profile/edit'
+#             expect(current_path).to eq edit_user_profile_path(current_user)
+#             expect(page).to have_content(@mark.user_info && @mark.user_profile)
+           
+# 	end
+
+  
+     
+
+#   end
+# end
 
 #   	xit "Tiff can add a photo" do
 #   	end
