@@ -18,5 +18,5 @@ class User < ActiveRecord::Base
   					:native_lang,
   					:first_lang,
   					:second_lang,
-  					to: :user_profile
+  					to: :user_profile, allow_nil: true
 end
