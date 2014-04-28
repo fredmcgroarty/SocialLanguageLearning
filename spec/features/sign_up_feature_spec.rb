@@ -5,17 +5,17 @@ describe 'registering' do
       @fred = create(:user)
     end
 
-  it 'successfully signs up the user and redirects to profile create page' do
-    visit '/users/sign_up'
+  it 'successfully signs up the user and redirects to profile page' do
+    visit '/'
     fill_in 'Email', with: 'a@example.com'
     fill_in 'Password', with: '12345678'
     fill_in 'Password confirmation', with: '12345678'
     click_button 'Sign up'    
     expect(page).to have_content 'signed up successfully'
-    expect(current_path).to eq '/user_profiles/new'
+    expect(current_path).to eq '/'
   end
 
-  it "fills in user profile page and redirects to the home page" do
+  xit "fills in user profile page and redirects to the home page" do
     login_as @fred
     visit '/user_profiles/new'
     fill_in 'First name', with: 'test'
