@@ -48,7 +48,6 @@ describe 'registering' do
       select "French", :from => "user_profile[first_lang]"
       select "Spanish", :from => "user_profile[second_lang]"
       click_button 'Update User profile'
-      save_and_open_page
       expect(current_path).to eq '/'
       expect(User.first.user_profile.native_lang).to eq ('English')
       expect(page).to have_content "You have succesfully updated your profile"

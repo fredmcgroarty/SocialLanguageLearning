@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   					:first_lang,
   					:second_lang,
   					to: :user_profile, allow_nil: true
+
+
+
 end
