@@ -7,10 +7,5 @@ describe "Profile information on display" do
 			@no_avatar = create(:user)
 			create(:user_without_avatar, user: @no_avatar)
 		end
-
-		xit "should display a default image" do 
-			visit '/'
-			expect(page).to have_css '.avatar-profile-info' 
-		end
 	end
 end

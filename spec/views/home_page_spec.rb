@@ -15,10 +15,16 @@ describe 'Home page' do
 			expect(page).to have_link('Sign up')
 		end
 
-		it "cant see references to other profiles" do
-			@tiff = login_as create(:user)
-			create(:user_total_profile_2)
-			expect(page).not_to have_css '.avatar-profile-info' 
+		context 'logged in' do
+			before do
+				@tiff = create(:user)
+				login_as @tiff
+				create(:user_total_profile_2, user: @tiff)
+			end
+			
+			it "cant see references to other profiles" do
+				expect(page).not_to have_css '.avatar-profile-info' 
+			end
 		end
 
 		it "should have devise registration form on homepage" do
