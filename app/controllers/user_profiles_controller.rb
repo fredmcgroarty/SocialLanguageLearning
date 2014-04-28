@@ -1,6 +1,5 @@
  class UserProfilesController < ApplicationController 
   def new
-    @user_profile = UserProfile.new
   end
 
   def show
@@ -45,7 +44,5 @@
   def params_permit
     params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang)
   end
-
-
 
 end
