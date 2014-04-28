@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
 	<p>In development</p>
 	<% if current_user.user_profile.native_lang.nil? %>
-		<%= link_to 'Create your language profile', edit_user_profile_path(@user) %>
+		<%= link_to 'Create your language profile', edit_user_profile_path %>
 	<% end %>
 	<p>User Profiles</p>
 	<% @user_list.each do |users| %>
