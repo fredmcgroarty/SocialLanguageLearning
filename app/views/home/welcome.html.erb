@@ -1,17 +1,27 @@
-<title>Welcome to langlang</title>
-<h1>langlang</h1>
+<title>
+	Welcome to langlang 
+</title>
+<h1>
+	Welcome to langlang 
+</h1>
 <% if user_signed_in? %>
+<h1>
+	Welcome to langlang <%= @user.email %>
+</h1>
+
 	<p>In development</p>
-	<% if current_user.user_profile.native_lang.nil? %>
-		<%= link_to 'Create your language profile', edit_user_profile_path %>
+	<% if @user.user_profile.nil? %>
+		<%= link_to 'You need to create your language profile', edit_user_profile_path %>
 	<% end %>
 	<p>User Profiles</p>
 	<% @user_list.each do |users| %>
-	<div class='avatar-profile-info'>
-		<%= image_tag users.user_profile.picture.url(:thumb) %>
-		<%= users.user_profile.first_name %> 
-		<%= users.user_profile.last_name %>
-	</div>
+		<div class='avatar-profile-info'>
+			<% if users.user_profile  %>
+				<%= image_tag users.user_profile.picture.url(:thumb) %>
+				<%= users.user_profile.first_name %> 
+				<%= users.user_profile.last_name %>
+			<% end %>
+		</div>
 	<% end %>
 <% else %>
 <div class='welcome-container'>
