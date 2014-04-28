@@ -9,11 +9,11 @@ describe 'Home page' do
 			expect(page).to have_content('langlang')
 		end
 	
-		xit "should have login and sign in forms" do
-			visit '/'
-			expect(page).to have_css('.sign-in-form')
-			expect(page).to have_css('.sign-up-form')
-		end
+		# it "should have login and sign in forms" do
+		# 	visit '/'
+		# 	expect(page).to have_css('.sign-in-form')
+		# 	expect(page).to have_css('.sign-up-form')
+		# end
 	
 		it "should have login and sign in forms" do
 			visit '/'
