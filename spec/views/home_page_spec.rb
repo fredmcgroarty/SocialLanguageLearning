@@ -2,23 +2,30 @@ require 'spec_helper'
 
 describe 'Home page' do
 
-	context "user isnt logged in" do 
-
 		it "should have the content 'langlang'" do
 			visit '/'
 			expect(page).to have_content('langlang')
 		end
-	
-		xit "should have login and sign in forms" do
-			visit '/'
-			expect(page).to have_css('.sign-in-form')
-			expect(page).to have_css('.sign-up-form')
-		end
+
+	context "user isnt logged in" do 
 	
 		it "should have login and sign in forms" do
 			visit '/'
 			expect(page).to have_link('Sign in')
 			expect(page).to have_link('Sign up')
+		end
+
+		it "cant see references to other profiles" do
+			@tiff = login_as create(:user)
+			create(:user_total_profile_2)
+			expect(page).not_to have_css '.avatar-profile-info' 
+		end
+
+		it "should have devise registration form on homepage" do
+			visit '/'
+			expect(page).to have_css '#user_email'
+			expect(page).to have_css '#user_password'
+			expect(page).to have_css '#user_password_confirmation'
 		end
 	end
 
@@ -29,8 +36,10 @@ describe 'Home page' do
 			visit '/'
 			expect(page).to have_content("Sign out")
 		end
+	end
+end
 
-	context "user has registered account and profile" do 
+describe "personalised Home Page" do 
 			before(:each) do
 				@fred = create(:user)
 				create(:user_profile)
@@ -42,14 +51,19 @@ describe 'Home page' do
 				visit '/'
 			end
 
+	context "user has registered account but empty language profile" do 
+
 		it "sees a link to update their language info if empty" do 
 			expect(page).not_to have_content("Sign up" && "Sign in")
 			expect(page).to have_content "Create your language profile"
 		end
+	end
 
 		it "can see an 'edit my profile' link" do 
 			expect(page).to have_link 'Settings'
 		end
+
+	context "user has registered account and full language profile" do 
 
 		it "can see a list of users' profiles" do 
 			expect(page).to have_content ('Mark M')
@@ -57,7 +71,5 @@ describe 'Home page' do
 		end
 
 
-
 	end
-end
 end

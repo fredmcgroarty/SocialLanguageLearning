@@ -8,7 +8,7 @@
   end
 
   def create
-    @user_profile = UserProfile.new params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture)
+    @user_profile = UserProfile.new params_permit
     @user_profile.user = current_user
 
     if @user_profile.save
@@ -20,13 +20,13 @@
   end
 
   def edit
-    @user_profile = UserProfile.find params[:id]
+    @user_profile = current_user.user_profile
   end
 
   def update
-    @user_profile = UserProfile.find params[:id]
+    @user_profile = current_user.user_profile
 
-    if @user_profile.update params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang)
+    if @user_profile.update params_permit
       redirect_to '/'
       flash[:notice] = "You have succesfully updated your profile"
     else
@@ -34,13 +34,18 @@
     end
   end
 
-
-
   def destroy
   end
 
   def index 
   end
+
+  private
+
+  def params_permit
+    params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang)
+  end
+
 
 
 end
