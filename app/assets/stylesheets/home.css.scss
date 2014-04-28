@@ -2,7 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.welcome-container {
+	background-color: #4863A0;
+}
 
-.homepage-signup {
-	margin-left: 70%;
+.not-logged-in {
+	margin-left: 60%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	background-color: white;
+}
+
+.sign-in {
+	margin-bottom: 10%;
 }
