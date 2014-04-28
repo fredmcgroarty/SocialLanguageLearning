@@ -27,7 +27,7 @@
     @user_profile = current_user.user_profile
 
     if @user_profile.update params_permit
-      redirect_to(@user_profile)
+      redirect_to('/')
       flash[:notice] = "You have succesfully updated your profile"
     else
       render 'edit'

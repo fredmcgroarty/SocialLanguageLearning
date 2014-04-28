@@ -15,7 +15,8 @@
 	<div class='main-splash-container'>
 		<div class="row user-appointments">
 			<p>USER CALENDAR APPOINTMENTS</p>
-			<% if @user.user_profile.nil? %>
+			<% if @user && @user.native_lang.nil? %>
+
 			<%= link_to 'You need to create your language profile', 	new_user_profile_path %>
 			<% end %>
 			</div>
