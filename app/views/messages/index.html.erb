@@ -1,0 +1,20 @@
+<h1>Messages</h1>
+<div class='row'>
+  <% if @messages %>
+    <% @messages.each do |message| %>
+      <div class=''>
+        ------------------------------------------<br >
+        <%= message.user_id %>
+        <%= message.body %>
+        <%= link_to "Delete message", message_path(message), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+Write a message
+<ul>
+  <%= form_for @message do |f| %>
+    <%= f.text_area :body %> <br />
+    <%= f.submit :class => 'post-button' %>
+<% end %>
+</ul>

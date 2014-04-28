@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'user_infos/new'
 
   get 'user_infos/show'
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :user_profiles 
   resources :user_infos
+  resources :messages
+  # resources :conversations
   
 
   # Example of regular route:
