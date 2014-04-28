@@ -2,15 +2,29 @@ require 'spec_helper'
 
 describe 'Home page' do
 
-		it "should have the content 'langlang'" do
-			visit '/'
-			expect(page).to have_content('langlang')
-		end	
+	it "should have the content 'langlang'" do
+		visit '/'
+		expect(page).to have_content('langlang')
+	end
 
-		it "cant see references to other profiles" do
-			@tiff = login_as create(:user)
-			create(:user_total_profile_2)
-			expect(page).not_to have_css '.avatar-profile-info' 
+	context "user isnt logged in" do 
+	
+		it "should have login and sign in forms" do
+			visit '/'
+			expect(page).to have_link('Sign in')
+			expect(page).to have_link('Sign up')
+		end
+
+		context 'logged in' do
+			before do
+				@tiff = create(:user)
+				login_as @tiff
+				create(:user_total_profile_2, user: @tiff)
+			end
+			
+			it "cant see references to other profiles" do
+				expect(page).not_to have_css '.avatar-profile-info' 
+			end
 		end
 
 		it "should have devise registration form on homepage" do
