@@ -1,1 +1,23 @@
-HELLO
+<div class="col-md-2">
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-5 col-md-offset-1">
+		<%= link_to (image_tag @user.picture.url(:medium)), user_profile_path(@user), class: "thumbnail"  %>
+		<%= link_to "Start a conversation", new_message_path, class: "btn left btn-info wide" %>
+		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
+  	<dl class="dl-horizontal"></br>
+	  	<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+	  	<dt>Location:</dt> <dd>London</dd> 
+	  	<dt>Native Language</dt> <dd><%= @user.native_lang %></dd>  
+	  	<dt>Looking To Learn</dt> <dd><%= @user.first_lang %></dd>
+	  	<dt>Age</dt> <dd><%= age(@user) %></dd> 
+	  	<dt>Email</dt> <dd><%= @user.email %></dd> 
+		</dl>
+	</div>
+	<div class="calendar col-md-2 col-md-offset-1" >
+	Timetable of availability goes here <br />
+	Clicking on an hour slot brings up sending a request <br />
+	Maybe a request chat now too if he's online
+	</div>
+</div>
