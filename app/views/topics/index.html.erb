@@ -1,0 +1,19 @@
+<div id="topic-container">
+	<% if @topics.any? %>
+		<div class="topic">
+			<% @topics.each do |x| %> 
+					<%= link_to "#{x.name}", topic_path(x) %> <br />
+					English? <%= x.english? ? "Supported" : "Not implemented yet" %><br />
+					French? <%= x.french? ? "Supported" : "Not implemented yet" %><br />
+					Spanish? <%= x.spanish? ? "Supported" : "Not implemented yet" %><br /><br /><br />
+			<% end %>
+		</div>
+	<% else %>
+		<strong>No topics added yet!!!</strong>
+	<% end %>
+</div>
+<%= link_to "Add more topics", new_topic_path, class: "btn btn-success" %>
+<%= link_to "View all topics", topics_path, class: "btn btn-info" %><br />
+
+<%= link_to "Add more languages", new_language_path, class: "btn btn-success" %>
+<%= link_to "View all languages", languages_path, class: "btn btn-warning" %><br />
