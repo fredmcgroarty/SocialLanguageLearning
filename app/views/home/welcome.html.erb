@@ -26,9 +26,8 @@
 			<% @user_list.each do |users| %>
 				<div class='row user-profiles'>
 				<% if users.user_profile  %>
-				<%= image_tag users.user_profile.picture.url(:thumb) %>
-				<%= users.user_profile.first_name %> 
-				<%= users.user_profile.last_name %>
+				<%= image_tag users.picture.url(:thumb) %>
+				<%= link_to users.first_name, user_profile_path(users) %> 
 				<% end %>
 				</div>
 			<% end %>
