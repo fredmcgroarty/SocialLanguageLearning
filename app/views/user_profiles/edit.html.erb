@@ -1,7 +1,7 @@
 <h1>UserProfiles#edit</h1>
 <p>Find me in app/views/user_profiles/edit.html.erb</p>
-  <%= image_tag @user_profile.picture.url(:medium) %>
-  <table style="width:300px">
+<%= image_tag @user_profile.picture.url(:medium) %>
+<table style="width:300px">
   <tr>
     <td>Name</td>
     <td><%= @user_profile.first_name %> <%= @user_profile.last_name %></td>   
@@ -12,20 +12,20 @@
     <td><%= @user_profile.first_name %></td>
   </tr>
   <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? || @user_profile.second_lang.nil? %>
-  <p>You need to update your language profile!</p>
-  	  <%= render 'edit_languages' %>
+    <p>You need to update your language profile!</p>
+    <%= render 'edit_languages' %>
   <% else %>
-  <tr>
-    <td>Native Tongue</td>
-    <td><%= @user_profile.native_lang %></td>		
-  </tr>
-  <tr>
-    <td>First Language Choice</td>
-    <td><%= @user_profile.first_lang%></td>    
-  </tr>
-  <tr>
-    <td>Second Language Choice</td>
-    <td><%= @user_profile.second_lang%></td>    
-  </tr>
+    <tr>
+      <td>Native Tongue</td>
+      <td><%= @user_profile.native_lang %></td>		
+    </tr>
+    <tr>
+      <td>First Language Choice</td>
+      <td><%= @user_profile.first_lang%></td>    
+    </tr>
+    <tr>
+      <td>Second Language Choice</td>
+      <td><%= @user_profile.second_lang%></td>    
+    </tr>
   <% end %>
-  </table>
+</table>
