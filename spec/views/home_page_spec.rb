@@ -30,6 +30,7 @@ describe 'Home page' do
 		it "should have devise registration form on homepage" do
 
 		end
+	end
 
 	context "user is logged in" do 
 
