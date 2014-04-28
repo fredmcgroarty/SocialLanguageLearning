@@ -1,34 +1,47 @@
-<title>Welcome to langlang</title>
-<h1>langlang</h1>
-<% if user_signed_in? %>
-	<p>In development</p>
-	<% if current_user.user_profile.native_lang.nil? %>
-		<%= link_to 'Create your language profile', edit_user_profile_path %>
-	<% end %>
-	<p>User Profiles</p>
-	<% @user_list.each do |users| %>
-	<div class='avatar-profile-info'>
-		<%= image_tag users.user_profile.picture.url(:thumb) %>
-		<%= users.user_profile.first_name %> 
-		<%= users.user_profile.last_name %>
+<title>
+	Welcome to langlang 
+</title>
+	<% if user_signed_in? %>
+		<h1>
+				Welcome to langlang <%= @user.email %>
+				</h1>
+<div class="col-md-2">
+	<div class='home-page-avatar-info'>
+		PROFILE PIC </br>
+		PROFILE INFO </br>
 	</div>
-	<% end %>
-<% else %>
-	<div class='homepage-signup'>
-		<h3> Sign Up Today! </h3>
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
-	
-	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email, autofocus: true %></div>
-	
-	  <div><%= f.label :password %><br />
-	    <%= f.password_field :password, autocomplete: "off" %></div>
-	
-	  <div><%= f.label :password_confirmation %><br />
-	    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-	
-	  <div><%= f.submit "Sign up" %></div>
-	<% end %>
 </div>
+<div class="col-md-10">
+	<div class='main-splash-container'>
+		<div class="row user-appointments">
+			<p>USER CALENDAR APPOINTMENTS</p>
+			<% if @user.user_profile.nil? %>
+			<%= link_to 'You need to create your language profile', 	new_user_profile_path %>
+			<% end %>
+			</div>
+		<div class="row matched-users">
+			<p>MATCHED USERS</p>
+			<p>User Profiles</p>
+			<% @user_list.each do |users| %>
+				<div class='row user-profiles'>
+				<% if users.user_profile  %>
+				<%= image_tag users.user_profile.picture.url(:thumb) %>
+				<%= users.user_profile.first_name %> 
+				<%= users.user_profile.last_name %>
+				<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="row topics">
+			<p>TOPICS</p>
+		</div>	
+	</div>
+</div>
+<% else %>
+<div class='welcome-container'>
+<div class='col-md-6 welcome'>
+		<h1><span>LANG LANG DESCRIPTION</span></h1>
+</div>
+	<%= render 'not_logged_in'  %>
 <% end %>
+</div>

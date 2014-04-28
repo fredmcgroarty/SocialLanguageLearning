@@ -2,7 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.welcome-container {
+	background-color: green;
+}
 
-.homepage-signup {
-	margin-left: 70%;
+.welcome {
+	background-color: #4863A0;
+	height: 400px;
+}
+
+.not-logged-in {
+	background-color: white;
+}
+
+.sign-in {
+	margin-bottom: 10%;
+}
+
+.col-md-2 {
+	background-color: blue;
+	height: 1000px
+}
+
+.col-md-10 {
+	background-color: red;
+	height: 1000px;
+}
+
+.row.matched-users {
+	background-color: green;
+	height: 200px;
+}
+.row.user-appointments {
+	background-color: white;
+	height: 200px;
+}
+.row.topics {
+	background-color: yellow;
+	height: 150px;
 }

@@ -10,6 +10,7 @@ require 'spec_helper'
 #     end
 #   end
 # end
-#describe RegistrationsHelper do
-#  pending "add some examples to (or delete) #{__FILE__}"
-#end
+
+# describe RegistrationsHelper do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
