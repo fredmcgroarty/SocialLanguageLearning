@@ -21,6 +21,10 @@
 
   def edit
     @user_profile = UserProfile.find params[:id]
+    if @user_profile.id == current_user.id 
+    else
+      redirect_to '/'
+    end
   end
 
   def update
