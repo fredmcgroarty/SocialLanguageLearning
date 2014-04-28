@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   has_many :conversations
   has_many :participants
   has_many :messages, :through => :conversations
+
+
+  delegate 	:first_name,
+  					:last_name,
+  					:dob,
+  					:gender,
+  					:native_lang,
+  					:first_lang,
+  					:second_lang,
+  					to: :user_profile
 end

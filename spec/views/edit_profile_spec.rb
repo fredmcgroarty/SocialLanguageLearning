@@ -12,13 +12,14 @@ describe 'Viewing edit user profile' do
 
 		it "asks for users language profile" do
 			expect(page).to have_content 'Create your language profile'
-			visit '/user_profiles/1/edit'
+			visit edit_user_profile_path
 			expect(page).to have_select("user_profile[native_lang]")
 			expect(page).to have_select("user_profile[first_lang]")
 			expect(page).to have_select("user_profile[second_lang]")
 		end
 
 		it "shows basic profile data" do 
+			
 		end
 	end
 
