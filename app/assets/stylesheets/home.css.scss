@@ -16,3 +16,26 @@
 .sign-in {
 	margin-bottom: 10%;
 }
+
+.col-md-2 {
+	background-color: blue;
+	height: 1000px
+}
+
+.col-md-10 {
+	background-color: red;
+	height: 1000px;
+}
+
+.row.matched-users {
+	background-color: green;
+	height: 200px;
+}
+.row.user-appointments {
+	background-color: white;
+	height: 200px;
+}
+.row.topics {
+	background-color: yellow;
+	height: 150px;
+}

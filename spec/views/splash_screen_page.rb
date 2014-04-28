@@ -19,4 +19,12 @@ describe 'splash page' do
 			expect(page).to have_css '#user_password_confirmation'
 		end
 	end
+
+
+	it "should have login and sign in forms" do
+		visit '/'
+		expect(page).to have_link('Sign in')
+		expect(page).to have_link('Sign up')
+	end
+
 end
