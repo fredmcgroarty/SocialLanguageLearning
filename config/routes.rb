@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
   get 'user_infos/new'
 
@@ -16,8 +15,6 @@ Rails.application.routes.draw do
   get 'user_infos/index'
 
   get 'registrations/after_sign_up_path_for'
-=======
->>>>>>> e1275627d702bcbb835e9d4034a92fb08a8d48a7
 
   root 'home#welcome'
   devise_for :users
