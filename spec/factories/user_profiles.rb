@@ -39,4 +39,14 @@ FactoryGirl.define do
     first_lang "French"
     second_lang "Spanish" 
   end
+
+
+  factory :user_without_avatar, class: "UserProfile" do
+    user_id 4
+    first_name "No"
+    last_name "Avatar"
+    native_lang "English"
+    first_lang "French"
+    second_lang "Spanish" 
+  end
 end

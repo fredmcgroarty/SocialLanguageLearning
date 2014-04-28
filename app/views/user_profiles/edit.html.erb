@@ -1,7 +1,8 @@
 <h1>UserProfiles#edit</h1>
 <p>Find me in app/views/user_profiles/edit.html.erb</p>
-<%= image_tag @user_profile.picture.url(:medium) %>
-<table style="width:300px">
+
+  <%= image_tag @user_profile.picture.url(:medium), :class => "profile_pic" %>
+  <table style="width:300px">
   <tr>
     <td>Name</td>
     <td><%= @user_profile.first_name %> <%= @user_profile.last_name %></td>   
@@ -29,3 +30,4 @@
     </tr>
   <% end %>
 </table>
+
