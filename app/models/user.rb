@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   
   has_one :user_info 
   has_one :user_profile
+  has_many :conversations
+  has_many :participants
+  has_many :messages, :through => :conversations
+
 
   delegate 	:first_name,
   					:last_name,

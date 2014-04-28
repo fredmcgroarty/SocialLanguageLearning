@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'user_infos/new'
+
+  get 'user_infos/show'
+
+  get 'user_infos/create'
+
+  get 'user_infos/edit'
+
+  get 'user_infos/update'
+
+  get 'user_infos/destroy'
+
+  get 'user_infos/index'
+
+  get 'registrations/after_sign_up_path_for'
+
   root 'home#welcome'
   devise_for :users
 
@@ -7,6 +23,8 @@ Rails.application.routes.draw do
   resource :user_profile, only: [:edit, :update]
 
   resources :user_infos
+  resources :messages
+  # resources :conversations
   
 
   # Example of regular route:
