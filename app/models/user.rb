@@ -6,4 +6,13 @@ class User < ActiveRecord::Base
   
   has_one :user_info 
   has_one :user_profile
+
+  delegate 	:first_name,
+  					:last_name,
+  					:dob,
+  					:gender,
+  					:native_lang,
+  					:first_lang,
+  					:second_lang,
+  					to: :user_profile
 end
