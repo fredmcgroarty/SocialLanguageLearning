@@ -4,10 +4,6 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
-  def show
-
-  end
-
   def create
     @message = Message.new params[:message].permit(:body)
     @message.user = current_user
@@ -18,12 +14,17 @@ class MessagesController < ApplicationController
     else
       render 'index'
     end
+
   end
 
   def destroy
     @message = Message.find params[:id]
-    @message.destroy
-    flash[:notice] = "Message deleted"
-    redirect_to '/messages'
+    if @message.destroy
+      flash[:notice] = "Message deleted"
+      redirect_to '/messages'
+    else
+      flash[:notice] = "There was an error while deleting that message"
+    end
   end
+
 end
