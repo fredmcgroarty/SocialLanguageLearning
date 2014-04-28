@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426153903) do
+ActiveRecord::Schema.define(version: 20140428134052) do
+
+  create_table "languages", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "languages_topics", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "english"
+    t.boolean  "french"
+    t.boolean  "spanish"
+  end
 
   create_table "user_infos", force: true do |t|
     t.integer  "user_id"
