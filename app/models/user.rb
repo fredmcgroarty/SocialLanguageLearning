@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   					:native_lang,
   					:first_lang,
   					:second_lang,
+            :picture,
   					to: :user_profile, allow_nil: true
 
 
