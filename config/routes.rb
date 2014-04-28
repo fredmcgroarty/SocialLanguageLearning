@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resource :user_profile, only: [:edit, :update]
 
   resources :user_infos
+  resources :languages
+  resources :topics
   resources :messages
   # resources :conversations
   
