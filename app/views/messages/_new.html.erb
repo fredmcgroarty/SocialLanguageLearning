@@ -1,0 +1,8 @@
+<ul>
+Write a message
+
+  <%= form_for @message do |f| %>
+    <%= f.text_area :body %> <br />
+    <%= f.submit :class => 'btn btn-primary' %>
+<% end %>
+</ul>
