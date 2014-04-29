@@ -25,8 +25,8 @@ FactoryGirl.define do
     first_name "Tiff"
     last_name "C"
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
-    native_lang "English"
-    first_lang "French"
+    native_lang "French"
+    first_lang "English"
     second_lang "Spanish" 
   end
 

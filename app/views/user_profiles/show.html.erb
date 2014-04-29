@@ -38,6 +38,7 @@
   		<% if @user.first_name && @user.last_name %>
 	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
 	  	<% end %>
+
 	  	<dt>Location:</dt> <dd>London</dd> 
 	  	<% if @user.native_lang %>
 	  		<dt>Native Language</dt> <dd><%= @user.native_lang %></dd> 
@@ -60,5 +61,5 @@
 	</div>
 </div>
 
-<div id="calendar">
-</div>
+
+	<%= render 'bookings/form' %>

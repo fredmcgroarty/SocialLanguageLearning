@@ -1,0 +1,11 @@
+<h3>users</h3>
+
+<% @users.each do |user| %>
+  <div class="user">
+    <%= user.name %>
+    <%= link_to "Show all bookings", user_bookings_path(user) %>
+    <%= link_to "Delete", user_path(user), data: { confirm: 'Are you sure?' }, method: :delete %>
+    <%= link_to "Edit", edit_user_path(user) %>
+    <%= link_to "Add booking", new_user_booking_path(user) %>
+  </div>
+<% end %>
