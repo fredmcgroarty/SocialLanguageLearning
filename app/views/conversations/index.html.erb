@@ -1,0 +1,14 @@
+<h1>Conversations</h1>
+  <% if @conversations %>
+    <% @conversations.each do |conversation| %>
+      ***************************<br >
+   
+      <h2> <%= link_to conversation.subject, conversation_path(conversation) %></h2><br />
+      <% conversation.messages.each do |message| %>
+        <%= message.body %> <br />
+        <%= link_to "Delete Message", message_path(message), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+        
+      <% end %>
+     <%= link_to "Delete Conversation", conversation_path(conversation), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %> <br />
+    <% end %>
+  <% end %>

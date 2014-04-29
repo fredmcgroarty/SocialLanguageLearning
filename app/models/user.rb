@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
   					:second_lang,
             :picture,
   					to: :user_profile, allow_nil: true
+            
+   delegate :first_lang_lvl,
+            :second_lang_lvl,
+            :third_lang_lvl,
+            to: :user_info, allow_nil: true
+
 
   after_create :create_user_profile
 

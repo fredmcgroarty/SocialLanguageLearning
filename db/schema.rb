@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140428213907) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "dob"
-    t.integer  "gender"
+    t.string  "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_file_name"
