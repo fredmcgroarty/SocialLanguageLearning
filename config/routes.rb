@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   resources :languages
   resources :topics
   resources :messages
-  resources :conversations
+  resources :conversations do
+    resources :messages
+  end
   
 
   # Example of regular route:
