@@ -24,7 +24,21 @@ describe 'editting users profile' do
       expect(page).to have_select("user_profile[second_lang]")
       click_button 'Update User profile'
       expect(page).to have_content 'Update successful'
-  	end
+  	
+
+		it "should display user profile" do 
+            visit '/user_profile/edit'
+            expect(current_path).to eq edit_user_profile_path(current_user)
+            expect(page).to have_content(@mark.user_info && @mark.user_profile && @mark.email)
+
+
+	end
+
+  
+     
+
+  end
+
 end
   end
 
