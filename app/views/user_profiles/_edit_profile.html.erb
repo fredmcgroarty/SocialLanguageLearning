@@ -5,6 +5,9 @@
 	
 	<%= f.file_field :picture %>
 	<br>
+	<div>
+	Username: <%= current_user.email %>
+	<br>
 
 	<%= f.label :first_name %>
 	<%= f.text_field :first_name %>
@@ -31,6 +34,6 @@
 	<br>
 	<%= f.submit :class => 'post-button' %>
 
-	<%= render 'edit_languages' %>
 
 <% end %>
+

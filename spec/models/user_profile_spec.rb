@@ -5,12 +5,11 @@ describe UserProfile do
 	context "database relationships" do 
 
 		before (:each) do 
-			create(:user)
-			@user_profile = create(:user_profile, user: User.first)
+			@user_and_profile = create(:user)
 		end
 
 		it "is linked to the user" do 
-			expect(User.first.user_profile).to eq @user_profile
+			expect(User.first).to eq @user_and_profile
 		end
 
 	end

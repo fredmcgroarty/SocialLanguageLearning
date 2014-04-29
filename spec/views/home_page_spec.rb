@@ -43,16 +43,16 @@ describe 'Home page' do
 end
 
 describe "personalised Home Page" do 
-			before(:each) do
-				@fred = create(:user)
-				create(:user_profile)
-				@mark = create(:user)
-				create(:user_total_profile_1)
-				@tiff = create(:user)
-				create(:user_total_profile_2)
-				login_as @fred
-				visit '/'
-			end
+	before(:each) do
+		@fred = create(:user)
+		create(:user_profile)
+		@mark = create(:user)
+		create(:user_total_profile_1)
+		@tiff = create(:user)
+		create(:user_total_profile_2)
+		login_as @fred
+		visit '/'
+	end
 
 	context "user has registered account but empty language profile" do 
 
@@ -60,6 +60,7 @@ describe "personalised Home Page" do
 			expect(page).not_to have_content("Sign up" && "Sign in")
 			expect(page).to have_content "You need to create your language profile"
 		end
+		
 	end
 
 		it "can see an 'edit my profile' link" do 
