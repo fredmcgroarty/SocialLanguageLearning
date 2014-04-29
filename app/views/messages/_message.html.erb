@@ -1,0 +1,10 @@
+<% @messages.each do |message| %>
+  <div class='offset2'>
+    ***************************<br >
+    <p>
+    <%= message.first_name%><br />
+    <%= message.body %>
+    <%= link_to "Delete", message_path(message), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+    </p>
+  </div>
+<% end %>

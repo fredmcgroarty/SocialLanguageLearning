@@ -19,16 +19,23 @@
 	<%= f.date_select :dob, start_year: 1925, end_year: 2010 %>
 	<br>
 	<%= f.label :gender %>
-	<%= f.text_field :gender %>
+	<%= f.select :gender, ['Male', 'Female'] %>
 	<br>
+	
+
+    
+    
 	
 
     <%= f.label :native_tongue %>
 	<%= f.select :native_lang, ['English', 'French', 'Spanish'] %>
 	<br>
+	First language lavel: <%= current_user.first_lang_lvl %><br />
 	<%= f.label :first_language %>
 	<%= f.select :first_lang, ['English', 'French', 'Spanish'] %>
 	<br>
+	Second language lavel: <%= current_user.second_lang_lvl %><br />
+	<%= f.label :first_language %>
 	<%= f.label :second_language %>
 	<%= f.select :second_lang, ['English', 'French', 'Spanish'] %>
 	<br>
