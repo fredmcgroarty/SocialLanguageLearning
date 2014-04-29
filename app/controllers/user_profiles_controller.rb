@@ -1,10 +1,15 @@
  class UserProfilesController < ApplicationController 
+  
+  def index 
+    @user_profiles = UserProfile.all
+  end
+
   def new
-    @user_profile = UserProfile.new
   end
 
   def show
     @user_profile = UserProfile.find params[:id]
+    @user = @user_profile.user
   end
 
   def create
@@ -13,7 +18,6 @@
 
     if @user_profile.save
       redirect_to '/'
-      flash[:notice] = "Account created, please update your language profile"
     else
       render 'new'
     end
@@ -27,25 +31,22 @@
     @user_profile = current_user.user_profile
 
     if @user_profile.update params_permit
-      redirect_to(@user_profile)
-      flash[:notice] = "You have succesfully updated your profile"
+      redirect_to('/')
+      flash[:notice] = "Update successful"
     else
       render 'edit'
     end
   end
 
   def destroy
+    
   end
 
-  def index 
-  end
 
   private
 
   def params_permit
     params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang)
   end
-
-
 
 end
