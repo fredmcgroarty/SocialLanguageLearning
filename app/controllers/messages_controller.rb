@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new params[:message].permit(:body)
     @message.user = current_user
+    @message.conversation = Conversation.find params[:conversation_id]
     # if @message.conversation == nil
     #   @message.conversation = Conversation.create
     #   @message.conversation.subject = 'New conversation'
@@ -14,10 +15,10 @@ class MessagesController < ApplicationController
 
     if @message.save
       flash[:notice] = "Message created"
-      redirect_to '/conversations/'
+      redirect_to @message.conversation
     else
       flash[:notice] = "Errorrr"
-      redirect_to '/conversations/'
+      redirect_to @message.conversation
     end
 
   end
