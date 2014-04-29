@@ -15,7 +15,7 @@ gem 'spring',        group: :development
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
 gem 'pg', group: :production
-gem 'bookable', '~> 0.0.52'
+gem 'bookable'
 
 
 group :development, :test do
