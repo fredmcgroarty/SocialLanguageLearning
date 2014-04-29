@@ -11,44 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140428134052) do
-
-  create_table "languages", force: true do |t|
-    t.text     "name"
-=======
-ActiveRecord::Schema.define(version: 20140427141205) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
->>>>>>> master
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
+  create_table "languages", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "languages_topics", force: true do |t|
     t.integer  "topic_id"
     t.integer  "language_id"
-=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages", force: true do |t|
     t.integer  "conversation_id"
     t.integer  "user_id"
     t.text     "body"
->>>>>>> master
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-  create_table "topics", force: true do |t|
-    t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "english"
-    t.boolean  "french"
-    t.boolean  "spanish"
-=======
   create_table "participants", force: true do |t|
     t.integer  "user_id"
     t.integer  "conversation_id"
@@ -56,7 +47,15 @@ ActiveRecord::Schema.define(version: 20140427141205) do
     t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> master
+  end
+
+  create_table "topics", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "english"
+    t.boolean  "french"
+    t.boolean  "spanish"
   end
 
   create_table "user_infos", force: true do |t|
