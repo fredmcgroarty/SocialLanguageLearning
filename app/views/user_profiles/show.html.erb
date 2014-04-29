@@ -8,7 +8,7 @@
 		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
 		<% if @user.user_profile %>
   	<dl class="dl-horizontal"></br>
-	  	<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+	  	<dt>Name:</dt> <dd><%# @user.first_name + " " + @user.last_name %></dd>
 	  	<dt>Location:</dt> <dd>London</dd> 
 	  	<dt>Native Language</dt> <dd><%= @user.native_lang %></dd>  
 	  	<dt>Looking To Learn</dt> <dd><%= @user.first_lang %></dd>
@@ -21,4 +21,5 @@
 	Clicking on an hour slot brings up sending a request <br />
 	Maybe a request chat now too if he's online
 	</div>
+	<%= render 'bookings/form' %>
 </div>
