@@ -4,11 +4,10 @@ describe "Delegations" do
 	
 	context "when routing method calls" do
 
-		it "should route first_name to User_Profile" do
+		it "should route first_name to User Profile" do
 			visit '/'
 			@fred = create(:user)
-			create(:user_profile)
-			expect(@fred.first_name).to eq "Fred"
+			create(:user_profile, user: User.first)
 			expect(@fred.first_name).to eq @fred.user_profile.first_name
 		end
 
@@ -27,3 +26,4 @@ describe "Delegations" do
 	end
 
 end
+
