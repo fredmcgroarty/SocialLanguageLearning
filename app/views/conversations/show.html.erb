@@ -1,0 +1,16 @@
+<h1> Conversation </h1>
+<%= @conversation.subject %></span><br />
+  In a conversation with: 
+  <% @conversation.participants.each do |participant| %>
+    <%= participant.user.first_name %>
+
+    <% @conversation.messages.each do |message| %>
+      <%= message.user.first_name %>
+      <%= message.body %> <br />
+      <%= link_to "Delete Message", message_path(message), method: :delete, 
+                data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+    <% end %>
+
+  <%= link_to "Delete Conversation", conversation_path(@conversation), method: :delete, 
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+<% end %>

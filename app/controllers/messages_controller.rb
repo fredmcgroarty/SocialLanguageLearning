@@ -7,12 +7,17 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new params[:message].permit(:body)
     @message.user = current_user
+    # if @message.conversation == nil
+    #   @message.conversation = Conversation.create
+    #   @message.conversation.subject = 'New conversation'
+    # end
 
     if @message.save
-      redirect_to '/messages/'
       flash[:notice] = "Message created"
+      redirect_to '/conversations/'
     else
-      render 'index'
+      flash[:notice] = "Errorrr"
+      redirect_to '/conversations/'
     end
 
   end
@@ -21,7 +26,7 @@ class MessagesController < ApplicationController
     @message = Message.find params[:id]
     if @message.destroy
       flash[:notice] = "Message deleted"
-      redirect_to '/messages'
+      redirect_to '/conversations/'
     else
       flash[:notice] = "There was an error while deleting that message"
     end
