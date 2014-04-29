@@ -1,0 +1,7 @@
+<p>Start a new conversation</p>
+<ul>
+  <%= form_for @conversation do |f| %>
+    <%= f.text_field :subject %> <br />
+    <%= f.submit :class => 'btn btn-primary' %>
+<% end %>
+</ul>
