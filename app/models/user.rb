@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
             :picture,
   					to: :user_profile, allow_nil: true
 
+  after_create :create_user_profile
 
+ def create_user_profile
+    self.user_profile = UserProfile.create
+  end
 
 end

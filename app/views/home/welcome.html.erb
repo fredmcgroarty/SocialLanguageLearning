@@ -7,28 +7,34 @@
 				</h1>
 <div class="col-md-2">
 	<div class='home-page-avatar-info'>
-		PROFILE PIC </br>
-		PROFILE INFO </br>
+
+		<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
+		<h4><%= @user.first_name %> <%= @user.last_name %></h4>
+		<h5><%= @user.username %></h5>
+		</br>
 	</div>
 </div>
 <div class="col-md-10">
 	<div class='main-splash-container'>
+			<% if @user && @user.native_lang.nil? %>
+				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
+			<% end %>
 		<div class="row user-appointments">
 			<p>USER CALENDAR APPOINTMENTS</p>
-			<% if @user && @user.native_lang.nil? %>
-
-			<%= link_to 'You need to create your language profile', 	new_user_profile_path %>
-			<% end %>
 			</div>
 		<div class="row matched-users">
-			<p>MATCHED USERS</p>
-			<p>User Profiles</p>
+			<h2>MATCHED USERS</h2>
 			<% @user_list.each do |users| %>
-				<div class='row user-profiles'>
-				<% if users.user_profile  %>
-				<%= image_tag users.picture.url(:thumb) %>
-				<%= link_to users.first_name, user_profile_path(users) %> 
-				<% end %>
+
+				<div class="col-md-2">
+					<div class="matched-user-profiles">
+						<% if users.user_profile  %>
+							<%= image_tag users.user_profile.picture.url(:thumb) %>
+							<%= link_to users.first_name, user_profile_path(users) %> 
+
+							<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5>
+						<% end %>
+					</div>
 				</div>
 			<% end %>
 		</div>
