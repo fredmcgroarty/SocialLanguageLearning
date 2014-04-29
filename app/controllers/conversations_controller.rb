@@ -6,16 +6,16 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    # link_to 'Talk to this user', new_conversation_path(user_id: @user.id)
-
-    @conversation = Conversation.new
+    @conversation = Conversation.create
     @person_i_talk_to = User.find params[:user_id]
 
     @conversation.participants << Participant.new(user: current_user)
     @conversation.participants << Participant.new(user: @person_i_talk_to)
+    @message = Message.new
   end
 
   def create
+    @message = Message.new
     @conversation = Conversation.new params[:conversation].permit(:subject)
     @conversation.participants << Participant.new(:user => current_user, :conversation => @conversation)
     @conversation.save
@@ -31,6 +31,11 @@ class ConversationsController < ApplicationController
   end
 
   def update
+    @message = Message.new
+    @conversation = Conversation.new params[:conversation].permit(:subject)
+    @conversation.participants << Participant.new(:user => current_user, :conversation => @conversation)
+    @conversation.save
+    redirect_to @conversation
   end
 
   def destroy
