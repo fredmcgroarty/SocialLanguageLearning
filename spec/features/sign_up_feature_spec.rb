@@ -56,7 +56,7 @@ describe 'registering' do
 
   end
 
-  context "a user has registered and added a profile" do 
+    context "a user has registered and added a profile" do 
 
   end
   
