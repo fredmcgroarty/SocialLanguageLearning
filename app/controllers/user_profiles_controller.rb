@@ -31,9 +31,14 @@
     @user_profile = current_user.user_profile
 
     if @user_profile.update params_permit
+
       redirect_to('/')
       flash[:notice] = "Update successful"
+
+      flash[:notice] = "You have succesfully updated your profile"
+      render 'edit'
     else
+      flash[:notice] = "You have not succesfully updated your profile"
       render 'edit'
     end
   end
