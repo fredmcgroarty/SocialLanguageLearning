@@ -10,7 +10,7 @@
 
 		<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
 		<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-		<h5><%= @user.email %></h5>
+		<h5><%= @user.username %></h5>
 		</br>
 	</div>
 </div>
@@ -29,7 +29,7 @@
 					<div class="matched-user-profiles">
 						<% if users.user_profile  %>
 							<%= image_tag users.user_profile.picture.url(:thumb) %>
-							<h5><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5>
+							<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5>
 						<% end %>
 					</div>
 				</div>
