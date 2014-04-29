@@ -3,16 +3,10 @@
 
   <%= image_tag @user_profile.picture.url(:medium), :class => "profile_pic" %>
   <table style="width:300px">
-  
-  <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? || @user_profile.second_lang.nil? %>
-    <p>You need to update your language profile!</p>
-    <%= render 'edit_languages' %>
-  <% else %>
-    
+      
     <%= render 'edit_profile' %>
 
 
     </tr>
-  <% end %>
 </table>
 

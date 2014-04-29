@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'registrations/after_sign_up_path_for'
 
   root 'home#welcome'
-  devise_for :users
 
+  devise_for :users
   resources :user_profiles, only: [:show, :new, :create]
   resource :user_profile, only: [:edit, :update]
 

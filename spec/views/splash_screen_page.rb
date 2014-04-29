@@ -15,6 +15,7 @@ describe 'splash page' do
 	it "has sign up" do 
 			within(:css, ".sign-up") do
 			expect(page).to have_css '#user_email'
+			expect(page).to have_css '#user_username'
 			expect(page).to have_css '#user_password'
 			expect(page).to have_css '#user_password_confirmation'
 		end

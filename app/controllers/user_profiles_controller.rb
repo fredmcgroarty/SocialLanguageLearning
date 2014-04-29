@@ -12,7 +12,6 @@
 
     if @user_profile.save
       redirect_to '/'
-      flash[:notice] = "Account created, please update your language profile"
     else
       render 'new'
     end
@@ -27,7 +26,7 @@
 
     if @user_profile.update params_permit
       redirect_to('/')
-      flash[:notice] = "You have succesfully updated your profile"
+      flash[:notice] = "Update successful"
     else
       render 'edit'
     end
