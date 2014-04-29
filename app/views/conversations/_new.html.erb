@@ -2,6 +2,16 @@
 <ul>
   <%= form_for @conversation do |f| %>
     <%= f.text_field :subject %> <br />
+
+      <ul>
+        Write a message
+        <%= form_for [@conversation, @message] do |f| %>
+          <%= f.text_area :body %> <br />
+          <%= f.submit :class => 'btn btn-primary' %>
+        <% end %>
+      </ul>
+
+
     <%= f.submit :class => 'btn btn-primary' %>
 <% end %>
 </ul>
