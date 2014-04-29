@@ -10,6 +10,7 @@
   def show
     @user_profile = UserProfile.find params[:id]
     @user = @user_profile.user
+    @booking = Booking.new
   end
 
   def create
