@@ -6,47 +6,26 @@ describe 'editting users profile' do
 		create(:user_total_profile_1)
   	@tiff = create(:user)
 		create(:user_total_profile_2)
+    visit '/user_profile/edit' 
   end
 
 
 
-	context "correct profile display" do 
+	context "user profile display" do 
 		before(:each) do
       login_as @mark
   		visit '/user_profile/edit' 
   		expect(current_path).to eq edit_user_profile_path(@mark)
+      expect(current_path).to eq edit_user_profile_path(current_user)
+      expect(page).to have_content(@mark.user_info && @mark.user_profile && @mark.email)
+      expect(current_path).to eq edit_user_profile_path
+      expect(page).to have_select("user_profile[native_lang]")
+      expect(page).to have_select("user_profile[first_lang]")
+      expect(page).to have_select("user_profile[second_lang]")
+      click_button 'Update User profile'
+      expect(page).to have_content 'Update successful'
   	end
-
-		it "Mark can edit his profile" do 
-			visit '/'
-			click_link 'Settings'
-			expect(current_path).to eq edit_user_profile_path(@mark)
-			visit '/user_profile/edit'
-			save_and_open_page
-			expect(current_path).to eq('/') 
-		end
-	end
-
-  context "if no image is uploaded" do 
-	context "user should see its curent profile records" do 
-		before(:each) do
-      login_as @mark
-  		visit '/user_profile/edit' 
-  		expect(current_path).to eq edit_user_profile_path
-  	end
-
-		it "should display user profile" do 
-            visit '/user_profile/edit'
-            expect(current_path).to eq edit_user_profile_path(current_user)
-            expect(page).to have_content(@mark.user_info && @mark.user_profile)
-           
-	end
-
-  end
 end
-
-  	xit "Tiff can add a photo" do
-  	end
   end
 
 
