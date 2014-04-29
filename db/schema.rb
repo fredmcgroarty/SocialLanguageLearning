@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428213907) do
+ActiveRecord::Schema.define(version: 20140429132036) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
@@ -60,9 +60,6 @@ ActiveRecord::Schema.define(version: 20140428213907) do
 
   create_table "user_infos", force: true do |t|
     t.integer  "user_id"
-    t.integer  "first_lang_lvl"
-    t.integer  "second_lang_lvl"
-    t.integer  "third_lang_lvl"
     t.integer  "exp_pts"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,9 +77,15 @@ ActiveRecord::Schema.define(version: 20140428213907) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.string   "native_lang"
-    t.string   "first_lang"
-    t.string   "second_lang"
+    t.integer  "native_lang",             limit: 255
+    t.integer  "first_lang",              limit: 255
+    t.integer  "second_lang",             limit: 255
+    t.integer  "native_lang_lvl"
+    t.integer  "first_lang_lvl"
+    t.integer  "second_lang_lvl"
+    t.integer  "native_lang_match_index"
+    t.integer  "first_lang_match_index"
+    t.integer  "second_lang_match_index"
   end
 
   create_table "users", force: true do |t|
