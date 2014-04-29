@@ -32,10 +32,10 @@ describe 'registering' do
       select "20", :from => "user_profile[dob(3i)]"
       fill_in 'Gender', with: 'male'
       attach_file 'user_profile_picture', Rails.root.join('spec/images/owl-in-a-hat.jpg')
-      click_button 'Create User profile'
+      click_button 'Update User profile'
       expect(User.first.user_profile).not_to eq 'nil'
       expect(current_path).to eq '/'
-      expect(page).to have_content 'Account created, please update your language profile'
+      expect(page).to have_content 'Update successful'
     end
 
     it "should prompt the user to complete their language profile" do
@@ -50,7 +50,7 @@ describe 'registering' do
       click_button 'Update User profile'
       expect(current_path).to eq '/'
       expect(User.first.user_profile.native_lang).to eq ('English')
-      expect(page).to have_content "You have succesfully updated your profile"
+      expect(page).to have_content "Update successful"
     end
 
 

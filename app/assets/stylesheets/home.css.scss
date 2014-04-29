@@ -20,8 +20,7 @@
 }
 
 .col-md-2 {
-	background-color: blue;
-	height: 1000px
+	
 }
 
 .col-md-10 {
@@ -29,9 +28,8 @@
 	height: 1000px;
 }
 
-.row.matched-users {
+.matched-users {
 	background-color: green;
-	height: 200px;
 }
 .row.user-appointments {
 	background-color: white;
@@ -40,4 +38,14 @@
 .row.topics {
 	background-color: yellow;
 	height: 150px;
+}
+
+.home-page-avatar-info{
+	text-align: center;
+	background-color: blue;
+	height: 1400px;
+}
+
+.matched-user-profiles {
+	text-align: center;
 }
