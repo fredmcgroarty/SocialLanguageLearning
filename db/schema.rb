@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428213907) do
+ActiveRecord::Schema.define(version: 20140429152739) do
+
+  create_table "bookings", force: true do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "length"
+    t.integer  "user_id"
+    t.integer  "student_id"
+  end
+
+  add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
