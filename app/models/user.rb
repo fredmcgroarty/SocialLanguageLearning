@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :conversations
   has_many :participants
   has_many :messages, :through => :conversations
-
+  has_many :bookings
 
   delegate 	:first_name,
   					:last_name,
