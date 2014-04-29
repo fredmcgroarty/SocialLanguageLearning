@@ -1,3 +1,29 @@
+<script type='text/javascript'>
+	$(document).ready(function() { 
+	var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({ 
+
+				editable: false,
+				defaultView: 'agendaWeek',
+				firstDay: 1		,
+				firstHour: 9,
+				dayClick: function(date) {
+	        $.post("users/1/bookings", {
+   				 user_id: <%= @user.id %>,
+   				 date: date 
+  				});
+  			}
+			});
+
+});
+
+</script>
+
 <div class="col-md-2">
 </div>
 
@@ -8,14 +34,25 @@
 		<%= link_to "Write a message", new_conversation_path(user_id: @user.id), class: "btn left btn-info wide" %>
 		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
 		<% if @user.user_profile %>
-  	<dl class="dl-horizontal"></br>
-	  	<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+  		<dl class="dl-horizontal"></br>
+  		<% if @user.first_name && @user.last_name %>
+	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+	  	<% end %>
+
 	  	<dt>Location:</dt> <dd>London</dd> 
-	  	<dt>Native Language</dt> <dd><%= @user.native_lang %></dd>  
-	  	<dt>Looking To Learn</dt> <dd><%= @user.first_lang %></dd>
-	  	<dt>Email</dt> <dd><%= @user.email %></dd> 
+	  	<% if @user.native_lang %>
+	  		<dt>Native Language</dt> <dd><%= @user.native_lang %></dd> 
+	  	<% end %> 
+	  	<% if @user.first_lang %>
+	  		<dt>Looking To Learn</dt> <dd><%= @user.first_lang %></dd>
+	  	<% end %>
+	  	<% if @user.email %>
+	  		<dt>Email</dt> <dd><%= @user.email %></dd> 
+	  	<% end %>
 		</dl>
 		<% end %>
+		<div id="calendar">
+</div>
 	</div>
 	<div class="calendar col-md-2 col-md-offset-1" >
 	Timetable of availability goes here <br />
@@ -23,3 +60,6 @@
 	Maybe a request chat now too if he's online
 	</div>
 </div>
+
+
+	<%= render 'bookings/form' %>

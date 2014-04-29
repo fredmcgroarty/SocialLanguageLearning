@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'user_infos/new'
 
   get 'user_infos/show'
@@ -19,6 +20,10 @@ Rails.application.routes.draw do
   root 'home#welcome'
 
   devise_for :users
+  resources :users do
+    resources :bookings
+  end
+  
   resources :user_profiles, only: [:show, :new, :create]
   resource :user_profile, only: [:edit, :update]
 
