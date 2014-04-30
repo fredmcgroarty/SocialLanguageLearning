@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429152739) do
+ActiveRecord::Schema.define(version: 20140430085853) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -71,9 +71,6 @@ ActiveRecord::Schema.define(version: 20140429152739) do
 
   create_table "user_infos", force: true do |t|
     t.integer  "user_id"
-    t.integer  "first_lang_lvl"
-    t.integer  "second_lang_lvl"
-    t.integer  "third_lang_lvl"
     t.integer  "exp_pts"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,6 +91,9 @@ ActiveRecord::Schema.define(version: 20140429152739) do
     t.string   "native_lang"
     t.string   "first_lang"
     t.string   "second_lang"
+    t.integer  "first_lang_lvl",       default: 1
+    t.integer  "second_lang_lvl",      default: 1
+    t.string   "location"
   end
 
   create_table "users", force: true do |t|

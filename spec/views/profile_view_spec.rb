@@ -7,5 +7,9 @@ describe "Profile information on display" do
 			@no_avatar = create(:user)
 			create(:user_without_avatar, user: @no_avatar)
 		end
+
+		it "has a default picture" do 
+			expect(@no_avatar.picture.url).to eq "/pictures/original_missing.png"
+		end
 	end
 end
