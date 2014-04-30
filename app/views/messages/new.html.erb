@@ -1,12 +1,14 @@
 <h1>Messages#new</h1>
 <p>Find me in app/views/messages/new.html.erb</p>
 
-
-<%= form_for(@message) do |f| %>
-            <div>Subject
-            <%= f.text_field :subject %></div>
-            <div>Message
-            <%= f.text_area :body%></div>
-             <%= f.hidden_field(:user, :value => @user.id) %>
-            <p><%= f.submit 'Send message'%></p>
-        <% end %>
+Send a message to
+ 
+ <%= @user.first_name %>
+ <%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
+  <%= label_tag :subject %>
+  <%= text_field_tag :subject %>
+  <%= label :body, "Message text" %>
+  <%= text_area_tag :body %>
+  <%= hidden_field_tag(:user, "#{@user.id}") %>
+  <%= submit_tag 'Send message', class: "btn btn-primary" %>
+ <% end %>
