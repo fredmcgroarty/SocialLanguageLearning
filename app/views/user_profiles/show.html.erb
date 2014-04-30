@@ -34,6 +34,7 @@
 		<%= link_to "Write a message", new_conversation_path(user_id: @user.id), class: "btn left btn-info wide" %>
 		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
 		<% if @user.user_profile %>
+
   		<dl class="dl-horizontal"></br>
   		<% if @user.first_name && @user.last_name %>
 	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
