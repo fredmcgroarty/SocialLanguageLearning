@@ -5,7 +5,7 @@
   <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
     <% message = receipt.message %>
     <h3>
-      <%= message.subject %>
+      <%= message.id %> <%= message.subject %>
     </h3>
     <p>
       <%= message.body %>
