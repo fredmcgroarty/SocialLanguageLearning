@@ -3,6 +3,9 @@
 </title>
 <% if user_signed_in? %>
 	<h1>Welcome to langlang <%= @user.email %></h1>
+	<%= render current_user.mailbox.inbox %>
+	<%= link_to "inbox", conversations_path %>
+
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>

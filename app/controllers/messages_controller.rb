@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
  
   # GET /message/new
   def new
-    @user = User.find(params[:user])
+    @user = current_user
     @message = current_user.messages.new
   end
  

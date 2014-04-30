@@ -1,2 +1,9 @@
-<h1>Conversations#index</h1>
-<p>Find me in app/views/conversations/index.html.erb</p>
+<% @conversations.each do |conversation| %>
+	<% if participant != current_user %>
+ 		<%= link_to participant.name, participant %>
+	<% end %>
+
+	<%= link_to conversation.subject, conversation %>
+	<%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
+	<%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post' %>
+<% end %>
