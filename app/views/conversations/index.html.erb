@@ -1,6 +1,9 @@
 <% @conversations.each do |conversation| %>
-	<% if participant != current_user %>
- 		<%= link_to participant.name, participant %>
+
+	<% conversation.participants.each do |participant| %>
+		<% if participant != current_user %>
+	 		<%= link_to participant.name, participant %>
+		<% end %>
 	<% end %>
 
 	<%= link_to conversation.subject, conversation %>

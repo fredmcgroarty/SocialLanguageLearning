@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
 
+  acts_as_messageable
 
   has_one :user_info 
   has_one :user_profile
@@ -28,7 +29,6 @@ class User < ActiveRecord::Base
 
 
   after_create :create_user_profile
-  acts_as_messageable
 
   def name
    return "#{first_name} #{last_name}"

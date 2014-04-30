@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :bookings
+    resources :messages, only: [:new, :create]
   end
   
   resources :messages do
