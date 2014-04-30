@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20140430085853) do
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
-  create_table "conversations", force: true do |t|
-    t.string   "subject"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "languages", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -39,23 +33,6 @@ ActiveRecord::Schema.define(version: 20140430085853) do
   create_table "languages_topics", force: true do |t|
     t.integer  "topic_id"
     t.integer  "language_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "messages", force: true do |t|
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "participants", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "conversation_id"
-    t.boolean  "deleted"
-    t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
