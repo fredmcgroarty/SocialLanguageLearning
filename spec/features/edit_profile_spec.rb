@@ -20,8 +20,7 @@ describe 'editting users profile' do
       expect(current_path).to eq edit_user_profile_path
       click_button 'Update User profile'
       expect(page).to have_content 'Update successful'
-    end
-
+end
 
     it "a user can update his profile picture" do
       login_as @mark
