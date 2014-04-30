@@ -49,4 +49,16 @@ FactoryGirl.define do
     first_lang "French"
     second_lang "Spanish"
   end
+
+  factory :user_total_profile_5, class: "UserProfile" do
+    user_id 5
+    first_name "France"
+    last_name "C"
+    picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
+    native_lang "French"
+    first_lang "English"
+    second_lang "Spanish"
+  end
+
+
 end
