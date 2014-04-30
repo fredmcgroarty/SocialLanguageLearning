@@ -27,4 +27,5 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'capybara-email'
   gem 'sqlite3'
+  gem 'timecop'
 end

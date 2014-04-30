@@ -18,6 +18,13 @@
 			<% end %>
 			<div class="row user-appointments">
 				<p>USER CALENDAR APPOINTMENTS</p>
+
+				<%current_user.bookings.each do |booking|%>
+					<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
+						<%= link_to 'GO TO LESSON', '#'%>
+					<% end%>	
+				<% end%>	
+
 			</div>
 			<div class="row matched-users">
 				<h2>MATCHED USERS</h2>
