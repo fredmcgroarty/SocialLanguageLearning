@@ -32,9 +32,8 @@ var calendar = function(){
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-
 			eventSources: [{  
-    		url: '/users/'+current_resource()+'/bookings/',  
+    		url: '/bookings/',  
    		}],
 
    		selectable: {
@@ -51,7 +50,7 @@ var calendar = function(){
 
         function updateEvent(booking) {
               $.ajax(
-                '/users/'+current_resource()+'/bookings/'+booking.id,
+                '/bookings/'+booking.id,
                 { 'type': 'PATCH',
 
                   data: { booking: { 
