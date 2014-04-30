@@ -1,53 +1,48 @@
 <title>
 	Welcome to langlang 
 </title>
-	<% if user_signed_in? %>
-		<h1>
-				Welcome to langlang <%= @user.email %>
-				</h1>
-<div class="col-md-2">
-	<div class='home-page-avatar-info'>
-
-		<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
-		<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-		<h5><%= @user.username %></h5>
-		</br>
+<% if user_signed_in? %>
+	<h1>Welcome to langlang <%= @user.email %></h1>
+	<div class="col-md-2">
+		<div class='home-page-avatar-info'>
+			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
+			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
+			<h5><%= @user.username %></h5>
+			<br>
+		</div>
 	</div>
-</div>
-<div class="col-md-10">
-	<div class='main-splash-container'>
+	<div class="col-md-10">
+		<div class='main-splash-container'>
 			<% if @user && @user.native_lang.nil? %>
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
-		<div class="row user-appointments">
-			<p>USER CALENDAR APPOINTMENTS</p>
+			<div class="row user-appointments">
+				<p>USER CALENDAR APPOINTMENTS</p>
 			</div>
-		<div class="row matched-users">
-			<h2>MATCHED USERS</h2>
-			<% @user_list.each do |user| %>
-
-				<div class="col-md-2">
-					<div class="matched-user-profiles">
-						<% if user.user_profile  %>
-							<%= image_tag user.picture.url(:thumb) %>
-							<%= link_to "#{user.first_name}", user_profile_path(user) %> 
-
-							<h5 class='user-name'><%= user.user_profile.first_name %> <%= user.user_profile.last_name %></h5>
-						<% end %>
+			<div class="row matched-users">
+				<h2>MATCHED USERS</h2>
+				<% current_user.compatible_users.each do |users| %>
+					<div class="col-md-2">
+						<div class="matched-user-profiles">
+							<% if users.user_profile  %> 
+								<%= image_tag users.user_profile.picture.url(:thumb) %>
+								<%= link_to users.first_name, user_profile_path(users) %> 
+								<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5> 
+							<% end %>
+						</div>
 					</div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
+			<div class="row topics">
+				<p>TOPICS</p>
+			</div>	
 		</div>
-		<div class="row topics">
-			<p>TOPICS</p>
-		</div>	
 	</div>
-</div>
 <% else %>
-<div class='welcome-container'>
-<div class='col-md-6 welcome'>
-		<h1><span>LANG LANG DESCRIPTION</span></h1>
-</div>
-	<%= render 'not_logged_in'  %>
+	<div class='welcome-container'>
+		<div class='col-md-6 welcome'>
+			<h1><span>LANG LANG DESCRIPTION</span></h1>
+		</div>
+		<%= render 'not_logged_in'  %>
+	</div>
 <% end %>
-</div>

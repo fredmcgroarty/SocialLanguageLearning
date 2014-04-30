@@ -17,7 +17,8 @@ FactoryGirl.define do
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
     native_lang "English"
     first_lang "French"
-    second_lang "Spanish" 
+    first_lang_lvl 3
+    second_lang "Spanish"
   end
 
   factory :user_total_profile_2, class: "UserProfile" do
@@ -25,9 +26,9 @@ FactoryGirl.define do
     first_name "Tiff"
     last_name "C"
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
-    native_lang "French"
-    first_lang "English"
-    second_lang "Spanish" 
+    native_lang "English"
+    first_lang "French"
+    second_lang "Spanish"
   end
 
   factory :user_total_profile_3, class: "UserProfile" do
@@ -37,7 +38,7 @@ FactoryGirl.define do
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
     native_lang "English"
     first_lang "French"
-    second_lang "Spanish" 
+    second_lang "Spanish"
   end
 
 
@@ -47,6 +48,41 @@ FactoryGirl.define do
     last_name "Avatar"
     native_lang "English"
     first_lang "French"
-    second_lang "Spanish" 
+    second_lang "Spanish"
   end
+
+  factory :user_total_profile_5, class: "UserProfile" do
+    user_id 5
+    first_name "France"
+    last_name "C"
+    picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
+    native_lang "French"
+    first_lang "English"
+    first_lang_lvl 3
+    second_lang "Spanish"
+  end
+
+
+  factory :user_total_profile_6, class: "UserProfile" do
+    user_id 5
+    first_name "Spanish"
+    last_name "C"
+    picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
+    native_lang "Spanish"
+    first_lang "English"
+    second_lang "English"
+  end
+
+  factory :user_total_profile_7, class: "UserProfile" do
+    user_id 5
+    first_name "France_lower"
+    last_name "C"
+    picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
+    native_lang "French"
+    first_lang "English"
+    first_lang_lvl 1
+    second_lang "Spanish"
+  end
+
+
 end
