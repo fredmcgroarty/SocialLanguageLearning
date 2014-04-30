@@ -45,16 +45,16 @@ end
 describe "personalised Home Page" do 
 	before(:each) do
 		@fred = create(:user)
-		create(:user_profile)
+		create(:user_profile, user: @fred)
 		@mark = create(:user)
-		create(:user_total_profile_1)
+		create(:user_total_profile_1, user: @mark)
 		@tiff = create(:user)
-		create(:user_total_profile_2)
+		create(:user_total_profile_2, user: @tiff)
 		login_as @fred
 		visit '/'
 	end
 
-	context "user has registered account but empty language profile" do 
+	context "user has registered account butxw empty language profile" do 
 
 		it "sees a link to update their language info if empty" do 
 			expect(page).not_to have_content("Sign up" && "Sign in")
@@ -67,13 +67,21 @@ describe "personalised Home Page" do
 			expect(page).to have_link 'Settings'
 		end
 
-	context "user has registered account and full language profile" do 
+	context "user has registered account and completed language profile" do 
 
 		it "can see a list of users' profiles" do 
-			within(:css, ".row.matched-users") do
-				expect(page).to have_content ('Mark M')
-				expect(page).to have_content('Tiff C')
-			end
+		@fred = create(:user)
+		create(:user_profile, user: @fred)
+		@mark = create(:user)
+		create(:user_total_profile_1, user: @mark)
+		@tiff = create(:user)
+		create(:user_total_profile_2, user: @tiff)
+		logout
+		login_as @mark
+		visit '/'
+
+				expect(page).to have_content ('Fred')
+				expect(page).to have_content ('Mark')
 		end
 
 
