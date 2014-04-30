@@ -4,28 +4,36 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+
+
   has_one :user_info 
   has_one :user_profile
   has_many :bookings
 
-  delegate 	:first_name,
-  					:last_name,
-  					:dob,
-  					:gender,
-  					:native_lang,
-  					:first_lang,
-  					:second_lang,
+  delegate  :first_name,
+            :last_name,
+            :dob,
+            :gender,
+            :native_lang,
+            :first_lang,
+            :second_lang,
             :native_lang_lvl,
             :first_lang_lvl,
             :second_lang_lvl,
             :picture,
-  					to: :user_profile, allow_nil: true
+            to: :user_profile, allow_nil: true
             
    delegate :exp_pts,
             to: :user_info, allow_nil: true
 
 
   after_create :create_user_profile
+  acts_as_messageable
+
+  def name
+   return "#{first_name} #{last_name}"
+  end
+
 
   def create_user_profile
     self.user_profile = UserProfile.create

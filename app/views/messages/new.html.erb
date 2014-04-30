@@ -1,0 +1,12 @@
+<h1>Messages#new</h1>
+<p>Find me in app/views/messages/new.html.erb</p>
+
+
+<%= form_for(@message) do |f| %>
+            <div>Subject
+            <%= f.text_field :subject %></div>
+            <div>Message
+            <%= f.text_area :body%></div>
+             <%= f.hidden_field(:user, :value => @user.id) %>
+            <p><%= f.submit 'Send message'%></p>
+        <% end %>

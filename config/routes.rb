@@ -1,6 +1,30 @@
 Rails.application.routes.draw do
 
 
+  get 'messages/index'
+
+  get 'messages/new'
+
+  get 'messages/edit'
+
+  get 'messages/create'
+
+  get 'messages/destroy'
+
+  get 'messages/update'
+
+  get 'conversations/index'
+
+  get 'conversations/new'
+
+  get 'conversations/edit'
+
+  get 'conversations/create'
+
+  get 'conversations/destroy'
+
+  get 'conversations/update'
+
   get 'user_infos/new'
 
   get 'user_infos/show'
@@ -24,17 +48,15 @@ Rails.application.routes.draw do
     resources :bookings
   end
   
+  resources :messages
+  resources :conversations
   resources :user_profiles, only: [:show, :new, :create]
   resource :user_profile, only: [:edit, :update]
 
   resources :user_infos
   resources :languages
   resources :topics
-  resources :messages
-  resources :conversations do
-    resources :messages
-  end
-  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
