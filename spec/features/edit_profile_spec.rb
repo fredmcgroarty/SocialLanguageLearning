@@ -20,28 +20,7 @@ describe 'editting users profile' do
       expect(current_path).to eq edit_user_profile_path
       click_button 'Update User profile'
       expect(page).to have_content 'Update successful'
-<<<<<<< HEAD
-  	
-
-		it "should display user profile" do 
-            visit '/user_profile/edit'
-            expect(current_path).to eq edit_user_profile_path(current_user)
-            expect(page).to have_content(@mark.user_info && @mark.user_profile && @mark.email)
-
-
-	end
-
-  
-     
-
-  end
-
 end
-  end
-=======
-    end
-
->>>>>>> d66524d301b0fcd2c31db8eaade4bbc50254c71f
 
     it "a user can update his profile picture" do
       login_as @mark
