@@ -21,7 +21,7 @@
 
 				<%current_user.bookings.each do |booking|%>
 					<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
-						<%= link_to 'GO TO LESSON', '#'%>
+						<%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
 					<% end%>	
 				<% end%>	
 
