@@ -1,0 +1,12 @@
+<% @conversations.each do |conversation| %>
+
+	<% conversation.participants.each do |participant| %>
+		<% if participant != current_user %>
+	 		<%= link_to participant.name, participant %>
+		<% end %>
+	<% end %>
+
+	<%= link_to conversation.subject, conversation %>
+	<%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
+	<%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post' %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Messages#new</h1>
+<p>Find me in app/views/messages/new.html.erb</p>
+
+Send a message to
+ 
+ <%= @user.first_name %>
+ <%= form_tag('/messages', method: :post) do %>
+  <%= label_tag :subject %>
+  <%= text_field_tag :subject %>
+  <%= label :body, "Message text" %>
+  <%= text_area_tag :body %>
+  <%= hidden_field_tag(:user, "#{@user.id}") %>
+  <%= submit_tag 'Send message', class: "btn btn-primary" %>
+ <% end %>
