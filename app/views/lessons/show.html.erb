@@ -94,6 +94,8 @@
         var value = this.value; 
 
         $.post('/lesson_texts', {message: value})
+
+        $('#message').val('')
       });
 
       var channel = ws.subscribe('chat');
