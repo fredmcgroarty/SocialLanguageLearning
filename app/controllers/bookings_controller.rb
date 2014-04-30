@@ -4,8 +4,17 @@ class BookingsController < ApplicationController
   before_action :find_user
 
   def index
-    @bookings = Booking.where("user_id = ? AND end_time >= ?", @user.id, Time.now).order(:start_time)
-    respond_with @bookings
+    @bookings = Booking.all
+    @userbookings = []
+    @user = current_user
+    if @user
+      @bookings.each do |x|
+        if x.user_id == @user.id || x.student_id == @user.id
+          @userbookings << x
+        end 
+      end
+    end
+   respond_with @userbookings
   end
 
   def new
@@ -32,7 +41,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id]).destroy
     if @booking.destroy
       flash[:notice] = "Booking: #{@booking.start_time.strftime('%e %b %Y %H:%M%p')} to #{@booking.end_time.strftime('%e %b %Y %H:%M%p')} deleted"
-      redirect_to user_bookings_path(@user)
+      redirect_to '/'
     else
       render 'index'
     end
