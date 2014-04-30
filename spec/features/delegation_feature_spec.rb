@@ -13,8 +13,9 @@ describe "Delegations" do
 
 		it "should route all applicable attributes" do
 			visit '/'
+			@fred = create(:user)
 			@mark = create(:user)
-			create(:user_total_profile_1)
+			create(:user_total_profile_1, user: @mark)
 			expect(@mark.first_name).to eq "Mark"
 			expect(@mark.last_name).to eq "M"
 			expect(@mark.native_lang).to eq "English"
