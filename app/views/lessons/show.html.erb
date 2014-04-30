@@ -103,7 +103,7 @@
       var channel = ws.subscribe('chat');
       channel.bind('new', function(chat) {
         var el = $('#chat');
-        el.append('<div>' + chat.message + '</div>');
+        el.append('<div>' + chat.user_name + ": " + chat.message + '</div>');
       });
 
 
