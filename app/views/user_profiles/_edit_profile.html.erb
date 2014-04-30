@@ -29,8 +29,16 @@
 	<%= f.label :first_language %>
 	<%= f.select :first_lang, ['English', 'French', 'Spanish'] %>
 	<br>
+
+		<%= f.label :first_lang_lvl %>
+	<%= f.select :first_lang_lvl, [1,2,3,4,5] %>
+	<br>
 	<%= f.label :second_language %>
 	<%= f.select :second_lang, ['English', 'French', 'Spanish'] %>
+	<br>
+
+		<%= f.label :second_lang_lvl %>
+	<%= f.select :second_lang_lvl, [1,2,3,4,5] %>
 	<br>
 	<%= f.submit :class => 'post-button' %>
 

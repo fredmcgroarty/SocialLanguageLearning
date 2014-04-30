@@ -24,15 +24,22 @@
 			</div>
 		<div class="row matched-users">
 			<h2>MATCHED USERS</h2>
-			<% @user_list.each do |users| %>
+			<% current_user.compatible_users.each do |users| %>
 
 				<div class="col-md-2">
 					<div class="matched-user-profiles">
-						<% if users.user_profile  %>
+
+
+
+
+
+
+
+			<% if users.user_profile  %> 
 							<%= image_tag users.user_profile.picture.url(:thumb) %>
 							<%= link_to users.first_name, user_profile_path(users) %> 
 
-							<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5>
+							<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5> 
 						<% end %>
 					</div>
 				</div>
