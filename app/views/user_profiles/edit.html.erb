@@ -2,6 +2,7 @@
 <p>Find me in app/views/user_profiles/edit.html.erb</p>
     <div class="col-md-4">
       <%= image_tag @user_profile.picture.url(:medium) %>
+
       <h4> Edit profile picture.</h4>
       <%= render 'edit_upload' %>
     </div>
@@ -11,6 +12,7 @@
   <div class="col-md-4 edit-pass">
     <%= render 'edit_password_and_username' %>
   </div> 
+
 </div>
 
      

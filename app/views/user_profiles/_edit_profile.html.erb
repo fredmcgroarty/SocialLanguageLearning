@@ -4,51 +4,56 @@
 	
 	<%= f.file_field :picture %>
 
-<table style='width:' class ="sign-in-table">	
-  <tr>
-		<td><%= f.label :first_name %></td>
-		<td><%= f.text_field :first_name %></td>
-  </tr>
-  	<tr>
-		<td><%= f.label :last_name %></td>
-		<td><%= f.text_field :last_name %></td>
-	</tr>
-  	<tr>
-  	<td><%= f.label :dob %></td>
-		<td><%= f.date_select :dob, start_year: 1925, end_year: 2010 %></td>
-	</tr>
-  <tr>
-  	<td><%= f.label :gender %></td>
-		<td><%= f.select :gender, ['Male', 'Female'] %></td><td> Level </td>
-	</tr>
-</table>
-<h2> Language Profile </h2>
-<table>
-  <tr>
-  	<th></th>
-  	<th>Language</th>
-  	<th>Level</th>
-  </tr>
-  <tr>
-  	<td><%= f.label :native_tongue %></td>
-		<td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
-		<td>LANG LEVELS</td>
-	</tr>
-	<tr>
-		<td><%= f.label :first_language %></td>
-		<td><%= f.select :first_lang, ['English', 'French', 'Spanish'] %></td>
-		<td>GO</td>
-	</tr>
-  <tr>
-		<td><%= f.label :second_language %></td>
-		<td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
-		<td>HERE</td>
-	</tr>
-  <tr>	
-  	<td><%= f.submit :class => 'post-button' %></td>
-  </tr>
-</table>
+		<br>
+	Username: <%= current_user.email %>
+	<br>
+  <table style='width:' class ="sign-in-table"> 
+    <tr>
+      <td><%= f.label :first_name %></td>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %></td>
+      <td><%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :dob %></td>
+      <td><%= f.date_select :dob, start_year: 1925, end_year: 2010 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :gender %></td>
+      <td><%= f.select :gender, ['Male', 'Female'] %></td><td> Level </td>
+    </tr>
+  </table>
+  <h2> Language Profile </h2>
+  <table>
+    <tr>
+      <th></th>
+      <th>Language</th>
+      <th>Level</th>
+    </tr>
+    <tr>
+      <td><%= f.label :native_tongue %></td>
+      <td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
+      <td>LANG LEVELS</td>
+    </tr>
+    <tr>
+      <td><%= f.label :first_language %></td>
+      <td><%= f.select :first_lang, ['English', 'French', 'Spanish'] %></td>
+      <td><%= f.label :first_lang_lvl %></td>
+      <td><%= f.select :first_lang_lvl, [1,2,3,4,5] %></td>
+      <td>GO</td>
+    </tr>
+    <tr>
+      <td><%= f.label :second_language %></td>
+      <td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
+      <td><%= f.label :second_lang_lvl %></td>
+      <td><%= f.select :second_lang_lvl, [1,2,3,4,5] %></td>
+      <td>HERE</td>
+    </tr>
+    <tr>  
+      <td><%= f.submit :class => 'post-button' %></td>
+    </tr>
+  </table>
 
 <% end %>
-
-

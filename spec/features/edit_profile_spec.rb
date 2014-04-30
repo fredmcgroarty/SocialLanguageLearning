@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'editting users profile' do
+
   before(:each) do
 		@mark = create(:user)
 		create(:user_total_profile_1)
@@ -8,6 +9,7 @@ describe 'editting users profile' do
 		create(:user_total_profile_2)
     # visit '/user_profile/edit' 
   end
+
 
 	context "user profile display" do 
 	
