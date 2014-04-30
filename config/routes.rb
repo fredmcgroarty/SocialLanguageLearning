@@ -1,6 +1,30 @@
 Rails.application.routes.draw do
 
 
+  get 'messages/index'
+
+  get 'messages/new'
+
+  get 'messages/edit'
+
+  get 'messages/create'
+
+  get 'messages/destroy'
+
+  get 'messages/update'
+
+  get 'conversations/index'
+
+  get 'conversations/new'
+
+  get 'conversations/edit'
+
+  get 'conversations/create'
+
+  get 'conversations/destroy'
+
+  get 'conversations/update'
+
   get 'user_infos/new'
 
   get 'user_infos/show'
@@ -22,20 +46,34 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :bookings
+    resources :messages, only: [:new, :create]
   end
   
+  resources :messages do
+    member do
+      post :new
+    end
+  end
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+    collection do
+      get :trashbin
+      post :empty_trash
+    end
+  end
+
   resources :user_profiles, only: [:show, :new, :create]
   resource :user_profile, only: [:edit, :update]
 
   resources :user_infos
   resources :languages
   resources :topics
-  resources :messages
-  resources :conversations do
-    resources :messages
-  end
+
   resources :bookings
-  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
