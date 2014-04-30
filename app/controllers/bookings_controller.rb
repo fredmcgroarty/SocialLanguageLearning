@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     @booking.user_id = @user.id
     @booking.student = current_user
     
+    
     if @booking.save
       redirect_to user_bookings_path(@user, method: :get)
     else
