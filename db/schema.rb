@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430084133) do
+ActiveRecord::Schema.define(version: 20140430085853) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20140430084133) do
     t.string   "native_lang"
     t.string   "first_lang"
     t.string   "second_lang"
-    t.integer  "native_lang_lvl"
     t.integer  "first_lang_lvl",       default: 1
     t.integer  "second_lang_lvl",      default: 1
     t.string   "location"
