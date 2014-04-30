@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140429152739) do
+ActiveRecord::Schema.define(version: 20140430085853) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 20140429152739) do
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
-
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
@@ -83,7 +81,7 @@ ActiveRecord::Schema.define(version: 20140429152739) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "dob"
-    t.string  "gender"
+    t.integer  "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_file_name"
