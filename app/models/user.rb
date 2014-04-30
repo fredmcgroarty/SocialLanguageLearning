@@ -31,8 +31,9 @@ class User < ActiveRecord::Base
   end
 
   def compatible_users
-    matches = UserProfile.where(native_lang: user_profile.first_lang)
-    matches.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+    matches = UserProfile.where(native_lang: user_profile.first_lang) 
+    matches2 = matches.where(first_lang: user_profile.native_lang)
+    matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
   end
 
 end
