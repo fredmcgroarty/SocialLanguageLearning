@@ -1,6 +1,8 @@
 <h2>Edit Profile</h2>
 
 <%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
+	
+	<%= f.file_field :picture %>
 
 <table style='width:' class ="sign-in-table">	
   <tr>
