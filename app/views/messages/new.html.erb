@@ -4,7 +4,7 @@
 Send a message to
  
  <%= @user.first_name %>
- <%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
+ <%= form_tag('/messages', method: :post) do %>
   <%= label_tag :subject %>
   <%= text_field_tag :subject %>
   <%= label :body, "Message text" %>
