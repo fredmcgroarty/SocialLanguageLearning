@@ -1,18 +1,14 @@
 <h1>Dashboard</h1>
 <p>Find me in app/views/user_profiles/edit.html.erb</p>
-  <% if @user_profile.native_lang.nil? && @user_profile.first_lang.nil? || @user_profile.second_lang.nil? %>
-    <h3>You need to update your language profile!</h3>
     <div class="col-md-4">
       <%= image_tag @user_profile.picture.url(:medium) %>
-      <% else %>
-      <% end %>
       <h4> Edit profile picture.</h4>
       <%= render 'edit_upload' %>
     </div>
-  <div class="col-md-4">
+  <div class="col-md-4 edit-prof">
     <%= render 'edit_profile' %>
   </div> 
-  <div class="col-md-4">
+  <div class="col-md-4 edit-pass">
     <%= render 'edit_password_and_username' %>
   </div> 
 </div>
