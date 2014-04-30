@@ -1,4 +1,4 @@
-require 'spec_helper'
+    require 'spec_helper'
 
 describe 'registering' do
     before(:each) do
@@ -30,7 +30,7 @@ describe 'registering' do
       select "1990", :from => "user_profile[dob(1i)]"
       select "April", :from => "user_profile[dob(2i)]"
       select "20", :from => "user_profile[dob(3i)]"
-      fill_in 'Gender', with: 'male'
+      select "Male", :from => "user_profile[gender]"
       attach_file 'user_profile_picture', Rails.root.join('spec/images/owl-in-a-hat.jpg')
       click_button 'Update User profile'
       expect(User.first.user_profile).not_to eq 'nil'
@@ -56,7 +56,7 @@ describe 'registering' do
 
   end
 
-  context "a user has registered and added a profile" do 
+    context "a user has registered and added a profile" do 
 
   end
   

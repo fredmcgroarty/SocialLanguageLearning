@@ -12,6 +12,11 @@ describe User do
 			expect(User.first).to eq @user
 		end
 
+		it "creates an instance of the User Profile class" do 
+			expect(User.first.user_profile.first_name).to eq nil
+			expect(User.first.user_profile).to eq @user.user_profile
+		end
+
 	end
 
 end
