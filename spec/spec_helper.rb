@@ -20,6 +20,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     Warden.test_reset!
+    Timecop.return
   end
 
   # ## Mock Framework
