@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :bookings
     resources :messages, only: [:new, :create]
   end
+  resources :lessons
+  resources :lesson_texts
   
   resources :messages do
     member do
