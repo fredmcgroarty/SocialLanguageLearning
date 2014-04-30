@@ -31,11 +31,7 @@ describe "home page" do
 
     it "displays the go to lesson button if inside the lesson window" do
       time_new = Time.utc(2014,10,1,5,10,0)
-      puts Booking.first.start_time
-      puts Booking.first.end_time
-
       Timecop.freeze(time_new)
-      puts Time.now
       visit '/'
       expect(page).to have_content('GO TO LESSON')
     end
@@ -45,6 +41,15 @@ describe "home page" do
       Timecop.freeze(time_new)
       visit '/'
       expect(page).not_to have_content('GO TO LESSON')
+    end
+
+    it "displays the go to lesson button if inside the lesson window" do
+      time_new = Time.utc(2014,10,1,5,10,0)
+      Timecop.freeze(time_new)
+      visit '/'
+      click_link 'GO TO LESSON'
+      save_and_open_page
+      expect(page).to have_content('Start chatting below!')
     end
 
   end

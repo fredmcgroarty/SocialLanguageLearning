@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :bookings
   end
+  resources :lessons
+  resources :lesson_texts
   
   resources :user_profiles, only: [:show, :new, :create]
   resource :user_profile, only: [:edit, :update]

@@ -16,6 +16,8 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
 gem 'pg', group: :production
 gem 'bookable'
+gem 'websocket-rails'
+gem 'thin'
 
 
 group :development, :test do
