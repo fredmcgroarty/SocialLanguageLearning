@@ -30,7 +30,6 @@ describe "existing booking" do
 end
  expect(@mark.bookings.last.start_time).not_to eq(nil)
  expect(@mark.bookings.last.start_time).to eq("30 May 2014 09:00:00 UTC +00:00")
-expect(@mark.bookings.last.start_time).to eq(nil)
 
 end
 end

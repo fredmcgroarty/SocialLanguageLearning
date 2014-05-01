@@ -64,7 +64,7 @@ FactoryGirl.define do
 
 
   factory :user_total_profile_6, class: "UserProfile" do
-    user_id 5
+    user_id 6
     first_name "Spanish"
     last_name "C"
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
@@ -74,7 +74,7 @@ FactoryGirl.define do
   end
 
   factory :user_total_profile_7, class: "UserProfile" do
-    user_id 5
+    user_id 7
     first_name "France_lower"
     last_name "C"
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')

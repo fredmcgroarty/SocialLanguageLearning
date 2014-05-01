@@ -70,18 +70,14 @@ describe "personalised Home Page" do
 	context "user has registered account and completed language profile" do 
 
 		it "can see a list of users' profiles" do 
-		@fred = create(:user)
-		create(:user_profile, user: @fred)
-		@mark = create(:user)
-		create(:user_total_profile_1, user: @mark)
-		@tiff = create(:user)
-		create(:user_total_profile_2, user: @tiff)
-		logout
-		login_as @mark
-		visit '/'
+			@mark = create(:user)
+			create(:user_total_profile_1, user: @mark)
+			@tiff = create(:user)
+			create(:user_total_profile_5, user: @tiff)
+			login_as @mark
+			visit '/'
 
-				expect(page).to have_content ('Fred')
-				expect(page).to have_content ('Mark')
+				expect(page).to have_content ('France')
 		end
 
 
