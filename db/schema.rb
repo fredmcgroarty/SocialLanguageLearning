@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140501124235) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
+    t.boolean  "accepted"
     t.boolean  "exepted"
   end
 

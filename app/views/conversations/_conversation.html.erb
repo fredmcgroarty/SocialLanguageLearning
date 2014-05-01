@@ -1,5 +1,6 @@
 <%= content_tag_for(:li, conversation) do |conversation| %>
   <p>
+  	<%= link_to("View", edit_booking_path(:id)) %>
     <%= link_to conversation.subject, conversation %>
   </p>
 <% end %>
