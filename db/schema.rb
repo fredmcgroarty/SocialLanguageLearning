@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430225158) do
+ActiveRecord::Schema.define(version: 20140501124235) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140430225158) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
+    t.boolean  "exepted"
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
