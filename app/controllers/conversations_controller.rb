@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def index
+
     @conversations ||= current_user.mailbox.inbox.all
   end
 
