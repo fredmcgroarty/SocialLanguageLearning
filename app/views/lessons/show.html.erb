@@ -1,4 +1,5 @@
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
     <script src="http://simplewebrtc.com/latest.js"></script> 
       <style>
           #remoteVideos video {
@@ -49,6 +50,9 @@
   </head>
   <body>
 
+    <div class="timer" data-timer="<%= @time_in_seconds %>" ></div>
+
+
     <video id="localVideo"></video>
     <div id="remoteVideos"></div>
     <div id="chat"></div>
@@ -58,7 +62,17 @@
 
 
     <script>
-    
+      window.onload = timeAlerts
+
+      function timeAlerts()
+      {
+        setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
+        setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
+        setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
+        setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
+        setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
+        setTimeout("location.href = '/';",'<%= (@time_in_seconds) * 1000 %>');
+        }
     </script>
 
     <script>   
