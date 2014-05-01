@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501131524) do
+ActiveRecord::Schema.define(version: 20140501135003) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140501131524) do
     t.string   "lang2"
     t.boolean  "accepted"
     t.boolean  "exepted"
+    t.integer  "topic_id"
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
