@@ -3,8 +3,10 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def index
-
     @conversations ||= current_user.mailbox.inbox.all
+    if @conversations.to_a.any?
+      redirect_to @conversations.first
+    end
   end
 
   def reply
@@ -32,9 +34,10 @@ class ConversationsController < ApplicationController
     current_user.mailbox.trash.each do |conversation|    
       conversation.receipts_for(current_user).update_all(:deleted => true)
     end
-    redirect_to :conversations
+    redirect_to :back
   end
 
+ 
   #########################################
 
   private
