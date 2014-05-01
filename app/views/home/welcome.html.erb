@@ -1,10 +1,8 @@
-
 <title>
 	Welcome to langlang 
 </title>
 <% if user_signed_in? %>
 	<h1>Welcome to langlang <%= @user.email %></h1>
-	<%= render current_user.mailbox.inbox %>
 	<%= link_to "inbox", conversations_path %>
 
 	<div class="col-md-2">
@@ -12,6 +10,8 @@
 			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
+			<%= 'You have '+@unread_count + ' unread messages' %>
+
 			<br>
 		</div>
 	</div>

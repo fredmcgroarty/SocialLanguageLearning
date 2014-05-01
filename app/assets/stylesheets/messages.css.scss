@@ -1,3 +1,36 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.message_content {
+	height:200px;
+	width:100%;
+	border:1px solid #ccc;
+	font:16px/26px Georgia, Garamond, Serif;
+	overflow:auto;
+}
+
+#message_body {
+	width: 50%;
+	height: 100px;
+}
+
+.col-md-2.new-messages {
+	height: 400px;
+	background-color: grey;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.glyphicon.glyphicon-remove.message {
+	float: right;
+}
