@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
  
 
   def missing_information
-    current_user.user_profile.attributes.values.any? {|at| at.nil? }  
+    @user_prof = current_user.user_profile
+    @user_prof.native_lang.nil? || @user_prof.first_lang.nil? || @user_prof.first_name.empty? || @user_prof.last_name.empty? 
   end
 
   # GET /message/new
@@ -20,8 +21,6 @@ class MessagesController < ApplicationController
    # POST /message/create
   def create
     @recipient = User.find(params[:user_id])
-    puts "&&&&&&&&&&&"
-    puts @recipient
     current_user.send_message(@recipient, params[:body], params[:subject])
     flash[:notice] = "Message has been sent!"
     redirect_to :conversations
