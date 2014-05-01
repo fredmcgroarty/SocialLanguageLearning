@@ -1,3 +1,9 @@
+<div class="col-md-4"> 
+
+</div>
+
+<div class="col-md-4"> 
+
 <% @conversations.each do |conversation| %>
 
 	<% conversation.participants.each do |participant| %>
@@ -10,3 +16,9 @@
 	<%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
 	<%= link_to "Move to Trash", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post' %>
 <% end %>
+
+</div>
+
+<div class="col-md-4"> 
+  <div id="calendar"></div>
+</div>

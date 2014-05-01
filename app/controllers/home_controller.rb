@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   
   def welcome
   	@unread_count = current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s if current_user
-  	flash[:notice] = greeter_flash
+  	flash[:success] = greeter_flash
 
   	@user_list = User.all
   	@user = current_user
@@ -21,7 +21,6 @@ class HomeController < ApplicationController
 		unless @user && @user.user_profile
 			flash[:warning] = "You need to update your profile!"
 		end
-		
   end
 
 
@@ -36,7 +35,5 @@ class HomeController < ApplicationController
     	end
     end
   end
-
-
 
 end
