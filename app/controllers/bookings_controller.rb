@@ -3,7 +3,26 @@ class BookingsController < ApplicationController
   
   before_action :find_user
 
+
+  def missing_information
+    current_user.user_profile.first_name.empty? ||
+    current_user.user_profile.last_name.empty? ||
+    current_user.user_profile.dob.nil? ||
+    current_user.user_profile.gender.nil? ||
+    current_user.user_profile.picture_file_name.nil? ||
+    current_user.user_profile.native_lang.empty? ||
+    current_user.user_profile.first_lang.empty? ||
+    current_user.user_profile.second_lang.empty?
+    
+  
+  end
+
   def index
+    if missing_information
+          flash[:alert] = "You can only view your booking if you have filled out your user profile"
+      redirect_to  edit_user_profile_path(current_user)
+    end
+
     @bookings = Booking.all
     @userbookings = []
     @user = current_user

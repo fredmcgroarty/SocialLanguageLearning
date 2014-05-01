@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140501124235) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
-    t.boolean  "accepted"
     t.boolean  "exepted"
+    t.boolean  "accepted"
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"

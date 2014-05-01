@@ -6,10 +6,15 @@ class Booking < ActiveRecord::Base
   has_one :lesson
 
 
+
+  
+
   after_create :generate_new_lesson
 
   def generate_new_lesson
     self.lesson = Lesson.create(uid: SecureRandom.urlsafe_base64(30))
   end  
+
+  
 
 end
