@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20140501135003) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
-    t.string   "lang1"
-    t.string   "lang2"
     t.boolean  "accepted"
     t.boolean  "exepted"
+    t.string   "lang1"
+    t.string   "lang2"
     t.integer  "topic_id"
   end
 

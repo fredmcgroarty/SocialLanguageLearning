@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
 
   def show
     @lessons = Lesson.find_by(uid: params[:id])
-    @time_in_seconds = @lessons.end_time.to_i - Time.now.to_i
+    @time_in_seconds = @lessons.time_to_seconds
     raise 'Oops' unless @lessons
   end 
 

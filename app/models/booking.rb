@@ -13,4 +13,5 @@ class Booking < ActiveRecord::Base
     self.lesson = Lesson.create(uid: SecureRandom.urlsafe_base64(30))
   end  
 
+
 end
