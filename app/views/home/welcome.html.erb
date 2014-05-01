@@ -28,8 +28,6 @@
 						You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
 					<% end%>	
 				<% end%>
-
-
 				<% @userbookings.each do |x| %>
 					<% x.user_id == @user.id ? a = x.student_id : a = x.user_id %>
 					<% y = User.first params[a] %>
@@ -41,7 +39,6 @@
 				<div id="calendar">
 				</div>
 			</div>
-
 			</div>
 			<div class="row matched-users">
 				<h2>MATCHED USERS</h2>
