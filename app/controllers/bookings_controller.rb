@@ -41,9 +41,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length))
+    @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length, :topic_id))
+    @booking.lang1 = @user.native_lang
     @booking.user_id = @user.id
     @booking.student = current_user
+    @booking.lang2 = @booking.student.native_lang
+  
     @booking.save        
     @recipient = User.find(params[:user_id])
     body = render_to_string('bookings/_body', layout: false)
@@ -81,7 +84,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     # @booking.user = @user
 
-    if @booking.update(params[:booking].permit(:user_id, :start_time, :length, :accepted))
+    if @booking.update(params[:booking].permit(:user_id, :start_time, :length, :accepted, :topic_id))
       flash[:notice] = 'Your booking was updated succesfully'
 
       if request.xhr?

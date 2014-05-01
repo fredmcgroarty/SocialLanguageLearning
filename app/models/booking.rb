@@ -4,6 +4,7 @@ class Booking < ActiveRecord::Base
   include Bookable
   belongs_to :student, class_name: 'User', foreign_key: 'student_id'
   has_one :lesson
+  belongs_to :topic 
 
 
 
@@ -15,6 +16,3 @@ class Booking < ActiveRecord::Base
     self.lesson = Lesson.create(uid: SecureRandom.urlsafe_base64(30))
   end  
 
-  
-
-end
