@@ -17,6 +17,9 @@ gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
 gem 'pg', group: :production
 gem 'bookable'
 gem 'mailboxer'
+gem 'websocket-rails'
+gem 'thin'
+
 
 
 group :development, :test do
@@ -28,4 +31,5 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'capybara-email'
   gem 'sqlite3'
+  gem 'timecop'
 end

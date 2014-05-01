@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "messages/new.html.erb" do
+describe LessonText do
   pending "add some examples to (or delete) #{__FILE__}"
 end

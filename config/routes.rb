@@ -1,44 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'messages/index'
-
-  get 'messages/new'
-
-  get 'messages/edit'
-
-  get 'messages/create'
-
-  get 'messages/destroy'
-
-  get 'messages/update'
-
-  get 'conversations/index'
-
-  get 'conversations/new'
-
-  get 'conversations/edit'
-
-  get 'conversations/create'
-
-  get 'conversations/destroy'
-
-  get 'conversations/update'
-
-  get 'user_infos/new'
-
-  get 'user_infos/show'
-
-  get 'user_infos/create'
-
-  get 'user_infos/edit'
-
-  get 'user_infos/update'
-
-  get 'user_infos/destroy'
-
-  get 'user_infos/index'
-
   get 'registrations/after_sign_up_path_for'
 
   root 'home#welcome'
@@ -48,6 +9,8 @@ Rails.application.routes.draw do
     resources :bookings
     resources :messages, only: [:new, :create]
   end
+  resources :lessons
+  resources :lesson_texts
   
   resources :messages do
     member do

@@ -1,10 +1,8 @@
-
 <title>
 	Welcome to langlang 
 </title>
 <% if user_signed_in? %>
 	<h1>Welcome to langlang <%= @user.email %></h1>
-	<%= render current_user.mailbox.inbox %>
 	<%= link_to "inbox", conversations_path %>
 
 	<div class="col-md-2">
@@ -12,6 +10,8 @@
 			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
+			<%= 'You have '+@unread_count + ' unread messages' %>
+
 			<br>
 		</div>
 	</div>
@@ -22,6 +22,14 @@
 			<% end %>
 			<div class="row user-appointments">
 				<p>USER CALENDAR APPOINTMENTS</p>
+
+				<%current_user.bookings.each do |booking|%>
+					<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
+						You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
+					<% end%>	
+				<% end%>
+
+
 				<% @userbookings.each do |x| %>
 					<% x.user_id == @user.id ? a = x.student_id : a = x.user_id %>
 					<% y = User.first params[a] %>
@@ -33,6 +41,7 @@
 				<div id="calendar">
 				</div>
 			</div>
+
 			</div>
 			<div class="row matched-users">
 				<h2>MATCHED USERS</h2>
