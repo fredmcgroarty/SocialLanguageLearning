@@ -1,9 +1,20 @@
 <h3>Edit booking for <%= @user.email %></h3>
 
 <%= render 'errors' %>
-<%= render 'form' %>
-
-<div class="calendar_container">
-  <div id="calendar">
-  </div>
-</div>
+ Booking requested by : <%= @booking.student.name %> <br />
+ Starting at: <%= @booking.start_time.strftime('%e %b %H:%M%p') %>
+  until
+  <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+<%= form_for([@user, @booking]) do |f| %>
+    <% if @booking.user_id == current_user.id && !@booking.accepted? %>
+    	<%= f.check_box :accepted %> Please tick this box to confirm
+    <% elsif @booking.user_id == current_user.id && @booking.accepted? %>
+    	<%= "You have already confirmed this booking!" %>
+    <% elsif @booking.student_id == current_user.id && @booking.accepted? %>
+    	<%= "This booking has been confirmed!" %>
+    <% else %>
+    	<%= "Awaiting confirmation" %>
+    <% end %>
+  </p>
+  <%= (f.submit 'Submit', class: "btn btn-info") if @booking.user_id == current_user.id && !@booking.accepted? %><%= link_to "Cancel booking", booking_path(@booking), method: "delete", class: "btn btn-danger" %><%= link_to "View all bookings", bookings_path(@user), class: "btn btn-info" %>
+ <% end %>

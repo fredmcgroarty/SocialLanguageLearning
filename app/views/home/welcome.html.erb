@@ -35,7 +35,7 @@
 					<% y = User.first params[a] %>
 					Appointment with <%= y.first_name %>
 					Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %>
-					<%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
+					<%= link_to "View Booking", edit_booking_path(x) %><%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
 				<% end %>
 			<div class="calendar_container_small">
 				<div id="calendar">

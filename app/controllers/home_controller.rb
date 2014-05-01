@@ -21,7 +21,6 @@ class HomeController < ApplicationController
 		unless @user && @user.user_profile
 			flash[:warning] = "You need to update your profile!"
 		end
-		
   end
 
 
