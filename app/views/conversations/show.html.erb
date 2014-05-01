@@ -1,15 +1,41 @@
-<h1>
-  <%= conversation.subject %>
-</h1>
+<div class="col-md-2 new-messages"> 
+
+  <%= render current_user.mailbox.inbox %>
+</div>
+
+<div class="col-md-6"> 
+<h3>
+ <p>Subject: <%= conversation.subject %></p>  
+</h3>
 <ul>
+  <%= link_to "", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post', :class => "glyphicon glyphicon-remove message" %>
+<div class="message_content">
   <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
     <% message = receipt.message %>
-    <h3>
-      <%= message.subject %>
-    </h3>
+    <p>
+      <h6><%= message.created_at.strftime("%I:%M %p %b %d") %>: <%= message.subject %>
+      </h6>
+              <%= conversation.receipts_for(current_user) %>
+
+    <p>
     <p>
       <%= message.body %>
     </p>
+
   <% end %>
+
+  </div>
+
 </ul>
 <%= render 'messages/form', conversation: conversation %>
+</div>
+<div class="col-md-4"> 
+
+<div id="calendar">
+</div>
+  </div>
+
+
+
+
+
