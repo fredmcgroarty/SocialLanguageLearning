@@ -1,16 +1,26 @@
 require 'spec_helper'
 
 describe 'Spec Helper' do 
+	before(:each) do 
+		@mark = create(:user)
+		create(:user_total_profile_2, user: @mark)
+		@tiff = create(:user)
+		create(:user_total_profile_3, user: @tiff)
+	end
 
-	context "one user messaging another" do 
-		before(:each) do 
-			@mark = create(:user)
-			create(:user_total_profile_2, user: @mark)
-			@tiff = create(:user)
-			create(:user_total_profile_3, user: @tiff)
-		end
+	it "Fred cannot send in messages without registering a profile" do 
+		@fred = create(:user)
+		create(:user_profile, user: @fred)
+		login_as @fred
+		expect(@fred.id).to eq (3)
+		visit '/user_profiles/3'
+		click_link 'Message'
+		expect(current_path).to eq(edit_user_profile_path(@fred))
+	end
 
-		it "Fred messages Tiff" do
+	context "one user messaging another" do 		
+
+		it "Mark messages Tiff" do
 			login_as @mark 
 			visit '/user_profiles/3'
 			within(:css, ".col-xs-6.col-md-5.col-md-offset-1") do
@@ -30,7 +40,7 @@ describe "two equal entities" do
     @entity2 = FactoryGirl.create(:user)
   end
 
-  describe "message sending" do
+  context "message sending" do
    	before do
      @receipt1 = @entity1.send_message(@entity2,"Body","Subject")
      @message1 = @receipt1.notification
