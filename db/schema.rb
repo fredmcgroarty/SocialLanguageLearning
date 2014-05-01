@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430225158) do
+ActiveRecord::Schema.define(version: 20140501131524) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140430225158) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
+    t.string   "lang1"
+    t.string   "lang2"
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140430225158) do
     t.datetime "updated_at"
     t.string   "uid"
     t.integer  "booking_id"
+    t.string   "lang1"
+    t.string   "lang2"
   end
 
   create_table "notifications", force: true do |t|
