@@ -23,10 +23,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length))
+    @booking.lang1 = @user.native_lang
     @booking.user_id = @user.id
     @booking.student = current_user
-    
-    
+    @booking.lang2 = @booking.student.native_lang
+  
     if @booking.save
       redirect_to user_bookings_path(@user, method: :get)
     else
