@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140501131524) do
     t.integer  "student_id"
     t.string   "lang1"
     t.string   "lang2"
+    t.boolean  "accepted"
+    t.boolean  "exepted"
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
