@@ -44,15 +44,6 @@ describe 'registering' do
         create(:user_profile, user: @fred)
         visit '/'
         expect(page).to have_content "You need to create your language profile"
-        click_link 'Settings'
-        select "English", :from => "user_profile[native_lang]"
-        select "French", :from => "user_profile[first_lang]"
-        select "Spanish", :from => "user_profile[second_lang]"
-        click_button 'Update User profile'
-        expect(current_path).to eq '/'
-        expect(User.first.user_profile.native_lang).to eq ('English')
-        expect(page).to have_content "Update successful"
-  
       end
     end
   end

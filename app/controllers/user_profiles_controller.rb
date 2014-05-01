@@ -16,6 +16,7 @@
   def create
     @user_profile = UserProfile.new params_permit
     @user_profile.user = current_user
+      flash[:notice] = "Update successful"
 
     if @user_profile.save
       redirect_to '/'
@@ -30,7 +31,6 @@
 
   def update
     @user_profile = current_user.user_profile
-
     if @user_profile.update params_permit
       flash[:notice] = "Update successful"
       redirect_to '/'
