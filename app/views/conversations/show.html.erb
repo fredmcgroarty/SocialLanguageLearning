@@ -15,11 +15,10 @@
     <p>
       <h6><%= message.created_at.strftime("%I:%M %p %b %d") %>: <%= message.subject %>
       </h6>
-              <%= conversation.receipts_for(current_user) %>
-
+        <%= conversation.receipts_for(current_user) %>
     <p>
     <p>
-      <%= message.body %>
+      <%= message.body.html_safe %>
     </p>
 
   <% end %>
