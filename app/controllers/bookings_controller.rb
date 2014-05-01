@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
         end 
       end
     end
-   respond_with @userbookings
+   @userbookings
   end
 
   def new
@@ -28,6 +28,13 @@ class BookingsController < ApplicationController
     @booking.student = current_user
     @booking.lang2 = @booking.student.native_lang
   
+    @booking.save        
+    @recipient = User.find(params[:user_id])
+    body = render_to_string('bookings/_body', layout: false)
+    subject = "New booking request!"
+    current_user.send_message(@recipient, body, subject)
+    flash[:notice] = "Invite has been sent!"
+    
     if @booking.save
       redirect_to user_bookings_path(@user, method: :get)
     else
@@ -51,13 +58,14 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @user = current_user
   end
 
   def update
     @booking = Booking.find(params[:id])
     # @booking.user = @user
 
-    if @booking.update(params[:booking].permit(:user_id, :start_time, :length))
+    if @booking.update(params[:booking].permit(:user_id, :start_time, :length, :accepted))
       flash[:notice] = 'Your booking was updated succesfully'
 
       if request.xhr?

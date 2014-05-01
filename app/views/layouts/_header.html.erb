@@ -24,10 +24,12 @@
       <% if user_signed_in? %>
 				<li>CURRENT USER ID: <%= current_user.id %></li>
         <li> Logged in as <%= current_user.first_name %> </li>
+        <li><%= link_to "Bookings", bookings_path(current_user) %></li>
         <li><%= link_to 'Messages', conversations_path %></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
       <% else %>
+
         <li><%= link_to('Sign in', new_user_session_path) %></li>
         <li><%= link_to('Sign up', new_user_registration_path) %></li>
       <% end %>
