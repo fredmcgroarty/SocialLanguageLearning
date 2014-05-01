@@ -19,6 +19,7 @@ FactoryGirl.define do
     first_lang "French"
     first_lang_lvl 3
     second_lang "Spanish"
+    second_lang_lvl 2
   end
 
   factory :user_total_profile_2, class: "UserProfile" do

@@ -3,9 +3,9 @@ class BookingsController < ApplicationController
   
   before_action :find_user
 
-
   def missing_information
-    current_user.user_profile.attributes.values.any? {|at| at.nil? }  
+    @user_prof = current_user.user_profile
+    @user_prof.native_lang.nil? || @user_prof.first_lang.nil? || @user_prof.first_name.empty? || @user_prof.last_name.empty? 
   end
 
   def index
