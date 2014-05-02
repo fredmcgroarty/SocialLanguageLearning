@@ -31,7 +31,7 @@
 				<% @userbookings.each do |x| %>
 					<% x.user_id == @user.id ? a = x.student_id : a = x.user_id %>
 					<% y = User.first params[a] %>
-					Appointment with <%= y.first_name %>
+					Appointment with <%= y.first_name %> <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
 					Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %>
 					<%= link_to "View Booking", edit_booking_path(x) %><%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
 				<% end %>
