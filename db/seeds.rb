@@ -11,10 +11,19 @@
 #    user.user_profile.save
 # end
 
-User.create(email: "fred@a.com", password: "12345678", sign_in_count: 0)
-User.create(email: "mark@a.com", password: "12345678", sign_in_count: 0)
-User.create(email: "tiff@a.com", password: "12345678", sign_in_count: 0)
-User.create(email: "ruslan@a.com", password: "12345678", sign_in_count: 0)
+User.delete_all
+user = User.create!(email: "fred@a.com", password: "12345678", sign_in_count: 0)
+user.user_profile.update({user_id: "1", first_name: "Fred", last_name: "Bentos", dob: DateTime.strptime("09/14/1985", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user.user_profile.save
+user2 = User.create(email: "mark@a.com", password: "12345678", sign_in_count: 0)
+user2.user_profile.update({user_id: "2", first_name: "Mark", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user2.user_profile.save
+user3 = User.create(email: "tiff@a.com", password: "12345678", sign_in_count: 0)
+user3.user_profile.update({user_id: "3", first_name: "Tiff", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 2, picture_file_name: '/spec/images/profile.jpg', native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user3.user_profile.save
+user4 = User.create(email: "ruslan@a.com", password: "12345678", sign_in_count: 0)
+user4.user_profile.update({user_id: "4", first_name: "Ruslan", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user4.user_profile.save
 
 Language.create(name: "English")
 Language.create(name: "French")
@@ -30,9 +39,3 @@ Topic.create(name: "Computers", english: true, french: true, spanish: true)
 Topic.create(name: "Food", english: true, french: true, spanish: true)
 Topic.create(name: "Hobbies", english: true, french: true, spanish: true)
 Topic.create(name: "Holidays", english: true, french: true, spanish: true)
-
-
-UserProfile.create(user_id: 1, first_name: "Fred", last_name: "Bentos", dob: DateTime.strptime("09/14/1985", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London")
-UserProfile.create(user_id: 2, first_name: "Mark", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London")
-UserProfile.create(user_id: 3, first_name: "Tiff", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 2, picture_file_name: '/spec/images/profile.jpg', native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London")
-UserProfile.create(user_id: 4, first_name: "Ruslan", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture_file_name: '/spec/images/profile.jpg', native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London")
