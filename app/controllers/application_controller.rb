@@ -3,8 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def missing_information
+    if current_user
+      missing_info = (current_user.user_profile.first_name.empty? ||
+      current_user.user_profile.last_name.empty? ||
+      current_user.user_profile.dob.nil? ||
+      current_user.user_profile.gender.nil? ||
+      current_user.user_profile.picture_file_name.nil? ||
+      current_user.user_profile.native_lang.empty? ||
+      current_user.user_profile.first_lang.empty? ||
+      current_user.user_profile.second_lang.empty?)
+    end
+    missing_info || !current_user
+  end
 
-  def profile_requred
+  def redirect_to_sign_in
+    flash[:alert] = "Please sign in or complete your profile to use this feature"
+    redirect_to '/'
   end
 
 	protected
