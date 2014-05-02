@@ -10,7 +10,7 @@
 			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
-			<%= 'You have '+@unread_count + ' unread messages' %>
+			<%= 'You have '+ "#{ pluralize(@unread_count, 'unread message')}"%>
 
 			<br>
 		</div>
@@ -45,7 +45,7 @@
 				<% current_user.compatible_users.each do |users| %>
 					<div class="col-md-2">
 						<div class="matched-user-profiles">
-							<% next if users == current_user %>
+							<% next if users.id == current_user.id %>
 							<% if users.user_profile  %> 
 								<%= image_tag users.user_profile.picture.url(:thumb) %>
 								<%= link_to users.first_name, user_profile_path(users) %> 
