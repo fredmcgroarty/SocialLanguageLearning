@@ -1,39 +1,30 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+  <div class="header">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+ <!--      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'LangLang', root_path, class: "navbar-brand" %>
+      </button> -->
+      <%= link_to image_tag("polyglt_logo.png"), root_path, class: "header_logo" %>
+      <p>POLYGLT</p>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+
+      
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
 				<li>CURRENT USER ID: <%= current_user.id %></li>
         <li> Logged in as <%= current_user.first_name %> </li>
-        <li><%= link_to "Bookings", bookings_path(current_user) %></li>
+        <li><%= link_to "Appointments", bookings_path(current_user) %></li>
         <li><%= link_to 'Messages', conversations_path %></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-
-        <li><%= link_to('Sign in', new_user_session_path) %></li>
-        <li><%= link_to('Sign up', new_user_registration_path) %></li>
       <% end %>
-        <li class="dropdown">
+        <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Languages<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "View Languages", languages_path %></li>
@@ -42,7 +33,7 @@
             <li class="divider"></li>
             <li><%= link_to "View all users", user_profiles_path %></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
