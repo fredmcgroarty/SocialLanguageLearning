@@ -46,9 +46,13 @@
 		text-align: center;
 	}
 
+/*	.main-content .matched-user-profiles .col-md-2{
+		margin-top: -100px;
+	}*/
+
 		.matched-user-profiles img{
-		width:140px;
-		height:140px;
+		width:70%;
+/*		height:140px;*/
 		border-radius: 7px;
 		margin-top: 15px;
 		}
@@ -96,8 +100,7 @@
 
 .mini-profile-avatar{
 	margin-top: 30px;
-	width:200px;
-	height: 200px;
+	width:80%;
 	border-radius: 7px;
 	
 }
@@ -109,4 +112,18 @@
 	padding-left: 12px;
 	color:#a1f4ea;
 
+}
+/*
+.main-content .col-md-10{
+	margin-top: 100px;
+}
+
+.main-content .col-md-2{
+	margin-top: 100px;
+}
+*/
+
+.main-content
+{
+	height: 100px;
 }
