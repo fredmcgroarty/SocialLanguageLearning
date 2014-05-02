@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501135003) do
+ActiveRecord::Schema.define(version: 20140502125558) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20140501135003) do
     t.integer  "user_id"
     t.integer  "student_id"
     t.boolean  "accepted"
-    t.boolean  "exepted"
     t.string   "lang1"
     t.string   "lang2"
     t.integer  "topic_id"
@@ -101,9 +100,6 @@ ActiveRecord::Schema.define(version: 20140501135003) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "english"
-    t.boolean  "french"
-    t.boolean  "spanish"
   end
 
   create_table "user_infos", force: true do |t|
