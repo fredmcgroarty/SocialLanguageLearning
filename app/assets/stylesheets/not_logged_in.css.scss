@@ -1,6 +1,20 @@
-.splash1 {
-  background: url("splash1.jpg");
-  height: 500px;
-  width: 100%;
+#splash1 .bcg {
+  background-image: url("splash1.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 900px;
+}
 
+.splash-text {
+  background-color: white;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+}
+
+#splash3 .bcg {
+  background: url("paris.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 900px;
 }
