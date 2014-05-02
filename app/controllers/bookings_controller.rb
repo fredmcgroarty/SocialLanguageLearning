@@ -15,15 +15,13 @@ class BookingsController < ApplicationController
     current_user.user_profile.native_lang.empty? ||
     current_user.user_profile.first_lang.empty? ||
     current_user.user_profile.second_lang.empty?
-    
-  
   end
 
       
 
   def index
-
     return redirect_to_sign_in if missing_information
+  end 
 
   def missing_information
     @user_prof = current_user.user_profile
@@ -37,10 +35,7 @@ class BookingsController < ApplicationController
     end
     @bookings = Booking.all
     @userbookings = []
-
-
     @user = current_user
-    
     if @user
       @bookings = Booking.all
       @userbookings = []
