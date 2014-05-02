@@ -37,17 +37,19 @@ class BookingsController < ApplicationController
       flash[:alert] = "You cannot invite yourself!"
       return redirect_to '/'
     end
-    if params[:start_time] == nil
-      flash[:alert] = "Please enter a valid duration"
-      return redirect_to "/user_profiles/#{@user.id}"
-    end
+
     @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length, :topic_id))
     @booking.lang1 = @user.native_lang
     @booking.user_id = @user.id
     @booking.student = current_user
     @booking.lang2 = @booking.student.native_lang
-  
-    @booking.save        
+
+    if @booking.length == nil
+      flash[:alert] = "Please enter a valid duration"
+      return redirect_to "/user_profiles/#{@user.id}"
+    end
+
+    @booking.save!
     @recipient = User.find(params[:user_id])
     body = render_to_string('bookings/_body', layout: false).html_safe
     subject = "New booking request!"
@@ -103,14 +105,14 @@ class BookingsController < ApplicationController
 
   private
 
-  def save booking
-    if @booking.save
-        flash[:notice] = 'booking added'
-        redirect_to user_booking_path(@user, @booking)
-      else
-        render 'new'
-      end
-  end
+  # def save booking
+  #   if @booking.save
+  #       flash[:notice] = 'booking added'
+  #       redirect_to user_booking_path(@user, @booking)
+  #     else
+  #       render 'new'
+  #     end
+  # end
 
   def find_user
     if params[:user_id]
