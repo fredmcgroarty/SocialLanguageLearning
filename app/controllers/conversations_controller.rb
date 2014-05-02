@@ -9,6 +9,18 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def create
+    recipient_emails = conversation_params(:recipients).split(',')
+    recipients = User.where(email: recipient_emails).all
+
+
+    ## using first, needs to be changed to handle all array
+    conversation = current_user.
+      send_message(recipients.first, *conversation_params(:body, :subject)).conversation
+
+    redirect_to conversation
+  end
+
   def reply
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
     redirect_to conversation
