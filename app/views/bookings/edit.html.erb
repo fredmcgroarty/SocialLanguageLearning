@@ -7,6 +7,7 @@
   until
   <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
 <%= form_for([@user, @booking]) do |f| %>
+<p>
     <% if @booking.user_id == current_user.id && !@booking.accepted? %>
     	<%= f.check_box :accepted %> Please tick this box to confirm
     <% elsif @booking.user_id == current_user.id && @booking.accepted? %>
@@ -17,6 +18,6 @@
     	<%= "Awaiting confirmation" %>
     <% end %>
   </p>
-  <%= (f.submit 'Submit', class: "btn btn-info") if @booking.user_id == current_user.id && !@booking.accepted? %><%= link_to "Cancel booking", booking_path(@booking), method: "delete", class: "btn btn-danger" %><%= link_to "View all bookings", bookings_path(@user), class: "btn btn-info" %>
+  <%= (f.submit 'Submit', class: "btn btn-info") if @booking.user_id == current_user.id && !@booking.accepted?  %><%= link_to "Cancel booking", booking_path(@booking), method: "delete", class: "btn btn-danger" %><%= link_to "View all bookings", bookings_path(@user), class: "btn btn-info" %>
  <% end %>
 </div>
