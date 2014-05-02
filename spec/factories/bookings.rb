@@ -6,6 +6,7 @@ FactoryGirl.define do
     length 1
     user_id 1
     student_id 2
+    accepted true 
   end
 
 end
