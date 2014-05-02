@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_one :user_info 
   has_one :user_profile
   has_many :bookings
+  has_many :user_reviews
+  
 
   delegate  :first_name,
             :last_name,

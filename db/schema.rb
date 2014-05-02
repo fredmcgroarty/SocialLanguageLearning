@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502125231) do
+ActiveRecord::Schema.define(version: 20140502152425) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -129,6 +129,20 @@ ActiveRecord::Schema.define(version: 20140502125231) do
     t.integer  "second_lang_lvl",      default: 1
     t.string   "location"
   end
+
+  create_table "user_reviews", force: true do |t|
+    t.integer  "for_user_id"
+    t.text     "rev1"
+    t.text     "rev2"
+    t.integer  "score"
+    t.string   "topic"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "by_user_id"
+  end
+
+  add_index "user_reviews", ["for_user_id"], name: "index_user_reviews_on_for_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
