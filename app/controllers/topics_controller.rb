@@ -1,14 +1,17 @@
 class TopicsController < ApplicationController
 
 	def index
+		return redirect_to_sign_in if missing_information
 		@topics = Topic.all
 	end
 
 	def new
+		return redirect_to_sign_in if missing_information
 		@topic = Topic.new
 	end
 
 	def create
+		return redirect_to_sign_in if missing_information
 		topic = Topic.new topic_params
 
 		%w(english french spanish).each do |lang|
@@ -45,6 +48,7 @@ class TopicsController < ApplicationController
 	end
 
 	def destroy
+		return redirect_to_sign_in if missing_information
 		@topic = Topic.find params[:id]
 		@topic.destroy
 		flash[:notice] = "language removed from the database"
@@ -52,10 +56,12 @@ class TopicsController < ApplicationController
 	end
 
 	def edit
+		return redirect_to_sign_in if missing_information
 		@topic = Topic.find params[:id]
 	end
 
 	def update
+		return redirect_to_sign_in if missing_information
 		@topic = Topic.find params[:id]
 		@topic.update topic_params
 		flash[:notice] = "language updated successfully"
@@ -63,6 +69,7 @@ class TopicsController < ApplicationController
 	end
 
 	def show
+		return redirect_to_sign_in if missing_information
 		@topic = Topic.find params[:id]
 	end
 

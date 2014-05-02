@@ -3,42 +3,57 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def index
+    return redirect_to_sign_in if missing_information
     @conversations ||= current_user.mailbox.inbox.all
     if @conversations.to_a.any?
       redirect_to @conversations.first
     end
   end
 
+  def create
+    recipient_emails = conversation_params(:recipients).split(',')
+    recipients = User.where(email: recipient_emails).all
+
+
+    ## using first, needs to be changed to handle all array
+    conversation = current_user.
+      send_message(recipients.first, *conversation_params(:body, :subject)).conversation
+
+    redirect_to conversation
+  end
+
   def reply
+    return redirect_to_sign_in if missing_information
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
     redirect_to conversation
   end
 
-  ####################################
 
-  def trashbin     
+  def trashbin 
+    return redirect_to_sign_in if missing_information    
     @trash ||= current_user.mailbox.trash.all   
   end
 
-  def trash  
+  def trash
+    return redirect_to_sign_in if missing_information  
     conversation.move_to_trash(current_user)  
     redirect_to :conversations 
   end 
 
-  def untrash  
+  def untrash
+    return redirect_to_sign_in if missing_information 
     conversation.untrash(current_user)  
     redirect_to :back 
   end
 
   def empty_trash   
+    return redirect_to_sign_in if missing_information
     current_user.mailbox.trash.each do |conversation|    
       conversation.receipts_for(current_user).update_all(:deleted => true)
     end
     redirect_to :back
   end
 
- 
-  #########################################
 
   private
    
