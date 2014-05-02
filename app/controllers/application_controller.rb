@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_sign_in
-    flash[:alert] = "Please sign in to use this feature"
+    flash[:alert] = "Please sign in or complete your profile to use this feature"
     redirect_to '/'
   end
 
