@@ -1,6 +1,10 @@
 <title>
 	Welcome to langlang 
 </title>
+
+<head><link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'></head>>
+
+
 <% if user_signed_in? %>
 	<h1>Welcome to langlang <%= @user.email %></h1>
 	<%= link_to "inbox", conversations_path %>
