@@ -32,9 +32,11 @@
 
 					<p>
 
-						 Appointment with <%= x.not_you(current_user).first_name %><br><%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
+						 Appointment with: <%= x.not_you(current_user).first_name %><br>
+						 Status: <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
 						 <br>
-						Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %><br>
+						Starts at: <%="#{x.start_time.strftime('%I:%M:%S %p')}"%><br> 
+						Duration:<%= pluralize(x.length, "hour") %><br>
 						<%= link_to "View Booking", edit_booking_path(x) %>   <%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br /></p>
 					<% end %>
 				<% end %>
