@@ -45,6 +45,7 @@
 				<% current_user.compatible_users.each do |users| %>
 					<div class="col-md-2">
 						<div class="matched-user-profiles">
+							<% next if users == current_user %>
 							<% if users.user_profile  %> 
 								<%= image_tag users.user_profile.picture.url(:thumb) %>
 								<%= link_to users.first_name, user_profile_path(users) %> 
