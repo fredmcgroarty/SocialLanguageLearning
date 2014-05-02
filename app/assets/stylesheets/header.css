@@ -3,23 +3,32 @@
 }
 
 .header_logo img{
-  margin-top: 2px;
   width: 85px;
   height: 60px;
 }
 
-.header p {
+.header_right{
+}
+
+.polyglot_name {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
-  display: inline;
-  margin-top: 15px;
   color: #A3ACB2;
+  display: inline;
+  text-decoration: none;
 }
+
+.polyglot_name:hover{
+  text-decoration: none;
+  color: #5F6B6B;
+}
+
 
 .header{
   height: 70px;
   padding: 4px 5px; 
-
   box-shadow: 0 5px 5px #888888;
-
+   
 }
+
+

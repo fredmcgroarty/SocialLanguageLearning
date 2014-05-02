@@ -2,31 +2,31 @@
 	Welcome to langlang 
 </title>
 
-<head><link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'></head>
 
 
-<% if user_signed_in? %>
-	<h1>Welcome to langlang <%= @user.email %></h1>
-	<%= link_to "inbox", conversations_path %>
+
 
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
-			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
+			<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
-			<%= 'You have '+ "#{ pluralize(@unread_count, 'unread message')}"%>
+			
+				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
 
 			<br>
 		</div>
 	</div>
 	<div class="col-md-10">
 		<div class='main-splash-container'>
+	<!-- 		<% if user_signed_in? %>
+				<h1>Welcome to langlang <%= @user.email %></h1> -->
 			<% if @user && @user.native_lang.nil? %>
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
 			<div class="row user-appointments">
 				<% if @user %>
-					<p>USER CALENDAR APPOINTMENTS</p>
+					<h2>UPCOMING APPOINTMENTS</h2>
 					<%current_user.bookings.each do |booking|%>
 						<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
 							You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
@@ -57,15 +57,19 @@
 							<% next if users.id == current_user.id %>
 							<% if users.user_profile  %> 
 								<%= image_tag users.user_profile.picture.url(:thumb) %>
+								<br>
+								<div class="matched-user-profiles-description">
 								<%= link_to users.first_name, user_profile_path(users) %> 
-								<h5 class='user-name'><%= users.user_profile.first_name %> <%= users.user_profile.last_name %></h5> 
+								<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+								<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+								</div>
 							<% end %>
 						</div>
 					</div>
 				<% end %>
 			</div>
 			<div class="row topics">
-				<p>TOPICS</p>
+				<h2>TOPICS</h2>
 				<% @topics.each do |x| %>
 					<%= link_to x.name, topic_path(x) %><br />
 				<% end %>
