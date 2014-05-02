@@ -2,7 +2,7 @@
 
 <div class='booking-form-accept-reject'>
 <%= render 'errors' %>
- Booking requested by : <%= @booking.student.name %> <br />
+ Booking requested by: <%= @booking.student.name %> <br />
  Starting at: <%= @booking.start_time.strftime('%e %b %H:%M%p') %>
   until
   <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
