@@ -4,8 +4,5 @@ FactoryGirl.define do
   factory :topic do
     name "Sports"
     created_at Time.now
-    english true
-    french false
-    spanish false
   end
 end

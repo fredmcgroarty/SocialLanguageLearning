@@ -14,7 +14,8 @@ describe "bookings" do
   		booking_lesson(@french_first_lang)
   	end
 
-  	it "should inform the other user via an insite message" do 
+  	it "should inform the other user via an insite message" do
+  		puts page.html
 			expect(@french_first_lang.mailbox.inbox.last.subject).to eq "New booking request!"
 		end
 
@@ -37,7 +38,7 @@ describe "bookings" do
 			visit '/'
 			expect(page).to have_content 'Appointment with Mark is awaiting confirmation'
 			click_link 'View Booking'
-			expect(page).to have_content ' Booking requested by : Mark M Starting at: 30 May 09:00AM until 30 May 2014 10:00AM'
+			expect(page).to have_content 'Booking requested by: Mark M Starting at: 30 May 09:00AM until 30 May 2014 10:00AM'
 			find(:css, "#booking_accepted").set(true)
 			within(:css,'.edit_booking') do 
 				click_button 'Submit'
@@ -50,7 +51,7 @@ describe "bookings" do
 			@booking = create(:booking)
  			login_as @english_first_lang
 			visit '/'
-			expect(page).to have_content ' Appointment with Mark has been confirmed. Starts at 05:00:00 AM, for 1 hour'
+			expect(page).to have_content ' Appointment with Tiff has been confirmed. Starts at 05:00:00 AM, for 1 hour'
 		end
 	end
 end

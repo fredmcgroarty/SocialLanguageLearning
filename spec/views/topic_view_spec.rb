@@ -28,7 +28,6 @@ describe 'Topic index page' do
 
 		it "should display all topics" do
 			visit '/topics'
-			save_and_open_page
 			click_link "Add more topics"
 			fill_in "topic_name", with: "Sports"
 			click_button "Create Topic"
