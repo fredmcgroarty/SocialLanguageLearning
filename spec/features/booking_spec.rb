@@ -2,18 +2,18 @@ require 'spec_helper'
 
 describe "bookings" do 
 
-  before(:each) do
-    @english_first_lang = create(:user)
-    @english_first_lang.user_profile = create(:user_total_profile_1)
-  	@french_first_lang = create(:user)    
-    @french_first_lang.user_profile = create(:user_total_profile_2)
-  end
 
   context "English native speaker books lesson with French native speaker" do
-
-  	it "should inform the other user via an insite message" do 
+  	before(:each) do
+  	  @english_first_lang = create(:user)
+  	  @english_first_lang.user_profile = create(:user_total_profile_1)
+  		@french_first_lang = create(:user)    
+  	  @french_first_lang.user_profile = create(:user_total_profile_2)
   		login_as @english_first_lang
   		booking_lesson(@french_first_lang)
+  	end
+
+  	it "should inform the other user via an insite message" do 
 			expect(@french_first_lang.mailbox.inbox.last.subject).to eq "New booking request!"
 		end
 
