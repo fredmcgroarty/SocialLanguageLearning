@@ -1,6 +1,6 @@
-#splash1 .bcg {
-  background-image: url("splash1.jpg");
-  background-size: 100%;
+
+.bcg {
+  background-size: 120%;
   background-repeat: no-repeat;
   height: 900px;
 }
@@ -12,9 +12,18 @@
   text-align: center;
 }
 
+#splash1 .bcg {
+  background-image: url("london.jpg");
+}
+
 #splash3 .bcg {
-  background: url("paris.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  height: 900px;
+  background-image: url("paris.jpg");
+}
+
+#splash5 .bcg {
+  background-image: url("barcelona.jpg");
+}
+
+#splash7 .bcg {
+  background-image: url("singapore.jpg");
 }
