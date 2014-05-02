@@ -18,8 +18,10 @@ class BookingsController < ApplicationController
   
   end
 
+      
 
   def index
+
     return redirect_to_sign_in if missing_information
     @user = current_user
     if @user
