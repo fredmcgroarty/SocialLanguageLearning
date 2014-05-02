@@ -10,12 +10,13 @@ class BookingsController < ApplicationController
 
   def index
     if missing_information
-          flash[:alert] = "You can only view your booking if you have filled out your user profile"
+      flash[:alert] = "In order to use the site please fill out your user profile"
       redirect_to  edit_user_profile_path(current_user)
     end
     @bookings = Booking.all
     @userbookings = []
     @user = current_user
+    
     if @user
       @bookings.each do |x|
         if x.user_id == @user.id || x.student_id == @user.id
