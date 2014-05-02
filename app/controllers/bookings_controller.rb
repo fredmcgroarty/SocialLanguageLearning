@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
         if x.user_id == @user.id || x.student_id == @user.id
           @userbookings << x
         end 
-      end
+      
     end
     @userbookings
   end
