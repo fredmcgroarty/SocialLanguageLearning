@@ -19,12 +19,10 @@ describe 'Spec Helper' do
 			fill_in "Subject", :with => 'Hello'
 			fill_in "body", :with => 'This is a message'
 			click_button 'Send message'
-
-
 		end
- 
-		end
+			
 	end
+end
 
 
 
