@@ -2,7 +2,9 @@
 
 </div>
 
-<div class="col-md-4"> 
+<div class="col-md-4">
+
+<%= link_to "Start new conversation", new_conversation_path, class: "btn btn-success" %>
 
 <% @conversations.each do |conversation| %>
 
