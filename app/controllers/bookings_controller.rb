@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 
   def create
     return redirect_to_sign_in if missing_information
-    if @user.id = current_user
+    if @user.id == current_user
       flash[:alert] = "You cannot invite yourself!"
       return redirect_to '/'
     end
