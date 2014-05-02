@@ -1,5 +1,6 @@
 <h3>Edit booking for <%= @user.email %></h3>
 
+<div class='booking-form-accept-reject'>
 <%= render 'errors' %>
  Booking requested by : <%= @booking.student.name %> <br />
  Starting at: <%= @booking.start_time.strftime('%e %b %H:%M%p') %>
@@ -19,3 +20,4 @@
   </p>
   <%= (f.submit 'Submit', class: "btn btn-info") if @booking.user_id == current_user.id && !@booking.accepted?  %><%= link_to "Cancel booking", booking_path(@booking), method: "delete", class: "btn btn-danger" %><%= link_to "View all bookings", bookings_path(@user), class: "btn btn-info" %>
  <% end %>
+</div>

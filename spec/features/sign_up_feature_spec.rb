@@ -45,6 +45,8 @@ describe 'registering' do
         visit '/'
         expect(page).to have_content "You need to create your language profile"
       end
+
+      
     end
   end
 end
