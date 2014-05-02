@@ -10,8 +10,8 @@
       <div class="message_content">
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
           <% message = receipt.message %>
-          <p><h6><%= message.created_at.strftime("%I:%M %p %b %d") %>: <%= message.subject %></h6></p>
-          <%= conversation.receipts_for(current_user) %>
+          <p><h6><%= message.created_at.strftime("%I:%M %p %b %d") %>
+          <%= conversation.receipts_for(current_user) %><br />
           <%= message.body %>
         <% end %>
       </div>
@@ -21,7 +21,5 @@
 <div class="col-md-4"> 
   <div id="calendar"></div>
 </div>
-
-
 
 
