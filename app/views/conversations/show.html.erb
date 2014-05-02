@@ -11,8 +11,7 @@
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
           <% message = receipt.message %>
           <p><h6><%= message.created_at.strftime("%I:%M %p %b %d") %>
-          <%= conversation.receipts_for(current_user) %><br />
-          <%= message.body %>
+          <%= message.body.html_safe %>
         <% end %>
       </div>
     </ul>
