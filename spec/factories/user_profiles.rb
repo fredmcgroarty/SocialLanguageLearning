@@ -18,6 +18,7 @@ FactoryGirl.define do
     first_lang_lvl 3
     second_lang "Spanish"
     second_lang_lvl 2
+    dob DateTime.strptime("09/14/1985", "%m/%d/%Y")
   end
 
   factory :user_total_profile_2, class: "UserProfile" do
@@ -28,6 +29,7 @@ FactoryGirl.define do
     first_lang_lvl 3
     first_lang "French"
     second_lang "Spanish"
+    dob DateTime.strptime("09/14/1985", "%m/%d/%Y")
   end
 
   factory :user_total_profile_3, class: "UserProfile" do
@@ -37,6 +39,7 @@ FactoryGirl.define do
     native_lang "English"
     first_lang "French"
     second_lang "Spanish"
+    dob DateTime.strptime("09/14/1985", "%m/%d/%Y")
   end
 
 
@@ -46,6 +49,7 @@ FactoryGirl.define do
     native_lang "English"
     first_lang "French"
     second_lang "Spanish"
+    dob DateTime.strptime("09/14/1985", "%m/%d/%Y")
   end
 
   factory :user_total_profile_5, class: "UserProfile" do
@@ -56,6 +60,7 @@ FactoryGirl.define do
     first_lang "English"
     first_lang_lvl 3
     second_lang "Spanish"
+    dob DateTime.strptime("09/14/1985", "%m/%d/%Y")
   end
 
 
