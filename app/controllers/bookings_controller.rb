@@ -15,15 +15,13 @@ class BookingsController < ApplicationController
     current_user.user_profile.native_lang.empty? ||
     current_user.user_profile.first_lang.empty? ||
     current_user.user_profile.second_lang.empty?
-    
-  
   end
 
       
 
   def index
-
     return redirect_to_sign_in if missing_information
+  end 
 
   def missing_information
     @user_prof = current_user.user_profile
@@ -37,10 +35,7 @@ class BookingsController < ApplicationController
     end
     @bookings = Booking.all
     @userbookings = []
-
-
     @user = current_user
-    
     if @user
       @bookings = Booking.all
       @userbookings = []
@@ -65,19 +60,19 @@ class BookingsController < ApplicationController
       flash[:alert] = "You cannot invite yourself!"
       return redirect_to '/'
     end
-    if params[:start_time] == nil
-      flash[:alert] = "Please enter a valid duration"
-      return redirect_to "/user_profiles/#{@user.id}"
-    end
     @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length, :topic_id))
     @booking.lang1 = @user.native_lang
     @booking.user_id = @user.id
     @booking.student = current_user
     @booking.lang2 = @booking.student.native_lang
+    if @booking.length == nil
+      flash[:alert] = "Please enter a valid duration"
+      return redirect_to "/user_profiles/#{@user.id}"
+    end
   
-    @booking.save        
+    @booking.save!        
     @recipient = User.find(params[:user_id])
-    body = render_to_string('bookings/_body', layout: false).html_safe
+    body = (render_to_string('bookings/_body', layout: false)).html_safe
     subject = "New booking request!"
     current_user.send_message(@recipient, body, subject)
     flash[:notice] = "Invite has been sent!"

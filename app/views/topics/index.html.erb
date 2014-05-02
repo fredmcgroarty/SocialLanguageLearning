@@ -3,9 +3,6 @@
 		<div class="topic">
 			<% @topics.each do |x| %> 
 					<%= link_to "#{x.name}", topic_path(x) %> <br />
-					English? <%= x.english? ? "Supported" : "Not implemented yet" %><br />
-					French? <%= x.french? ? "Supported" : "Not implemented yet" %><br />
-					Spanish? <%= x.spanish? ? "Supported" : "Not implemented yet" %><br /><br /><br />
 			<% end %>
 		</div>
 	<% else %>
