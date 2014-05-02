@@ -30,8 +30,10 @@ end
         attach_file 'user_profile_picture', Rails.root.join('spec/images/profile.jpg')
         click_button 'Update User profile'
       end
-      expect(User.first.picture.url).not_to eq ('/pictures/original_missing.png') 
-      expect(@mark.user_profile.picture_file_name).to eq ('/pictures/original_missing.png') 
+      expect(User.last.picture.url).to eq ('/pictures/profile.jpg') 
+      expect(User.last.user_profile.picture_file_name).to eq ('profile.jpg') 
+
+      expect(@mark.user_profile.picture_file_name).to eq ('profile.jpg') 
 
     end
   end

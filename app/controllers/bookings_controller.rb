@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
 
   def missing_information
-    current_user.user_profile.first_name.empty? ||
+    current_user.user_profile.first_name.nil? ||
     current_user.user_profile.last_name.empty? ||
     current_user.user_profile.dob.nil? ||
     current_user.user_profile.gender.nil? ||
