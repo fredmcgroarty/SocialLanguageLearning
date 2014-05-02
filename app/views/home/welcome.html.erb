@@ -21,19 +21,19 @@
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
 			<div class="row user-appointments">
-				<p>USER CALENDAR APPOINTMENTS</p>
+				<% if @user %>
+					<p>USER CALENDAR APPOINTMENTS</p>
+					<%current_user.bookings.each do |booking|%>
+						<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
+							You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
+						<% end%>	
+					<% end%>
+					<% @userbookings.each do |x| %>
 
-				<%current_user.bookings.each do |booking|%>
-					<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
-						You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
-					<% end%>	
-				<% end%>
-				<% @userbookings.each do |x| %>
-					<% x.user_id == @user.id ? a = x.student_id : a = x.user_id %>
-					<% y = User.first params[a] %>
-					Appointment with <%= y.first_name %> <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
-					Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %>
-					<%= link_to "View Booking", edit_booking_path(x) %><%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
+						Appointment with <%= x.not_you(current_user).first_name %> <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
+						Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %>
+						<%= link_to "View Booking", edit_booking_path(x) %><%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
+					<% end %>
 				<% end %>
 			<div class="calendar_container_small">
 				<div id="calendar">
