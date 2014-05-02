@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   get 'registrations/after_sign_up_path_for'
 
-  #get 'after_sign_up_fails_path_for(sign_up_path)'
+  
 
   root 'home#welcome'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users do
     resources :bookings
     resources :messages, only: [:new, :create]

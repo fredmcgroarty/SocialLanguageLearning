@@ -22,3 +22,4 @@ class Booking < ActiveRecord::Base
   	self.student == me ? user : student 
   end
 
+end
