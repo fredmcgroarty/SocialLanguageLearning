@@ -1,17 +1,25 @@
 require 'spec_helper'
 
 describe 'Topic index page' do
+	before(:each) do 
+		@mark = create(:user)
+		@mark.user_profile = create(:user_total_profile_1)
+	end
+
 
 	context "with no topics added" do
 
 		it "should inform the user there are no topics in the DB" do
-			visit '/topics'
+		login_as @mark
 
+			visit '/topics'
 			expect(page).to have_content "No topics added yet!!!"
 
 		end
 
 		it "should add a topic to the DB when attempting to" do
+		login_as @mark
+
 			visit '/topics'
 			click_link "Add more topics"
 			fill_in "topic_name", with: "Sports"
@@ -26,8 +34,10 @@ describe 'Topic index page' do
 	context "with multiple topics added" do
 
 		it "should display all topics" do
+		login_as @mark
 
 			visit '/topics'
+			save_and_open_page
 			click_link "Add more topics"
 			fill_in "topic_name", with: "Sports"
 			click_button "Create Topic"
