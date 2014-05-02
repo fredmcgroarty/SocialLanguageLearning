@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501135003) do
+ActiveRecord::Schema.define(version: 20140502124911) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20140501135003) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
+<<<<<<< HEAD
     t.boolean  "exepted"
+=======
+>>>>>>> 53873ad938993de66e100ab1ab39a5e2785d3e30
     t.boolean  "accepted"
     t.string   "lang1"
     t.string   "lang2"
