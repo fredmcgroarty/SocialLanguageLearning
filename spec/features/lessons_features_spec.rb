@@ -16,7 +16,6 @@ describe "home page" do
       visit '/'
       expect(page).not_to have_content('GO TO LESSON')
     end
-
   end
 
   context "lesson booked" do

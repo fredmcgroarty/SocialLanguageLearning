@@ -6,7 +6,7 @@ class ConversationsController < ApplicationController
     return redirect_to_sign_in if missing_information
     @conversations ||= current_user.mailbox.inbox.all
     if @conversations.to_a.any?
-      redirect_to @conversations.first
+      return redirect_to @conversations.first
     end
   end
 

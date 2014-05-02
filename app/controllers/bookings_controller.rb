@@ -3,16 +3,10 @@ class BookingsController < ApplicationController
   
   before_action :find_user
 
-
-  def missing_information
-    @user_prof = current_user.user_profile
-    @user_prof.native_lang.nil? || @user_prof.first_lang.nil? || @user_prof.first_name.empty? || @user_prof.last_name.empty? 
-  end
-
   def index
     if missing_information
       flash[:alert] = "In order to use the site please fill out your user profile"
-      redirect_to  edit_user_profile_path(current_user)
+      return redirect_to  edit_user_profile_path(current_user)
     end
     @bookings = Booking.all
     @userbookings = []
