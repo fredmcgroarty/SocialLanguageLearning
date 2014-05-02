@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
   
     @booking.save        
     @recipient = User.find(params[:user_id])
-    body = render_to_string('bookings/_body', layout: false)
+    body = render_to_string('bookings/_body', layout: false).html_safe
     subject = "New booking request!"
     current_user.send_message(@recipient, body, subject)
     flash[:notice] = "Invite has been sent!"
