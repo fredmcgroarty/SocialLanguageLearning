@@ -60,5 +60,17 @@ def sign_up_email
   expect(page).to have_content 'signed up successfully'
 end
 
+def booking_lesson(user)
+  visit user_profile_path(user.user_profile)
+  within(:css, ".new_booking.new_booking") do
+    select "2014", :from => "booking[start_time(1i)]"
+    select "May", :from => "booking[start_time(2i)]"
+    select "30", :from => "booking[start_time(3i)]"
+    select "09", :from => "booking[start_time(4i)]"
+    select "00", :from => "booking[start_time(5i)]"
+    fill_in 'booking[length]', with: '1'
+    click_button 'Submit'
+  end
+end
 
 
