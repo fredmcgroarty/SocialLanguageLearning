@@ -15,7 +15,6 @@ describe "bookings" do
   	end
 
   	it "should inform the other user via an insite message" do
-  		puts page.html
 			expect(@french_first_lang.mailbox.inbox.last.subject).to eq "New booking request!"
 		end
 
