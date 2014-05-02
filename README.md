@@ -55,7 +55,7 @@
 
 * [Capybara](https://github.com/jnicklas/capybara)
 * [Rspec-Rails](https://github.com/rspec/rspec-rails)
-* [Launchy](https://github.com/copiousfreetime/launchy))
+* [Launchy](https://github.com/copiousfreetime/launchy)
 * [Poltergeist](https://github.com/teampoltergeist/poltergeist)
 * [Factory Girl](https://github.com/thoughtbot/factory_girl)
 * [Time Cop](https://github.com/travisjeffery/timecop)
