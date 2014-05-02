@@ -19,14 +19,19 @@ ActiveRecord::Schema.define(version: 20140501135003) do
     t.integer  "length"
     t.integer  "user_id"
     t.integer  "student_id"
-    t.boolean  "exepted"
-<<<<<<< HEAD
     t.boolean  "accepted"
-=======
+  
+
+    t.boolean  "accepted"
+
     t.string   "lang1"
     t.string   "lang2"
     t.integer  "topic_id"
->>>>>>> upstream/master
+
+    t.string   "lang1"
+    t.string   "lang2"
+    t.integer  "topic_id"
+
   end
 
   add_index "bookings", ["student_id"], name: "index_bookings_on_student_id"
