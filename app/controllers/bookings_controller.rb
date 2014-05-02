@@ -37,6 +37,10 @@ class BookingsController < ApplicationController
       flash[:alert] = "You cannot invite yourself!"
       return redirect_to '/'
     end
+    if params[:start_time] == nil
+      flash[:alert] = "Please enter a valid duration"
+      return redirect_to "/user_profiles/#{@user.id}"
+    end
     @booking =  Booking.new(params[:booking].permit(:user_id, :start_time, :length, :topic_id))
     @booking.lang1 = @user.native_lang
     @booking.user_id = @user.id
