@@ -7,9 +7,7 @@ describe 'editting users profile' do
 		create(:user_total_profile_1)
   	@tiff = create(:user)
 		create(:user_total_profile_2)
-    # visit '/user_profile/edit' 
   end
-
 
 	context "user profile display" do 
 	
@@ -20,7 +18,7 @@ describe 'editting users profile' do
       expect(current_path).to eq edit_user_profile_path
       click_button 'Update User profile'
       expect(page).to have_content 'Update successful'
-end
+    end
 
     it "a user can update his profile picture" do
       login_as @mark
@@ -30,11 +28,16 @@ end
         attach_file 'user_profile_picture', Rails.root.join('spec/images/profile.jpg')
         click_button 'Update User profile'
       end
+<<<<<<< HEAD
       expect(User.last.picture.url).to eq ('/pictures/profile.jpg') 
       expect(User.last.user_profile.picture_file_name).to eq ('profile.jpg') 
 
       expect(@mark.user_profile.picture_file_name).to eq ('profile.jpg') 
 
+=======
+      expect(User.first.picture.url).not_to eq ('/pictures/original_missing.png') 
+      expect(@mark.user_profile.picture_file_name).to eq ('/pictures/original_missing.png') 
+>>>>>>> upstream/master
     end
   end
 end

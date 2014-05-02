@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   before_action :find_user
 
 
+<<<<<<< HEAD
 
   def missing_information
     current_user.user_profile.first_name.nil? ||
@@ -23,7 +24,23 @@ class BookingsController < ApplicationController
   def index
 
     return redirect_to_sign_in if missing_information
+=======
+  def missing_information
+    @user_prof = current_user.user_profile
+    @user_prof.native_lang.nil? || @user_prof.first_lang.nil? || @user_prof.first_name.empty? || @user_prof.last_name.empty? 
+  end
+
+  def index
+    if missing_information
+      flash[:alert] = "In order to use the site please fill out your user profile"
+      redirect_to  edit_user_profile_path(current_user)
+    end
+    @bookings = Booking.all
+    @userbookings = []
+
+>>>>>>> upstream/master
     @user = current_user
+    
     if @user
       @bookings = Booking.all
       @userbookings = []
@@ -56,7 +73,7 @@ class BookingsController < ApplicationController
   
     @booking.save        
     @recipient = User.find(params[:user_id])
-    body = render_to_string('bookings/_body', layout: false)
+    body = render_to_string('bookings/_body', layout: false).html_safe
     subject = "New booking request!"
     current_user.send_message(@recipient, body, subject)
     flash[:notice] = "Invite has been sent!"
