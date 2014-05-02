@@ -1,0 +1,11 @@
+<%= form_for :conversation, url: :conversations do |f| %>
+  Email
+  <%= f.text_field :recipients %><br />
+  Subject
+  <%= f.text_field :subject %><br />
+  Body
+  <%= f.text_area :body %><br />
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
