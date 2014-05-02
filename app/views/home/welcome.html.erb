@@ -10,7 +10,7 @@
 			<%= image_tag @user.user_profile.picture.url(:thumb), id: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
-			<%= 'You have '+ '#{ pluralize(@unread_count), "unread message"}' %>
+			<%= 'You have '+ "#{ pluralize(@unread_count, 'unread message')}"%>
 
 			<br>
 		</div>
