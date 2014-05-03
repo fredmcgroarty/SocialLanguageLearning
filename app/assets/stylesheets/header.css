@@ -12,7 +12,8 @@
 .polyglot_name {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
-  color: #F7F7F7;
+  color: #5F6B6B;
+/*  color: #F7F7F7;*/
   display: inline;
   text-decoration: none;
 }
@@ -30,9 +31,9 @@ border-bottom: 7px solid #a1f4ea;
 .header{
   height: 70px;
   padding: 4px 30px; 
-  box-shadow: 0 5px 5px #888888;
-/*  background-color: #69a099;*/
-   
+  box-shadow: 0 2px 5px #888888;
+/*  background-color: #69a099;
+*/   
 }
 
 

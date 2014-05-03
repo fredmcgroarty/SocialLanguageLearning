@@ -3,23 +3,25 @@
 </title>
 
 
-<div class="main-content"></div>
-
+<!-- <div class="main-content"></div>
+ -->
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
+			<% if @user %>
 			<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
 			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 			<h5><%= @user.username %></h5>
 			
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
+			<% end %>
 
 			<br>
 		</div>
 	</div>
 	<div class="col-md-10">
 		<div class='main-splash-container'>
-	<!-- 		<% if user_signed_in? %>
-				<h1>Welcome to langlang <%= @user.email %></h1> -->
+			<% if user_signed_in? %>
+			<!-- 	<h1>Welcome to langlang <%= @user.email %></h1> -->
 			<% if @user && @user.native_lang.nil? %>
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
