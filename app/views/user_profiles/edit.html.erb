@@ -1,17 +1,31 @@
-<h1>Dashboard</h1>
-<p>Find me in app/views/user_profiles/edit.html.erb</p>
-    <div class="col-md-4">
-      <%= image_tag @user_profile.picture.url(:medium) %>
-
-  
-    </div>
-  <div class="col-md-4 edit-prof">
-    <%= render 'edit_profile' %>
-  </div> 
-  <div class="col-md-4 edit-pass">
-    <%= render 'edit_password_and_username' %>
-  </div> 
-
+<div class="col-md-3 edit-profile">
+  <div class="buttons-edit-page">
+  <button type="button" class="btn btn-default btn-lg button" data-button='1'><span>Personal Profile</span> <span class="glyphicon glyphicon-expand"></span></button>
+  <button type="button" class="btn btn-default btn-lg button" data-button='2'><span>Language Profile</span> <span class="glyphicon glyphicon-expand"></span></button>
+  <button type="button" class="btn btn-default btn-lg button" data-button='3'><span>Account Settings</span> <span class="glyphicon glyphicon-expand"></span></button>
 </div>
+</div>
+
+
+<div class="col-md-5 edit-prof">
+  <div class="tab-container-page">
+    <div class="tab-container active" data-tab-number="1">
+      <%= render 'edit_profile' %>
+    </div>
+  </div>
+  <div class="tab-container edit-language-profile" data-tab-number="2">
+    <%= render 'edit_language_profile.html' %>
+  </div>
+  <div class="tab-container" data-tab-number="3">
+    <%= render 'edit_password_and_username' %>
+  </div>
+</div>
+<div class="col-md-3">
+  <%= image_tag @user_profile.picture.url(:medium) %>
+</div>
+
+
+
+
 
      

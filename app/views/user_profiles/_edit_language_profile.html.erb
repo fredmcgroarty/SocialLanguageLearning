@@ -1,0 +1,30 @@
+<h1> Language Profile </h1>
+<%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
+
+
+<table>
+  <tr>
+    <th></th>
+    <th>Language</th>
+    <th>Level</th>
+  </tr>
+  <tr>
+    <td><%= f.label :native_tongue %></td>
+    <td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
+     <td>N/A</td>
+  </tr>
+  <tr>
+    <td><%= f.label :first_language %></td>
+    <td><%= f.select :first_lang, ['English', 'French', 'Spanish'] %></td>
+    <td><%= f.select :first_lang_lvl, [1,2,3,4,5] %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :second_language %></td>
+    <td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
+    <td><%= f.select :second_lang_lvl, [1,2,3,4,5] %></td>
+  </tr>
+  <tr>  
+    <td><%= f.submit 'Update', :class => 'post-button' %></td>
+  </tr>
+</table>
+<% end %>

@@ -29,8 +29,6 @@ describe 'editting users profile' do
         click_button 'Update User profile'
       end
       expect(find('#mini-profile-avatar')['src']).to match 'profile.jpg'
-      # expect(User.first.picture.url).not_to eq ('/pictures/original_missing.png') 
-      # expect(@mark.user_profile.picture_file_name).to eq ('/pictures/original_missing.png') 
     end
   end
 end

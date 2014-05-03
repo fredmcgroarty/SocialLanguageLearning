@@ -1,6 +1,10 @@
 <title>
 	Welcome to langlang 
 </title>
+
+<head><link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'></head>
+
+
 <% if user_signed_in? %>
 	<h1>Welcome to langlang <%= @user.email %></h1>
 	<%= link_to "inbox", conversations_path %>
@@ -30,9 +34,14 @@
 					<% end%>
 					<% @userbookings.each do |x| %>
 
-						Appointment with <%= x.not_you(current_user).first_name %> <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
-						Starts at <%="#{x.start_time.strftime('%I:%M:%S %p')}"%>, for <%= pluralize(x.length, "hour") %>
-						<%= link_to "View Booking", edit_booking_path(x) %><%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br />
+					<p>
+
+						 Appointment with: <%= x.not_you(current_user).first_name %><br>
+						 Status: <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
+						 <br>
+						Starts at: <%="#{x.start_time.strftime('%I:%M:%S %p')}"%><br> 
+						Duration:<%= pluralize(x.length, "hour") %><br>
+						<%= link_to "View Booking", edit_booking_path(x) %>   <%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br /></p>
 					<% end %>
 				<% end %>
 			<div class="calendar_container_small">
@@ -64,10 +73,5 @@
 		</div>
 	</div>
 <% else %>
-	<div class='welcome-container'>
-		<div class='col-md-6 welcome'>
-			<h1><span>LANG LANG DESCRIPTION</span></h1>
-		</div>
-		<%= render 'not_logged_in'  %>
-	</div>
+	<%= render 'not_logged_in'  %>
 <% end %>
