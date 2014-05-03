@@ -1,7 +1,26 @@
 class BookingsController < ApplicationController
   respond_to :html, :xml, :json
-  
   before_action :find_user
+
+  def missing_information
+    current_user.user_profile.first_name.nil? ||
+    current_user.user_profile.last_name.empty? ||
+    current_user.user_profile.dob.nil? ||
+    current_user.user_profile.gender.nil? ||
+    current_user.user_profile.picture_file_name.nil? ||
+    current_user.user_profile.native_lang.empty? ||
+    current_user.user_profile.first_lang.empty? ||
+    current_user.user_profile.second_lang.empty?
+  end
+
+  def index
+    return redirect_to_sign_in if missing_information
+  end 
+
+  def missing_information
+    @user_prof = current_user.user_profile
+    @user_prof.native_lang.nil? || @user_prof.first_lang.nil? || @user_prof.first_name.empty? || @user_prof.last_name.empty? 
+  end
 
   def index
     if missing_information
@@ -10,9 +29,7 @@ class BookingsController < ApplicationController
     end
     @bookings = Booking.all
     @userbookings = []
-
     @user = current_user
-    
     if @user
       @bookings = Booking.all
       @userbookings = []
@@ -48,10 +65,10 @@ class BookingsController < ApplicationController
       flash[:alert] = "Please enter a valid duration"
       return redirect_to "/user_profiles/#{@user.id}"
     end
-
-    @booking.save!
+  
+    @booking.save!        
     @recipient = User.find(params[:user_id])
-    body = render_to_string('bookings/_body', layout: false).html_safe
+    body = (render_to_string('bookings/_body', layout: false)).html_safe
     subject = "New booking request!"
     current_user.send_message(@recipient, body, subject)
     flash[:notice] = "Invite has been sent!"
@@ -89,10 +106,8 @@ class BookingsController < ApplicationController
     return redirect_to_sign_in if missing_information
     @booking = Booking.find(params[:id])
     # @booking.user = @user
-
     if @booking.update(params[:booking].permit(:user_id, :start_time, :length, :accepted, :topic_id))
       flash[:notice] = 'Your booking was updated succesfully'
-
       if request.xhr?
         render json: {status: :success}.to_json
       else
@@ -105,14 +120,14 @@ class BookingsController < ApplicationController
 
   private
 
-  # def save booking
-  #   if @booking.save
-  #       flash[:notice] = 'booking added'
-  #       redirect_to user_booking_path(@user, @booking)
-  #     else
-  #       render 'new'
-  #     end
-  # end
+  def save booking
+    if @booking.save
+        flash[:notice] = 'booking added'
+        redirect_to user_booking_path(@user, @booking)
+    else
+      render 'new'
+    end
+  end
 
   def find_user
     if params[:user_id]

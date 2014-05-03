@@ -1,10 +1,13 @@
-<nav class="navbar navbar-default" role="navigation">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="header">
   
     <div class="navbar-header">
 
       <%= link_to image_tag("polyglt_logo.png"), root_path, class: "header_logo" %>
-      <p>POLYGLT</p>
+
+      <%= link_to 'POLYGLT', root_path, class: "polyglot_name" %>
+    <!--  <div class=""> POLYGLT </div> -->
     </div>
   
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -12,15 +15,21 @@
       
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-				<li>CURRENT USER ID: <%= current_user.id %></li>
-        <li> Logged in as <%= current_user.first_name %> </li>
+
+
+        <!-- <li> Logged in as <%= current_user.first_name %> </li> -->
         <li><%= link_to "Appointments", bookings_path(current_user) %></li>
+
         <li><%= link_to 'Messages', conversations_path %></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-      <% end %>
 
       </ul>
+
+      <% end %>
     </div>
   </div>
 </nav>
+   <% if user_signed_in? %>
+<div class="main-content"></div>
+<% end %>
