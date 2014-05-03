@@ -1,10 +1,5 @@
 <h3><%= @topic.name %></h3><br />
 
-Supported languages: <br />
-
-<%= @topic.english ? "English" : nil %> <br />
-<%= @topic.french ? "French" : nil %> <br />
-<%= @topic.spanish ? "Spanish" : nil %> <br />
 
 <%= link_to "Add more topics", new_topic_path, class: "btn btn-success" %>
 <%= link_to "View all topics", topics_path, class: "btn btn-info" %><br />
