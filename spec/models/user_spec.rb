@@ -17,6 +17,9 @@ describe User do
 			expect(User.first.user_profile).to eq @user.user_profile
 		end
 
+		
+
+
 	end
 
 end
