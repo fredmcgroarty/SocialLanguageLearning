@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   respond_to :html, :xml, :json
-  
   before_action :find_user
-
-
-
 
   def missing_information
     current_user.user_profile.first_name.nil? ||
@@ -16,8 +12,6 @@ class BookingsController < ApplicationController
     current_user.user_profile.first_lang.empty? ||
     current_user.user_profile.second_lang.empty?
   end
-
-      
 
   def index
     return redirect_to_sign_in if missing_information
@@ -110,10 +104,8 @@ class BookingsController < ApplicationController
     return redirect_to_sign_in if missing_information
     @booking = Booking.find(params[:id])
     # @booking.user = @user
-
     if @booking.update(params[:booking].permit(:user_id, :start_time, :length, :accepted, :topic_id))
       flash[:notice] = 'Your booking was updated succesfully'
-
       if request.xhr?
         render json: {status: :success}.to_json
       else
@@ -140,5 +132,5 @@ class BookingsController < ApplicationController
       @user = User.find_by_id(params[:user_id])
     end
   end
-end
+
 end
