@@ -3,9 +3,6 @@
 
 	<%= form_for @topic do |x| %>
 		<%= x.text_area :name, label: "Name of topic:" %> <br />
-		English? <%= x.check_box :english, label: "English?" %> <br />
-		French? <%= x.check_box :french, label: "French?" %> <br />
-		Spanish? <%= x.check_box :spanish, label: "Spanish?" %> <br />
 
     <%= x.submit :'Create Topic', class: "btn btn-success" %>
 	<% end %>
