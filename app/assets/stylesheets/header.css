@@ -1,25 +1,47 @@
-.header_logo {
+
+/*.header_logo {
  padding: 5px;
-}
+}*/
 
 .header_logo img{
-  margin-top: 2px;
+
   width: 85px;
   height: 60px;
 }
 
-.header p {
+
+
+
+.polyglot_name {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
+  color: #5F6B6B;
+/*  color: #F7F7F7;*/
   display: inline;
-  margin-top: 15px;
-  color: #A3ACB2;
+  text-decoration: none;
 }
+
+/*.polyglot_name:hover{
+border-bottom: 7px solid #a1f4ea;
+}
+*/
+.polyglot_name:hover{
+  text-decoration: none;
+  color: #5F6B6B;
+}
+
 
 .header{
   height: 70px;
-  padding: 4px 5px; 
-
-  box-shadow: 0 5px 5px #888888;
-
+  padding: 4px 30px; 
+  box-shadow: 0 2px 5px #888888;
+/*  background-color: #69a099;
+*/   
 }
+
+
+
+.navbar-nav li a:hover{
+border-bottom: 7px solid #a1f4ea;
+}
+
