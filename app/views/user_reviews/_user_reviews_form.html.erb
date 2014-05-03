@@ -1,0 +1,25 @@
+<%= form_for([@user, @user_review]) do |f| %>
+	
+	<br>
+  <table style='width:' class ="sign-in-table"> 
+    <tr>
+      <td><%= f.label "How did the user get on?" %></td>
+      <td><%= f.text_field :rev1 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "Where can they improve?" %></td>
+      <td><%= f.text_field :rev2 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "Score out of 5" %></td>
+      <td><%= f.select :score, [1, 2, 3, 4, 5] %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "Has the user completed this topic?" %></td>
+      <td><%= f.check_box :completed %></td>
+
+    </tr>
+    <td><%= f.submit :class => 'post-button' :method :create %></td>
+  </table>
+
+<% end %>
