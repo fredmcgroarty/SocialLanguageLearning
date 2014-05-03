@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
         if x.user_id == @user.id || x.student_id == @user.id
           @userbookings << x
         end 
-      
+      end
     end
     @userbookings
   end
@@ -122,9 +122,9 @@ class BookingsController < ApplicationController
     if @booking.save
         flash[:notice] = 'booking added'
         redirect_to user_booking_path(@user, @booking)
-      else
-        render 'new'
-      end
+    else
+      render 'new'
+    end
   end
 
   def find_user
