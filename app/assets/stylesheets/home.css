@@ -24,16 +24,18 @@
 
 .main-splash-container{
 	width:98%;	
+
 }
 
 .row.user-appointments {
-
 	height: 250px;
+	border-bottom: 1px dashed gray;
 }
 
 .matched-users {
 	/*background-color: green;*/
 	height: 310px;
+	border-bottom: 1px dashed gray;
 }
 
 	.matched-user-profiles {
@@ -42,7 +44,7 @@
 		border-width:1px;
 		border-color:#EAE8E8;
 		border-radius: 7px;
-		height:260px;
+		height:240px;
 		text-align: center;
 	}
 
@@ -81,12 +83,13 @@
 	}
 
 .row.topics {
-	background-color: yellow;
+	/*background-color: yellow;*/
 	height: 300px;
 }
 
 .home-page-avatar-info{
 	text-align: center;
+
 	background-color: #F8F8F8;
 	border-radius: 7px;
 	height: 1400px;
@@ -102,13 +105,15 @@
 	margin-top: 30px;
 	width:80%;
 	border-radius: 7px;
+	border: 2px solid white;
+	/*border-bottom: 20px solid white;*/
 	
 }
 
 .col-md-10 h2{
 	font-family: 'Oswald', sans-serif;
 	font-size: 18px;
-	margin: 10px 0px;
+	margin: 15px 0px;
 	padding-left: 12px;
 	color:#a1f4ea;
 
