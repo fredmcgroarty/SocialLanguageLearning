@@ -3,16 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  #after_sign_up_fails_path_for('home#index')
+
   def missing_information
     if current_user
-      missing_info = (current_user.user_profile.first_name.empty? ||
-      current_user.user_profile.last_name.empty? ||
+      missing_info = (current_user.user_profile.blank? ||
+      current_user.user_profile.first_name.blank? ||
+      current_user.user_profile.last_name.blank? ||
       current_user.user_profile.dob.nil? ||
       current_user.user_profile.gender.nil? ||
       current_user.user_profile.picture_file_name.nil? ||
-      current_user.user_profile.native_lang.empty? ||
-      current_user.user_profile.first_lang.empty? ||
-      current_user.user_profile.second_lang.empty?)
+      current_user.user_profile.native_lang.blank? ||
+      current_user.user_profile.first_lang.blank? ||
+      current_user.user_profile.second_lang.blank?)
     end
     missing_info || !current_user
   end

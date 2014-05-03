@@ -1,11 +1,10 @@
+<h2> Personal Profile </h2>
+	<h4>Username: <%= current_user.email %></h4>
 
+<%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %> 
+  <%= f.file_field :picture %>
 
-<%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
-	
-	<%= f.file_field :picture %>
-
-		<br>
-	Username: <%= current_user.email %>
+    <br>
 	<br>
   <table style='width:' class ="sign-in-table"> 
     <tr>
@@ -24,31 +23,8 @@
       <td><%= f.label :gender %></td>
       <td><%= f.select :gender, ['Male', 'Female'] %></td>
     </tr>
-  </table>
-  <h2> Language Profile </h2>
-  <table>
-    <tr>
-      <th></th>
-      <th>Language</th>
-      <th>Level</th>
-    </tr>
-    <tr>
-      <td><%= f.label :native_tongue %></td>
-      <td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
-       <td>N/A</td>
-    </tr>
-    <tr>
-      <td><%= f.label :first_language %></td>
-      <td><%= f.select :first_lang, ['English', 'French', 'Spanish'] %></td>
-      <td><%= f.select :first_lang_lvl, [1,2,3,4,5] %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :second_language %></td>
-      <td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
-      <td><%= f.select :second_lang_lvl, [1,2,3,4,5] %></td>
-    </tr>
     <tr>  
-      <td><%= f.submit :class => 'post-button' %></td>
+      <td><%= f.submit 'Update', :class => 'post-button' %></td>
     </tr>
   </table>
 
