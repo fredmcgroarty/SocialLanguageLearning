@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503151223) do
+ActiveRecord::Schema.define(version: 20140504143716) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20140503151223) do
     t.integer  "first_lang_lvl",       default: 1
     t.integer  "second_lang_lvl",      default: 1
     t.string   "location"
+    t.string   "about_me"
   end
 
   create_table "user_reviews", force: true do |t|
