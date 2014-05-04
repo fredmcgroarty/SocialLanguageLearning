@@ -33,7 +33,7 @@
     @user_profile = current_user.user_profile
     if @user_profile.update params_permit
       flash[:notice] = "Update successful"
-      redirect_to '/'
+      redirect_to edit_user_profile_path
     else
       render 'edit_user_profile_path'
       flash[:notice] = "update failed"
