@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
             :first_lang_lvl,
             :second_lang_lvl,
             :picture,
+            :about_me,
             to: :user_profile, allow_nil: true
             
    delegate :exp_pts,
