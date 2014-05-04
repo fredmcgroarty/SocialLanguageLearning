@@ -1,31 +1,32 @@
-<h2> Personal Profile </h2>
-	<h4>Username: <%= current_user.email %></h4>
+<h2 class="edit-profile-titles"> PERSONAL PROFILE </h2>
+<%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
+<form class="form-horizontal" role="form">
 
-<%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %> 
-  <%= f.file_field :picture %>
-
-    <br>
-	<br>
   <table style='width:' class ="sign-in-table"> 
     <tr>
       <td><%= f.label :first_name %></td>
-      <td><%= f.text_field :first_name %></td>
+      <td><%= f.text_field :first_name, :type=> "text", :class => 'form-control'%></td>
     </tr>
     <tr>
       <td><%= f.label :last_name %></td>
-      <td><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :last_name, :type=> "text", :class => 'form-control' %></td>
     </tr>
     <tr>
       <td><%= f.label :dob %></td>
-      <td><%= f.date_select :dob, start_year: 1925, end_year: 2010 %></td>
+      <td><%= f.date_select :dob, {start_year: 1925, end_year: 2010,  :order => [:month, :year, :day]}, :class => "form-control" %></td>
     </tr>
     <tr>
       <td><%= f.label :gender %></td>
-      <td><%= f.select :gender, ['Male', 'Female'] %></td>
+      <td><%= f.select :gender, ['Male', 'Female'], :class => 'selectpicker' %></td>
     </tr>
+  </br>
+  </br>
     <tr>  
-      <td><%= f.submit 'Update', :class => 'post-button' %></td>
+      <td><%= f.submit 'Update', :class => 'btn update-button-profile-edit-page' %></td>
     </tr>
   </table>
 
+</form>
 <% end %>
+
+
