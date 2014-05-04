@@ -4,6 +4,23 @@
   display:inline-block
 }
 
+.edit-prof-logos {
+  float: right;
+}
+
+.update-button-profile-edit-page {
+   font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.menu-choices {
+   font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
 .tab-container {
   display: none;
 }
@@ -15,7 +32,6 @@
 .btn.btn-default.btn-lg.button {
   font-size: 16px;
   width: 100%;
-  padding: 5%;
   margin: 5%;
   transition: all 0.2s ease-in;
   text-decoration:none;
@@ -38,4 +54,20 @@
 }
 
 
+.edit-profile-titles {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin: 15px 0px;
+  padding-left: 12px;
+  color:#a1f4ea;
+  letter-spacing: 2px;
+}
+
+.form-control {
+  margin: 5%;
+}
+
+.update-button {
+  float: right;
+}
 

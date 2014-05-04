@@ -1,4 +1,4 @@
-<h1> Language Profile </h1>
+<h2 class="edit-profile-titles"> LANGUAGE PROFILE </h2>
 <%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
 
 
@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td><%= f.label :native_tongue %></td>
-    <td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
+    <td><%= f.select :native_lang, ['English', 'French', 'Spanish']%></td>
      <td>N/A</td>
   </tr>
   <tr>

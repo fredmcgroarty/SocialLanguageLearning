@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140503151223) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "english"
   end
 
   create_table "user_infos", force: true do |t|
