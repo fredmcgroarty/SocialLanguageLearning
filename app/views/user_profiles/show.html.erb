@@ -5,13 +5,31 @@
 <div class="row">
   <div class="col-xs-6 col-md-5 col-md-offset-1">
 		<%= link_to (image_tag @user.picture.url(:medium)), user_profile_path(@user), class: "thumbnail"  %>
-		<%= link_to "Message ", new_user_message_path(@user), class: "btn left btn-info wide" %>
 
-<div id="groups_show" style="display:none">
-  <%= render :partial => 'messages/new' %> 
+
+<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" data-toggle="modal" data-target="#myModal">
+</button>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      	  <%= render :partial => 'messages/new' %> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
-<%= link_to "Message ", new_user_message_path(@user) %>
-<%= link_to new_user_message_path(@user), ("Share This!", "show_group_popup()") %>
+
 
 
 
