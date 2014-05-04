@@ -6,6 +6,15 @@
   <div class="col-xs-6 col-md-5 col-md-offset-1">
 		<%= link_to (image_tag @user.picture.url(:medium)), user_profile_path(@user), class: "thumbnail"  %>
 		<%= link_to "Message ", new_user_message_path(@user), class: "btn left btn-info wide" %>
+
+<div id="groups_show" style="display:none">
+  <%= render :partial => 'messages/new' %> 
+</div>
+<%= link_to "Message ", new_user_message_path(@user) %>
+<%= link_to new_user_message_path(@user), ("Share This!", "show_group_popup()") %>
+
+
+
 		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
 		<% if @user.user_profile %>
 
