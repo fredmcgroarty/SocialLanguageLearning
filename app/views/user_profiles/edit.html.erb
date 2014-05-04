@@ -1,10 +1,13 @@
 <div class="col-md-3 edit-profile">
+    <h5>Account for: <%= current_user.email %></h5>
+
   <div class="buttons-edit-page">
-  <button type="button" class="btn btn-default btn-lg button" data-button='1'><span>Personal Profile</span> <span class="glyphicon glyphicon-expand"></span></button>
-  <button type="button" class="btn btn-default btn-lg button" data-button='2'><span>Language Profile</span> <span class="glyphicon glyphicon-expand"></span></button>
-  <button type="button" class="btn btn-default btn-lg button" data-button='3'><span>Account Settings</span> <span class="glyphicon glyphicon-expand"></span></button>
+    <button type="button" class="btn btn-default btn-lg button" data-button='1'><span class="menu-choices">Personal Profile</span><h5 class="edit-prof-logos glyphicon glyphicon-user"></h5></button>
+    <button type="button" class="btn btn-default btn-lg button" data-button='2'><span class="menu-choices">Language Profile</span><h5 class="edit-prof-logos glyphicon glyphicon-flag"></h5></button>
+    <button type="button" class="btn btn-default btn-lg button" data-button='3'><span class="menu-choices">Account Settings</span><h5 class="edit-prof-logos glyphicon glyphicon-cog"></h5></button>
+  </div>
 </div>
-</div>
+
 
 
 <div class="col-md-5 edit-prof">
@@ -12,16 +15,25 @@
     <div class="tab-container active" data-tab-number="1">
       <%= render 'edit_profile' %>
     </div>
-  </div>
   <div class="tab-container edit-language-profile" data-tab-number="2">
     <%= render 'edit_language_profile.html' %>
   </div>
   <div class="tab-container" data-tab-number="3">
     <%= render 'edit_password_and_username' %>
   </div>
+  </div>
 </div>
 <div class="col-md-3">
+  <h2 class="edit-profile-titles"> PROFILE PICTURE </h2>
+
+  <%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
+
   <%= image_tag @user_profile.picture.url(:medium) %>
+    <%= f.file_field :picture, :class => 'menu-choices glyphicon glyphicon-upload' %><br>
+    <br>
+    <%= f.submit 'Update Profile Picture', :class => 'menu-choices' %>
+    <% end %>
+
 </div>
 
 

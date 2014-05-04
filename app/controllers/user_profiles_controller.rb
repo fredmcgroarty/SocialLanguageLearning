@@ -33,7 +33,7 @@
     @user_profile = current_user.user_profile
     if @user_profile.update params_permit
       flash[:notice] = "Update successful"
-      redirect_to '/'
+      redirect_to edit_user_profile_path
     else
       render 'edit_user_profile_path'
       flash[:notice] = "update failed"
@@ -48,7 +48,7 @@
   private
 
   def params_permit
-    params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl)
+    params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl, :about_me)
   end
 
 end

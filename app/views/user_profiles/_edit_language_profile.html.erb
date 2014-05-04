@@ -1,7 +1,5 @@
-<h1> Language Profile </h1>
+<h2 class="edit-profile-titles"> LANGUAGE PROFILE </h2>
 <%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
-
-
 <table>
   <tr>
     <th></th>
@@ -10,7 +8,7 @@
   </tr>
   <tr>
     <td><%= f.label :native_tongue %></td>
-    <td><%= f.select :native_lang, ['English', 'French', 'Spanish'] %></td>
+    <td><%= f.select :native_lang, ['English', 'French', 'Spanish']%></td>
      <td>N/A</td>
   </tr>
   <tr>
@@ -23,8 +21,12 @@
     <td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
     <td><%= f.select :second_lang_lvl, [1,2,3,4,5] %></td>
   </tr>
+</table>
+<h3 class="edit-profile-titles"> About me </h3>
+<h6 id="profile-about-me"> Please use this section to give a little bit more information about yourself. Describe your language learning experiences, what you hope to gain from a Tandem session etc. </h6>
+<%= f.text_area :about_me, :class => 'about-me form-control', :size=> "100x10" %>
+
   <tr>  
     <td><%= f.submit 'Update', :class => 'post-button' %></td>
   </tr>
-</table>
 <% end %>
