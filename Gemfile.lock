@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 41da3a3c4c139964a9877c77220f94200d73c87a
+  revision: a1e33538c54511baa5ed61e763de2d4848208436
   specs:
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
