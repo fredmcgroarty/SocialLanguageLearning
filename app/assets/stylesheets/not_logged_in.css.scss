@@ -13,9 +13,12 @@
   height: 900px;
 }
 
-#welcome {
+.welcome {
   color: white;
-  margin-top: 70px;
+  margin-top: 100px;
+  height: 700px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 20px;
 
   input {
     border: none;
@@ -23,9 +26,14 @@
     color: black;
     font-weight: bold;
   }
+
+  input:focus {
+    outline: none;
+  }
 }
 
 #welcome-left {
+  margin-top: 35px;
   text-align: center;
   
   img {
@@ -45,7 +53,7 @@
 }
 
 .form-group input {
-  background-color: rgba(204,204,204,0.8);
+  background-color: rgba(247,247,247,0.6);
   width: 100%;
   padding: 3px;
 }
