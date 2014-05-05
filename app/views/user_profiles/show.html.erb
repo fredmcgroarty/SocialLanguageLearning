@@ -1,40 +1,58 @@
-
-<div class="col-md-2 profile">
-</div>
-
-<div class="row">
-  <div class="col-xs-6 col-md-5 col-md-offset-1">
-		<%= link_to (image_tag @user.picture.url(:medium)), user_profile_path(@user), class: "thumbnail"  %>
-		<%= link_to "Message ", new_user_message_path(@user), class: "btn left btn-info wide" %>
-		<%= link_to "View availability", user_profile_path(@user), class: "btn btn-info right wide" %> </br >
+<div class="col-md-2">
+	<div class='row'>
+		<center>
+			<%= image_tag @user.picture.url(:medium) %>
+		</center>
+	</div>
+	<div class="profile-info row">
 		<% if @user.user_profile %>
-
-  		<dl class="dl-horizontal"></br>
   		<% if @user.first_name && @user.last_name %>
 	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
 	  	<% end %>
-
 	  	<dt>Location:</dt> <dd>London</dd> 
 	  	<% if @user.native_lang %>
-	  		<dt>Native Language</dt> <dd><%= @user.native_lang %></dd> 
+	  		<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
 	  	<% end %> 
 	  	<% if @user.first_lang %>
-	  		<dt>Looking To Learn</dt> <dd><%= @user.first_lang %></dd>
+	  		<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
 	  	<% end %>
 	  	<% if @user.email %>
-	  		<dt>Email</dt> <dd><%= @user.email %></dd> 
+	  		<dt>Email:</dt> <dd><%= @user.email %></dd> 
 	  	<% end %>
 		</dl>
 		<% end %>
-		<div id="calendar">
-</div>
 	</div>
-	<div class="calendar col-md-2 col-md-offset-1" >
-	Timetable of availability goes here <br />
+	<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" data-toggle="modal" data-target="#myModal">
+	</button>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 		<div class="modal-dialog">
+   		<div class="modal-content">	
+     		<div class="modal-header">
+	       	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	       	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	     	</div>
+	     	<div class="modal-body">
+	     	  <%= render :partial => 'messages/new' %> 
+	     	</div>
+	   		<div class="modal-footer">
+	       	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	       	<button type="button" class="btn btn-primary">Save changes</button>
+	     	</div>
+	   	</div>
+	 	</div>
+	</div>
+</div>
+<div class="col-md-4">
+	<div id="calendar">
+	</div>
+</div>
+<div class="col-md-5 profile">
+	<div class="profile-booking row">
+	<h6>Timetable of availability goes here <br />
 	Clicking on an hour slot brings up sending a request <br />
-	Maybe a request chat now too if he's online
+	Maybe a request chat now too if he's online</h6>
+	<%= render 'bookings/form' %>
 	</div>
 </div>
 
 
-	<%= render 'bookings/form' %>
