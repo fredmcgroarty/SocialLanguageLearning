@@ -9,6 +9,7 @@ class LessonsController < ApplicationController
   	return redirect_to_sign_in if missing_information
     @lessons = Lesson.find_by(uid: params[:id])
     @time_in_seconds = @lessons.time_to_seconds
+    @lessons_topic_name = Lesson.find_by(uid: params[:id]).booking.topic.name
     raise 'Oops' unless @lessons
   end 
 
