@@ -1,22 +1,13 @@
-
-/*.header_logo {
- padding: 5px;
-}*/
-
 .header_logo img{
 
   width: 85px;
   height: 60px;
 }
 
-
-
-
 .polyglot_name {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   color: #5F6B6B;
-/*  color: #F7F7F7;*/
   display: inline;
   text-decoration: none;
 }
@@ -25,6 +16,7 @@
 border-bottom: 7px solid #a1f4ea;
 }
 */
+
 .polyglot_name:hover{
   text-decoration: none;
   color: #5F6B6B;
@@ -34,12 +26,8 @@ border-bottom: 7px solid #a1f4ea;
 .header{
   height: 70px;
   padding: 4px 30px; 
-  box-shadow: 0 2px 5px #888888;
-/*  background-color: #69a099;
-*/   
+  box-shadow: 0 2px 5px #888888;  
 }
-
-
 
 .navbar-nav li a:hover{
 border-bottom: 7px solid #a1f4ea;
