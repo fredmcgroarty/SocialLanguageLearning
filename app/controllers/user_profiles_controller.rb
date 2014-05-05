@@ -11,6 +11,7 @@
     @user_profile = UserProfile.find params[:id]
     @user = @user_profile.user
     @booking = Booking.new
+    get_topics
   end
 
   def create
@@ -46,6 +47,19 @@
 
 
   private
+
+  def get_topics
+    @reviews = UserReview.all
+    @completed_topics = []
+    @reviews.each do |x|
+      if x.for_user_id == @user.id
+        b = Topic.find (x.topic_id)
+        @completed_topics << b.name
+      end
+    end
+    @completed_topics
+  end
+
 
   def params_permit
     params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl, :about_me)
