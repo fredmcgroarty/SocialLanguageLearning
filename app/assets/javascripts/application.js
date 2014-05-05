@@ -16,4 +16,18 @@
 //= require websocket_rails/main
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require bootstrap-datepicker
+
 //= require_tree .
+
+
+$(function(){
+
+  $('#datepicker').datepicker()
+  .on('changeDate', function(ev) {
+    alert(new Date(ev.date));
+    $(this).datepicker('hide');
+  });
+
+});
+
