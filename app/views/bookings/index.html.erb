@@ -1,4 +1,5 @@
 <h3> Bookings for <%= @user.email %></h3>
+
 <table class="bookings_table">
   <tr>
     <th>Start</th>
@@ -20,3 +21,34 @@
   </tr>
   <% end %>
 </table>
+
+<% if !@userbookings.empty? %>
+
+  <table class="bookings_table">
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+    
+    <% @bookings.each do |booking| %>
+    <tr>
+      <td>
+        <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
+      </td>
+      <td>
+        <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+      </td>
+      <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
+      </td>
+      <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+<% else %>
+
+No bookings yet! Why don't you try viewing your matched users?
+
+<% end %>
+
