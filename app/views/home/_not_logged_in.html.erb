@@ -4,6 +4,7 @@
 
   <div class="container">
     <div class='col-md-6 welcome'>
+      <img src="assets/polyglt_logo.png">
       <h1>POLYGLT</h1>
       <h3>Meet new friends from around the world, connect with them, learn from them. Discover the world like never before.</h3>
     </div>
@@ -11,18 +12,23 @@
     	<div class='sign-in'>
     		<h3>Sign in</h3>
     		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <table style='width:450px' class ="sign-in-table">
+          <table>
           	<tr>
-          		<td> <%= f.label :email %></td>
-          		<td> <%= f.email_field :email, autofocus: true %></td>
+          		<td><%= f.label :email %></td>
+          		<td><%= f.email_field :email, autofocus: true %></td>
           	</tr>
           	<tr>
-          		<td> <%= f.label :password %></td>
-          		<td> <%= f.password_field :password, autocomplete: "off" %></td>
+          		<td><%= f.label :password %></td>
+          		<td><%= f.password_field :password, autocomplete: "off" %></td>
           	</tr>
           	<tr>
-          		<td> <%= f.submit "Sign in" %> </td>
-          		<td> <% if devise_mapping.rememberable? -%><%= f.check_box :remember_me %> <%= f.label :remember_me %><% end -%></td>
+          		<td><%= f.submit "Welcome back" %> </td>
+          		<td>
+                <% if devise_mapping.rememberable? %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                <% end %>
+              </td>
           	</tr>
           </table>  
         <% end %>
@@ -31,25 +37,25 @@
     		<h3>Sign up</h3>
     		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
-          <table style='width:290px' class ="sign-up-table">
+          <table>
           	<tr>
-          		<td> <%= f.label :email %></td>
-          		<td> <%= f.email_field :email, autofocus: true %></td>
+          		<td><%= f.label :email %></td>
+          		<td><%= f.email_field :email, autofocus: true %></td>
           	</tr>
             <tr>
               <td><%= f.label :username %></td>
               <td><%= f.text_field :username, autocomplete: "off" %></td>
             </tr>
             <tr>
-              <td> <%= f.label :password %></td>
-              <td> <%= f.password_field :password, autocomplete: "off" %></td>
+              <td><%= f.label :password %></td>
+              <td><%= f.password_field :password, autocomplete: "off" %></td>
             </tr>
             <tr>
-              <td> <%= f.label :password_confirmation %></td>
-              <td> <%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+              <td><%= f.label :password_confirmation %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
             </tr>
             <tr>
-              <td> <%= f.submit "Sign up" %> </td>
+              <td><%= f.submit "Join POLYGLT" %> </td>
             </tr>
           </table>
         <% end %>
