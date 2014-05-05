@@ -21,7 +21,9 @@ class ApplicationController < ActionController::Base
   end
 
   def language_counter
-    @language_counter = UserProfile.all
+    @language_counter_english =  UserProfile.count native_lang: "English"
+    @language_counter_french =  UserProfile.count native_lang: "French"
+    @language_counter_spanish =  UserProfile.count native_lang: "Spanish"
   end
 
   def redirect_to_sign_in
