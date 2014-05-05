@@ -1,5 +1,27 @@
 <div class="col-md-2">
-	<%= image_tag @user.picture.url(:medium) %>
+	<div class='row'>
+		<center>
+			<%= image_tag @user.picture.url(:medium) %>
+		</center>
+	</div>
+	<div class="profile-info row">
+		<% if @user.user_profile %>
+  		<% if @user.first_name && @user.last_name %>
+	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+	  	<% end %>
+	  	<dt>Location:</dt> <dd>London</dd> 
+	  	<% if @user.native_lang %>
+	  		<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
+	  	<% end %> 
+	  	<% if @user.first_lang %>
+	  		<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
+	  	<% end %>
+	  	<% if @user.email %>
+	  		<dt>Email:</dt> <dd><%= @user.email %></dd> 
+	  	<% end %>
+		</dl>
+		<% end %>
+	</div>
 	<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" data-toggle="modal" data-target="#myModal">
 	</button>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -25,25 +47,6 @@
 	</div>
 </div>
 <div class="col-md-5 profile">
-	<div class="profile-info row">
-		<% if @user.user_profile %>
-  		<dl class="dl-horizontal"></br>
-  		<% if @user.first_name && @user.last_name %>
-	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
-	  	<% end %>
-	  	<dt>Location:</dt> <dd>London</dd> 
-	  	<% if @user.native_lang %>
-	  		<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
-	  	<% end %> 
-	  	<% if @user.first_lang %>
-	  		<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
-	  	<% end %>
-	  	<% if @user.email %>
-	  		<dt>Email:</dt> <dd><%= @user.email %></dd> 
-	  	<% end %>
-		</dl>
-		<% end %>
-	</div>
 	<div class="profile-booking row">
 	<h6>Timetable of availability goes here <br />
 	Clicking on an hour slot brings up sending a request <br />
