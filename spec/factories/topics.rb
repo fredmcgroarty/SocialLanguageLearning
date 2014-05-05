@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :topic do
-    name "MyText"
+    name "Sports"
+    created_at Time.now
   end
 end

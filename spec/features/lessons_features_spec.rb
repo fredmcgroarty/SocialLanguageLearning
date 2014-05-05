@@ -16,7 +16,6 @@ describe "home page" do
       visit '/'
       expect(page).not_to have_content('GO TO LESSON')
     end
-
   end
 
   context "lesson booked" do
@@ -48,7 +47,6 @@ describe "home page" do
       Timecop.freeze(time_new)
       visit '/'
       click_link 'GO TO LESSON'
-      save_and_open_page
       expect(page).to have_content('Start chatting below!')
     end
 

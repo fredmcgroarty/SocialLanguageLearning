@@ -12,6 +12,7 @@ FactoryGirl.define do
   factory :user_total_profile_1, class: "UserProfile" do
     first_name "Mark"
     last_name "M"
+    gender 1
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
     native_lang "English"
     first_lang "French"
@@ -24,6 +25,7 @@ FactoryGirl.define do
   factory :user_total_profile_2, class: "UserProfile" do
     first_name "Tiff"
     last_name "C"
+    gender 2
     picture File.new(Rails.root + 'spec/images/owl-in-a-hat.jpg')
     native_lang "English"
     first_lang_lvl 3

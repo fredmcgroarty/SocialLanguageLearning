@@ -1,20 +1,5 @@
 <h3><%= @language.name %></h3><br />
-<h4>Topics: <br /></h4>
-<% if @language.name == "English" %>
-	<% @topics.each do |topic| %>
-		<%= topic.english? ? topic.name : nil %><br />
-	<% end %>
-<% elsif @language.name == "French" %>
-	<% @topics.each do |topic| %>
-		<%= topic.french? ? topic.name : nil %><br />
-	<% end %>
-<% elsif @language.name == "Spanish" %>
-	<% @topics.each do |topic| %>
-		<%= topic.spanish? ? topic.name : nil %><br />
-	<% end %>
-<% else %>
-	<%= "No topics added yet" %>
-<% end %> <br /><br />
+<br /><br />
 
 
 <%= link_to "Add more topics", new_topic_path, class: "btn btn-success" %>

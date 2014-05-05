@@ -1,0 +1,81 @@
+.col-md-3.edit-profile {
+  background-color: #F8F8F8;
+  height: 500px;
+  display:inline-block
+}
+
+#profile-about-me {
+  font-style: italic;
+}
+
+.about-me {
+  float: right;
+}
+
+.edit-prof-logos {
+  float: right;
+}
+
+.update-button-profile-edit-page {
+   font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.menu-choices {
+   font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.tab-container {
+  display: none;
+}
+
+.tab-container.active {
+  display: block;
+}
+
+.btn.btn-default.btn-lg.button {
+  font-size: 16px;
+  width: 100%;
+  margin: 5%;
+  transition: all 0.2s ease-in;
+  text-decoration:none;
+  margin-right: 2px;
+}
+
+.btn.btn-default.btn-lg.button:hover {
+  -webkit-stroke-width: 5.3px;
+  background-color: #a1f4ea;
+  color: white;
+}
+
+.buttons-edit-page {
+  margin-right: 10%;
+  margin-top: 7%;
+}
+
+.tab-container-page {
+  margin-left: 15%;
+}
+
+
+.edit-profile-titles {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin: 15px 0px;
+  padding-left: 12px;
+  color:#a1f4ea;
+  letter-spacing: 2px;
+}
+
+.form-control {
+  margin: 5%;
+}
+
+.update-button {
+  float: right;
+}
+
