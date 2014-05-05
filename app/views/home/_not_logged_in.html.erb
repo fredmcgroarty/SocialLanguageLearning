@@ -1,61 +1,125 @@
-<div class='splash1'>
-<div class="container">
-  <div class='col-md-6 welcome'>
-    <h1>POLYGLT</h1>
-    <h3>Meet new friends from around the world, connect with them, learn from them. Discover the world like never before.</h3>
-  </div>
-  <div class="col-md-6">
-  	<div class='sign-in'>
-  		<h3>Sign in</h3>
-  		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table style='width:450px' class ="sign-in-table">
-        	<tr>
-        		<td> <%= f.label :email %></td>
-        		<td> <%= f.email_field :email, autofocus: true %></td>
-        	</tr>
-        	<tr>
-        		<td> <%= f.label :password %></td>
-        		<td> <%= f.password_field :password, autocomplete: "off" %></td>
-        	</tr>
-        	<tr>
-        		<td> <%= f.submit "Sign in" %> </td>
-        		<td> <% if devise_mapping.rememberable? -%><%= f.check_box :remember_me %> <%= f.label :remember_me %><% end -%></td>
-        	</tr>
-        </table>  
-      <% end %>
+<section id='splash1'>
+
+  <div class="bcg" data-0="background-position: 0px -200px;" data-end="background-position: 0px 1800px;" data-anchor-target="#splash1">
+
+  <div class="container">
+    <div class='col-md-6 welcome'>
+      <img src="assets/polyglt_logo.png">
+      <h1>POLYGLT</h1>
+      <h3>Meet new friends from around the world, connect with them, learn from them. Discover the world like never before.</h3>
     </div>
-  	<div class='sign-up'>
-  		<h3>Sign up</h3>
-  		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <table style='width:290px' class ="sign-up-table">
-        	<tr>
-        		<td> <%= f.label :email %></td>
-        		<td> <%= f.email_field :email, autofocus: true %></td>
-        	</tr>
-          <tr>
-            <td><%= f.label :username %></td>
-            <td><%= f.text_field :username, autocomplete: "off" %></td>
-          </tr>
-          <tr>
-            <td> <%= f.label :password %></td>
-            <td> <%= f.password_field :password, autocomplete: "off" %></td>
-          </tr>
-          <tr>
-            <td> <%= f.label :password_confirmation %></td>
-            <td> <%= f.password_field :password_confirmation, autocomplete: "off" %></td>
-          </tr>
-          <tr>
-            <td> <%= f.submit "Sign up" %> </td>
-          </tr>
-        </table>
-      <% end %>
+    <div class="col-md-6">
+    	<div class='sign-in'>
+    		<h3>Sign in</h3>
+    		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <table>
+          	<tr>
+          		<td><%= f.label :email %></td>
+          		<td><%= f.email_field :email, autofocus: true %></td>
+          	</tr>
+          	<tr>
+          		<td><%= f.label :password %></td>
+          		<td><%= f.password_field :password, autocomplete: "off" %></td>
+          	</tr>
+          	<tr>
+          		<td><%= f.submit "Welcome back" %> </td>
+          		<td>
+                <% if devise_mapping.rememberable? %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                <% end %>
+              </td>
+          	</tr>
+          </table>  
+        <% end %>
+      </div>
+    	<div class='sign-up'>
+    		<h3>Sign up</h3>
+    		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <table>
+          	<tr>
+          		<td><%= f.label :email %></td>
+          		<td><%= f.email_field :email, autofocus: true %></td>
+          	</tr>
+            <tr>
+              <td><%= f.label :username %></td>
+              <td><%= f.text_field :username, autocomplete: "off" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password %></td>
+              <td><%= f.password_field :password, autocomplete: "off" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password_confirmation %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+            </tr>
+            <tr>
+              <td><%= f.submit "Join POLYGLT" %> </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+</section>
+
+
+
+<section id="splash2">
+    <div class="container">
+      <div class="splash-text">
+        <h3>“There are no strangers, only friends you have not met yet.” - William Yeats</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="splash3">
+  <div class="bcg" data-0="background-position: 0px -1000px;" data-end="background-position: 0px 1000px;" data-anchor-target="#splash3">
+</section>
+
+<div id="splash4">
+  <div class="container">
+    <div class="splash-text">
+      <h1>Polyglt Description</h1>
+      <h6>more text</h6>
+    </div>
+  </div>
 </div>
-  	
+
+<section id="splash5">
+  <div class="bcg" data-0="background-position: 0px -1800px;" data-end="background-position: 0px 450px;" data-anchor-target="#splash5">
+</section>
+
+<div id="splash6">
+  <div class="container">
+    <div class="splash-text">
+      <h1>How Polyglt Works</h1>
+      <h6>more text</h6>
+    </div>
+  </div>
+</div>
+
+<section id="splash7">
+  <div class="bcg" data-0="background-position: 0px -2400px;" data-end="background-position: 0px 0px;" data-anchor-target="#splash7">
+</section>
+
+<div id="splash8">
+  <div class="container">
+    <div class="splash-text">
+      <h1>About Polyglt</h1>
+      <h6>more text</h6>
+    </div>
+  </div>
+</div>
 
 
 
-
+<script type="text/javascript">
+  var s = skrollr.init({
+  });
+</script>
