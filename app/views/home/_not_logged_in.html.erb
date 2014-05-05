@@ -1,6 +1,5 @@
 <div id="header-spacing">
 </div>
-<h1><%= @language_counter_english %></h1>
 
 
 
@@ -42,8 +41,32 @@
             <% end %>
           </div>
           <br>
-          <h2>Not a member yet?</h2>
-          <h2>Start your journey with us, it’s as easy as 1,2,3</h2>
+          <div class='row'>
+             <div class='franflag col-md-1'>
+              <%= image_tag("../assets/france.png", :class =>'flag-container') %>
+              <%= simple_format (@language_counter_french.to_s), :class => 'flag-counter' %><br>
+              <div class ='flag-text'>
+               Native French Teachers
+              </div>
+            </div>
+
+
+
+            <div class='engflag col-md-1'>
+              <%= image_tag("../assets/british.png", :class =>'flag-container') %><br>
+              <%= simple_format (@language_counter_english.to_s), :class => 'flag-counter' %>
+                 <div class ='flag-text'>
+               Native English Teachers
+              </div>
+            </div>
+            <div class='spainflag col-md-1'>
+              <%= image_tag("../assets/spain.png", :class =>'flag-container') %><br>
+              <%= simple_format (@language_counter_spanish.to_s), :class => 'flag-counter' %>
+                 <div class ='flag-text'>
+               Native Spanish Teachers
+              </div>
+            </div>
+          </div>
           <br>
         	<div class="form-horizontal">
         		<h3><ins>Sign up</ins></h3>
