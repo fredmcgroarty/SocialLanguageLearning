@@ -73,13 +73,14 @@
         setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
         setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
         setTimeout("location.href = '/user_reviews/"+ '<%= @lesson.id %>'  + "';",'<%= (@time_in_seconds) * 1000 %>');
-        setTimeout("location.href = '/user_reviews/"+ id + "';",'<%= (@time_in_seconds - @time_in_seconds - 3) * 1000 %>');
+      
         }
     </script>
 
+
     <script>   
       var webrtc = new SimpleWebRTC({
-        // the id/element dom element that will hold "our" video
+        //the id/element dom element that will hold "our" video
         localVideoEl: 'localVideo',
         // the id/element dom element that will hold remote videos
         remoteVideosEl: 'remoteVideos',
