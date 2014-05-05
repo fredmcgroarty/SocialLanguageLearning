@@ -1,3 +1,6 @@
+* {
+  font-family: 'Oswald', sans-serif;
+}
 
 .bcg {
   background-size: 120%;
@@ -9,6 +12,16 @@
   background-color: white;
   width: 100%;
   height: 500px;
+  text-align: center;
+}
+
+#welcome {
+  color: white;
+  margin-top: 70px;
+  text-shadow: -1px -1px rgba(0,0,0,1);
+}
+
+#welcome-left {
   text-align: center;
 }
 
@@ -26,4 +39,9 @@
 
 #splash7 .bcg {
   background-image: url("singapore.jpg");
+}
+
+#header-spacing {
+  height: 69px;
+  width: 100%;
 }
