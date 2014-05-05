@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 	respond_to :html, :xml, :json
   
   def welcome
+    language_counter
   	@unread_count = current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s if current_user
   	flash[:success] = greeter_flash
 
