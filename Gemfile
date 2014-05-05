@@ -21,6 +21,8 @@ gem 'websocket-rails'
 gem 'thin'
 gem 'jquery-validation-rails'
 gem 'font-awesome-sass'
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
 
 
 
