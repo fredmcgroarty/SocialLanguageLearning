@@ -9,10 +9,10 @@
   </p>
   <p>
     <%= f.label 'length', 'Length of booking in hours' %>
-    <%= f.number_field 'length', min: 1, :id => '#seconds' %>
+    <%= f.select :length, options_for_select(DURATIONS, @booking.length ? DURATIONS[@booking.length] : DURATIONS[0]) %>
   </p>
   <%= f.select(:topic_id, Topic.all.map {|p| [p.name,p.id]}, :prompt => "Select a Topic") %>
   <%= f.submit 'Submit' %>
 <% end %> 
-
+x
 
