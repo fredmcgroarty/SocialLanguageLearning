@@ -1,138 +1,93 @@
-<head>
+<script src="http://simplewebrtc.com/latest.js"></script>
 
-<script src="http://simplewebrtc.com/latest.js"></script> 
+<div class="container">
+  <div class="lesson-topic">
+     <%= @lessons_topic_name %>
+  </div>
+</div>
 
-      <style>
-          #remoteVideos video {
-              position: absolute;
-              height: 500px;
-              left:0px;
-              top:0px;
-              z-index:-1;
-          }
-          #localVideo {
-              height: 100px;
-              border: 1px solid white;
-          }
-
-          #chat{
-             height: 450px;
-             width: 300px;
-             border: 1px solid gray;
-             position: absolute;
-             left:700px;
-             top: 0px;
-             overflow:scroll;
-          }
-
-
-          #chat div {
-            padding:  2px 11px;
-            border: 1px solid gray;
-            word-wrap: break-word;
-          }
-
-         p{
-            position: absolute;
-            left:700px;
-            top: 445px;
-           
-          }
-
-          input{
-            position: absolute;
-            left:700px;
-            top: 480px;
-            width: 300px;
-          }
-
-
-      </style>
-  </head>
-  <body>
-
-    <div class="timer" data-timer="<%= @time_in_seconds %>" ></div>
-
-
+<div class="container">
+  <div class="col-md-5">
     <video id="localVideo"></video>
     <div id="remoteVideos"></div>
+  </div>
+  <div class="col-md-2">
+    <div class="timer" data-timer="<%= @time_in_seconds %>" ></div>
+  </div>
+  <div class="col-md-5">
     <div id="chat"></div>
-    <p> Start chatting below!</p>
-    <input type='text' id='message'>
+    <div id="chat-box"><input type='text' id='message' placeholder='Press enter to submit'></div>
+  </div>  
+</div>
+
+<div class="container">
+  <div class="conversation-suggestions">
+  Suggested conversational questions here
+  </div>
+</div>
 
 
+<script>
+// Did not shift to Javascript directory because shifting induces a bug. 
 
-    <script>
-      window.onload = timeAlerts
+  // Start for time alerts
+  window.onload = timeAlerts
 
-      function timeAlerts()
-      {
-        setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
-        setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
-        setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
-        setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
-        setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
-        setTimeout("location.href = '/user_reviews/"+ '<%= @lesson.id %>'  + "';",'<%= (@time_in_seconds) * 1000 %>');
-        setTimeout("location.href = '/user_reviews/"+ id + "';",'<%= (@time_in_seconds - @time_in_seconds - 3) * 1000 %>');
-        }
-    </script>
-
-    <script>   
-      var webrtc = new SimpleWebRTC({
-        // the id/element dom element that will hold "our" video
-        localVideoEl: 'localVideo',
-        // the id/element dom element that will hold remote videos
-        remoteVideosEl: 'remoteVideos',
-        // immediately ask for camera access
-        autoRequestMedia: true
-      });
+  function timeAlerts()
+  {
+    setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
+    setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
+    setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
+    setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
+    setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
+    setTimeout("location.href = '/users/"+ '<%= @current_user.id %>'  + "user_views/new?lesson_id=" + '<%= @lessons.id %>' ,'<%= (@time_in_seconds) * 1000 %>');
+  }
+  // End for time alerts
 
 
-      // we have to wait until it's ready
-      webrtc.on('readyToCall', function () {
-        // you can name it anything
-        webrtc.joinRoom('<%= params[:id] %>');
-      });
-    </script>
+  // Start for Audio & Video Chat
+  var webrtc = new SimpleWebRTC({
+    // the id/element dom element that will hold "our" video
+    localVideoEl: 'localVideo',
+    // the id/element dom element that will hold remote videos
+    remoteVideosEl: 'remoteVideos',
+    // immediately ask for camera access
+    autoRequestMedia: true
+  });
+  // we have to wait until it's ready
+  webrtc.on('readyToCall', function () {
+    // you can name it anything
+    webrtc.joinRoom('<%= params[:id] %>');
+  });
+  // End for Audio & Video Chat
 
+  // Start for Text Chat
+  $(document).ready(function(){
 
-    <script>
+    ws = new WebSocketRails(window.location.host + '/websocket');
 
-
-    $(document).ready(function(){
-
-
-      ws = new WebSocketRails(window.location.host + '/websocket');
-
-      $('#message').bind('keypress', function(e){
-
-        if(e.keyCode !== 13)
-          return;
-
-        var value = this.value; 
-
-        $.post('/lesson_texts', {message: value})
-
-        $('#message').val('')
-      });
-
-      var channel = ws.subscribe('chat');
-      channel.bind('new', function(chat) {
-        var el = $('#chat');
-        el.append('<div>' + chat.user_name + ": " + chat.message + '</div>');
-      });
-
-
-
+    $('#message').bind('keypress', function(e){
+      if(e.keyCode !== 13)
+        return;
+      var value = this.value; 
+      $.post('/lesson_texts', {message: value})
+      $('#message').val('')
     });
 
+    var channel = ws.subscribe('chat');
+
+    channel.bind('new', function(chat) {
+      var el = $('#chat');
+      el.append('<div>' + chat.user_name + ": " + chat.message + '</div>');
+    });
+
+  });
+  // End for Text Chat  
 
 
 
-    </script>
+</script>
 
-  </body>
-</html>
 
 
 
