@@ -1,26 +1,21 @@
 <title>
 	Welcome to langlang 
 </title>
+<% if user_signed_in? %>
 
-<!-- <div class="main-content"></div>
- -->
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-			<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
-			<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-			<h5><%= @user.username %></h5>
-			
+				<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
+				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
+				<h5><%= @user.username %></h5>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
 			<% end %>
-
 			<br>
 		</div>
 	</div>
 	<div class="col-md-10">
 		<div class='main-splash-container'>
-			<% if user_signed_in? %>
-			<!-- 	<h1>Welcome to langlang <%= @user.email %></h1> -->
 			<% if @user && @user.native_lang.nil? %>
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
@@ -33,12 +28,10 @@
 						<% end%>	
 					<% end%>
 					<% @userbookings.each do |x| %>
-
-					<p>
-
-						 Appointment with: <%= x.not_you(current_user).first_name %><br>
-						 Status: <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
-						 <br>
+						<p>
+						Appointment with: <%= x.not_you(current_user).first_name %><br>
+						Status: <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
+						<br>
 						Starts at: <%="#{x.start_time.strftime('%I:%M:%S %p')}"%><br> 
 						Duration:<%= pluralize(x.length, "hour") %><br>
 						<%= link_to "View Booking", edit_booking_path(x) %>   <%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br /></p>
