@@ -20,6 +20,8 @@ gem 'mailboxer'
 gem 'websocket-rails'
 gem 'thin'
 gem 'jquery-validation-rails'
+gem 'font-awesome-sass'
+
 
 
 
