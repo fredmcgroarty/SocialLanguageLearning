@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504153124) do
+ActiveRecord::Schema.define(version: 20140504143716) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -95,17 +95,6 @@ ActiveRecord::Schema.define(version: 20140504153124) do
   end
 
   add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id"
-
-  create_table "relationships", force: true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "topics", force: true do |t|
     t.text     "name"
