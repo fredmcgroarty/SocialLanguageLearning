@@ -1,5 +1,3 @@
-
-
 #header-spacing {
   height: 69px;
   width: 100%;
@@ -32,6 +30,7 @@
 
 #welcome-left {
   margin-top: 35px;
+  font-family: 'Oswald', sans-serif;
   text-align: center;
   
   img {
@@ -44,13 +43,26 @@
   }
 }
 
+.welcome-right {
+  font-family: 'Oswald', sans-serif;
+  
+  ins {
+    font-family: 'Oswald', sans-serif;
+  }
+}
+
 .title {
   text-align: right;
-  padding: 3px;
-  font-size: 18px;
+
+  label {
+    font-family: 'Oswald', sans-serif;
+    padding: 3px;
+    font-size: 18px;
+  }
 }
 
 .form-group input {
+  font-family: 'Oswald', sans-serif;
   background-color: rgba(247,247,247,0.6);
   width: 100%;
   padding: 3px;
@@ -61,12 +73,17 @@
   padding: 3px;
   font-size: 18px;
   width: 100%;
+  font-family: 'Oswald', sans-serif;
 }
 
 .remember {
-  font-size: 18px;
   text-align: right;
-  margin-top: 10px;
+
+  label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+  }
 }
 
 #user_remember_me {
@@ -81,6 +98,7 @@
 
 .splash-text {
   background-color: white;
+  font-family: 'Oswald', sans-serif;
   width: 100%;
   height: 500px;
   text-align: center;
