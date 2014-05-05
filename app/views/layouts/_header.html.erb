@@ -18,11 +18,11 @@
 
 
         <!-- <li> Logged in as <%= current_user.first_name %> </li> -->
-        <li><%= link_to "Appointments", bookings_path(current_user) %></li>
+        <li><%= link_to "", bookings_path(current_user), :class => 'glyphicon glyphicon-pushpin' %></li>
 
-        <li><%= link_to 'Messages', conversations_path %></li>
-        <li><%= link_to 'Settings', edit_user_profile_path %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to '', conversations_path, :class => 'glyphicon glyphicon-envelope' %></li>
+        <li><%= link_to '', edit_user_profile_path, :class => 'glyphicon glyphicon-cog' %></li>
+        <li><%= link_to '', destroy_user_session_path, method: :delete, :class => 'glyphicon glyphicon-user' %></li>
 
       </ul>
 

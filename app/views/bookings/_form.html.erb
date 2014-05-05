@@ -1,12 +1,18 @@
+<script type="text/javascript"></script>
+
 <%= form_for([@user, @booking]) do |f| %>
   <p>
-    <%= f.label 'start_time', 'Start time' %>
-    <%= f.datetime_select :start_time, { minute_step: 15 } %>
+    <%= f.label  'Date' %>
+    <%= f.text_field :start_time, :id => 'datepicker' %>
+    <%= f.time_select :start_time %>
+
   </p>
   <p>
     <%= f.label 'length', 'Length of booking in hours' %>
-    <%= f.number_field 'length', min: 1 %>
+    <%= f.select :length, options_for_select(DURATIONS, @booking.length ? DURATIONS[@booking.length] : DURATIONS[0]) %>
   </p>
   <%= f.select(:topic_id, Topic.all.map {|p| [p.name,p.id]}, :prompt => "Select a Topic") %>
   <%= f.submit 'Submit' %>
 <% end %> 
+x
+
