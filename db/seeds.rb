@@ -76,8 +76,8 @@ Booking.create(length: 2, user_id: 2, student_id: 1, accepted: true, lang1: "Eng
 Booking.create(length: 2, user_id: 2, student_id: 1, accepted: true, lang1: "English", lang2: "French", topic_id: 5, start_time: Time.new(2014,05,02,15,00,00), end_time: Time.new(2014,05,02,17,00,00))
 Booking.create(length: 2, user_id: 2, student_id: 1, accepted: true, lang1: "English", lang2: "French", topic_id: 11, start_time: Time.new(2014,05,01,15,00,00), end_time: Time.new(2014,05,01,17,00,00))
 
-UserReview.create(for_user_id: 2, by_user_id: 1, rev1: "Pretty good", rev2: "Grammar was poor at times", topic_id: 4, completed: true)
-UserReview.create(for_user_id: 2, by_user_id: 1, rev1: "He really captured my attention", rev2: "His come to bed eyes were too distracting", topic_id: 2, completed: true)
-UserReview.create(for_user_id: 2, by_user_id: 1, rev1: "Excellent", rev2: "Accent was a bit off", topic_id: 1, completed: true)
-UserReview.create(for_user_id: 2, by_user_id: 1, rev1: "Poor", rev2: "He wouldn't stop eating so I couldn't understand him", topic_id: 16, completed: false)
-UserReview.create(for_user_id: 2, by_user_id: 1, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 20, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 4, rev1: "Pretty good", rev2: "Grammar was poor at times", topic_id: 4, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 4, rev1: "He really captured my attention", rev2: "His come to bed eyes were too distracting", topic_id: 2, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Excellent", rev2: "Accent was a bit off", topic_id: 1, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 1, rev1: "Poor", rev2: "He wouldn't stop eating so I couldn't understand him", topic_id: 16, completed: false)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 20, completed: true)

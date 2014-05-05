@@ -43,9 +43,15 @@
 	 	</div>
 	</div>
 	<div id="completed topics">
-		<% @completed_topics.each do |x| %>
-			<%= x %>
+		Completed Topics:
+		<% if @completed_topics.any? %>
+			<% @completed_topics.each do |x| %> 
+				<%= x %><br />
+			<% end %>
+		<% else %>
+			None!<br />
 		<% end %>
+		Average Score: <%= @average_score %>
 	</div>
 </div>
 <div class="col-md-4">

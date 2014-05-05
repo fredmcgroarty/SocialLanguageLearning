@@ -51,13 +51,16 @@
   def get_topics
     @reviews = UserReview.all
     @completed_topics = []
+    @total_score = []
+    @average_score = 0
     @reviews.each do |x|
       if x.for_user_id == @user.id
+        @total_score << x.score
         b = Topic.find (x.topic_id)
         @completed_topics << b.name
+        (@average_score = @total_score.sum / @total_score.count )
       end
     end
-    @completed_topics
   end
 
 
