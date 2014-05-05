@@ -14,12 +14,12 @@
   <tr>
     <td><%= f.label :first_language %></td>
     <td><%= f.select :first_lang, ['English', 'French', 'Spanish'] %></td>
-    <td><%= f.select :first_lang_lvl, [1,2,3,4,5] %></td>
+    <td><%= f.select :first_lang_lvl, options_for_select(LANGLEVEL) %></td>
   </tr>
   <tr>
     <td><%= f.label :second_language %></td>
     <td><%= f.select :second_lang, ['English', 'French', 'Spanish'] %></td>
-    <td><%= f.select :second_lang_lvl, [1,2,3,4,5] %></td>
+    <td><%= f.select :second_lang_lvl, options_for_select(LANGLEVEL) %></td>
   </tr>
 </table>
 <h3 class="edit-profile-titles"> About me </h3>
