@@ -1,13 +1,13 @@
 <div class="container">
   <h3> Appointments for <%= @user.first_name %> <%=@user.last_name%></h3>
   <ul class="nav nav-tabs" id="appointmentTab">
-    <li class="active"><a href="#upcoming" data-toggle="tab">Upcoming Appointments</a></li>
-    <li><a href="#previous" data-toggle="tab">Previous Appointments</a></li>
+    <li class="active"><a href="#upcoming" data-toggle="tab"><h4 class="tab-title">Upcoming Appointments</h4></a></li>
+    <li><a href="#previous" data-toggle="tab"><h4 class="tab-title">Previous Appointments</h4></a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="upcoming">
       <% if !@userbookings.empty? %>
-        <table class="bookings_table">
+        <table class="table bookings_table">
           <tr>
             <th>Start</th>
             <th>End</th>
@@ -30,12 +30,12 @@
           <% end %>
         </table>
       <% else %>
-        You have no upcoming bookings yet! Why don't you try viewing your matched users?
+        You have no upcoming appointments yet! Why don't you try viewing your matched users?
       <% end %>
     </div>
     <div class="tab-pane" id="previous">
       <% if !@userbookings.empty? %>
-        <table class="bookings_table">
+        <table class="table bookings_table">
           <tr>
             <th>Start</th>
             <th>End</th>
@@ -56,7 +56,7 @@
           <% end %>
         </table>
       <% else %>
-        You have had no bookings yet! Why don't you try viewing your matched users?
+        You have had no appointments yet! Why don't you try viewing your matched users?
       <% end %>
     </div>
   </div>
