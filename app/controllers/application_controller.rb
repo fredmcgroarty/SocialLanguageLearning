@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
     missing_info || !current_user
   end
 
+  def language_counter
+    @language_counter_english =  UserProfile.count native_lang: "English"
+    @language_counter_french =  UserProfile.count native_lang: "French"
+    @language_counter_spanish =  UserProfile.count native_lang: "Spanish"
+  end
+
   def redirect_to_sign_in
     flash[:alert] = "Please sign in or complete your profile to use this feature"
     redirect_to '/'

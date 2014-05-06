@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504143716) do
+ActiveRecord::Schema.define(version: 20140505150953) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140504143716) do
     t.integer  "booking_id"
     t.string   "lang1"
     t.string   "lang2"
+    t.integer  "topic_id"
   end
 
   create_table "notifications", force: true do |t|
@@ -136,7 +137,7 @@ ActiveRecord::Schema.define(version: 20140504143716) do
     t.text     "rev1"
     t.text     "rev2"
     t.integer  "score"
-    t.string   "topic"
+    t.integer  "topic_id",    limit: 255
     t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"

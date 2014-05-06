@@ -16,10 +16,8 @@
 @import 'bootstrap';
 
 body {
-  font-family: 'Oswald', sans-serif;
   margin-right: 5px;
   margin-left: 5px;
-
 }
 
 
@@ -36,4 +34,40 @@ body {
 .notice {
   margin: 0;
   padding: 0;
+}
+
+
+
+
+.flag-container {
+    width: 100px;
+    height: 100px;
+}
+
+/* resize images */
+.flag-container img {
+    width: 100%;
+    height: auto;
+}
+.franflag.col-md-1 .engflag.col-md-1 {
+	margin-right: 100px;
+}
+.engflag.col-md-1 {
+	margin-left: 100px;
+}
+
+.spainflag.col-md-1 {
+	margin-left: 100px;
+}
+
+.flag-text {
+	margin-top: -35px;
+	float: right;
+}
+
+.flag-counter {
+margin-top: -110px;
+font-size: 60px;
+float: right;
+
 }

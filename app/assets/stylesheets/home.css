@@ -4,17 +4,9 @@
 	background-color: green;
 }
 
-.welcome {
-	background-color: #4863A0;
-	height: 400px;
-}
 
 .not-logged-in {
 	background-color: white;
-}
-
-.sign-in {
-	margin-bottom: 10%;
 }
 
 .col-md-10 {

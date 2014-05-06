@@ -1,3 +1,7 @@
+#header-spacing {
+  height: 69px;
+  width: 100%;
+}
 
 .bcg {
   background-size: 120%;
@@ -5,15 +9,99 @@
   height: 900px;
 }
 
-.splash-text {
-  background-color: white;
-  width: 100%;
-  height: 500px;
+.welcome {
+  color: white;
+  margin-top: 100px;
+  height: 700px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 20px;
+
+  input {
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+#welcome-left {
+  margin-top: 35px;
+  font-family: 'Oswald', sans-serif;
   text-align: center;
+  
+  img {
+  margin-bottom: 1em;
+  }
+
+  h1 {
+  padding-bottom: 10px;
+  font-weight: bold;
+  }
+}
+
+.welcome-right {
+  font-family: 'Oswald', sans-serif;
+  
+  ins {
+    font-family: 'Oswald', sans-serif;
+  }
+}
+
+.title {
+  text-align: right;
+
+  label {
+    font-family: 'Oswald', sans-serif;
+    padding: 3px;
+    font-size: 18px;
+  }
+}
+
+.form-group input {
+  font-family: 'Oswald', sans-serif;
+  background-color: rgba(247,247,247,0.6);
+  width: 100%;
+  padding: 3px;
+}
+
+.button input {
+  background-color: #a1f4ea;
+  padding: 3px;
+  font-size: 18px;
+  width: 100%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.remember {
+  text-align: right;
+
+  label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+
+#user_remember_me {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 #splash1 .bcg {
   background-image: url("london.jpg");
+}
+
+.splash-text {
+  background-color: white;
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
+  height: 500px;
+  text-align: center;
 }
 
 #splash3 .bcg {
@@ -27,3 +115,4 @@
 #splash7 .bcg {
   background-image: url("singapore.jpg");
 }
+

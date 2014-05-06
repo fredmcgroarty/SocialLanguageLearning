@@ -1,6 +1,4 @@
-<div class="col-md-4"> 
 
-</div>
 
 <div class="col-md-4">
 
@@ -8,11 +6,12 @@
 
 <% @conversations.each do |conversation| %>
 
-	<% conversation.participants.each do |participant| %>
-		<% if participant != current_user %>
-	 		<%= link_to participant.name, participant %>
-		<% end %>
-	<% end %>
+  <% conversation.participants.each do |participant| %>
+    <% if participant != current_user %>
+      <%= link_to participant.name, participant %>
+    <% end %>
+    
+<% end %>
 
 	<%= link_to conversation.subject, conversation %>
 	<%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>

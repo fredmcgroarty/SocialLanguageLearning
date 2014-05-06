@@ -652,7 +652,7 @@
             Minutes: {
                 show: true,
                 text: "Minutes",
-                color: "#BFB"
+                color: "#a1f4ea"
             },
             Seconds: {
                 show: true,

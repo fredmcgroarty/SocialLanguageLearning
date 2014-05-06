@@ -17,7 +17,9 @@
     <tr>
       <td><%= f.label "Has the user completed this topic?" %></td>
       <td><%= f.check_box :completed %></td>
-
+    </tr>
+    <tr>
+      <td><%= hidden_field_tag 'lesson_id', params[:lesson_id] %> </td>
     </tr>
     <td><%= f.submit :class => 'post-button', :method => :create %></td>
   </table>
