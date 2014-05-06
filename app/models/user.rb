@@ -48,4 +48,9 @@ class User < ActiveRecord::Base
     matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
   end
 
+  def lang_level_name(level_name)
+    target_level = (level_name == :first) ? first_lang_lvl : second_lang_lvl
+    LANGLEVEL.find {|level| level.last == target_level}[0]
+  end
+
 end
