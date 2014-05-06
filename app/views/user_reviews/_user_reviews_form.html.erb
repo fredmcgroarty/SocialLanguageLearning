@@ -1,31 +1,28 @@
+<div class="container review">
+  <h1>YOU JUST COMPLETED A SUCCESSFUL SESSION!</h1>
+  <h1>DON’T EXIT JUST YET!</h1>
+  <h3>Please evaluate your friend in order to help them learn better!</h3>
+  <%= form_for([@user, @user_review]) do |f| %>
+    <table class="reviewtable">
+      <tr>
+        <th><h4><%= f.label "What they did well:" %></h4></th>
+        <td><%= f.text_field :rev1 %></td>   
+      </tr>  
+      <tr>
+        <th><h4><%= f.label "How and where they can improve:" %></h4></th>
+        <td><%= f.text_field :rev2 %></td>
+      </tr>
+      <tr>
+        <th><h4><%= f.label "Rate the conversation (interesting/started on time/ friendliness/etc):" %></h4></th>
+        <td><%= f.select :score, [1, 2, 3, 4, 5] %></td>
+      </tr>
+      <tr>
+        <th><h4><%= f.label "Mark their topic as complete?" %></h4></th>
+        <td><%= f.check_box :completed %></td>
+      </tr>
+    </table>
+    <%= hidden_field_tag 'lesson_id', params[:lesson_id] %>
+    <h4><%= f.submit "SUBMIT",:method => :create %></h4>
 
-<%= form_for([@user, @user_review]) do |f| %>
-
-<p><h555>Please leave your review<h555></p><br>
-<p>
-    <label for="rev1" class="label_reviews">How did the user get on?</label>
-      <%= f.text_area :rev1 %><br>
-    </p>
-    <p>
-    <label for="rev2" class="label_reviews">Where can they improve?</label>
-      <%= f.text_area :rev2 %><br>
-      </p>
-    <p>
-
-    <label  for="rev2" class="label_reviews">Score out of 5</label>
-      <%= f.select :score, [1, 2, 3, 4, 5] %><br>
-    </p>
-    <p>
-    <label for="completed" class="label_reviews">Has the user completed this topic?</label>
-      <%= f.check_box :completed %><br>
-    </p>
-    <p>
-      <%= hidden_field_tag 'lesson_id', params[:lesson_id] %>
-
-    <%= f.submit :class => 'post-button', :name => 'create_rev_but', :method => :create %><br>
-</p>
-
-  
-
-<% end %>
-
+  <% end %>
+</div>
