@@ -1,8 +1,10 @@
 <script type="text/javascript"></script>
 
+  <h6>Use this form to request a Tandem session with the user</h6>
+
 <%= form_for([@user, @booking]) do |f| %>
   <p>
-    <%= f.label  'Date' %>
+    <%= f.label  'Date' %><br>
     <%= f.text_field :start_time, :id => 'datepicker' %>
     <%= f.time_select :start_time %>
 
@@ -11,8 +13,7 @@
     <%= f.label 'length', 'Length of booking in hours' %>
     <%= f.select :length, options_for_select(DURATIONS, @booking.length ? DURATIONS[@booking.length] : DURATIONS[0]) %>
   </p>
-  <%= f.select(:topic_id, Topic.all.map {|p| [p.name,p.id]}, :prompt => "Select a Topic") %>
+  <%= f.select(:topic_id, Topic.all.map {|p| [p.name,p.id]}, :prompt => "Select a Topic") %><br>
   <%= f.submit 'Submit' %>
 <% end %> 
-x
 
