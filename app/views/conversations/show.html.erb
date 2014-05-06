@@ -8,11 +8,16 @@
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
           <% message = receipt.message %>
           <p><h6><%= message.created_at.strftime("%I:%M %p %b %d") %>
+          
+
           <%= message.body.html_safe %>
         <% end %>
       </div>
     </ul>
+
+    <div id="contact">
     <%= render 'messages/form', conversation: conversation %>
+    </div>
   </div>
 <div class="col-md-4"> 
   <div id="calendar"></div>
