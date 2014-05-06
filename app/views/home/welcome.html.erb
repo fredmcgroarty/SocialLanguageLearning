@@ -7,7 +7,7 @@
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-				<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
+				<%= image_tag @user.user_profile.picture.url(:medium), class: "mini-profile-avatar" %>
 				<h5><%= link_to @user.username, user_profile_path(@user) %></h5>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
@@ -62,7 +62,7 @@
 						<div class="matched-user-profiles">
 							<% next if users.id == current_user.id %>
 							<% if users.user_profile  %> 
-								<%= image_tag users.user_profile.picture.url(:thumb) %>
+								<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%>
 								<br>
 								<div class="matched-user-profiles-description">
 								<%= link_to users.first_name, user_profile_path(users) %> 
