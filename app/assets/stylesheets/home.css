@@ -74,6 +74,11 @@
 		color: #5F6B6B;
 	}
 
+.matched-user-profile-pic{
+	height: 130px;
+	width: 130px;
+}	
+
 .row.topics {
 	/*background-color: yellow;*/
 	height: 300px;
