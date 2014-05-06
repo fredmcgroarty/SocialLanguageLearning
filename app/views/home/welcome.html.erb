@@ -81,7 +81,7 @@
 						<% @topics_a.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -91,7 +91,7 @@
 						<% @topics_b.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -101,7 +101,7 @@
 						<% @topics_c.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -111,7 +111,7 @@
 						<% @topics_d.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
