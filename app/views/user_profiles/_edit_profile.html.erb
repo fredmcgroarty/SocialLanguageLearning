@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <td><%= f.label :dob %></td>
-      <td><%= f.date_select :dob, {start_year: 1925, end_year: 2010,  :order => [:month, :year, :day]}, :class => "form-control" %></td>
+      <td><%= f.date_select :dob, {start_year: 1925, end_year: 2010,  :order => [:day, :month, :year]}, :class => "form-control" %></td>
     </tr>
     <tr>
       <td><%= f.label :gender %></td>
