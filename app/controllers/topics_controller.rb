@@ -21,25 +21,6 @@ class TopicsController < ApplicationController
 		end
 
 		if topic.save
-		# if a.save
-			# if a.english?
-			# 	b = Language_topic.new do |u|
-			# 		u.topic_id = a.id
-			# 		u.language_id = 1
-			# 	end
-			# end
-			# if a.french?
-			# 	c = Language_topic.new do |u|
-			# 		u.topic_id = a.id
-			# 		u.language_id = 2
-			# 	end
-			# end
-			# if a.spanish?
-			# 	c = Language_topic.new do |u|
-			# 		u.topic_id = a.id
-			# 		u.language_id = 3
-			# 	end
-			# end
 			redirect_to '/topics'
 		else
 			flash[:error] = "There was an error, please submit valid data"

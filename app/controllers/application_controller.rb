@@ -31,6 +31,22 @@ class ApplicationController < ActionController::Base
     redirect_to '/'
   end
 
+  def get_topics
+    @topics_a, @topics_b, @topics_c, @topics_d = []
+    @topics =  Topic.all
+    @topics.each do |x|
+      if x.id < 6
+        @topics_a << x
+      elsif x.id < 11
+        @topics_b << x
+      elsif x.id < 16
+        @topics_c << x
+      elsif x.id < 21
+        @topics_d << x
+      end
+    end
+  end
+
 	protected
 
   def configure_permitted_parameters
