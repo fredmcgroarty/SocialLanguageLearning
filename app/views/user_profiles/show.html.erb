@@ -1,6 +1,7 @@
 <div class="col-md-3">
 	<div class='row'>
 		<div class='main-label-buttons'>
+
 		<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" 	data-toggle="modal" data-target="#myModal"><br>
 		<span class='button-label'>Message</span>
 		</button>
@@ -38,8 +39,8 @@
 		</div>
 	</div>
 </div>
-	<%= image_tag @user.picture.url(:medium) %>
 	<div class='profile-info'>
+		<%= image_tag @user.picture.url(:medium) %>
 		<br>
 			<% if @user.user_profile %>
   		<% if @user.first_name && @user.last_name %>
@@ -60,11 +61,15 @@
 </div>
 <div class="col-md-3">
 	<div id="completed-topics">
-		<h3> <%= @user.first_name %> has discussed the following topics  </h3>
+
+
+
+
+		<h3> <%= @user.first_name %> has discussed the following topics:</h3>
 		Topics Discussed:
 			<% if @completed_topics.any? %>
-				<% @completed_topics.each do |x| %> 
-					<%= x %><br />
+				<% @completed_topics.each do |x| %> <br />
+					<%= simple_format (x), class: 'list-group-item' %>
 				<% end %>
 				<% else %>
 				None!<br />
