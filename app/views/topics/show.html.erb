@@ -1,8 +1,22 @@
 <h3><%= @topic.name %></h3><br />
-
+<div class="col-md-4">
+	<h4>Total users completed: <%= @topic.completed_users.count %></h4>
+<% if @topic.completed_users.each do |x| %>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<span class="badge">✔</span>
+				<%= link_to x.username, user_profile_path(x) %>
+			</li>
+		</ul>
+	<% end %>
+<% else %>
+	Nobody has completed this topic yet, why not get to work on it? <br />
+<% end %>
 
 <%= link_to "Add more topics", new_topic_path, class: "btn btn-success" %>
 <%= link_to "View all topics", topics_path, class: "btn btn-info" %><br />
 
 <%= link_to "Add more languages", new_language_path, class: "btn btn-success" %>
 <%= link_to "View all languages", languages_path, class: "btn btn-warning" %><br />
+
+</div>

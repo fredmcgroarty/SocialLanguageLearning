@@ -1,42 +1,123 @@
-// Place all the styles related to the UserProfiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.col-md-2.profiles {
-	background-color: blue;
-	height: 1000px
+.username-profile {
+	font-size: 39px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  margin-left: 5%;
 }
 
-.row {
+.info.col-md-4 {
+	background-color: #a1f4ea;
 }
 
-.right {
-	float: right;
-	margin-right: 10px;
+.language-level-topics.col-md-5 {
+		border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;	
 }
 
-.left {
-	margin-left: 10px;
+.completed-topics-dropdown {
+	width: 100%;
+	border-top: solid;
+	font-family: 'Oswald', sans-serif;
 }
 
-.wide {
-	width: 154px;
+.language-level-topics {
+	font-size: 25px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  margin-left: 5%;
 }
 
-.calendar {
-	float: right;
+.essential-prof-info {
+	font-size: 15px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  text-align: center;
+}
+
+img.profile-pic {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-profile {
+	font-size: 15px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.main-label-buttons {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.completed-topics {
+		font-size: 28px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+}
+
+.completed-topics-and-reviews {
+	font-size: 28px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+}
+
+.plus-completed-topics-and-reviews {
+	font-size: 40px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+#positive-reviews {
+	max-height: 150px;
+	overflow: scroll;
+}
+
+#negative-reviews {
+	max-height: 150px;
+	overflow: scroll;
+}
+
+.positive-user-reviews {
+	background-color: #80FF00;
 }
 
 
-
-.profile-booking.row {
-  background-color: aliceblue;
-    float: right;
+.glyphicon.glyphicon-pencil.btn.update-button-profile-edit-page {
+	width: 100%;
 }
 
-.profile-info.row {
-    background-color: aliceblue;
-margin-bottom: 2%;
-text-align: center;
-margin-top: 10px;
+.wants-to-teach-learn {
+	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
 }
+
+.box.wants-to-teach-learn {
+	border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;
+}
+
+.info.row {
+	border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;
+}
+
+.negative.list-group-item {
+	font-size: 12px;
+	background-color: green;
+}
+
+.user-lang.row {
+	font-size: 20px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+}
+

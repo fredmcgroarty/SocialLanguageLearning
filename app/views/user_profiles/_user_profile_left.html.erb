@@ -1,0 +1,34 @@
+<div class='profile-holder'>
+	<div class='info row'>
+		<center>
+			<div class='info col-md-4'>
+				<span class='essential-prof-info'>
+					TOPICS COMPLETED<br>
+					N/A
+				</span>
+			</div>
+			<div class='info col-md-4'>
+				<span class='essential-prof-info'>
+					HOURS COMPLETED<br>
+					<%= @total_length %>
+				</span>
+			</div>
+			<div class='info col-md-4'>
+				<span class='essential-prof-info'>
+					AVERAGE SCORE<br>
+					<%= @average_score %>/5
+				</span>
+			</div>
+		</center>
+	</div>
+	<div class='box wants-to-teach-learn'>
+		<span class='wants-to-teach-learn'>
+			Wants to teach: <%= @user.native_lang %>
+		</span>
+		<br>
+		<span class='wants-to-teach-learn'>
+			Wants to learn: <%= @user.first_lang %><% if @user.second_lang %> & <%= @user.second_lang %> <% end %>
+		</span>
+	</div>
+	<%= image_tag (@user.picture.url(:medium)), class: 'profile-pic' %><br>
+</div>

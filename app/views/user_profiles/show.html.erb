@@ -1,81 +1,18 @@
-<div class="col-md-3">
+<div class='col-md-3'>
+	<%= render :partial => 'user_profile_left' %>
+	<%= render :partial => 'contact_user' %>
+</div>
+</div>
+<div class='col-md-9'>
 	<div class='row'>
-		<center>
-
-			<%= image_tag @user.picture.url(:medium) %>
-		</center>
-	</div>
-	<div class="profile-info row">
-		<% if @user.user_profile %>
-  		<% if @user.first_name && @user.last_name %>
-	  		<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
-	  	<% end %>
-	  	<dt>Location:</dt> <dd>London</dd> 
-	  	<% if @user.native_lang %>
-	  		<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
-	  	<% end %> 
-	  	<% if @user.first_lang %>
-	  		<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
-	  	<% end %>
-	  	<% if @user.email %>
-	  		<dt>Email:</dt> <dd><%= @user.email %></dd> 
-	  	<% end %>
-		</dl>
-		<% end %>
-	</div>
-	<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" data-toggle="modal" data-target="#myModal">
-	</button>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- 		<div class="modal-dialog">
-   		<div class="modal-content">	
-     		<div class="modal-header">
-	       	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	       	<h4 class="modal-title" id="myModalLabel">Message to <%= @user.first_name %> </h4>
-	     	</div>
-	     	<div class="modal-body">
-	     	  <%= render :partial => 'messages/new' %> 
-	     	</div>
-	   	</div>
-	 	</div>
-	</div>
-		<button class="glyphicon glyphicon-pushpin btn update-button-profile-edit-page" data-toggle="modal" data-target="#myModal2">
-	</button>
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- 		<div class="modal-dialog">
-   		<div class="modal-content">	
-     		<div class="modal-header">
-	       	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	       	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-	     	</div>
-	     	<div class="modal-body">
-	     	  <%= render :partial => 'bookings/form' %> 
-	     	</div>
-	   	</div>
-	 	</div>
-	</div>
-	<div id="completed topics">
-		Completed Topics:
-		<% if @completed_topics.any? %>
-			<% @completed_topics.each do |x| %> 
-				<%= x %><br />
-			<% end %>
-		<% else %>
-			None!<br />
-		<% end %>
-		Average Score: <%= @average_score %>
-	</div>
-</div>
-<div class="col-md-4">
-	<div id="calendar">
-	</div>
-</div>
-<div class="col-md-5 profile">
-	<div class="profile-booking row">
-	<h6>Timetable of availability goes here <br />
-	Clicking on an hour slot brings up sending a request <br />
-	Maybe a request chat now too if he's online</h6>
-	<%= render 'bookings/form' %>
+		<%= render :partial => 'contact_mid_user' %>
+		<%= render :partial => 'contact_right_user' %>
 	</div>
 </div>
 
 
+
+
+
+
+	  	
