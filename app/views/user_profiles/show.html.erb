@@ -1,47 +1,99 @@
-<div class="profile col-md-3">
-<%= render :partial => 'contact_user' %>
-</div>
-	<div class='profile-info'>
-		<%= image_tag @user.picture.url(:medium) %>
-		<br>
-			<% if @user.user_profile %>
-  		<% if @user.first_name && @user.last_name %>
-	  	<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
-	  	<% end %>
-	  	<dt>Location:</dt> <dd>London</dd> 
-	  	<% if @user.native_lang %>
-	  	<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
-	  	<% end %> 
-	  	<% if @user.first_lang %>
-	  	<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
-	  	<% end %>
-	  	<% if @user.email %>
-	  	<dt>Email:</dt> <dd><%= @user.email %></dd> 
-	  	<% end %>
-		<% end %>
+<div class='col-md-3'>
+	<div class='profile-holder'>
+		<div class='info row'>
+			<center>
+				<div class='info col-md-4'>
+					<span class='essential-prof-info'>
+						TOPICS COMPLETED<br>
+						...<br>
+					</span>
+				</div>
+				<div class='info col-md-4'>
+					<span class='essential-prof-info'>
+					HOURS COMPLETED<br>
+					...<br>
+					</span>
+				</div>
+				<div class='info col-md-4'>
+					<span class='essential-prof-info'>
+					AVERAGE SCORE<br>
+					...<br>	
+					</span>
+				</div>
+			</center>
+		</div>
+		<div class='box wants-to-teach-learn'>
+			<span class='wants-to-teach-learn'>
+				Wants to teach: <%= @user.native_lang %>
+			</span>
+			<br>
+			<span class='wants-to-teach-learn'>
+				Wants to learn: <%= @user.first_lang %><% if @user.second_lang %> & <%= @user.second_lang %> <% end %>
+			</span>
+		</div>
+		<%= image_tag (@user.picture.url(:medium)), class: 'profile-pic' %><br>
+		<%= render :partial => 'contact_user' %>
 	</div>
 </div>
-<div class="col-md-3">
-	<div id="completed-topics">
-			<% if @completed_topics.any? %>
-		<p class='discussed-topics'> <%= @user.first_name %> has discussed the following topics:</p>
-				<% @completed_topics.each do |x| %> <br />
+</div>
+<div class='col-md-9'>
+	<div class='row'>
+		<div class='col-md-4'>
+			<%= simple_format (@user.first_name + " " + @user.last_name), class: 'username-profile'%> 
+		</div>
+		<div class='col-md-6'>
+			<div class='user-lang row'>
+				<%= @user.first_lang %> Level: <%= @user.lang_level_name(:first) %>
+			</div>
+			<div class='user-lang row'>
+				<%= @user.second_lang %> Level: <%= @user.lang_level_name(:second) %>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-4'>
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			<div class='completed-topics-and-reviews'>
+				Completed Topics
+			</div>
+   	</a>
+   	<div id="collapseOne" class="panel-collapse collapse in">
+   		<div class="panel-body">
+     		<div id="completed-topics">
+     			<% if @completed_topics.any? %>
+					<% @completed_topics.each do |x| %> <br />
 					<%= simple_format (x), class: 'profile list-group-item' %>
-				<% end %>
-				<% else %>
-				None!<br />
-			<% end %>
-		Average Score: <%= @average_score %>
-	</div>
+					<% end %>
+					<% else %>
+					None!<br />
+					<% end %>
+				</div>
+     	</div>
+   	</div>
+ 	</div>
+	<div class='col-md-4'>
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
+			<div class='completed-topics-and-reviews'>
+				User Reviews			
+			</div>
+   	</a>
+   	<div id="collapseOne1" class="panel-collapse collapse in">
+   		<div class="panel-body">
+     		<div id="completed-topics">
+     			<% if @completed_topics.any? %>
+					<% @completed_topics.each do |x| %> <br />
+					<%= simple_format (x), class: 'profile list-group-item' %>
+					<% end %>
+					<% else %>
+					None!<br />
+					<% end %>
+				</div>
+     	</div>
+   	</div>
+ 	</div>
 </div>
-<div class="col-md-3">
-	<div id="calendar">
-	</div>
-</div>
-
-
-
-
-
-
 	
+
+
+
+
+	  	

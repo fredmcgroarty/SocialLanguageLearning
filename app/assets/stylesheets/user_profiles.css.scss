@@ -1,74 +1,90 @@
-// Place all the styles related to the UserProfiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.col-md-2.profiles {
-	background-color: blue;
-	height: 1000px
+.username-profile {
+	font-size: 39px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  margin-left: 5%;
 }
 
-.row {
+.language-level-topics.col-md-5 {
+		border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;	
 }
 
-.right {
-	float: right;
-	margin-right: 10px;
+.completed-topics-dropdown {
+	width: 100%;
+	border-top: solid;
+	font-family: 'Oswald', sans-serif;
 }
 
-.left {
-	margin-left: 10px;
+.language-level-topics {
+	font-size: 25px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  margin-left: 5%;
 }
 
-.wide {
-	width: 154px;
+.essential-prof-info {
+	font-size: 15px;
+	  font-family: 'Oswald', sans-serif;
+	  letter-spacing: 2px;
+	  text-align: center;
 }
 
-.calendar {
-	float: right;
+img.profile-pic {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-
-.profile-booking.row {
-  background-color: aliceblue;
-    float: right;
+.email-profile {
+	font-size: 15px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+	text-align: center;
 }
-
-.profile.col-md-3 {
-
-
-}
-
-.profile-info {
-background-image: url("polyglt_logo.png");
-background-size: 100%;
-
-margin-bottom: 2%;
-text-align: center;
-margin-top: 10px;
-}
-
 
 .main-label-buttons {
-	margin-bottom: 2%;
-	margin-left: 27%;
+	width: 80%;
+	margin: 0 auto;
 }
 
-.discussed-topics {
-font-family: 'Oswald', sans-serif;
-font-size: 18px;
-
+.completed-topics-and-reviews {
+	font-size: 28px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
 }
 
-#completed-topics {
-	background-color: aliceblue;
+.glyphicon.glyphicon-pencil.btn.update-button-profile-edit-page {
+	width: 100%;
 }
 
-p.profile.list-group-item {
-	font: "Lucida Grande", sans-serif;	
-
+.wants-to-teach-learn {
+	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
-p.profile-title {
-	font-size: 30px;
+.box.wants-to-teach-learn {
+	border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;
 }
+
+.info.row {
+	border-style:solid;
+	border-width:2px; 
+	margin-bottom: 5%;
+}
+
+.profile.list-group-item {
+	font-size: 10px;
+}
+
+.user-lang.row {
+	font-size: 20px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+}
+
