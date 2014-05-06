@@ -82,9 +82,9 @@
 					<div class="col-md-2">
 						<div class="matched-user-profiles">
 							<% next if users.id == current_user.id %>
-							<% if users.user_profile  %> 
-								<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%>
-								<br>
+							<% if users.user_profile  %>
+								<div class="matched-user-profile-pic" style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);">
+								</div>
 								<div class="matched-user-profiles-description">
 								<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 								<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
