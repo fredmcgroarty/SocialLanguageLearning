@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @user = current_user
     assign_bookings if @user
     @userbookings
+    @users = User.all
   end
 
   def new
