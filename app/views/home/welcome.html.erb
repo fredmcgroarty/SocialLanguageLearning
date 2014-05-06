@@ -8,8 +8,8 @@
 		<div class='home-page-avatar-info'>
 			<% if @user %>
 				<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
+				<h5><%= link_to @user.username, user_profile_path(@user) %></h5>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-				<h5><%= @user.username %></h5>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
 			<% end %>
 			<br>
@@ -23,7 +23,7 @@
 			<div class="row user-appointments">
 				<% if @user %>
 					<h2>UPCOMING APPOINTMENTS</h2>
-					<%current_user.bookings.each do |booking|%>
+					<%@userbookings.each do |booking|%>
 						<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
 							You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
 						<% end%>	

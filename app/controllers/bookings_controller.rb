@@ -31,9 +31,11 @@ class BookingsController < ApplicationController
     elsif @booking.length == nil
       flash[:alert] = "Please enter a valid duration"
       return redirect_to "/user_profiles/#{@user.id}"
+    elsif @booking.topic_id == nil
+      flash[:alert] = "Please select a topic!"
+      return redirect_to "/user_profiles/#{@user.id}"
     elsif !@booking.valid?
-      flash[:alert] = "This slot is already booked!"
-      @booking.destroy!
+      flash[:alert] = "Double booked!!"
       return redirect_to "/user_profiles/#{@user.id}"
     end
     @booking.save!
@@ -81,7 +83,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params[:booking].permit(:user_id, :start_time, :length, :accepted, :topic_id)
+    params[:booking].permit(:user_id, :start_time, :length, :accepted, :topic_id, :student_id)
   end
 
   def send_invite
