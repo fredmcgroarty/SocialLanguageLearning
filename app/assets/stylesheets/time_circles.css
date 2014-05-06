@@ -3,9 +3,11 @@
  *  It is used so that your own element will not need to be altered
  **/
 .time_circles {
+    
     position: relative;
     width: 100%;
     height: 100%;
+    color: #3A3D3D;
 }
 
 /**
@@ -25,7 +27,7 @@
     padding: 0px;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Century Gothic', Arial;
+    font-family: 'Oswald', sans-serif;
 }
 
 /**
@@ -35,13 +37,20 @@
     display: block;
     width: 100%;
     text-align: center;
-    font-family: 'Century Gothic', Arial;
+    font-family: 'Oswald', sans-serif;
     font-size: 300%;
     margin-top: 0.4em;
     font-weight: bold;
 }
 
 .timer {
-    width:300px;
-    height: 300px;
+    width:150px;
+    height: 150px;
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
 }
+
