@@ -4,3 +4,10 @@ function show_group_popup() {
   win.setContent('groups_show',true,true);
   win.show();
 }
+
+$(document).ready(function(){
+	$(".completed-topics-and-reviews").on("click", function(){
+		$('.positive').trigger('click');
+		$('.negative').trigger('click');
+	})
+})

@@ -55,6 +55,24 @@ img.profile-pic {
 	letter-spacing: 2px;
 }
 
+.plus-completed-topics-and-reviews {
+	font-size: 40px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+#positive-topics {
+	max-height: 150px;
+	overflow: scroll;
+}
+
+#negative-topics {
+	max-height: 150px;
+	overflow: scroll;
+}
+
+
 .glyphicon.glyphicon-pencil.btn.update-button-profile-edit-page {
 	width: 100%;
 }
@@ -79,7 +97,7 @@ img.profile-pic {
 }
 
 .profile.list-group-item {
-	font-size: 10px;
+	font-size: 12px;
 }
 
 .user-lang.row {
