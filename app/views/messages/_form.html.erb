@@ -1,5 +1,5 @@
  <%= form_for :message, url: [:reply, conversation] do |f| %>
- <%= f.text_area :body, placeholder: "Type your message here..." %>
- <%= f.submit "Send Message", class: 'btn btn-primary' %>
- <%= submit_tag 'Clear Reply Box', type: :reset, class: 'btn btn-danger' %>
+   <%= f.text_area :body, placeholder: "Reply to this thread here..." %><br>
+   <%= submit_tag 'Clear Reply', type: :reset, class: 'button-clear-message' %>
+   <%= f.submit "Send Message", class: 'button-send-message' %>
  <% end %>
