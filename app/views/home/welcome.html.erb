@@ -22,7 +22,7 @@
 			<div class="row user-appointments">
 				<% if @user %>
 					<h2>UPCOMING APPOINTMENTS</h2>
-					<%current_user.bookings.each do |booking|%>
+					<%@userbookings.each do |booking|%>
 						<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
 							You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
 						<% end%>	
