@@ -1,8 +1,7 @@
-	<%= @user.first_name %>
 	<%= form_tag(user_messages_path(@user), method: :post) do %>
-  	<%= label_tag :subject, :class => 'main-label' %><br>
+  	<%= label_tag :subject,  :class => 'main-label' %><br>
   	<%= text_field_tag :subject, :class => 'input-medium'  %>
-  	<%= label :body, "Message text", :class => 'main-label' %>
+  	<%= label :body, "Message", :class => 'main-label' %>
   	<%= text_area_tag :body, :class => 'form-group' %>
-  	<%= submit_tag 'Send message', class: "btn btn-primary" %>
+  	<%= submit_tag 'Send message', class: "glyphicon glyphicon-envelope btn" %>
 	<% end %>

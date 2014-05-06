@@ -8,8 +8,6 @@
 		<div class='home-page-avatar-info'>
 			<% if @user %>
 				<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
-				<h1><%= @language_counter_english %></h1>
-
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<h5><%= @user.username %></h5>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
