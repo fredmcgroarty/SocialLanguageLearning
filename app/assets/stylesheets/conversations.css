@@ -1,0 +1,54 @@
+.inbox-preview-col{
+  border-top:1px solid #EAE8E8;
+}
+
+
+.inbox-preview-box{
+  border-bottom:1px solid #EAE8E8;
+  padding: 5px;
+  overflow: scroll;
+}
+
+.inbox-preview-box:hover{
+border-right: 6px solid #a1f4ea;
+}
+
+.inbox-preview-box h4{
+  margin: 0px;
+}
+.inbox-preview-box h5{
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+.inbox-preview-box h6{
+  margin:0px;
+}
+
+.message_content_each{
+ border-bottom:1px solid #EAE8E8;
+ padding: 5px;
+}
+
+.message_content_each h6{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.subject-div{
+  float:left;
+}
+
+.delete-div{
+  float:right;
+}
+
+.message-header{
+margin-top: 15px;
+}
+
+.message-header h3{
+margin-top: 0px;
+color: #A3ACB2;
+font-family: 'Oswald', sans-serif;
+
+}
