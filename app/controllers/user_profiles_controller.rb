@@ -12,7 +12,6 @@
     @user = @user_profile.user
     @booking = Booking.new
     get_topics
-    @reviews = UserReview.all?
   end
 
   def create
