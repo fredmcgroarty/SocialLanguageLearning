@@ -30,6 +30,9 @@
     </div>
   </div>
 </nav>
-   <% if user_signed_in? %>
-    <div class="main-content"></div>
+<% if user_signed_in? %>
+  <div class="main-content"></div>
+<% else %>
+  <div id="header-spacing">
+  </div>
 <% end %>
