@@ -1,3 +1,77 @@
 // Place all the styles related to the UserReviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+
+#new_user_review
+{
+    align:"center";
+}
+/*
+label {
+	float: left;
+    width: 80px;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: red;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+*/
+#user_review_rev1, #user_review_rev2 {
+
+ 
+        height:60px; 
+        width: 275px; 
+	border: solid 1px #E5E5E5; 
+	outline: 0; 
+	font: normal 13px/100% Verdana, Tahoma, sans-serif; 
+	background: #FFFFFF url('bg_form.png') left top repeat-x; 
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+	} 
+ 
+.textbox :focus {  
+	border-color: #C9C9C9;  
+	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+	} 
+	
+   
+#new_user_review {
+     width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+   
+    background-color: #f8f8f8;
+    color: #222;
+
+    font-family: Cantarell, Verdana, sans-serif;
+
+
+    padding:30px 30px 20px 30px;
+    box-shadow:rgba(122, 122, 122, 0.7) 0 3px 10px -1px;
+    -webkit-box-shadow:rgba(122, 122, 122, 0.7) 0 3px 10px -1px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+}
+
+h555 {
+	font-size: 20px; color: #445668; text-transform: uppercase;
+	text-align: center; margin: 0 0 35px 0; text-shadow: 0px 1px 0px #f2f2f2;
+}
+
+.post-button { background: #FFF;
+    border: 1px solid #CCC;
+    padding: 10px 25px 10px 25px;
+    
+    border-radius: 4px;
+    
+	background: #FFFFFF url('bg_form.png') left top repeat-x; 
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    }
