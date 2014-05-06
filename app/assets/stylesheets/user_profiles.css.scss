@@ -5,6 +5,10 @@
 	  margin-left: 5%;
 }
 
+.info.col-md-4 {
+	background-color: #a1f4ea;
+}
+
 .language-level-topics.col-md-5 {
 		border-style:solid;
 	border-width:2px; 
@@ -49,6 +53,12 @@ img.profile-pic {
 	margin: 0 auto;
 }
 
+.completed-topics {
+		font-size: 28px;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+}
+
 .completed-topics-and-reviews {
 	font-size: 28px;
 	font-family: 'Oswald', sans-serif;
@@ -62,14 +72,18 @@ img.profile-pic {
 	text-align: center;
 }
 
-#positive-topics {
+#positive-reviews {
 	max-height: 150px;
 	overflow: scroll;
 }
 
-#negative-topics {
+#negative-reviews {
 	max-height: 150px;
 	overflow: scroll;
+}
+
+.positive-user-reviews {
+	background-color: #80FF00;
 }
 
 
@@ -96,8 +110,9 @@ img.profile-pic {
 	margin-bottom: 5%;
 }
 
-.profile.list-group-item {
+.negative.list-group-item {
 	font-size: 12px;
+	background-color: green;
 }
 
 .user-lang.row {

@@ -1,121 +1,13 @@
 <div class='col-md-3'>
-	<div class='profile-holder'>
-		<div class='info row'>
-			<center>
-				<div class='info col-md-4'>
-					<span class='essential-prof-info'>
-						TOPICS COMPLETED<br>
-						N/A
-					</span>
-				</div>
-				<div class='info col-md-4'>
-					<span class='essential-prof-info'>
-					HOURS COMPLETED<br>
-					<%= @total_length %>
-					</span>
-				</div>
-				<div class='info col-md-4'>
-					<span class='essential-prof-info'>
-					AVERAGE SCORE<br>
-					<%= @average_score %>/5
-					</span>
-				</div>
-			</center>
-		</div>
-		<div class='box wants-to-teach-learn'>
-			<span class='wants-to-teach-learn'>
-				Wants to teach: <%= @user.native_lang %>
-			</span>
-			<br>
-			<span class='wants-to-teach-learn'>
-				Wants to learn: <%= @user.first_lang %><% if @user.second_lang %> & <%= @user.second_lang %> <% end %>
-			</span>
-		</div>
-		<%= image_tag (@user.picture.url(:medium)), class: 'profile-pic' %><br>
-		<%= render :partial => 'contact_user' %>
-	</div>
+	<%= render :partial => 'user_profile_left' %>
+	<%= render :partial => 'contact_user' %>
 </div>
-
 </div>
 <div class='col-md-9'>
 	<div class='row'>
-		<div class='col-md-4'>
-			<%= simple_format (@user.first_name + " " + @user.last_name), class: 'username-profile'%> 
-		</div>
-		<div class='col-md-4'>
-			<div class='user-lang row'>
-				<%= @user.first_lang %> Level: <%= @user.lang_level_name(:first) %>
-			</div>
-			<div class='user-lang row'>
-				<%= @user.second_lang %> Level: <%= @user.lang_level_name(:second) %>
-			</div>
-		</div>
-		<div class='col-md-4'>
-			<a class='completed-topics-and-reviews'>
-				Reviews
-   		</a>
-   	</div>
+		<%= render :partial => 'contact_mid_user' %>
+		<%= render :partial => 'contact_right_user' %>
 	</div>
-	<div class='col-md-4'>
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-			<div class='completed-topics'>
-				Completed Topics
-			</div>
-   	</a>
-   	<div id="collapseOne" class="panel-collapse collapse in">
-   		<div class="panel-body">
-     		<div id="completed-topics">
-     			<% if @completed_topics.any? %>
-					<% @completed_topics.each do |x| %> <br />
-					<%= simple_format (x), class: 'profile list-group-item' %>
-					<% end %>
-					<% else %>
-					None!<br />
-					<% end %>
-				</div>
-     	</div>
-   	</div>
- 	</div>
-	<div class='col-md-4'>
-    <a class='positive' data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
-			<div class='plus-completed-topics-and-reviews'>
-			+
-			</div>
-   	</a>
-   	<div id="collapseOne1" class="panel-collapse collapse in">
-   		<div class="panel-body">
-     		<div id="positive-topics">
-     			<% if @rev1.any? %>
-						<% @rev1.each do |x| %>
-						<%= simple_format (x), class: 'profile list-group-item' %>
-						<% end %>
-						<% else %>
-					None!<br />
-					<% end %>
-				</div>
-     	</div>
-   	</div>
- 	</div>
-	<div class='col-md-4'>
-    <a class='negative' data-toggle="collapse" data-parent="#accordion" href="#collapseOne2">
-			<div class='plus-completed-topics-and-reviews'>
-			-
-			</div>
-   	</a>
-   	<div id="collapseOne2" class="panel-collapse collapse in">
-   		<div class="panel-body">
-     		<div id="negative-reviews">
-     			<% if @rev2.any? %>
-						<% @rev2.each do |x| %>
-						<%= simple_format (x), class: 'profile list-group-item' %>
-						<% end %>
-						<% else %>
-					None!<br />
-					<% end %>
-				</div>
-     	</div>
-   	</div>
- 	</div>
 </div>
 
 
