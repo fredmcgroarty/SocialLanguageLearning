@@ -36,36 +36,42 @@
 				<% if @user %>
 					<h2>UPCOMING APPOINTMENTS</h2>
 					<div class="col-md-9">
-					<table class="table bookings_table">
-          <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>With</th>
-            <th>Length</th>
-            <th>Delete</th>
-            <th>Edit</th>
-            <th>Link to Lesson</th>
-          </tr>
-					<% @userbookings.each do |booking| %>
-            <% next if booking.end_time <= Time.now %>
-            <tr>
-              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
-              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
-              <td>
-                <%= booking.not_you(current_user).first_name %>
-              </td>
-              <td><%= pluralize(booking.length, "hour") %></td>
-              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
-              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
-              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
-								<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
-							<%else%>	
-								<td>Link not available yet</td>
-							<% end%>	
-            </tr>
-          <% end %>
-				<% end %>
-				</table>
+					
+					<%if @userbookings.any? %>
+						<table class="table bookings_table">
+	          <tr>
+	            <th>Start</th>
+	            <th>End</th>
+	            <th>With</th>
+	            <th>Length</th>
+	            <th>Delete</th>
+	            <th>Edit</th>
+	            <th>Link to Lesson</th>
+	          </tr>
+						<% @userbookings.each do |booking| %>
+	            <% next if booking.end_time <= Time.now %>
+	            <tr>
+	              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+	              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+	              <td>
+	                <%= booking.not_you(current_user).first_name %>
+	              </td>
+	              <td><%= pluralize(booking.length, "hour") %></td>
+	              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+	              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+	              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
+									<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
+								<%else%>	
+									<td>Link not available yet</td>
+								<% end%>	
+	            </tr>
+	          <% end %>
+					<% end %>
+					</table>
+				<%else%>	
+				<h3>no appointments made</h3>
+				<%end%>
+			
 				</div>
 				<div class="col-md-3">
 				<div class="calendar-container">
