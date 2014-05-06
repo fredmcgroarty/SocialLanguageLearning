@@ -4,15 +4,21 @@ class Topic < ActiveRecord::Base
 	has_many :user_reviews
 
 	def completed_users
-		@reviews = UserReview.all
-		@topic = Topic.find (self.id)
-		@completed = 0
-		@reviews.each do |x|
-			if @topic.id == x.topic_id && x.completed == true
-				@completed += 1
-			end
-		end
-		@completed
+		user_reviews.where(completed: true).map(&:for_user)
+		
+		# @reviews = UserReview.all
+		# @topic = Topic.find (self.id)
+		# @completed = 0
+		# @users_completed = []
+		# @reviews.each do |x|
+		# 	if @topic.id == x.topic_id && x.completed == true
+		# 		@completed += 1
+		# 		a = x.for_user_id
+		# 		@users_completed << User.find(a)
+		# 	end
+		# end
+		# @users_completed
+		# @completed
 	end
 
 	def get_topics

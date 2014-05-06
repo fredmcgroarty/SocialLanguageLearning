@@ -5,19 +5,19 @@
 				<div class='info col-md-4'>
 					<span class='essential-prof-info'>
 						TOPICS COMPLETED<br>
-						...<br>
+						N/A
 					</span>
 				</div>
 				<div class='info col-md-4'>
 					<span class='essential-prof-info'>
 					HOURS COMPLETED<br>
-					...<br>
+					<%= @total_length %>
 					</span>
 				</div>
 				<div class='info col-md-4'>
 					<span class='essential-prof-info'>
 					AVERAGE SCORE<br>
-					...<br>	
+					<%= @average_score %>/5
 					</span>
 				</div>
 			</center>
@@ -35,6 +35,7 @@
 		<%= render :partial => 'contact_user' %>
 	</div>
 </div>
+
 </div>
 <div class='col-md-9'>
 	<div class='row'>
@@ -91,7 +92,12 @@
    	</div>
  	</div>
 </div>
-	
+<% @rev1.each do |x| %>
+<%= x %>
+<% end %>
+<% @rev2.each do |x| %>
+<%= x %>
+<% end %>
 
 
 

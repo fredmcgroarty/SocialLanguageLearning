@@ -2,6 +2,9 @@ class ConversationsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :mailbox, :conversation
 
+  def new
+  end
+
   def index
     return redirect_to_sign_in if missing_information
     @conversations ||= current_user.mailbox.inbox.all
@@ -64,7 +67,12 @@ class ConversationsController < ApplicationController
   end
    
   def conversation
-   @conversation ||= mailbox.conversations.find(params[:id])
+   try_to_find_conversation = mailbox.conversations.find(params[:id])
+    if try_to_find_conversation
+      @conversation = try_to_find_conversation
+    else
+      @conversation = Conversation.new
+    end
   end
    
   def conversation_params(*keys)
