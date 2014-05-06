@@ -1,8 +1,9 @@
- <%= @user.first_name %>
- <%= form_tag(user_messages_path(@user), method: :post) do %>
-  <%= label_tag :subject %>
-  <%= text_field_tag :subject %>
-  <%= label :body, "Message text" %>
-  <%= text_area_tag :body %>
-  <%= submit_tag 'Send message', class: "btn btn-primary" %>
- <% end %>
+<div class="message-body">
+ 	<%= form_tag(user_messages_path(@user), method: :post) do %>
+  	<%= label_tag :subject, nil, class: 'main-label' %>
+  	<%= text_field_tag :subject, nil, class: 'form-control' %>
+  	<%= label :body, "Message", class: 'main-label' %>
+  	<%= text_area_tag :body, nil, class: 'form-control', :size => "100x8" %>
+  	<%= submit_tag 'Send', class: "btn" %>
+ 	<% end %>
+</div>

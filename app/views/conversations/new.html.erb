@@ -1,11 +1,22 @@
+
+
+
+
 <%= form_for :conversation, url: :conversations do |f| %>
-  Email
+<div id="contact">
+<h333>Send an massage</h333>
+
+<fieldset>
+
+<label for="recipients">Recipient:</label>
   <%= f.text_field :recipients %><br />
-  Subject
+  <label for="subject">Subject:</label>
   <%= f.text_field :subject %><br />
-  Body
+  <label for="body">Body:</label>
   <%= f.text_area :body %><br />
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
+
+    </fieldset>
   </div>
 <% end %>
