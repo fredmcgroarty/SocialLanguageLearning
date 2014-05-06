@@ -1,33 +1,69 @@
-<h3> Bookings for <%= @user.email %></h3>
+<div class="container">
+  <h3> Appointments for <%= @user.first_name %> <%=@user.last_name%></h3>
+  <ul class="nav nav-tabs" id="appointmentTab">
+    <li class="active"><a href="#upcoming" data-toggle="tab"><h4 class="tab-title">Upcoming Appointments</h4></a></li>
+    <li><a href="#previous" data-toggle="tab"><h4 class="tab-title">Previous Appointments</h4></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="upcoming">
+      <% if !@userbookings.empty? %>
+        <table class="table bookings_table">
+          <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>With</th>
+            <th>Length</th>
+          </tr>
+          <% @userbookings.each do |booking| %>
+            <% next if booking.end_time <= Time.now %>
+            <tr>
+              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+              <td>
+                <% with = @users.find(booking.user_id == @user.id ? booking.student_id : booking.user_id) %>
+                <%= with.first_name %> <%= with.last_name %>
+              </td>
+              <td><%= pluralize(booking.length, "hour") %></td>
+              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        You have no upcoming appointments yet! Why don't you try viewing your matched users?
+      <% end %>
+    </div>
+    <div class="tab-pane" id="previous">
+      <% if !@userbookings.empty? %>
+        <table class="table bookings_table">
+          <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>With</th>
+            <th>Length</th>
+          </tr>
+          <% @userbookings.each do |booking| %>
+            <% next if booking.end_time >= Time.now %>
+            <tr>
+              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+              <td>
+                <% with = @users.find(booking.user_id == @user.id ? booking.student_id : booking.user_id) %>
+                <%= with.first_name %> <%= with.last_name %>
+              </td>
+              <td><%= pluralize(booking.length, "hour") %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        You have had no appointments yet! Why don't you try viewing your matched users?
+      <% end %>
+    </div>
+  </div>
+</div>
 
-
-<% if !@userbookings.empty? %>
-
-  <table class="bookings_table">
-    <tr>
-      <th>Start</th>
-      <th>End</th>
-    </tr>
-    
-    <% @bookings.each do |booking| %>
-    <tr>
-      <td>
-        <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
-      </td>
-      <td>
-        <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
-      </td>
-      <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
-      </td>
-      <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-
-<% else %>
-
-No bookings yet! Why don't you try viewing your matched users?
-
-<% end %>
-
+<script>
+  $(function () {
+    $('#appointmentTab a:first').tab('show')
+  })
+</script>
