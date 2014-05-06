@@ -1,5 +1,9 @@
+
 <%= content_tag_for(:li, conversation) do |conversation| %>
-  <p>
-    <%= link_to conversation.subject, conversation %>
-  </p>
+  <div class="inbox-preview-box">
+    <h5><%= link_to conversation.original_message.sender.name.upcase, conversation%></h5>
+    <h5><%= conversation.subject%></h5>
+    <h6><%= conversation.original_message.body%></h6>
+  </div> 
 <% end %>
+
