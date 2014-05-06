@@ -1,1 +1,41 @@
-_contact.html.erb
+<center><%= simple_format (@user.first_name + " " + @user.last_name), class: 'profile-title' %>
+<h4>Tandem Rating:
+<%= @average_score %></h4></center>
+	<div class='row'>
+		<div class='main-label-buttons'>
+		<button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page" 	data-toggle="modal" data-target="#myModal"><br>
+		<span class='button-text'>Message</span>
+		</button>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby	="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">	
+			    <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="	true">&times;</button>
+				    <h4 class="modal-title" id="myModalLabel">Message to <%= @user.	first_name %> 
+				    </h4>
+				    </div>
+				    <div class="modal-body">
+				     	<%= render :partial => 'messages/new' %> 
+				    </div>
+				  </div>
+				</div>
+			</div>
+		<button class="glyphicon glyphicon-pushpin btn update-button-profile-edit-page" 	data-toggle="modal" data-target="#myModal2"><br>
+		<span class='button-text'> Book</span>
+		</button>
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-	labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+		 		<div class="modal-content">	
+		   		<div class="modal-header">
+		   			<button type="button" class="close" data-dismiss="modal" aria-hidden="	true">&times;
+		   			</button>
+			      <h4 class="modal-title" id="myModalLabel">Book a lesson with <%= @user.first_name %>
+			      </h4>
+				  </div>
+				  <div class="modal-body">
+				    <%= render :partial => 'bookings/form' %> 
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
