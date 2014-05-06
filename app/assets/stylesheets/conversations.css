@@ -24,13 +24,13 @@ border-right: 6px solid #a1f4ea;
 }
 
 .message_content_each{
- border-bottom:1px solid #EAE8E8;
- padding: 5px;
+  border-bottom:1px solid #EAE8E8;
+  padding: 5px;
 }
 
 .message_content_each h6{
-margin-top: 0px;
-margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .subject-div{
@@ -42,16 +42,22 @@ margin-bottom: 0px;
 }
 
 .message-header{
-margin-top: 15px;
+  margin-top: 15px;
 }
 
 .message-header h3{
-margin-top: 0px;
-color: #A3ACB2;
-font-family: 'Oswald', sans-serif;
+  margin-top: 0px;
+  color: #A3ACB2;
+  font-family: 'Oswald', sans-serif;
 }
 
 .calendar-container{
-margin-top: 15px;
-padding-left: 10px;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.empty-mailbox-message{
+  font-family: 'Oswald', sans-serif;
+  color:  #a1f4ea;
+  text-align: center;
 }
