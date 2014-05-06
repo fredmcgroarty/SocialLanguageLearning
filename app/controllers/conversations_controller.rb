@@ -13,13 +13,15 @@ class ConversationsController < ApplicationController
   def create
     recipient_emails = conversation_params(:recipients).split(',')
     recipients = User.where(email: recipient_emails).all
-
-
-    ## using first, needs to be changed to handle all array
-    conversation = current_user.
+    if recipients.length == 1
+      ## using first, method needs to be changed to handle all array
+      conversation = current_user.
       send_message(recipients.first, *conversation_params(:body, :subject)).conversation
-
-    redirect_to conversation
+      redirect_to conversation
+    else
+      flash[:alert] = "Oops! We can not find user with this email.."
+      return redirect_to '/conversations/new'
+    end
   end
 
   def reply
