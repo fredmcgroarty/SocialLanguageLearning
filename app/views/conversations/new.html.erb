@@ -3,16 +3,17 @@
 
 
 <%= form_for :conversation, url: :conversations do |f| %>
-  Email
-  
 <div id="contact">
+<h333>Send an massage</h333>
 
 <fieldset>
-  <%= f.text_field :recipients %></label><br />
-  Subject
-  <%= f.text_field :subject %></label><br />
-  Body
-  <%= f.text_area :body %></label><br />
+
+<label for="recipients">Recipient:</label>
+  <%= f.text_field :recipients %><br />
+  <label for="subject">Subject:</label>
+  <%= f.text_field :subject %><br />
+  <label for="body">Body:</label>
+  <%= f.text_area :body %><br />
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
 
