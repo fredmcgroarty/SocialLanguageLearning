@@ -17,6 +17,63 @@
 
 <div class='col-md-9'>
   <ul class="nav nav-tabs" id="appointmentTab">
+    <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
+    <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
+    <li><a href="#calendar-profile" data-toggle="tab">Calendar</a></li>
   </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="topics">
+      <div class="col-md-5">
+        <div class="completed-topics-wrap">
+          <div class="panel panel-default">     
+            <div class="panel-heading">                          
+              Completed Topics  
+              <span class="badge"><%= @completed_topics.count%></span>       
+            </div>
+            <div class="panel-body">
+              <p>These are the list of topics that <%=@user.first_name%> has completed, kudos!</p>
+            </div>        
+             <ul class="list-group">
+              <% if @completed_topics.any? %>
+                <% @completed_topics.each do |x| %>
+                 <li class="list-group-item"><%= simple_format (x)%></li>
+                <% end %>
+              <% else %>
+                  None!
+              <% end %>
+            </ul> 
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="completed-topics-wrap">
+          <div class="panel panel-default">     
+            <div class="panel-heading">                          
+              Incomplete Topics  
+              <span class="badge"><%=@incomplete_topics.count%></span>       
+            </div>
+            <div class="panel-body">
+              <p>See a similar incomplete topic? Have a conversation with <%=@user.first_name%>!</p>
+            </div>        
+             <ul class="list-group">
+              <% if @incomplete_topics.any? %>
+                <% @incomplete_topics.each do |x| %>
+                 <li class="list-group-item"><%= simple_format (x)%></li>
+                <% end %>
+              <% else %>
+                  None!
+              <% end %>
+            </ul> 
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+    <div class="tab-pane" id="reviews">reviews deets</div>
+    <div class="tab-pane" id="calendar-profile">cal deets</div>
+</div>
+
 </div>
 	  	
