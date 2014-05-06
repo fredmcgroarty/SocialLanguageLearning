@@ -66,9 +66,47 @@
 			</div>
 			<div class="row topics">
 				<h2>TOPICS</h2>
-				<% @topics.each do |x| %>
-					<%= link_to x.name, topic_path(x) %><br />
-				<% end %>
+				<% get_topics %>
+					<div class="col-md-3">
+						<% @topics_a.each do |x| %>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<span class="badge"><%= x.completed_users %></span>
+									<%= link_to x.name, topic_path(x) %>
+								</li>
+							</ul>
+						<% end %>
+						</div>
+						<div class="col-md-3">
+						<% @topics_b.each do |x| %>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<span class="badge"><%= x.completed_users %></span>
+									<%= link_to x.name, topic_path(x) %>
+								</li>
+							</ul>
+						<% end %>
+						</div>
+						<div class="col-md-3">
+						<% @topics_c.each do |x| %>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<span class="badge"><%= x.completed_users %></span>
+									<%= link_to x.name, topic_path(x) %>
+								</li>
+							</ul>
+						<% end %>
+						</div>
+						<div class="col-md-3">
+						<% @topics_d.each do |x| %>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<span class="badge"><%= x.completed_users %></span>
+									<%= link_to x.name, topic_path(x) %>
+								</li>
+							</ul>
+						<% end %>
+				</div>
 			</div>	
 		</div>
 	</div>
