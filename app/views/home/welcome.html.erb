@@ -1,13 +1,12 @@
 <title>
 	Welcome to langlang 
 </title>
-
 <% if user_signed_in? %>
 
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-				<%= image_tag @user.user_profile.picture.url(:medium), class: "mini-profile-avatar" %>
+				<%= link_to image_tag(@user.user_profile.picture.url(:medium)), user_profile_path(current_user), class: "mini-profile-avatar" %>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
 				<% if @user.user_profile %>
