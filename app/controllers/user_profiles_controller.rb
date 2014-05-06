@@ -39,6 +39,9 @@
       render 'edit_user_profile_path'
       flash[:notice] = "update failed"
     end
+    rescue
+    flash[:notice] = "Please attach a valid picture"
+    return redirect_to edit_user_profile_path
   end
 
   def destroy
