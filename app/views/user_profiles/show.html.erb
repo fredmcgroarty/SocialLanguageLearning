@@ -33,7 +33,17 @@
 			<% end %>
 		Average Score: <%= @average_score %>
 	</div>
+		Total Hours studied with us: <%= @total_length %>
 </div>
+		What do they do right?
+		<% @rev1.each do |x| %>
+			<%= x %> <br />
+		<% end %><br />
+		Where can they improve?
+		<% @rev2.each do |x| %>
+			<%= x %> <br />
+		<% end %><br />
+
 <div class="col-md-3">
 	<div id="calendar">
 	</div>
