@@ -6,12 +6,14 @@ class HomeController < ApplicationController
     language_counter
   	@unread_count = current_user.mailbox.inbox(:read => false).count(:id, :distinct => true).to_s if current_user
   	flash[:success] = greeter_flash
-
   	@user_list = User.all
   	@user = current_user
   	@topics = Topic.all
   	@bookings = Booking.all
   	@userbookings = []
+    get_topics
+    get_hours
+    get_reviews
   	if @user
 	  	@bookings.each do |x|
 	  		if x.user_id == @user.id || x.student_id == @user.id
