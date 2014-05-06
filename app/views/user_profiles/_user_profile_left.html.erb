@@ -1,4 +1,5 @@
 <div class='profile-holder'>
+	<%= image_tag (@user.picture.url(:medium)), class: 'profile-pic' %><br>
 	<div class='info row'>
 		<center>
 			<div class='info col-md-4'>
@@ -30,5 +31,4 @@
 			Wants to learn: <%= @user.first_lang %><% if @user.second_lang %> & <%= @user.second_lang %> <% end %>
 		</span>
 	</div>
-	<%= image_tag (@user.picture.url(:medium)), class: 'profile-pic' %><br>
 </div>

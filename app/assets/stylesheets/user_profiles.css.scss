@@ -63,6 +63,7 @@ img.profile-pic {
 	font-size: 28px;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 2px;
+	text-align: center;
 }
 
 .plus-completed-topics-and-reviews {
@@ -91,6 +92,11 @@ img.profile-pic {
 	width: 100%;
 }
 
+.glyphicon.glyphicon-pushpin.btn.update-button-profile-edit-page {
+		width: 100%;
+
+}
+
 .wants-to-teach-learn {
 	font-size: 16px;
 	font-family: 'Oswald', sans-serif;
@@ -106,18 +112,17 @@ img.profile-pic {
 
 .info.row {
 	border-style:solid;
-	border-width:2px; 
 	margin-bottom: 5%;
 }
 
 .negative.list-group-item {
 	font-size: 12px;
-	background-color: green;
 }
 
 .user-lang.row {
 	font-size: 20px;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 2px;
+	text-align: center;
 }
 
