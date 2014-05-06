@@ -113,6 +113,7 @@ img.profile-pic {
 .info.row {
 	border-style:solid;
 	margin-bottom: 5%;
+	width: 100%
 }
 
 .negative.list-group-item {
