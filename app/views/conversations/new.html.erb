@@ -1,14 +1,14 @@
 <%= form_for :conversation, url: :conversations do |f| %>
 <div id="contact">
-<h333>Send an massage</h333>
+<h333>Send a massage</h333>
 
 <fieldset>
 
-<label for="recipients">Recipient:</label>
+<label for="recipients" class="label_convens">Recipient:</label>
   <%= f.text_field :recipients %><br />
-  <label for="subject">Subject:</label>
+  <label for="subject" class="label_convens">Subject:</label>
   <%= f.text_field :subject %><br />
-  <label for="body">Body:</label>
+  <label for="body" class="label_convens">Body:</label>
   <%= f.text_area :body %><br />
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
