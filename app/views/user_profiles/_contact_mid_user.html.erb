@@ -1,0 +1,28 @@
+<div class='col-md-4'>
+	<%= simple_format (@user.first_name + " " + @user.last_name), class: 'username-profile'%> 
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			<div class='completed-topics'>
+				Completed Topics
+			</div>
+  	</a>
+  	<div id="collapseOne" class="panel-collapse collapse in">
+   		<div class="panel-body">
+     		<div id="completed-topics">
+     			<% if @completed_topics.any? %>
+					<% @completed_topics.each do |x| %>
+					<%= simple_format (x), class: 'profile list-group-item' %>
+					<% end %>
+					<% else %>
+						None!<br />
+					<% end %>
+				</div>
+    	</div>
+  	</div>
+  	<br>
+  	<div class='completed-topics'>
+  		Profile
+  	</div>
+  	<div class='about-me'>
+  		<%= @user.about_me %>
+		</div>
+</div>

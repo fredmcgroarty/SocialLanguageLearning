@@ -7,12 +7,25 @@
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-				<%= image_tag @user.user_profile.picture.url(:thumb), class: "mini-profile-avatar" %>
-				<h5><%= link_to @user.username, user_profile_path(@user) %></h5>
+				<%= image_tag @user.user_profile.picture.url(:medium), class: "mini-profile-avatar" %>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
+				<% if @user.user_profile %>
+  				<% if @user.first_name && @user.last_name %>
+	  				<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
+	  			<% end %>
+	  			<dt>Location:</dt> <dd>London</dd> 
+	  			<% if @user.native_lang %>
+	  				<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
+	  			<% end %> 
+	  			<% if @user.first_lang %>
+	  				<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
+	  			<% end %>
+	 			 	<% if @user.email %>
+	  				<dt>Email:</dt> <dd><%= @user.email %></dd> 
+	  			<% end %>
+				<% end %>
 			<% end %>
-			<br>
 		</div>
 	</div>
 	<div class="col-md-10">
@@ -23,23 +36,44 @@
 			<div class="row user-appointments">
 				<% if @user %>
 					<h2>UPCOMING APPOINTMENTS</h2>
-					<%@userbookings.each do |booking|%>
-						<%if (Time.now >= booking.start_time.to_time) && ( Time.now <= booking.end_time.to_time) %>
-							You have a lesson now: <%= link_to 'GO TO LESSON', lesson_path(id: booking.lesson.uid)%>
-						<% end%>	
-					<% end%>
-					<% @userbookings.each do |x| %>
-						<p>
-						Appointment with: <%= x.not_you(current_user).first_name %><br>
-						Status: <%= x.accepted ? "has been confirmed." : "is awaiting confirmation." %>
-						<br>
-						Starts at: <%="#{x.start_time.strftime('%I:%M:%S %p')}"%><br> 
-						Duration:<%= pluralize(x.length, "hour") %><br>
-						<%= link_to "View Booking", edit_booking_path(x) %>   <%= link_to "Cancel Booking", booking_path(x), method: 'delete' %><br /></p>
-					<% end %>
+					<div class="col-md-9">
+					<table class="table bookings_table">
+          <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>With</th>
+            <th>Length</th>
+            <th>Delete</th>
+            <th>Edit</th>
+            <th>Link to Lesson</th>
+          </tr>
+					<% @userbookings.each do |booking| %>
+            <% next if booking.end_time <= Time.now %>
+            <tr>
+              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+              <td>
+                <%= booking.not_you(current_user).first_name %>
+              </td>
+              <td><%= pluralize(booking.length, "hour") %></td>
+              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
+								<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
+							<%else%>	
+								<td>Link not available yet</td>
+							<% end%>	
+            </tr>
+          <% end %>
 				<% end %>
-			<div class="calendar_container_small">
-				<div id="calendar">
+				</table>
+				</div>
+				<div class="col-md-3">
+				<div class="calendar-container">
+					<div class="calendar_container_small">
+						<div id="calendar">
+					</div>
+					</div>
 				</div>
 			</div>
 			</div>
@@ -50,10 +84,10 @@
 						<div class="matched-user-profiles">
 							<% next if users.id == current_user.id %>
 							<% if users.user_profile  %> 
-								<%= image_tag users.user_profile.picture.url(:thumb) %>
+								<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%>
 								<br>
 								<div class="matched-user-profiles-description">
-								<%= link_to users.first_name, user_profile_path(users) %> 
+								<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 								<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
 								<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
 								</div>
@@ -69,7 +103,7 @@
 						<% @topics_a.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -79,7 +113,7 @@
 						<% @topics_b.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -89,7 +123,7 @@
 						<% @topics_c.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
@@ -99,7 +133,7 @@
 						<% @topics_d.each do |x| %>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users %></span>
+									<span class="badge"><%= x.completed_users.count %></span>
 									<%= link_to x.name, topic_path(x) %>
 								</li>
 							</ul>
