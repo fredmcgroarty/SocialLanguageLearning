@@ -34,8 +34,15 @@
     float: right;
 }
 
+.profile.col-md-3 {
+
+
+}
+
 .profile-info {
 background-image: url("polyglt_logo.png");
+background-size: 100%;
+
 margin-bottom: 2%;
 text-align: center;
 margin-top: 10px;
@@ -43,6 +50,25 @@ margin-top: 10px;
 
 
 .main-label-buttons {
-	margin-bottom: 5%;
-	margin-left: 15%;
+	margin-bottom: 2%;
+	margin-left: 27%;
+}
+
+.discussed-topics {
+font-family: 'Oswald', sans-serif;
+font-size: 18px;
+
+}
+
+#completed-topics {
+	background-color: aliceblue;
+}
+
+p.profile.list-group-item {
+	font: "Lucida Grande", sans-serif;	
+
+}
+
+p.profile-title {
+	font-size: 30px;
 }
