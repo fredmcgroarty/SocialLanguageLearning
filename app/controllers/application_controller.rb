@@ -32,17 +32,40 @@ class ApplicationController < ActionController::Base
   end
 
   def get_topics
-    @topics_a, @topics_b, @topics_c, @topics_d = []
-    @topics =  Topic.all
-    @topics.each do |x|
-      if x.id < 6
-        @topics_a << x
-      elsif x.id < 11
-        @topics_b << x
-      elsif x.id < 16
-        @topics_c << x
-      elsif x.id < 21
-        @topics_d << x
+    @reviews = UserReview.all
+    @completed_topics = []
+    @total_score = []
+    @average_score = 0
+    @reviews.each do |x|
+      if x.for_user_id == @user.id
+        @total_score << x.score
+        b = Topic.find (x.topic_id)
+        @completed_topics << b.name
+        (@average_score = @total_score.sum / @total_score.count )
+      end
+    end
+  end
+
+  def get_hours
+    @reviews = UserReview.all
+    @total_length = [] 
+    @bookings.each do |x|
+      if (x.user_id == @user.id || x.student_id == @user.id)
+        @total_length << x.length
+      end
+    end
+    @bookings_count = @total_length.count
+    @total_length = @total_length.sum
+  end
+
+  def get_reviews
+    @reviews = UserReview.all
+    @rev1 = []
+    @rev2 = []
+    @reviews.each do |x|
+      if x.for_user_id = @user.id
+        @rev1 << x.rev1
+        @rev2 << x.rev2
       end
     end
   end

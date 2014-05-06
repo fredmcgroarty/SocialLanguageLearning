@@ -7,24 +7,17 @@
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
+
 				<%= image_tag @user.user_profile.picture.url(:medium), class: "mini-profile-avatar" %>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
-				<% if @user.user_profile %>
-  				<% if @user.first_name && @user.last_name %>
-	  				<dt>Name:</dt> <dd><%= @user.first_name + " " + @user.last_name %></dd>
-	  			<% end %>
-	  			<dt>Location:</dt> <dd>London</dd> 
-	  			<% if @user.native_lang %>
-	  				<dt>Native Language:</dt> <dd><%= @user.native_lang %></dd> 
-	  			<% end %> 
-	  			<% if @user.first_lang %>
-	  				<dt>Looking To Learn:</dt> <dd><%= @user.first_lang %></dd>
-	  			<% end %>
-	 			 	<% if @user.email %>
-	  				<dt>Email:</dt> <dd><%= @user.email %></dd> 
-	  			<% end %>
+				<% if @bookings_count %>
+					Tandems completed: <%= @bookings_count %><br />
 				<% end %>
+				<% if @total_length %>
+					Total Hours Spent Tandeming: <%= @total_length %><br />
+				<% end %>
+					Completed Topics: <%= @completed_topics.count %><br />
 			<% end %>
 		</div>
 	</div>
