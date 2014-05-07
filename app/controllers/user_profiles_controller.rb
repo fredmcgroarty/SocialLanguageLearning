@@ -59,6 +59,7 @@
     @completed_topics = []
     @total_score = []
     @average_score = 0
+    
     @reviews.each do |x|
       if x.for_user_id == @user.id
         @total_score << x.score

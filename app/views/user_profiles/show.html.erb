@@ -13,7 +13,30 @@
  -->
 
 
-<div class='col-md-3'></div>
+<div class='col-md-3'>
+  <div class="profile-pic-main">
+    <!-- <%= image_tag (@user.picture.url(:large)), class: 'profile-pic' %> -->
+  </div>
+
+  <div class="user-information">
+    <h3><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
+    <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
+    <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Hours Completed</th>
+      <th>Topics Completed</th>
+      <th>Average Rating</th>
+    </tr>
+    <tr>
+      <td><%= @total_length %></td>
+      <td><%= @completed_topics.count %></td>
+      <td><%= @average_score %>/5</td>
+    </tr>
+  </table>
+</div>
 
 <div class='col-md-9'>
   <ul class="nav nav-tabs" id="appointmentTab">
@@ -23,12 +46,13 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="topics">
+
       <div class="col-md-5">
         <div class="completed-topics-wrap">
           <div class="panel panel-default">     
             <div class="panel-heading">                          
               Completed Topics  
-              <span class="badge"><%= @completed_topics.count%></span>       
+              <span class="badge pull-right"><%= @completed_topics.count%></span>       
             </div>
             <div class="panel-body">
               <p>These are the list of topics that <%=@user.first_name%> has completed, kudos!</p>
@@ -51,7 +75,7 @@
           <div class="panel panel-default">     
             <div class="panel-heading">                          
               Incomplete Topics  
-              <span class="badge"><%=@incomplete_topics.count%></span>       
+              <span class="badge pull-right"><%=@incomplete_topics.count%></span>       
             </div>
             <div class="panel-body">
               <p>See a similar incomplete topic? Have a conversation with <%=@user.first_name%>!</p>
@@ -72,6 +96,7 @@
     </div>  
 
     <div class="tab-pane" id="reviews">reviews deets</div>
+
     <div class="tab-pane" id="calendar-profile">cal deets</div>
 </div>
 
