@@ -23,31 +23,6 @@
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
-<!-- 
-  <div class="contact-user-div">
-    <div class='main-label-buttons'>
-      <button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page"  data-toggle="modal" data-target="#myModal"><br>
-        <span class='button-text'>
-          Message
-        </span>
-      </button>
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby  ="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content"> 
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="  true">&times;
-              </button>
-              <h4 class="modal-title" id="myModalLabel">  Message to <%= @user. first_name %> 
-              </h4>
-            </div>
-            <div class="modal-body">
-              <%= render :partial => 'messages/new' %> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>  
-  </div> -->
 
   <table class="table table-bordered">
     <tr>
@@ -67,8 +42,11 @@
   <ul class="nav nav-tabs" id="appointmentTab">
     <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-    <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
-    <li><a href="#booking" data-toggle="tab">Set up a conversation session </a></li>
+    <!-- <%if  %>
+    <%else%> -->
+      <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
+      <li><a href="#booking" data-toggle="tab">Set up a conversation session </a></li>
+    <!-- <%end%>-->
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="topics">
@@ -139,11 +117,11 @@
     </div>
 
     <div class="tab-pane" id="messaging">
-    <div class="messages-wrap">
-    <div class="col-md-7">
-      <%= render :partial => 'messages/new' %> 
-    </div>
-    </div>
+      <div class="messages-wrap">
+        <div class="col-md-7">
+          <%= render :partial => 'messages/new' %> 
+        </div>
+      </div>
     </div>
 
 
