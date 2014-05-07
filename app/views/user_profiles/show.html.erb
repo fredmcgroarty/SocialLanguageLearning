@@ -42,10 +42,10 @@
   <ul class="nav nav-tabs" id="appointmentTab">
     <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-
+    <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
       <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
- 
+    <% end %>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="topics">
@@ -114,30 +114,29 @@
         </div>
       </div>
     </div>
-
-    <div class="tab-pane" id="messaging">
-      <div class="messages-wrap">
-        <div class="col-md-7">
-          <%= render :partial => 'messages/new' %> 
-        </div>
-      </div>
-    </div>
-
-
-    <div class="tab-pane" id="booking">
-      <div class="bookings-wrap">
-        <div class="col-md-5">
-          <div class="modal-body">
-            <%= render :partial => 'bookings/form' %> 
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="calendar-container">
-            <div id="calendar"></div>
+    <% if @user != current_user %>
+      <div class="tab-pane" id="messaging">
+        <div class="messages-wrap">
+          <div class="col-md-7">
+            <%= render :partial => 'messages/new' %> 
           </div>
         </div>
       </div>
-    </div>
+      <div class="tab-pane" id="booking">
+        <div class="bookings-wrap">
+          <div class="col-md-5">
+            <div class="modal-body">
+              <%= render :partial => 'bookings/form' %> 
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="calendar-container">
+              <div id="calendar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
 </div>
 
