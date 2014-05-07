@@ -1,27 +1,14 @@
-<!-- <div class='col-md-3'>
-	<%= render :partial => 'user_profile_left' %>
-	<%= render :partial => 'contact_user' %>
-</div>
-</div>
-<div class='col-md-9'>
-	<div class='row'>
-		<%= render :partial => 'contact_mid_user' %>
-		<%= render :partial => 'contact_right_user' %>
-	</div>
-</div>
-
- -->
-
-
 <div class='col-md-3'>
-  <div class="profile-pic-main">
-    <!-- <%= image_tag (@user.picture.url(:large)), class: 'profile-pic' %> -->
-  </div>
-
+  <div class="profile-pic-main" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);"></div>
   <div class="user-information">
     <h3><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
+  </div>
+
+  <div class="user-about-me">
+    <h5>About <%=@user.first_name%></h5>
+    <h5><%=@user.about_me%></h5>
   </div>
 
   <table class="table table-bordered">
@@ -36,16 +23,18 @@
       <td><%= @average_score %>/5</td>
     </tr>
   </table>
+
+
 </div>
 
 <div class='col-md-9'>
   <ul class="nav nav-tabs" id="appointmentTab">
     <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-
+    <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
       <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
- 
+    <% end %>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="topics">
@@ -66,7 +55,7 @@
                  <li class="list-group-item"><%= simple_format (x)%></li>
                 <% end %>
               <% else %>
-                  None!
+                  <li class="list-group-item">None!</li>
               <% end %>
             </ul> 
           </div>
@@ -89,7 +78,7 @@
                  <li class="list-group-item"><%= simple_format (x)%></li>
                 <% end %>
               <% else %>
-                  None!
+                <li class="list-group-item">None!</li>
               <% end %>
             </ul> 
           </div>
@@ -100,44 +89,68 @@
 
     <div class="tab-pane" id="reviews">
       <div class="reviews-wrap">
-        <div class="panel panel-default">
-          <div class="panel-heading">Reviews</div>
-          <div class="panel-body">
-            <p>See how you can help <%=@user.first_name%> based on these suggested focus areas!</p>
+        <div class="positive-reviews-wrap">
+          <div class="panel panel-default">
+            <div class="panel-heading"> Reviews </div>
+            <div class="panel-body">
+              <p> What <%= @user.first_name%>'s friends thought was good about their conversation. Set up a conversation to learn more about <%= @user.first_name%>!</p>
+            </div>
+            
+              <ul class="list-group">
+                <% if @rev1.any? %>
+                  <% @rev1.each do |x| %>
+                   <li class="list-group-item"><%= simple_format (x)%></li>
+                  <% end %>
+                <% else %>
+                  <li class="list-group-item">None!</li>
+                <% end %>
+              </ul> 
           </div>
-          <table class="table">
-            <tr>
-              <td>icon</td>
-              <td>what they did well<br> what they can imprv on</td>
-            </tr>
-          </table>
+        </div>
+
+
+        <div class="suggestions-reviews-wrap">
+          <div class="panel panel-default">
+            <div class="panel-heading"> Suggested Focus Areas</div>
+            <div class="panel-body">
+              <p>See how you can help <%=@user.first_name%> based on these suggested focus areas!</p>
+            </div>
+              <ul class="list-group">
+                <% if @rev2.any? %>
+                  <% @rev2.each do |x| %>
+                   <li class="list-group-item"><%= simple_format (x)%></li>
+                  <% end %>
+                <% else %>
+                  <li class="list-group-item">None!</li>
+                <% end %>
+              </ul> 
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="tab-pane" id="messaging">
-      <div class="messages-wrap">
-        <div class="col-md-7">
-          <%= render :partial => 'messages/new' %> 
-        </div>
-      </div>
-    </div>
-
-
-    <div class="tab-pane" id="booking">
-      <div class="bookings-wrap">
-        <div class="col-md-5">
-          <div class="modal-body">
-            <%= render :partial => 'bookings/form' %> 
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="calendar-container">
-            <div id="calendar"></div>
+    <% if @user != current_user %>
+      <div class="tab-pane" id="messaging">
+        <div class="messages-wrap">
+          <div class="col-md-7">
+            <%= render :partial => 'messages/new' %> 
           </div>
         </div>
       </div>
-    </div>
+      <div class="tab-pane" id="booking">
+        <div class="bookings-wrap">
+          <div class="col-md-5">
+            <div class="modal-body">
+              <%= render :partial => 'bookings/form' %> 
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="calendar-container">
+              <div id="calendar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
 </div>
 

@@ -16,11 +16,6 @@
     <td><%= f.select :first_lang, options_for_select(LANGUAGE_COUNTRY, @user_profile.first_lang)%></td>
     <td><%= f.select :first_lang_lvl, options_for_select(LANGLEVEL) %></td>
   </tr>
-  <tr>
-    <td><%= f.label :second_language %></td>
-    <td><%= f.select :second_lang, options_for_select(LANGUAGE_COUNTRY, @user_profile.second_lang)%></td>
-    <td><%= f.select :second_lang_lvl, options_for_select(LANGLEVEL) %></td>
-  </tr>
 </table>
 <h3 class="edit-profile-titles"> About me </h3>
 <h6 id="profile-about-me"> Please use this section to give a little bit more information about yourself. Describe your language learning experiences, what you hope to gain from a Tandem session etc. </h6>

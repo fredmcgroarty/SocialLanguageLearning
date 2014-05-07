@@ -35,12 +35,6 @@
 	  text-align: center;
 }
 
-img.profile-pic {
-	display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .email-profile {
 	font-size: 15px;
 	font-family: 'Oswald', sans-serif;
@@ -127,7 +121,6 @@ img.profile-pic {
 	text-align: center;
 }
 
-/*new start here*/
 
 .topics-wrap{
 	margin-top: 30px;
@@ -135,8 +128,10 @@ img.profile-pic {
 
 .profile-pic-main{
 	height: 290px;
-	background-color: gray;
+	background-color: #EAE8E8;
 	border-radius: 7px ;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .user-information{
@@ -152,6 +147,18 @@ img.profile-pic {
 	margin-top: 30px;
 }
 
+.positive-reviews-wrap .list-group{
+	height:150px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
+
+.suggestions-reviews-wrap .list-group{
+	height:150px;
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
 .bookings-wrap{
 	margin-top: 30px;
 }
@@ -159,7 +166,15 @@ img.profile-pic {
 .messages-wrap{
 margin-top: 30px;
 }
+
 .contact-user-div{
 	height: 70px;	
 	text-align: left;
+}
+
+.user-about-me{
+	height: 30px;	
+	text-align: left;
+	padding-left: 10px;
+	overflow: scroll;
 }
