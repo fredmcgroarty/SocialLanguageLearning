@@ -24,6 +24,31 @@
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
 
+  <div class="contact-user-div">
+    <div class='main-label-buttons'>
+      <button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page"  data-toggle="modal" data-target="#myModal"><br>
+        <span class='button-text'>
+          Message
+        </span>
+      </button>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby  ="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content"> 
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="  true">&times;
+              </button>
+              <h4 class="modal-title" id="myModalLabel">  Message to <%= @user. first_name %> 
+              </h4>
+            </div>
+            <div class="modal-body">
+              <%= render :partial => 'messages/new' %> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
   <table class="table table-bordered">
     <tr>
       <th>Hours Completed</th>
@@ -113,17 +138,20 @@
     </div>
 
     <div class="tab-pane" id="booking">
-      <div class="col-md-5">
-      <div class="modal-body">
-        <%= render :partial => 'bookings/form' %> 
-      </div>
-      </div>
-      <div class="col-md-5">
-      <div class="calendar-container">
-        <div id="calendar"></div>
-      </div>
+      <div class="bookings-wrap">
+        <div class="col-md-5">
+          <div class="modal-body">
+            <%= render :partial => 'bookings/form' %> 
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="calendar-container">
+            <div id="calendar"></div>
+          </div>
+        </div>
       </div>
     </div>
+
 </div>
 
 </div>
