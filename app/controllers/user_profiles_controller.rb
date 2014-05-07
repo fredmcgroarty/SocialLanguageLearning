@@ -54,53 +54,6 @@
 
   private
 
-  def get_topics
-    @reviews = UserReview.all
-    @completed_topics = []
-    @total_score = []
-    @average_score = 0
-    
-    @reviews.each do |x|
-      if x.for_user_id == @user.id
-        @total_score << x.score
-        b = Topic.find (x.topic_id)
-        @completed_topics << b.name
-        (@average_score = @total_score.sum / @total_score.count )
-      end
-    end
-
-    @topic_names =[]
-    @topics = Topic.all
-    @topics.each do |topic|
-      @topic_names << topic.name
-    end  
-    @incomplete_topics = @topic_names - @completed_topics
-  end
-
-
-  def get_hours
-    @reviews = UserReview.all
-    @total_length = [] 
-    @bookings.each do |x|
-      if (x.user_id == @user.id || x.student_id == @user.id)
-        @total_length << x.length
-      end
-    end
-    @total_length = @total_length.sum
-  end
-
-  def get_reviews
-    @reviews = UserReview.all
-    @rev1 = []
-    @rev2 = []
-    @reviews.each do |x|
-      if x.for_user_id = @user.id
-        @rev1 << x.rev1
-        @rev2 << x.rev2
-      end
-    end
-  end
-
 
   def params_permit
     params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl, :about_me)
