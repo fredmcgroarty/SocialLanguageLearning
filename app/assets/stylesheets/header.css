@@ -10,18 +10,13 @@
   color: #5F6B6B;
   display: inline;
   text-decoration: none;
+  vertical-align: middle;
 }
-
-/*.polyglot_name:hover{
-border-bottom: 7px solid #a1f4ea;
-}
-*/
 
 .polyglot_name:hover{
   text-decoration: none;
   color: #5F6B6B;
 }
-
 
 .header{
   height: 70px;
@@ -33,5 +28,6 @@ border-bottom: 7px solid #a1f4ea;
 border-bottom: 7px solid #a1f4ea;
 }
 
-
-
+.navbar-nav li {
+  margin-top: 5px;
+}
