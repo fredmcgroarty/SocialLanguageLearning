@@ -88,6 +88,8 @@
   background-repeat: no-repeat;
   background-color: #999999;
   border-radius: 7px 7px 0px 0px;
+  background-size: cover;
+  border: 1px solid #F8F8F8;
   height: 200px;
 }
 
