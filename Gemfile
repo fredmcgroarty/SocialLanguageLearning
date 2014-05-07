@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'paperclip', github: 'thoughtbot/paperclip'
-gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
+
 gem 'pg', group: :production
 gem 'bookable'
 gem 'mailboxer'

@@ -8,12 +8,6 @@ GIT
       cocaine (~> 0.5.3)
       mime-types
 
-GIT
-  remote: http://github.com/rmagick/rmagick.git
-  revision: 79e1708c7f6792a3a90cb8cb3ffaeb74c58e092e
-  specs:
-    rmagick (2.13.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,7 +132,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.3)
     minitest (5.3.3)
-    multi_json (1.9.3)
+    multi_json (1.10.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -276,7 +270,6 @@ DEPENDENCIES
   pg
   poltergeist
   rails (= 4.1.0)
-  rmagick (= 2.13.2)!
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
