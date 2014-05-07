@@ -1,5 +1,6 @@
+
 <title>
-	Welcome to langlang 
+	Welcome to POLYGLT.com
 </title>
 <script>
 $(document).ready(function() {
@@ -16,6 +17,7 @@ $(document).ready(function() {
         $('#myModal').modal('show');
     });
 </script>
+
 <% if user_signed_in? %>
 	<% if @user.native_lang.nil? %>
 
@@ -53,20 +55,27 @@ $(document).ready(function() {
 	<% end %>
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
-
 			<% if @user %>
-				<%= link_to image_tag(@user.user_profile.picture.url(:medium)), user_profile_path(current_user), class: "mini-profile-avatar" %>
-				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
-				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
-				<% if @bookings_count %>
-					Tandems completed: <%= @bookings_count %><br />
-				<% end %>
-				<% if @total_length %>
-					Total Hours Spent Tandeming: <%= @total_length %><br />
-				<% end %>
-					Completed Topics: <%= @completed_topics.count %><br />
-			<% end %>
-			
+				<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);">
+				</div>
+				<div class="profile-info-holder">
+					<%if current_user.first_name.blank? %>
+						<h4 class="user-name">WELCOME TO POLYGLT</h4>
+					<%else%>
+						<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
+					<%end%>
+					<div class="quick-info">
+						<span class="glyphicon glyphicon-envelope"></span> 
+						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
+						<span class="glyphicon glyphicon-stats"></span> 
+						<% if @bookings_count %> Conversations Completed: <%= @bookings_count %><% end %> <br>
+						<span class="glyphicon glyphicon-time"></span> 
+						<% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
+						<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
+					</div>
+
+				</div>	
+			<% end %>	
 		</div>
 	</div>
 	<div class="col-md-10">
@@ -252,4 +261,10 @@ $(document).ready(function() {
     
     
 });
+</script>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
 </script>
