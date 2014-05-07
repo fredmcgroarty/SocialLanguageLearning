@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507132716) do
+ActiveRecord::Schema.define(version: 20140507150842) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 20140507132716) do
   end
 
   add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
+
+  create_table "questions", force: true do |t|
+    t.string   "text"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["topic_id"], name: "index_questions_on_topic_id"
 
   create_table "receipts", force: true do |t|
     t.integer  "receiver_id"
