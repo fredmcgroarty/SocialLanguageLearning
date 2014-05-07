@@ -4,7 +4,7 @@
       <div class="welcome">
         <div class='col-md-5'>
           <div id="welcome-left">
-            <img src="assets/polyglt_logo.png">
+            <%= image_tag 'polyglt_logo.png' %>
             <h4>• • • • • • • • • • • • • • •</h4>
             <h1>POLYGLT</h1>
             <h4>• • • • • • • • • • • • • • •</h4>
@@ -93,21 +93,21 @@
       <h6>more text</h6>
       <div class='row'>
          <div class='franflag col-md-1'>
-          <%= image_tag("../assets/france.png", :class =>'flag-container') %>
+          <%= image_tag("france.png", :class =>'flag-container') %>
           <%= simple_format (@language_counter_french.to_s), :class => 'flag-counter' %><br>
           <div class ='flag-text'>
            Native French Teachers
           </div>
         </div>
         <div class='engflag col-md-1'>
-          <%= image_tag("../assets/british.png", :class =>'flag-container') %><br>
+          <%= image_tag("british.png", :class =>'flag-container') %><br>
           <%= simple_format (@language_counter_english.to_s), :class => 'flag-counter' %>
              <div class ='flag-text'>
            Native English Teachers
           </div>
         </div>
         <div class='spainflag col-md-1'>
-          <%= image_tag("../assets/spain.png", :class =>'flag-container') %><br>
+          <%= image_tag("spain.png", :class =>'flag-container') %><br>
           <%= simple_format (@language_counter_spanish.to_s), :class => 'flag-counter' %>
           <div class ='flag-text'>
             Native Spanish Teachers
