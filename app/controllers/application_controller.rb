@@ -44,6 +44,14 @@ class ApplicationController < ActionController::Base
         (@average_score = @total_score.sum / @total_score.count )
       end
     end
+
+    @topic_names =[]
+    @topics = Topic.all
+    @topics.each do |topic|
+      @topic_names << topic.name
+    end  
+    @incomplete_topics = @topic_names - @completed_topics
+
   end
 
   def get_hours

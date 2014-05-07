@@ -37,7 +37,7 @@ $(document).ready(function() {
 				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 			<% end %>
 			<div class="row user-appointments">
-				<% if @userbookings.any? %>
+				
 					<h2>UPCOMING APPOINTMENTS</h2>
 					<div class="col-md-9">
 						<table class="table bookings_table">
@@ -70,9 +70,7 @@ $(document).ready(function() {
           		<% end %>
 						</table>
 					</div>
-				<%else%>	
-					<h3>no appointments made</h3>
-				<%end%>
+
 				<div class="col-md-3">
 					<div class="calendar-container">
 						<div class="calendar_container_small">
