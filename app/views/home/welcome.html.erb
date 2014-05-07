@@ -53,7 +53,11 @@ $(document).ready(function() {
 				<!-- 	<%= link_to image_tag(@user.user_profile.picture.url(:medium)), user_profile_path(current_user) %> -->
 				</div>
 				<div class="profile-info-holder">
-					<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
+					<%if current_user.first_name.blank? %>
+						<h4 class="user-name">WELCOME TO POLYGLT</h4>
+					<%else%>
+						<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
+					<%end%>
 					<div class="quick-info">
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
