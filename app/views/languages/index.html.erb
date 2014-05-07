@@ -1,18 +1,13 @@
 <div id="languauge-container">
 	<% if @languages.any? %>
-		<div class="row">
+	
 			<% @languages.each do |x| %> 
-				<div class="col-sm-6 col-md-4">
-					<h4><%= link_to "#{x.name}", language_path(x) %> </h4><br />
+			
+					<h4><%= link_to "#{x.name}", language_path(x) %> </h4>
 			<% end %>
-		</div>
+	
 	<% else %>
 		<strong>No languages added yet!!!</strong>
 	<% end %>
 </div>
 
-<%= link_to "Add more topics", new_topic_path, class: "btn btn-success" %>
-<%= link_to "View all topics", topics_path, class: "btn btn-info" %><br />
-
-<%= link_to "Add more languages", new_language_path, class: "btn btn-success" %>
-<%= link_to "View all languages", languages_path, class: "btn btn-warning" %><br />
