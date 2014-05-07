@@ -18,6 +18,7 @@
 body {
   margin-right: 5px;
   margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 
@@ -26,14 +27,9 @@ body {
   padding: 0;
 }
 
-.alert {
-  margin: 5px 0 5px 0;
-  padding: 0 10px 0 10px;
-}
-
-.notice {
-  margin: 5px 0 5px 0;
-  padding: 0 10px 0 10px;
+.modalContents {
+  padding-left: 10px;
+  padding-right: 5px;
 }
 
 .button-text {
