@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
       current_user.user_profile.gender.nil? ||
       current_user.user_profile.picture_file_name.nil? ||
       current_user.user_profile.native_lang.blank? ||
-      current_user.user_profile.first_lang.blank? ||
-      current_user.user_profile.second_lang.blank?)
+      current_user.user_profile.first_lang.blank? )
     end
     missing_info || !current_user
   end
