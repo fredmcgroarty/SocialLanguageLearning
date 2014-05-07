@@ -47,6 +47,126 @@ user9.user_profile.save
 user0 = User.create(email: "jose@a.com", password: "12345678", sign_in_count: 0, username: "Jose")
 user0.user_profile.update({first_name: "Jose", last_name: "Mourinhio", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
 user0.user_profile.save
+user10 = User.create!(email: "tom@a.com", password: "12345678", sign_in_count: 0, username: "Tommy")
+user10.user_profile.update({first_name: "Tom", last_name: "Bentos", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user10.user_profile.save
+user11 = User.create(email: "bill@a.com", password: "12345678", sign_in_count: 0, username: "Billy")
+user11.user_profile.update({first_name: "Bill", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user11.user_profile.save
+user12 = User.create(email: "norm@a.com", password: "12345678", sign_in_count: 0, username: "Norm")
+user12.user_profile.update({first_name: "Norm", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user12.user_profile.save
+user13 = User.create(email: "sarah@a.com", password: "12345678", sign_in_count: 0, username: "Sarah")
+user13.user_profile.update({first_name: "Sarah", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user13.user_profile.save
+user14 = User.create(email: "sue@a.com", password: "12345678", sign_in_count: 0, username: "Sue")
+user14.user_profile.update({first_name: "Sue", last_name: "C", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user14.user_profile.save
+user15 = User.create(email: "emma@a.com", password: "12345678", sign_in_count: 0, username: "Emma")
+user15.user_profile.update({first_name: "Emma", last_name: "V", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user15.user_profile.save
+user16 = User.create(email: "luigi@a.com", password: "12345678", sign_in_count: 0, username: "Luigi")
+user16.user_profile.update({first_name: "Luigi", last_name: "P", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user16.user_profile.save
+user17 = User.create(email: "wario@a.com", password: "12345678", sign_in_count: 0, username: "Wario")
+user17.user_profile.update({first_name: "Wario", last_name: "Duboff", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "English", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user17.user_profile.save
+user18 = User.create(email: "alan@a.com", password: "12345678", sign_in_count: 0, username: "Alan")
+user18.user_profile.update({first_name: "Chris", last_name: "Alan", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user18.user_profile.save
+user19 = User.create(email: "john@a.com", password: "12345678", sign_in_count: 0, username: "John")
+user19.user_profile.update({first_name: "John", last_name: "Mourinhio", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user19.user_profile.save
+user20 = User.create!(email: "ned@a.com", password: "12345678", sign_in_count: 0, username: "Noddy")
+user20.user_profile.update({first_name: "Ned", last_name: "Bentos", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user20.user_profile.save
+user21 = User.create(email: "frank@a.com", password: "12345678", sign_in_count: 0, username: "Frank")
+user21.user_profile.update({first_name: "Frank", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user21.user_profile.save
+user22 = User.create(email: "anna@a.com", password: "12345678", sign_in_count: 0, username: "Anna")
+user22.user_profile.update({first_name: "Anna", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user22.user_profile.save
+user23 = User.create(email: "fredrick@a.com", password: "12345678", sign_in_count: 0, username: "Fredrick")
+user23.user_profile.update({first_name: "Fredrick", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user23.user_profile.save
+user24 = User.create(email: "cecil@a.com", password: "12345678", sign_in_count: 0, username: "Cecil")
+user24.user_profile.update({first_name: "Cecil", last_name: "C", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user24.user_profile.save
+user25 = User.create(email: "titus@a.com", password: "12345678", sign_in_count: 0, username: "Titus")
+user25.user_profile.update({first_name: "Titus", last_name: "V", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user25.user_profile.save
+user26 = User.create(email: "dwayne@a.com", password: "12345678", sign_in_count: 0, username: "Dwayne")
+user26.user_profile.update({first_name: "Dwayne", last_name: "P", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user26.user_profile.save
+user27 = User.create(email: "steve@a.com", password: "12345678", sign_in_count: 0, username: "Steve")
+user27.user_profile.update({first_name: "Steve", last_name: "Duboff", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "English", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user27.user_profile.save
+user28 = User.create(email: "austin@a.com", password: "12345678", sign_in_count: 0, username: "Austin")
+user28.user_profile.update({first_name: "Autin", last_name: "Waddle", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user28.user_profile.save
+user29 = User.create(email: "brett@a.com", password: "12345678", sign_in_count: 0, username: "The Hitman")
+user29.user_profile.update({first_name: "Brett", last_name: "Hart", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user29.user_profile.save
+user30 = User.create!(email: "ashley@a.com", password: "12345678", sign_in_count: 0, username: "Ashley")
+user30.user_profile.update({first_name: "Ashely", last_name: "Bentos", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user30.user_profile.save
+user31 = User.create(email: "gary@a.com", password: "12345678", sign_in_count: 0, username: "Gary")
+user31.user_profile.update({first_name: "Gary", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user31.user_profile.save
+user32 = User.create(email: "steph@a.com", password: "12345678", sign_in_count: 0, username: "Steph")
+user32.user_profile.update({first_name: "Steph", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user32.user_profile.save
+user33 = User.create(email: "eden@a.com", password: "12345678", sign_in_count: 0, username: "Eden")
+user33.user_profile.update({first_name: "Eden", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user33.user_profile.save
+user34 = User.create(email: "oscar@a.com", password: "12345678", sign_in_count: 0, username: "Oscar")
+user34.user_profile.update({first_name: "Oscar", last_name: "C", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user34.user_profile.save
+user35 = User.create(email: "wayne@a.com", password: "12345678", sign_in_count: 0, username: "Shrek")
+user35.user_profile.update({first_name: "Wayne", last_name: "V", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user35.user_profile.save
+user36 = User.create(email: "james@a.com", password: "12345678", sign_in_count: 0, username: "James")
+user36.user_profile.update({first_name: "James", last_name: "P", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user36.user_profile.save
+user37 = User.create(email: "paul@a.com", password: "12345678", sign_in_count: 0, username: "Paul")
+user37.user_profile.update({first_name: "Paul", last_name: "Duboff", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "English", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user37.user_profile.save
+user38 = User.create(email: "simon@a.com", password: "12345678", sign_in_count: 0, username: "Simon")
+user38.user_profile.update({first_name: "Simon", last_name: "Waddle", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user38.user_profile.save
+user39 = User.create(email: "johan@a.com", password: "12345678", sign_in_count: 0, username: "Johan")
+user39.user_profile.update({first_name: "Johan", last_name: "Mourinhio", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user39.user_profile.save
+user40 = User.create!(email: "ruud@a.com", password: "12345678", sign_in_count: 0, username: "Ruud")
+user40.user_profile.update({first_name: "Ruud", last_name: "Gullit", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user40.user_profile.save
+user41 = User.create(email: "adam@a.com", password: "12345678", sign_in_count: 0, username: "Adam")
+user41.user_profile.update({first_name: "Adam", last_name: "Mekhaiel", dob: DateTime.strptime("09/14/1984", "%m/%d/%Y"), picture: File.open(Rails.root.join('spec/images/owl-in-a-hat.jpg')), gender: 1, native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user41.user_profile.save
+user42 = User.create(email: "claire@a.com", password: "12345678", sign_in_count: 0, username: "Claire")
+user42.user_profile.update({first_name: "Claire", last_name: "C", dob: DateTime.strptime("09/14/1987", "%m/%d/%Y"), gender: 2, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user42.user_profile.save
+user43 = User.create(email: "tim@a.com", password: "12345678", sign_in_count: 0, username: "Tim")
+user43.user_profile.update({first_name: "Tim", last_name: "R", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user43.user_profile.save
+user44 = User.create(email: "tristan@a.com", password: "12345678", sign_in_count: 0, username: "Tristan")
+user44.user_profile.update({first_name: "Tristan", last_name: "C", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user44.user_profile.save
+user45 = User.create(email: "neo@a.com", password: "12345678", sign_in_count: 0, username: "Neo")
+user45.user_profile.update({first_name: "Mr", last_name: "Anderson", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "French", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user45.user_profile.save
+user46 = User.create(email: "jeanclaude@a.com", password: "12345678", sign_in_count: 0, username: "VD")
+user46.user_profile.update({first_name: "Jean-Claude", last_name: "Van Damme", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "English", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user46.user_profile.save
+user47 = User.create(email: "arnold@a.com", password: "12345678", sign_in_count: 0, username: "Arnold")
+user47.user_profile.update({first_name: "Arnold", last_name: "Duboff", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "Spanish", first_lang: "English", first_lang_lvl: 3, second_lang: "French", second_lang_lvl: 3, location: "London"})
+user47.user_profile.save
+user48 = User.create(email: "sylvester@a.com", password: "12345678", sign_in_count: 0, username: "The Stallion")
+user48.user_profile.update({first_name: "Sylvester", last_name: "Stallone", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "English", first_lang: "French", first_lang_lvl: 3, second_lang: "Spanish", second_lang_lvl: 3, location: "London"})
+user48.user_profile.save
+user49 = User.create(email: "brendan@a.com", password: "12345678", sign_in_count: 0, username: "Brendan")
+user49.user_profile.update({first_name: "Brendan", last_name: "Rogers", dob: DateTime.strptime("09/14/1990", "%m/%d/%Y"), gender: 1, picture: File.open(Rails.root.join('spec/images/profile.jpg')), native_lang: "French", first_lang: "Spanish", first_lang_lvl: 3, second_lang: "English", second_lang_lvl: 3, location: "London"})
+user49.user_profile.save
 
 Language.create(name: "English")
 Language.create(name: "French")
