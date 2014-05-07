@@ -18,12 +18,12 @@
 }
 
 .row.user-appointments {
-	height: 250px;
+	height: 350px;
 	border-bottom: 1px dashed gray;
 }
 
 .matched-users {
-	height: 330px;
+	height: 350px;
 	border-bottom: 1px dashed gray;
 }
 
@@ -100,6 +100,7 @@
 .quick-info{
   text-align: left;
   padding-left: 20px;
+  font-size: 12px;
 }
 
 .user-name{
@@ -161,7 +162,7 @@
   text-align: center;
   text-shadow: none;
   height: 10%;
-  margin-top: 350px;
+  margin-top: 470px;
 }
 .carousel-control.left {
 	background-image: none;
