@@ -1,23 +1,5 @@
-<!-- <div class='col-md-3'>
-	<%= render :partial => 'user_profile_left' %>
-	<%= render :partial => 'contact_user' %>
-</div>
-</div>
-<div class='col-md-9'>
-	<div class='row'>
-		<%= render :partial => 'contact_mid_user' %>
-		<%= render :partial => 'contact_right_user' %>
-	</div>
-</div>
-
- -->
-
-
 <div class='col-md-3'>
-  <div class="profile-pic-main">
-    <!-- <%= image_tag (@user.picture.url(:large)), class: 'profile-pic' %> -->
-  </div>
-
+  <div class="profile-pic-main" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);"></div>
   <div class="user-information">
     <h3><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>

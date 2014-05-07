@@ -151,3 +151,7 @@
 .item {
 	margin-left: 25%;
 }
+
+.row .thumbnail {
+  border: none;
+}
