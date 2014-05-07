@@ -23,6 +23,14 @@ class BookingsController < ApplicationController
 
   def create
     return redirect_to_sign_in if missing_information
+
+    date = params['booking'].delete('start_time')
+    day, month, year = date.split('/')
+
+    params['booking']['start_time(1i)'] = year
+    params['booking']['start_time(2i)'] = day
+    params['booking']['start_time(3i)'] = month
+
     @booking =  Booking.new booking_params
     assign_languages
     @booking.assign_attributes booking_params
