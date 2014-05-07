@@ -1,17 +1,13 @@
 <div class='col-md-3'>
   <div class="profile-pic-main" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);"></div>
   <div class="user-information">
-    <h3><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
+    <h3 class="user-name-h3"><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
 
-  <div class="user-about-me">
-    <h5>About <%=@user.first_name%></h5>
-    <h5><%=@user.about_me%></h5>
-  </div>
 
-  <table class="table table-bordered">
+<!--   <table class="table table-bordered">
     <tr>
       <th>Hours Completed</th>
       <th>Topics Completed</th>
@@ -23,22 +19,57 @@
       <td><%= @average_score %>/5</td>
     </tr>
   </table>
-
+ -->
 
 </div>
 
 <div class='col-md-9'>
   <ul class="nav nav-tabs" id="appointmentTab">
-    <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
+    <li class="active"><a href="#about-me" data-toggle="tab">User Details</a></li>
+    <li><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
     <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
       <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
     <% end %>
   </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="topics">
 
+  <div class="tab-content">
+    <div class="tab-pane active" id="about-me">
+      <div class="topics-wrap">
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%=@user.first_name%>'s Statistics</h3>
+            </div>
+            <div class="panel-body">
+              <div class="quick-info">
+                <span class="glyphicon glyphicon-stats"></span> 
+                <% if @bookings_count %> Conversations Completed: <%= @bookings_count %><% end %> <br>
+                <span class="glyphicon glyphicon-time"></span> 
+                <% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
+                <span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-7">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">About <%=@user.first_name%></h3>
+            </div>
+            <div class="panel-body">
+              <%= @user.user_profile.about_me%>
+            </div>
+          </div>
+        </div>
+
+      </div>  
+    </div>
+
+    <div class="tab-pane" id="topics">
       <div class="col-md-5">
         <div class="topics-wrap">
           <div class="panel panel-default">     
@@ -55,7 +86,7 @@
                  <li class="list-group-item"><%= simple_format (x)%></li>
                 <% end %>
               <% else %>
-                  <li class="list-group-item">None!</li>
+                  <li class="list-group-item">Information not available yet. Start a conversation!</li>
               <% end %>
             </ul> 
           </div>
@@ -78,7 +109,7 @@
                  <li class="list-group-item"><%= simple_format (x)%></li>
                 <% end %>
               <% else %>
-                <li class="list-group-item">None!</li>
+                <li class="list-group-item">Information not available yet. Start a conversation!</li>
               <% end %>
             </ul> 
           </div>
@@ -102,7 +133,7 @@
                    <li class="list-group-item"><%= simple_format (x)%></li>
                   <% end %>
                 <% else %>
-                  <li class="list-group-item">None!</li>
+                  <li class="list-group-item">Information not available yet. Start a conversation!</li>
                 <% end %>
               </ul> 
           </div>
@@ -121,7 +152,7 @@
                    <li class="list-group-item"><%= simple_format (x)%></li>
                   <% end %>
                 <% else %>
-                  <li class="list-group-item">None!</li>
+                  <li class="list-group-item">Information not available yet. Start a conversation!</li>
                 <% end %>
               </ul> 
           </div>
