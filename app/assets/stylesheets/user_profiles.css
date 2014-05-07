@@ -152,6 +152,18 @@ img.profile-pic {
 	margin-top: 30px;
 }
 
+.positive-reviews-wrap .list-group{
+	height:150px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
+
+.suggestions-reviews-wrap .list-group{
+	height:150px;
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
 .bookings-wrap{
 	margin-top: 30px;
 }
