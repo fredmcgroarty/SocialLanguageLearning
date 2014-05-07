@@ -83,8 +83,8 @@
 
 .profile-pic-holder{
   margin-top: 20px;
-  background-size: 80%;
-  background-position: center;
+  /*background-size: 80%;
+*/  background-position: center;
   background-repeat: no-repeat;
   background-color: #999999;
   border-radius: 7px 7px 0px 0px;
