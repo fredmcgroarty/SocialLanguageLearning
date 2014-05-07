@@ -130,13 +130,16 @@
 	height: 290px;
 	background-color: #999999;
 	border-radius: 7px 7px 0px 0px;
+	border: 1px solid #F8F8F8;
 	background-position: center;
-	background-repeat: no-repeat;
+	background-size: cover;
+	/*background-repeat: no-repeat;*/
 }
 
 .user-information{
 	height: 100px;	
 	padding-left: 10px;
+	border-left: 7px solid #a1f4ea ;
 }
 
 .user-information h4{
