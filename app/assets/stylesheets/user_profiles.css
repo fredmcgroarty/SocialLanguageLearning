@@ -129,7 +129,7 @@
 .profile-pic-main{
 	height: 290px;
 	background-color: #999999;
-	border-radius: 7px ;
+	border-radius: 7px 7px 0px 0px;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -177,4 +177,8 @@ margin-top: 30px;
 	text-align: left;
 	padding-left: 10px;
 	overflow: scroll;
+}
+
+.user-name-h3{
+	font-family: 'Oswald', sans-serif;
 }
