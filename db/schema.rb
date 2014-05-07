@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507150842) do
+ActiveRecord::Schema.define(version: 20140507162025) do
 
   create_table "bookings", force: true do |t|
     t.datetime "start_time"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20140507150842) do
     t.integer  "first_lang_lvl",       default: 1
     t.string   "location"
     t.string   "about_me"
+    t.text     "bio"
   end
 
   create_table "user_reviews", force: true do |t|
