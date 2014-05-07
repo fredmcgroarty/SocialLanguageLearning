@@ -23,7 +23,7 @@
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
-
+<!-- 
   <div class="contact-user-div">
     <div class='main-label-buttons'>
       <button class="glyphicon glyphicon-pencil btn update-button-profile-edit-page"  data-toggle="modal" data-target="#myModal"><br>
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>  
-  </div>
+  </div> -->
 
   <table class="table table-bordered">
     <tr>
@@ -67,6 +67,7 @@
   <ul class="nav nav-tabs" id="appointmentTab">
     <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
+    <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
     <li><a href="#booking" data-toggle="tab">Set up a conversation session </a></li>
   </ul>
   <div class="tab-content">
@@ -136,6 +137,15 @@
         </div>
       </div>
     </div>
+
+    <div class="tab-pane" id="messaging">
+    <div class="messages-wrap">
+    <div class="col-md-7">
+      <%= render :partial => 'messages/new' %> 
+    </div>
+    </div>
+    </div>
+
 
     <div class="tab-pane" id="booking">
       <div class="bookings-wrap">
