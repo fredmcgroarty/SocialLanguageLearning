@@ -17,6 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
+      flash[:alert] = resource.errors.full_messages.join(', ')
       redirect_to '/'
     end
   end
