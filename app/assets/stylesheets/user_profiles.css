@@ -132,3 +132,18 @@ img.profile-pic {
 .completed-topics-wrap{
 	margin-top: 30px;
 }
+
+.profile-pic-main{
+	height: 290px;
+	background-color: gray;
+	border-radius: 7px ;
+}
+
+.user-information{
+	height: 100px;	
+	padding-left: 10px;
+}
+
+.user-information h4{
+	font-size: 14px;
+}
