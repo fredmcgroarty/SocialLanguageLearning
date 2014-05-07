@@ -54,8 +54,6 @@
 
   private
 
-  
-
 
   def params_permit
     params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl, :about_me)
