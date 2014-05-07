@@ -9,7 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require bootstrap-datepicker3
  *= require_tree .
  *= require_self
  */
@@ -80,15 +80,13 @@ float: right;
 }
 
 .glyphicon.glyphicon-chevron-left {
-  margin-top: 50%;
 }
 
 .glyphicon.glyphicon-chevron-right {
-  margin-top: 50%;
 }
 
 
-.image-direction {
+.image-direction-logo {
   width: 90%;
   opacity: 0.7;
 
@@ -96,8 +94,8 @@ float: right;
 
 .logo.modal-content.modalContents {
   background-image: image-url("polyglt_logo.png");
-    background-repeat: no-repeat;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
 
 
 }
