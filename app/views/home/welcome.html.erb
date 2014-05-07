@@ -68,7 +68,7 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Conversations Completed: <%= @bookings_count %><% end %> <br>
+						<% if @bookings_count %> Lessons Completed: <%= @bookings_count %><% end %> <br>
 						<span class="glyphicon glyphicon-time"></span> 
 						<% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
 						<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
