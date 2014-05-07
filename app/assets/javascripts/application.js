@@ -21,13 +21,6 @@
 //= require_tree .
 
 
-$(function(){
-
-  $('#datepicker').datepicker()
-  .on('changeDate', function(ev) {
-    alert(new Date(ev.date));
-    $(this).datepicker('hide');
-  });
-
-});
-
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  })
