@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <td><%= f.label :gender %></td>
-      <td><%= f.select :gender, ['Male', 'Female'], :class => 'selectpicker' %></td>
+      <td><%= f.select :gender, options_for_select(GENDERS, @user_profile.gender), :class => 'selectpicker' %></td>
     </tr>
   </br>
   </br>
