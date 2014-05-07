@@ -102,7 +102,34 @@
   font-family: 'Oswald', sans-serif;
   width: 100%;
   height: 500px;
-  text-align: center;
+  margin-top: 50px;
+
+  .col-md-4 {
+    font-family: 'Oswald', sans-serif;
+  }
+
+  ol {
+    margin-left: 15%;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  li {
+    list-style-type: decimal;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  a {
+    font-family: 'Oswald', sans-serif;
+    color: #a1f4ea;
+  }
+
+  a:hover {
+    color: #14a997;
+  }
 }
 
 #splash3 .bcg {
@@ -115,5 +142,16 @@
 
 #splash7 .bcg {
   background-image: image-url("singapore.jpg");
+}
+
+#splash8 {
+  h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 2em;
+  }
+  h3 {
+    text-align: center;
+  }
 }
 
