@@ -45,7 +45,30 @@ class User < ActiveRecord::Base
   def compatible_users
     matches = UserProfile.where(native_lang: user_profile.first_lang) 
     matches2 = matches.where(first_lang: user_profile.native_lang)
-    matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+    @matches = matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+  end
+
+
+  def compatible_users_first
+    matches = UserProfile.where(native_lang: user_profile.first_lang) 
+    matches2 = matches.where(first_lang: user_profile.native_lang)
+    @matches = matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+    @matches1 = @matches[0..3]
+  end
+
+
+  def compatible_users_second
+    matches = UserProfile.where(native_lang: user_profile.first_lang) 
+    matches2 = matches.where(first_lang: user_profile.native_lang)
+    @matches = matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+    @matches2 = @matches[4..7]
+  end
+
+  def compatible_users_third
+    matches = UserProfile.where(native_lang: user_profile.first_lang) 
+    matches2 = matches.where(first_lang: user_profile.native_lang)
+    @matches = matches2.sort_by {|match| (match.first_lang_lvl - first_lang_lvl).abs }.map(&:user)
+    @matches3 = @matches[8..12]
   end
 
   def lang_level_name(level_name)

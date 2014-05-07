@@ -1,13 +1,23 @@
 <title>
 	Welcome to langlang 
 </title>
-
+<script>
+$(document).ready(function() {
+	$('#myCarousel').carousel({
+	interval: 0
+	})
+    
+    $('#myCarousel').on('slid.bs.carousel', function() {
+    	//alert("slid");
+	});
+    
+    
+});
+</script>
 <% if user_signed_in? %>
-
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-
 				<%= image_tag @user.user_profile.picture.url(:medium), class: "mini-profile-avatar" %>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
 				<%= link_to "You have #{ pluralize(@unread_count, "unread message")} ", conversations_path %>
@@ -30,64 +40,117 @@
 				<% if @user %>
 					<h2>UPCOMING APPOINTMENTS</h2>
 					<div class="col-md-9">
-					<table class="table bookings_table">
-          <tr>
-            <th>Start</th>
-            <th>End</th>
-            <th>With</th>
-            <th>Length</th>
-            <th>Delete</th>
-            <th>Edit</th>
-            <th>Link to Lesson</th>
-          </tr>
-					<% @userbookings.each do |booking| %>
-            <% next if booking.end_time <= Time.now %>
-            <tr>
-              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
-              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
-              <td>
-                <%= booking.not_you(current_user).first_name %>
-              </td>
-              <td><%= pluralize(booking.length, "hour") %></td>
-              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
-              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
-              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
-								<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
-							<%else%>	
-								<td>Link not available yet</td>
-							<% end%>	
-            </tr>
-          <% end %>
+						<table class="table bookings_table">
+		          <tr>
+		            <th>Start</th>
+		            <th>End</th>
+		            <th>With</th>
+		            <th>Length</th>
+		            <th>Delete</th>
+		            <th>Edit</th>
+		            <th>Link to Lesson</th>
+		          </tr>
+							<% @userbookings.each do |booking| %>
+            		<% next if booking.end_time <= Time.now %>
+            		<tr>
+		              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+		              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+		              <td>
+		                <%= booking.not_you(current_user).first_name %>
+		              </td>
+		              <td><%= pluralize(booking.length, "hour") %></td>
+		              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+		              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+		              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
+										<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
+									<%else%>	
+										<td>Link not available yet</td>
+									<% end%>	
+            		</tr>
+          		<% end %>
+						</table>
+					</div>
 				<% end %>
-				</table>
-				</div>
 				<div class="col-md-3">
-				<div class="calendar-container">
-					<div class="calendar_container_small">
-						<div id="calendar">
-					</div>
+					<div class="calendar-container">
+						<div class="calendar_container_small">
+							<div id="calendar">
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 			<div class="row matched-users">
 				<h2>MATCHED USERS</h2>
-				<% current_user.compatible_users.each do |users| %>
-					<div class="col-md-2">
-						<div class="matched-user-profiles">
-							<% next if users.id == current_user.id %>
-							<% if users.user_profile  %> 
-								<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%>
-								<br>
-								<div class="matched-user-profiles-description">
-								<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-								<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-								<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
-								</div>
-							<% end %>
-						</div>
-					</div>
-				<% end %>
+        <div class="well-none">
+        	<div id="myCarousel" class="carousel slide">
+          	<div class="carousel-inner">
+            	<div class="item active">
+             		<div class="row" >
+									<% current_user.compatible_users_first.each do |users| %>
+	                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+											<div class="matched-user-profiles">
+												<% next if users.id == current_user.id %>
+												<% if users.user_profile  %> 
+													<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+													<div class="matched-user-profiles-description">
+														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+														<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+													</div>
+												<% end %>
+											</div>
+	             	    </div>
+	         	      <% end %>
+	              </div>
+              </div>
+		          <% if current_user.compatible_users_second %>
+		          	<div class="item">
+		          		<div class="row">
+		          			<% current_user.compatible_users_second.each do |users| %>
+		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+												<div class="matched-user-profiles">
+													<% next if users.id == current_user.id %>
+													<% if users.user_profile  %> 
+														<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+														<div class="matched-user-profiles-description">
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+															<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+														</div>
+													<% end %>
+												</div>
+		                	</div>
+		              	<% end %>
+		            	</div>
+		          	</div>
+		          <% end %>
+		          <% if current_user.compatible_users_third %>
+		          	<div class="item">
+		          		<div class="row">
+		          			<% current_user.compatible_users_third.each do |users| %>
+		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+												<div class="matched-user-profiles">
+													<% next if users.id == current_user.id %>
+													<% if users.user_profile  %> 
+														<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+														<div class="matched-user-profiles-description">
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+															<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+														</div>
+													<% end %>
+												</div>
+		                	</div>
+		              	<% end %>
+		            	</div>
+		          	</div>
+		          <% end %>
+		        </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+				</div>
 			</div>
 			<div class="row topics">
 				<h2>TOPICS</h2>
@@ -103,38 +166,38 @@
 						<% end %>
 						</div>
 						<div class="col-md-3">
-						<% @topics_b.each do |x| %>
-							<ul class="list-group">
-								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users.count %></span>
-									<%= link_to x.name, topic_path(x) %>
-								</li>
-							</ul>
-						<% end %>
+							<% @topics_b.each do |x| %>
+								<ul class="list-group">
+									<li class="list-group-item">
+										<span class="badge"><%= x.completed_users.count %></span>
+										<%= link_to x.name, topic_path(x) %>
+									</li>
+								</ul>
+							<% end %>
 						</div>
 						<div class="col-md-3">
-						<% @topics_c.each do |x| %>
-							<ul class="list-group">
-								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users.count %></span>
-									<%= link_to x.name, topic_path(x) %>
-								</li>
-							</ul>
-						<% end %>
+							<% @topics_c.each do |x| %>
+								<ul class="list-group">
+									<li class="list-group-item">
+										<span class="badge"><%= x.completed_users.count %></span>
+										<%= link_to x.name, topic_path(x) %>
+									</li>
+								</ul>
+							<% end %>
 						</div>
 						<div class="col-md-3">
-						<% @topics_d.each do |x| %>
-							<ul class="list-group">
-								<li class="list-group-item">
-									<span class="badge"><%= x.completed_users.count %></span>
-									<%= link_to x.name, topic_path(x) %>
-								</li>
-							</ul>
-						<% end %>
+							<% @topics_d.each do |x| %>
+								<ul class="list-group">
+									<li class="list-group-item">
+										<span class="badge"><%= x.completed_users.count %></span>
+										<%= link_to x.name, topic_path(x) %>
+									</li>
+								</ul>
+							<% end %>
+						</div>
+					</div>	
 				</div>
-			</div>	
-		</div>
-	</div>
+			</div>
 <% else %>
 	<%= render 'not_logged_in'  %>
 <% end %>
