@@ -112,7 +112,18 @@
       </div>
     </div>
 
-    <div class="tab-pane" id="booking">cal deets</div>
+    <div class="tab-pane" id="booking">
+      <div class="col-md-5">
+      <div class="modal-body">
+        <%= render :partial => 'bookings/form' %> 
+      </div>
+      </div>
+      <div class="col-md-5">
+      <div class="calendar-container">
+        <div id="calendar"></div>
+      </div>
+      </div>
+    </div>
 </div>
 
 </div>
