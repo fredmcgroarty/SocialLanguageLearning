@@ -44,7 +44,7 @@
 	border-top-left-radius: 7px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-color: #EAE8E8;
+	background-color: #999999;
 }
 
 .matched-user-profiles-description {
@@ -83,7 +83,10 @@
 
 .profile-pic-holder{
   margin-top: 20px;
-  background-color: gray;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #999999;
   border-radius: 7px 7px 0px 0px;
   height: 200px;
 }

@@ -3,22 +3,6 @@
 	Welcome to POLYGLT.com
 </title>
 
-<script>
-
-$(document).ready(function() {
-	$('#myCarousel').carousel({
-	interval: 0
-	})
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	//alert("slid");
-	});  
-});
-</script>
-<script type="text/javascript">
-    $(window).load(function(){
-        $('#myModal').modal('show');
-    });
-</script>
 
 <% if user_signed_in? %>
 	<% if @user.native_lang.nil? %>
@@ -48,9 +32,7 @@ $(document).ready(function() {
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-				<div class="profile-pic-holder">
-		
-				<!-- 	<%= link_to image_tag(@user.user_profile.picture.url(:medium)), user_profile_path(current_user) %> -->
+				<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);">
 				</div>
 				<div class="profile-info-holder">
 					<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
@@ -251,4 +233,10 @@ $(document).ready(function() {
     
     
 });
+</script>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
 </script>
