@@ -5,7 +5,7 @@ class CreateUserReviews < ActiveRecord::Migration
       t.text :rev1
       t.text :rev2
       t.integer :score
-      t.string :topic
+      t.belongs_to :topic
       t.boolean :completed
 
       t.timestamps

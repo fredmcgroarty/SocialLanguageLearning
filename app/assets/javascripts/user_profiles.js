@@ -10,4 +10,8 @@ $(document).ready(function(){
 		$('.positive').trigger('click');
 		$('.negative').trigger('click');
 	})
+
+  $('.booking-tab').on('shown.bs.tab', function (e) {
+    $('#calendar').fullCalendar('render');
+  })
 })
