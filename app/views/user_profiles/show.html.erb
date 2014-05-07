@@ -42,13 +42,13 @@
   <ul class="nav nav-tabs" id="appointmentTab">
     <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-    <li><a href="#calendar-profile" data-toggle="tab">Calendar</a></li>
+    <li><a href="#booking" data-toggle="tab">Set up a conversation session </a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="topics">
 
       <div class="col-md-5">
-        <div class="completed-topics-wrap">
+        <div class="topics-wrap">
           <div class="panel panel-default">     
             <div class="panel-heading">                          
               Completed Topics  
@@ -71,7 +71,7 @@
       </div>
 
       <div class="col-md-5">
-        <div class="completed-topics-wrap">
+        <div class="topics-wrap">
           <div class="panel panel-default">     
             <div class="panel-heading">                          
               Incomplete Topics  
@@ -95,9 +95,24 @@
 
     </div>  
 
-    <div class="tab-pane" id="reviews">reviews deets</div>
+    <div class="tab-pane" id="reviews">
+      <div class="reviews-wrap">
+        <div class="panel panel-default">
+          <div class="panel-heading">Reviews</div>
+          <div class="panel-body">
+            <p>See how you can help <%=@user.first_name%> based on these suggested focus areas!</p>
+          </div>
+          <table class="table">
+            <tr>
+              <td>icon</td>
+              <td>what they did well<br> what they can imprv on</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 
-    <div class="tab-pane" id="calendar-profile">cal deets</div>
+    <div class="tab-pane" id="booking">cal deets</div>
 </div>
 
 </div>
