@@ -12,3 +12,44 @@
   font-family: 'Oswald', sans-serif;
   margin: 0;
 }
+
+.editbookingtable {
+  margin-left: auto;
+  margin-right: auto;
+
+  th {
+    font-family: 'Oswald', sans-serif;
+    padding: 5px;
+    text-align: right;
+    color: #a3acb2;
+  }
+
+  td {
+    font-family: 'Oswald', sans-serif;
+  }
+
+  input {
+    margin: 0;
+  }
+
+  .btn {
+    font-family: 'Oswald', sans-serif;
+    border: none;
+  }
+
+  .btn-info {
+    color: #333333;
+    background-color: #a1f4ea;
+  }
+
+  .btn-info:hover {
+    background-color: #1adec6;
+    color: #333333;
+  }
+}
+
+.editbooking h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  color: #a3acb2;
+}
