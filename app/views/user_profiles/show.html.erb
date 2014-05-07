@@ -1,4 +1,4 @@
-<div class='col-md-3'>
+<!-- <div class='col-md-3'>
 	<%= render :partial => 'user_profile_left' %>
 	<%= render :partial => 'contact_user' %>
 </div>
@@ -10,9 +10,136 @@
 	</div>
 </div>
 
+ -->
 
 
+<div class='col-md-3'>
+  <div class="profile-pic-main">
+    <!-- <%= image_tag (@user.picture.url(:large)), class: 'profile-pic' %> -->
+  </div>
+
+  <div class="user-information">
+    <h3><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
+    <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
+    <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Hours Completed</th>
+      <th>Topics Completed</th>
+      <th>Average Rating</th>
+    </tr>
+    <tr>
+      <td><%= @total_length %></td>
+      <td><%= @completed_topics.count %></td>
+      <td><%= @average_score %>/5</td>
+    </tr>
+  </table>
+</div>
+
+<div class='col-md-9'>
+  <ul class="nav nav-tabs" id="appointmentTab">
+    <li class="active"><a href="#topics" data-toggle="tab">Topics Information</a></li>
+    <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
+
+      <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
+      <li><a href="#booking" data-toggle="tab">Set up a conversation session </a></li>
+ 
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="topics">
+
+      <div class="col-md-5">
+        <div class="topics-wrap">
+          <div class="panel panel-default">     
+            <div class="panel-heading">                          
+              Completed Topics  
+              <span class="badge pull-right"><%= @completed_topics.count%></span>       
+            </div>
+            <div class="panel-body">
+              <p>These are the list of topics that <%=@user.first_name%> has completed, kudos!</p>
+            </div>        
+             <ul class="list-group">
+              <% if @completed_topics.any? %>
+                <% @completed_topics.each do |x| %>
+                 <li class="list-group-item"><%= simple_format (x)%></li>
+                <% end %>
+              <% else %>
+                  None!
+              <% end %>
+            </ul> 
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="topics-wrap">
+          <div class="panel panel-default">     
+            <div class="panel-heading">                          
+              Incomplete Topics  
+              <span class="badge pull-right"><%=@incomplete_topics.count%></span>       
+            </div>
+            <div class="panel-body">
+              <p>See a similar incomplete topic? Have a conversation with <%=@user.first_name%>!</p>
+            </div>        
+             <ul class="list-group">
+              <% if @incomplete_topics.any? %>
+                <% @incomplete_topics.each do |x| %>
+                 <li class="list-group-item"><%= simple_format (x)%></li>
+                <% end %>
+              <% else %>
+                  None!
+              <% end %>
+            </ul> 
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+    <div class="tab-pane" id="reviews">
+      <div class="reviews-wrap">
+        <div class="panel panel-default">
+          <div class="panel-heading">Reviews</div>
+          <div class="panel-body">
+            <p>See how you can help <%=@user.first_name%> based on these suggested focus areas!</p>
+          </div>
+          <table class="table">
+            <tr>
+              <td>icon</td>
+              <td>what they did well<br> what they can imprv on</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="messaging">
+      <div class="messages-wrap">
+        <div class="col-md-7">
+          <%= render :partial => 'messages/new' %> 
+        </div>
+      </div>
+    </div>
 
 
+    <div class="tab-pane" id="booking">
+      <div class="bookings-wrap">
+        <div class="col-md-5">
+          <div class="modal-body">
+            <%= render :partial => 'bookings/form' %> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="calendar-container">
+            <div id="calendar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+</div>
+
+</div>
 	  	

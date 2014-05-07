@@ -54,7 +54,7 @@ img.profile-pic {
 }
 
 .completed-topics {
-		font-size: 28px;
+	font-size: 28px;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 2px;
 }
@@ -113,6 +113,7 @@ img.profile-pic {
 .info.row {
 	border-style:solid;
 	margin-bottom: 5%;
+	width: 100%
 }
 
 .negative.list-group-item {
@@ -126,3 +127,39 @@ img.profile-pic {
 	text-align: center;
 }
 
+/*new start here*/
+
+.topics-wrap{
+	margin-top: 30px;
+}
+
+.profile-pic-main{
+	height: 290px;
+	background-color: gray;
+	border-radius: 7px ;
+}
+
+.user-information{
+	height: 100px;	
+	padding-left: 10px;
+}
+
+.user-information h4{
+	font-size: 14px;
+}
+
+.reviews-wrap{
+	margin-top: 30px;
+}
+
+.bookings-wrap{
+	margin-top: 30px;
+}
+
+.messages-wrap{
+margin-top: 30px;
+}
+.contact-user-div{
+	height: 70px;	
+	text-align: left;
+}
