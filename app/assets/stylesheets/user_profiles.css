@@ -35,12 +35,6 @@
 	  text-align: center;
 }
 
-img.profile-pic {
-	display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .email-profile {
 	font-size: 15px;
 	font-family: 'Oswald', sans-serif;
@@ -127,7 +121,6 @@ img.profile-pic {
 	text-align: center;
 }
 
-/*new start here*/
 
 .topics-wrap{
 	margin-top: 30px;
@@ -135,8 +128,10 @@ img.profile-pic {
 
 .profile-pic-main{
 	height: 290px;
-	background-color: gray;
+	background-color: #EAE8E8;
 	border-radius: 7px ;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .user-information{
