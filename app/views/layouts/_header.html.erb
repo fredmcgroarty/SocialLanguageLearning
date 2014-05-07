@@ -15,10 +15,10 @@
         
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-
-
-        <!-- <li> Logged in as <%= current_user.first_name %> </li> -->
-        <li><%= link_to current_user.first_name, user_profile_path(current_user) %></li>
+        <%if current_user.first_name.blank? %>
+        <%else%>
+          <li><%= link_to current_user.first_name, user_profile_path(current_user) %></li>
+        <%end%>
         <li><%= link_to "Appointments", bookings_path(current_user)%></li>
         <li><%= link_to 'Messages', conversations_path%></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>

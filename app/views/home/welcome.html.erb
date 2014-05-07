@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <title>
 	Welcome to langlang 
 </title>
@@ -16,6 +17,8 @@ $(document).ready(function() {
         $('#myModal').modal('show');
     });
 </script>
+=======
+>>>>>>> 679927d72dd609865621146c93e648e49e309fc1
 <% if user_signed_in? %>
 	<% if @user.native_lang.nil? %>
 
@@ -43,6 +46,7 @@ $(document).ready(function() {
 	<% end %>
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
+
 			<% if @user %>
 				<%= link_to image_tag(@user.user_profile.picture.url(:medium)), user_profile_path(current_user), class: "mini-profile-avatar" %>
 				<h4><%= @user.first_name %> <%= @user.last_name %></h4>
@@ -55,6 +59,7 @@ $(document).ready(function() {
 				<% end %>
 					Completed Topics: <%= @completed_topics.count %><br />
 			<% end %>
+			
 		</div>
 	</div>
 	<div class="col-md-10">
@@ -118,11 +123,11 @@ $(document).ready(function() {
 											<div class="matched-user-profiles">
 												<% next if users.id == current_user.id %>
 												<% if users.user_profile  %> 
-													<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
 													<div class="matched-user-profiles-description">
 														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-														<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+														<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
 													</div>
 												<% end %>
 											</div>
@@ -138,11 +143,11 @@ $(document).ready(function() {
 												<div class="matched-user-profiles">
 													<% next if users.id == current_user.id %>
 													<% if users.user_profile  %> 
-														<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
 														<div class="matched-user-profiles-description">
 															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+															<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
 														</div>
 													<% end %>
 												</div>
@@ -159,11 +164,11 @@ $(document).ready(function() {
 												<div class="matched-user-profiles">
 													<% next if users.id == current_user.id %>
 													<% if users.user_profile  %> 
-														<%= image_tag users.user_profile.picture.url(:thumb), class: 'matched-user-profile-pic'%><br />
+														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
 														<div class="matched-user-profiles-description">
 															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> What to Learn <%= users.user_profile.first_lang %> & <%= users.user_profile.second_lang %></h5> 
+															<h5> What to Learn <%= users.user_profile.first_lang %></h5>
 														</div>
 													<% end %>
 												</div>
@@ -228,3 +233,16 @@ $(document).ready(function() {
 	<%= render 'not_logged_in'  %>
 <% end %>
 
+<script>
+$(document).ready(function() {
+	$('#myCarousel').carousel({
+	interval: 0
+	})
+    
+    $('#myCarousel').on('slid.bs.carousel', function() {
+    	//alert("slid");
+	});
+    
+    
+});
+</script>
