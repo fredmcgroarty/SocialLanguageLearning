@@ -18,13 +18,30 @@
 }
 
 .row.user-appointments {
-	height: 350px;
-	border-bottom: 1px dashed gray;
+	height: 320px;
+	/*border-bottom: 1px dashed gray;*/
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 20px;
+  margin-left: 5px;
+  padding-left: 10px;
 }
 
-.matched-users {
+
+.row.matched-users {
 	height: 350px;
-	border-bottom: 1px dashed gray;
+	/*border-bottom: 1px dashed gray;*/
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 30px;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+
+.row.topics {
+  height: 400px;
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 30px;
+  margin-left: 5px;
+  padding-left: 10px;
 }
 
 .matched-user-profiles {
@@ -69,9 +86,7 @@
 	color: #5F6B6B;
 }
 
-.row.topics {
-	height: 300px;
-}
+
 
 .home-page-avatar-info {
 	text-align: center;
@@ -126,7 +141,7 @@
 	font-size: 18px;
 	margin: 15px 0px;
 	padding-left: 12px;
-	color:#a1f4ea;
+	color:#5F6B6B;
 /*	letter-spacing: 1px;*/
 }
 
@@ -136,6 +151,10 @@
 
 .calendar-container {
 	float: left;
+}
+
+.calendar-wrap{
+margin-top: 20px;
 }
 
 .thumbnail {
@@ -186,4 +205,5 @@
 .row .thumbnail {
   border: none;
 }
+
 
