@@ -44,7 +44,7 @@
 	border-top-left-radius: 7px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-color: #EAE8E8;
+	background-color: #999999;
 }
 
 .matched-user-profiles-description {
@@ -80,6 +80,34 @@
 	height: 1400px;
 }
 
+
+.profile-pic-holder{
+  margin-top: 20px;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #999999;
+  border-radius: 7px 7px 0px 0px;
+  height: 200px;
+}
+
+
+.profile-info-holder{
+  height: 200px;
+}
+
+.quick-info{
+  text-align: left;
+  padding-left: 20px;
+}
+
+.user-name{
+  margin-top: 0px;
+  text-align: left;
+  padding-left: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
 .home-page-avatar-info h4 {
 	margin-top: 20px;
 }
@@ -97,7 +125,7 @@
 	margin: 15px 0px;
 	padding-left: 12px;
 	color:#a1f4ea;
-	letter-spacing: 2px;
+/*	letter-spacing: 1px;*/
 }
 
 .main-content {
@@ -152,6 +180,8 @@
 	margin-left: 25%;
 }
 
+
 .row .thumbnail {
   border: none;
 }
+
