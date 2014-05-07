@@ -83,8 +83,7 @@
 
 .profile-pic-holder{
   margin-top: 20px;
-  /*background-size: 80%;
-*/  background-position: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #999999;
   border-radius: 7px 7px 0px 0px;
@@ -151,10 +150,10 @@
 }
 
 .carousel-control {
-  position: absolute;
+/*  position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 0;*/
   width: 15%;
   opacity: .5;
   font-size: 20px;
@@ -162,7 +161,7 @@
   text-align: center;
   text-shadow: none;
   height: 10%;
-  margin-top: 30%;
+  margin-top: 350px;
 }
 .carousel-control.left {
 	background-image: none;
