@@ -24,6 +24,11 @@
   box-shadow: 0 2px 5px #888888;  
 }
 
+/*.navbar-nav li a{
+   font-family: 'Oswald', sans-serif;
+   font-size: 13px;
+}*/
+
 .navbar-nav li a:hover{
 border-bottom: 7px solid #a1f4ea;
 }
