@@ -76,7 +76,7 @@ $(document).ready(function() {
 					<%end%>
 					<div class="quick-info">
 						<span class="glyphicon glyphicon-envelope"></span> 
-						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
+						<%= link_to " #{ pluralize(@unread_count, " Inbox Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
 						Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
 						<span class="glyphicon glyphicon-time"></span> 
@@ -96,8 +96,7 @@ $(document).ready(function() {
 			<div class="row user-appointments">
 				
 					<h2>UPCOMING APPOINTMENTS</h2>
-
-					<!-- <div class="col-md-9"> -->
+					
             <div class ="welcome-table-wrapper">
   						<table class="table bookings_table">
   		          <tr>
@@ -129,7 +128,7 @@ $(document).ready(function() {
             		<% end %>
   						</table>
             </div>
-					<!-- </div> -->
+					
 
 
 			</div>
@@ -172,7 +171,7 @@ $(document).ready(function() {
 														<div class="matched-user-profiles-description">
 															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
+															<h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
 														</div>
 													<% end %>
 												</div>
@@ -193,7 +192,7 @@ $(document).ready(function() {
 														<div class="matched-user-profiles-description">
 															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> What to Learn <%= users.user_profile.first_lang %></h5>
+															<h5> Want to Learn: <%= users.user_profile.first_lang %></h5>
 														</div>
 													<% end %>
 												</div>
