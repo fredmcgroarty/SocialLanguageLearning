@@ -16,9 +16,11 @@ describe 'editting users profile' do
   		visit '/user_profile/edit' 
       expect(page).to have_content(@mark.user_info && @mark.user_profile && @mark.email)
       expect(current_path).to eq edit_user_profile_path
-      click_button 'Update User profile'
+       within(:css, ".edit_user_profile") do
+      click_button 'update-button-profile-edit-page'
       expect(page).to have_content 'Update successful'
     end
+  end
 
     it "a user can update his profile picture" do
       login_as @mark
@@ -26,7 +28,7 @@ describe 'editting users profile' do
       expect(User.first.picture.url).to eq ('/pictures/original_missing.png') 
       within(:css, ".col-md-4.edit-prof") do
         attach_file 'user_profile_picture', Rails.root.join('spec/images/profile.jpg')
-        click_button 'Update User profile'
+        click_button 'Update Profile Picture'
       end
       expect(find('#mini-profile-avatar')['src']).to match 'profile.jpg'
     end

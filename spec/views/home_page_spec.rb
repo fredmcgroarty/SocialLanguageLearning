@@ -11,8 +11,8 @@ describe 'Home page' do
 	
 		it "should have login and sign in forms" do
 			visit '/'
-			expect(page).to have_link('Sign in')
-			expect(page).to have_link('Sign up')
+			expect(page).to have_link('Welcome back')
+			expect(page).to have_link('Join POLYGLT')
 		end
 
 		context 'logged in' do
