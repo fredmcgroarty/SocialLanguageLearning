@@ -185,3 +185,13 @@ margin-top: 30px;
 .user-name-h3{
 	font-family: 'Oswald', sans-serif;
 }
+
+div.negative.panel-heading {
+	background-color: #f2dede;
+}
+
+div.positive.panel-heading {
+	background-color: #d6e9c6
+}
+
+
