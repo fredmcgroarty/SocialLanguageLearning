@@ -76,4 +76,5 @@ class User < ActiveRecord::Base
     LANGLEVEL.find {|level| level.last == target_level}[0]
   end
 
+
 end
