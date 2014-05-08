@@ -26,6 +26,7 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer'
 gem 'bootstrap-datepicker-rails'
 gem 'aws-sdk'
+gem "browser"
 
 
 

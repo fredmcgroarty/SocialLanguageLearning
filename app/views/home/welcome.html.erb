@@ -19,39 +19,48 @@ $(document).ready(function() {
 </script>
 
 <% if user_signed_in? %>
-	<% if @user.native_lang.nil? %>
-
-
-<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="logo modal-content modalContents">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <center><h3>Please complete your registration to continue!</h3></center>
-          		<div class ='instruction-signup'>
-<center>
-	<br>
-		<h4>Before you can continue to use POLYGLT you need to <%= link_to "create your personal language profile.", edit_user_profile_path(current_user) %>
-
-
-			 You need to provide the following:</h4><br>
-</center>
-		<ul>
-			<li>Your name</li>
-			<li>Your profile picture</li>
-			<li>Your native language</li>
-			<li>The language you want to practice speaking</li>
-		</ul>
-		<center>
-
-		<%= image_tag("instructionone.png", :class => 'image-direction-logo')  %>
-</center>
-
-
-	</div>
+	<% unless browser.chrome? %>
+		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="logo modal-content modalContents">
+      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       		<center><h3>Please reload this page using Google Chrome!</h3></center>
+          	<div class ='instruction-signup'>
+							<center><br>
+								<h4>This page utilizes WebRTC and other technologies that are currently only available with Google Chrome.<br>
+								<h5> If you wish to fully utilize this site, please reload using <%= link_to "Google Chrome", "https://www.google.co.uk/intl/en_uk/chrome/browser/" %> </h5>
+							</center>
+						</div>
+					</center>
         </div>
-      </div>
+     	</div>
     </div>
-
+  <% end %>
+	<% if @user.native_lang.nil? %>
+		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="logo modal-content modalContents">
+      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       		<center><h3>Please complete your registration to continue!</h3></center>
+          	<div class ='instruction-signup'>
+							<center><br>
+								<h4>Before you can continue to use POLYGLT you need to <%= link_to "create your personal language profile.", edit_user_profile_path(current_user) %>
+									You need to provide the following:</h4><br>
+							</center>
+							<ul>
+								<li>Your name</li>
+								<li>Your profile picture</li>
+								<li>Your native language</li>
+								<li>The language you want to practice speaking</li>
+							</ul>
+							<center>
+								<%= image_tag("instructionone.png", :class => 'image-direction-logo')  %>
+							</center>
+						</div>
+					</center>
+        </div>
+     	</div>
+    </div>
 	<% end %>
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
@@ -68,10 +77,10 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Lessons Completed: <%= @bookings_count %><% end %> <br>
+						<% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
 						<span class="glyphicon glyphicon-time"></span> 
-						<% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
-						<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
+						<% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
+						<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
 					</div>
 
 				</div>	
