@@ -22,9 +22,10 @@
 
 <div class="container">
   <div class="conversation-suggestions">
-    <% @topic_questions.each do |x| %>
-      <%= x.text %>
-    <% end %>
+    <h3>Here are some suggested topics to get you started: </h3>
+    <% @questions_for_topic.each do |x|%>
+      <li><%= x.text %></li>
+    <%end%>
   </div>
 </div>
 
