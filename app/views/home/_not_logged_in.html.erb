@@ -1,3 +1,4 @@
+
 <section id='splash1'>
   <div class="bcg" data-0="background-position: 0px -200px;" data-end="background-position: 0px 1800px;" data-anchor-target="#splash1">
     <div class="container">
@@ -40,7 +41,6 @@
           <div class="form-horizontal">
             <h3><ins>Sign up</ins></h3>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
               <div class="form-group">
                 <div class="col-md-4 title"><%= f.label :email %></div>
                 <div class="col-md-8"><%= f.email_field :email, autofocus: true %></div>
