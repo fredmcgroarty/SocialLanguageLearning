@@ -85,6 +85,11 @@ float: right;
 .glyphicon.glyphicon-chevron-right {
 }
 
+.topics-heading {
+  width: 100px;
+  float: left;
+}
+
 
 .image-direction-logo {
   width: 90%;
@@ -96,6 +101,20 @@ float: right;
   background-image: image-url("polyglt_logo.png");
   background-repeat: no-repeat;
   background-position: center;
+}
 
+.navbar-form.glyphicon.glyphicon-search {
+  height: 30px;
+  border: 1px solid #ccc;
+}
 
+a .topic-headings {
+    font-family: 'Oswald', sans-serif;
+
+}
+.panel-body {
+background: linear-gradient(to left, #a1f4ea , white); /* Standard syntax */
+background-image: image-url("polyglt_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
