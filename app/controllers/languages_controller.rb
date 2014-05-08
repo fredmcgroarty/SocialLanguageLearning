@@ -1,6 +1,7 @@
 class LanguagesController < ApplicationController
 
 	def index
+		@profiles = UserProfile.all
 		@languages = Language.all
 	end
 
