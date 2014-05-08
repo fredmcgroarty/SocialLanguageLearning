@@ -21,7 +21,6 @@
     @user_profile = UserProfile.new params_permit
     @user_profile.user = current_user
       flash[:notice] = "Update successful"
-
     if @user_profile.save
       redirect_to '/'
     else
@@ -35,20 +34,33 @@
 
   def update
     @user_profile = current_user.user_profile
-    if @user_profile.update params_permit
-      flash[:notice] = "Update successful"
-      redirect_to edit_user_profile_path
+    if [:first_name] == "" || [:last_name] == ""
+      flash[:alert] = "Please enter valid information"
+      return redirect_to edit_user_profile_path
+    elsif @user_profile.update params_permit
+      @user_profile.update params_permit
+      flash[:notice] = "Profile updated successfully!"
+      return redirect_to edit_user_profile_path
     else
-      render 'edit_user_profile_path'
-      flash[:notice] = "update failed"
+      flash[:alert] = "Please enter valid informationaaaa"
+      return redirect_to edit_user_profile_path
     end
-    rescue
-    flash[:notice] = "Please attach a valid picture"
-    return redirect_to edit_user_profile_path
   end
 
   def destroy
-    
+    @user_profile = current_user.user_profile
+  end
+
+  def picture
+    @user_profile = current_user.user_profile
+    unless params[:user_profile]
+      flash[:alert] = "Please attach a valid picture!"
+      redirect_to edit_user_profile_path
+    else
+      @user_profile.update picture_params_permit
+      flash[:notice] = "Picture udpated successfully!"
+      return redirect_to edit_user_profile_path
+    end
   end
 
 
@@ -56,7 +68,11 @@
 
 
   def params_permit
-    params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :second_lang, :first_lang_lvl, :second_lang_lvl, :about_me)
+    params[:user_profile].permit(:user_id, :first_name, :last_name, :dob, :gender, :picture, :native_lang, :first_lang, :first_lang_lvl, :bio)
+  end
+
+  def picture_params_permit
+    params[:user_profile].permit(:picture)
   end
 
 end
