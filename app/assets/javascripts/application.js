@@ -24,3 +24,14 @@
   $(document).ready(function(){
     $('.datepicker').datepicker();
   })
+
+
+	$(document).ready(function() {
+		$('#box').keyup(function(){
+   		var valThis = $(this).val().toLowerCase();
+    $('.list-group>li').each(function(){
+     	var text = $(this).text().toLowerCase();
+     	(text.indexOf(valThis) == 0) ? $(this).animate({opacity: 1}) : $(this).animate({opacity: 0.3});            
+   		});
+		});
+	});
