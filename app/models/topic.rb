@@ -63,15 +63,5 @@ class Topic < ActiveRecord::Base
 	end
 
 
-	def get_questions
-		@questions = Question.all
-		@topic_questions = []
-		@questions.each do |x|
-			if x.topic_id == @topic.id
-				@topic_questions << x
-			end
-		end
-		@topic_questions
-	end
 	
 end
