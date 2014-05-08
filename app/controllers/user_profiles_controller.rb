@@ -13,6 +13,7 @@
     @booking = Booking.new
     @bookings =  Booking.all
     get_topics
+    get_bookings
     get_hours
     get_reviews
   end

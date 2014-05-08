@@ -53,8 +53,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def get_hours
-    @reviews = UserReview.all
+  def get_bookings
     @total_length = [] 
     @bookings.each do |x|
       if (x.user_id == @user.id || x.student_id == @user.id)
@@ -62,7 +61,17 @@ class ApplicationController < ActionController::Base
       end
     end
     @bookings_count = @total_length.count
-    @total_length = @total_length.sum
+  end
+
+  def get_hours
+    @bookings = Booking.all
+    @total_hours = []
+    @bookings.each do |x|
+      if (x.user_id == @user.id || x.student_id == @user.id) && x.end_time < Time.now
+        @total_hours << x.length
+      end
+    end
+    @total_hours = @total_hours.sum
   end
 
   def get_reviews
