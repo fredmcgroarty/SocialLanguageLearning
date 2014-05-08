@@ -18,23 +18,26 @@ $(document).ready(function() {
     });
 </script>
 
-<%= render 'layouts/checks' %>
-<%= render 'layouts/left' %>
 <%= render 'layouts/not_logged_in' %>
+<%= render 'layouts/checks' %>
+
+<%= render 'layouts/left' %>
 
 <div class="col-md-10">
 	<div class='main-splash-container'>
 		<% if @user && @user.native_lang.nil? %>
 			<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
 		<% end %>
-		
-		<%= render 'layouts/appointments' %>
+		<% if @user %>
+			<%= render 'layouts/appointments' %>
 
-		<%= render 'layouts/matched_users' %>
-		
-		<br>
+			<%= render 'layouts/matched_users' %>
+			
+			<br>
 
-		<%= render 'layouts/topics_list' %>
+			<%= render 'layouts/topics_list' %>
+
+		<% end %>
 
 	</div>
 </div>
