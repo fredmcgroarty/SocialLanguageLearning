@@ -1,0 +1,24 @@
+<div class="col-md-2">
+	<div class='home-page-avatar-info'>
+		<% if @user %>
+			<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);">
+			</div>
+			<div class="profile-info-holder">
+				<%if current_user.first_name.blank? %>
+					<h4 class="user-name">WELCOME TO POLYGLT</h4>
+				<%else%>
+					<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
+				<%end%>
+				<div class="quick-info">
+					<span class="glyphicon glyphicon-envelope"></span> 
+					<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
+					<span class="glyphicon glyphicon-stats"></span> 
+					Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
+					<span class="glyphicon glyphicon-time"></span> 
+					<% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
+					<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
+				</div>
+			</div>	
+		<% end %>	
+	</div>
+</div>

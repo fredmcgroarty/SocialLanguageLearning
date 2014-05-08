@@ -19,10 +19,13 @@
   end
 
   def create
+    ModelMailer.new_user_notification(current_user).deliver
     @user_profile = UserProfile.new params_permit
     @user_profile.user = current_user
+
       flash[:notice] = "Update successful"
     if @user_profile.save
+
       redirect_to '/'
     else
       render 'new'
@@ -40,6 +43,7 @@
       return redirect_to edit_user_profile_path
     elsif @user_profile.update params_permit
       @user_profile.update params_permit
+
       flash[:notice] = "Profile updated successfully!"
       return redirect_to edit_user_profile_path
     else

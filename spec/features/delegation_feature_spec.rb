@@ -20,7 +20,7 @@ describe "Delegations" do
 			expect(@mark.last_name).to eq "M"
 			expect(@mark.native_lang).to eq "English"
 			expect(@mark.first_lang).to eq "French"
-			expect(@mark.second_lang).to eq "Spanish"
+			
 		end
 
 	end
