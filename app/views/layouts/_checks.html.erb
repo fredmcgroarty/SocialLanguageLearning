@@ -18,6 +18,7 @@
     </div>
   <% end %>
  <% end %>
+ <% if @user %>
 	<% if @user.native_lang.nil? %>
 		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
   		<div class="modal-dialog">
@@ -44,3 +45,4 @@
      	</div>
     </div>
 	<% end %>
+<% end %>
