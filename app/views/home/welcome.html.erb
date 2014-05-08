@@ -77,10 +77,10 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Lessons Completed: <%= @bookings_count %><% end %> <br>
+						<% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
 						<span class="glyphicon glyphicon-time"></span> 
-						<% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
-						<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
+						<% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
+						<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
 					</div>
 
 				</div>	
@@ -217,7 +217,7 @@ $(document).ready(function() {
       				<input placeholder="Filter Topics" id="box" type="text" class ='navbar-form  glyphicon glyphicon-search' >
     				</div>
     				<div id="collapseOne" class="panel-collapse collapse in">
-      				<div class="panel-body">
+      				<div class="topics panel-body">
         				<div class="row topics">
 									<% @topics.in_groups(3, false).each do |topic_group| %>
 										<div class='col-md-4'>
@@ -243,7 +243,6 @@ $(document).ready(function() {
 	</div>
 </div>
 
-#NOT SURE IF THIS IS THE CORRECT DIV NUMBER
 
 			<script>
 			$(document).ready(function() {

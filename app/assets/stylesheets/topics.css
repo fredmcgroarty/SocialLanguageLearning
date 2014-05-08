@@ -1,4 +1,15 @@
 .topic-name{
   margin-left: 10px;
   margin-bottom: 10px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  font-size: 38px;
+}
+
+.topics-completed-users {
+	text-align: center;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
 }

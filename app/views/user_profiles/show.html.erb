@@ -46,10 +46,10 @@
             <div class="panel-body">
               <div class="quick-info">
                 <span class="glyphicon glyphicon-stats"></span> 
-                <% if @bookings_count %> Lessons Completed: <%= @bookings_count %><% end %> <br>
+                <% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
                 <span class="glyphicon glyphicon-time"></span> 
-                <% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
-                <span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
+                <% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
+                <span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
                 <span class="glyphicon glyphicon-certificate"></span>  Average Rating: <%= @average_score %>/5<br>
                 
               </div>
