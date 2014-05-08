@@ -2,6 +2,7 @@ class Topic < ActiveRecord::Base
 	has_and_belongs_to_many :languages
 	has_many :bookings
 	has_many :user_reviews
+	has_many :questions
 
 	def completed_users
 		user_reviews.where(completed: true).map(&:for_user)
@@ -37,4 +38,16 @@ class Topic < ActiveRecord::Base
 		end
 	end
 
+
+	def get_questions
+		@questions = Question.all
+		@topic_questions = []
+		@questions.each do |x|
+			if x.topic_id == @topic.id
+				@topic_questions << x
+			end
+		end
+		@topic_questions
+	end
+	
 end

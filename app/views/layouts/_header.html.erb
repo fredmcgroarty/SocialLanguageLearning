@@ -19,7 +19,7 @@
         <%else%>
           <li><%= link_to current_user.first_name.capitalize, user_profile_path(current_user) %></li>
         <%end%>
-        <li><%= link_to "Appointment", bookings_path(current_user)%></li>
+        <li><%= link_to "Appointments", bookings_path(current_user)%></li>
         <li><%= link_to 'Messages', conversations_path%></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete%></li>
