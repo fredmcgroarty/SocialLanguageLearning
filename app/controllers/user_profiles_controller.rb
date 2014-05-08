@@ -34,12 +34,15 @@
 
   def update
     @user_profile = current_user.user_profile
-    if @user_profile.update params_permit
+    if [:first_name] == "" || [:last_name] == ""
+      flash[:alert] = "Please enter valid information"
+      return redirect_to edit_user_profile_path
+    elsif @user_profile.update params_permit
       @user_profile.update params_permit
       flash[:notice] = "Profile updated successfully!"
       return redirect_to edit_user_profile_path
     else
-      flash[:alert] = "Please enter valid information"
+      flash[:alert] = "Please enter valid informationaaaa"
       return redirect_to edit_user_profile_path
     end
   end
