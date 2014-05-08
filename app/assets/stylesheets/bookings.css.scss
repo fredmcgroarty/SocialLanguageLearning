@@ -48,10 +48,17 @@
   }
 }
 
-.editbooking h1 {
-  font-family: 'Oswald', sans-serif;
-  text-align: center;
-  color: #a3acb2;
+.editbooking {
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: #a3acb2;
+    margin-bottom: 0.5em;
+  }
+  h5 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+  }
 }
 
 .datepicker{
