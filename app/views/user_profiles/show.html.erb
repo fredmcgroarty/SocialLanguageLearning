@@ -85,7 +85,8 @@
              <ul class="list-group">
               <% if @completed_topics.any? %>
                 <% @completed_topics.each do |x| %>
-                 <li class="list-group-item"><%= simple_format (x)%></li>
+                <% y = Topic.find_by name: x %>
+                <li class="list-group-item"><%= link_to "#{y.name}", topic_path(y.id)%></li>
                 <% end %>
               <% else %>
                   <li class="list-group-item">Information not available yet. Start a conversation!</li>
@@ -94,7 +95,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-md-5">
         <div class="topics-wrap">
           <div class="panel panel-default">     
@@ -108,7 +108,8 @@
              <ul class="list-group">
               <% if @incomplete_topics.any? %>
                 <% @incomplete_topics.each do |x| %>
-                 <li class="list-group-item"><%= simple_format (x)%></li>
+                  <% y = Topic.find_by name: x %>
+                  <li class="list-group-item"><%= link_to "#{y.name}", topic_path(y.id)%></li>
                 <% end %>
               <% else %>
                 <li class="list-group-item">Information not available yet. Start a conversation!</li>
