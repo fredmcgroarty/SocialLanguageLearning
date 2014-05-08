@@ -31,3 +31,13 @@
 .search-topics.form-control {
 	margin-top: 3px;
 }
+
+.view-all-topics-btn{
+  background-color: #a1f4ea;
+  border:none;
+  border-radius:7px;
+  height:35px;
+  color:white;
+  padding:10px;
+ text-align: center;
+}
