@@ -30,7 +30,7 @@
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
     <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
-      <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
+      <li><a href="#booking" class='booking-tab' data-toggle="tab">Tandem with <%= @user.first_name %> </a></li>
     <% end %>
   </ul>
   <div class="tab-content">
