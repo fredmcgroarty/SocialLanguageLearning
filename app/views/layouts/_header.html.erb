@@ -1,38 +1,39 @@
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="header">
-  
+  <div class="header">  
     <div class="navbar-header">
-
       <%= link_to image_tag("polyglt_logo.png"), root_path, class: "header_logo" %>
-
       <%= link_to 'POLYGLT', root_path, class: "polyglot_name" %>
-    <!--  <div class=""> POLYGLT </div> -->
-    </div>
-    
 
+    </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
+
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <%if current_user.first_name.blank? %>
+        <% if current_user.first_name.blank? %>
+          <%= link_to "Complete Profile", edit_user_profile_path(current_user) %>
         <%else%>
-          <li><%= link_to current_user.first_name.capitalize, user_profile_path(current_user) %></li>
+          <li>
+            <%= link_to current_user.first_name.capitalize, user_profile_path(current_user) %>
+          </li>
         <%end%>
-        <li><%= link_to "Appointment", bookings_path(current_user)%></li>
+        <li><%= link_to "Appointments", bookings_path(current_user)%></li>
         <li><%= link_to 'Messages', conversations_path%></li>
         <li><%= link_to 'Settings', edit_user_profile_path %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete%></li>
-
-      </ul>
-
       <% end %>
+      </ul>
     </div>
   </div>
 </nav>
 <% if user_signed_in? %>
   <div class="main-content"></div>
 <% else %>
-  <div id="header-spacing">
-  </div>
+  <div id="header-spacing"></div>
 <% end %>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>

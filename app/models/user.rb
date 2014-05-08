@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
             to: :user_info, allow_nil: true
 
 
-  after_create :create_user_profile
+  after_create :create_user_profile, :send_welcome_email
 
   def name
    return "#{first_name} #{last_name}"
@@ -40,6 +40,12 @@ class User < ActiveRecord::Base
 
   def create_user_profile
     self.user_profile = UserProfile.create
+  end
+
+  def send_welcome_email
+    if Rails.env.production?
+      ModelMailer.new_user_notification(self).deliver
+    end
   end
 
   def compatible_users
@@ -76,5 +82,8 @@ class User < ActiveRecord::Base
     LANGLEVEL.find {|level| level.last == target_level}[0]
   end
 
+  def gendered_possessive
+    gender == 1 ? 'his' : 'her'
+  end
 
 end
