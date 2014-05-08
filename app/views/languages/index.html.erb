@@ -1,13 +1,55 @@
-<div id="languauge-container">
-	<% if @languages.any? %>
-	
-			<% @languages.each do |x| %> 
-			
-					<h4><%= link_to "#{x.name}", language_path(x) %> </h4>
-			<% end %>
-	
-	<% else %>
-		<strong>No languages added yet!!!</strong>
-	<% end %>
+<div class="container languages">
+	<h1>Our Languages</h1>
+	<div class="language col-md-4">
+		<%= image_tag "british.png" %>
+		<h2>English</h2>
+		<h4>Our Current Users</h4>
+		<h5>
+			<table>
+				<tr>
+					<th>Native Speakers</th>
+					<th>Looking To Learn</th>
+				</tr>
+				<tr>
+					<td><%= @profiles.where(native_lang: 'English').count %></td>
+					<td><%= @profiles.where(first_lang: 'English').count %></td>
+				</tr>
+			</table>
+		</h5>
+	</div>
+	<div class="language col-md-4">
+		<%= image_tag "france.png" %>
+		<h2>French</h2>
+		<h4>Our Current Users</h4>
+		<h5>
+			<table>
+				<tr>
+					<th>Native Speakers</th>
+					<th>Looking To Learn</th>
+				</tr>
+				<tr>
+					<td><%= @profiles.where(native_lang: 'French').count %></td>
+					<td><%= @profiles.where(first_lang: 'French').count %></td>
+				</tr>
+			</table>
+		</h5>
+	</div>
+	<div class="language col-md-4">
+		<%= image_tag "spain.png" %>
+		<h2>Spanish</h2>
+		<h4>Our Current Users</h4>
+		<h5>
+			<table>
+				<tr>
+					<th>Native Speakers</th>
+					<th>Looking To Learn</th>
+				</tr>
+				<tr>
+					<td><%= @profiles.where(native_lang: 'Spanish').count %></td>
+					<td><%= @profiles.where(first_lang: 'Spanish').count %></td>
+				</tr>
+			</table>
+		</h5>
+	</div>
+	<h2>More languages supported soon!</h4>
 </div>
-
