@@ -33,7 +33,11 @@ Rails.application.routes.draw do
   end
 
   resources :user_profiles, only: [:show, :new, :create]
-  resource :user_profile, only: [:edit, :update]
+  resource :user_profile, only: [:edit, :update] do
+    member do
+      patch :picture
+    end
+  end
 
   resources :user_infos
   resources :languages
