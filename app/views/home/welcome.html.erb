@@ -56,7 +56,7 @@ $(document).ready(function() {
 	<div class="col-md-2">
 		<div class='home-page-avatar-info'>
 			<% if @user %>
-				<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:medium)%>);">
+				<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);">
 				</div>
 				<div class="profile-info-holder">
 					<%if current_user.first_name.blank? %>
@@ -68,7 +68,7 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Conversations Completed: <%= @bookings_count %><% end %> <br>
+						<% if @bookings_count %> Lessons Completed: <%= @bookings_count %><% end %> <br>
 						<span class="glyphicon glyphicon-time"></span> 
 						<% if @total_length %> Hours Completed: <%= @total_length %> <% end %> <br>
 						<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
@@ -118,14 +118,6 @@ $(document).ready(function() {
 						</table>
 					</div>
 
-				<div class="col-md-3">
-					<div class="calendar-container">
-						<div class="calendar_container_small">
-							<div id="calendar">
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class="row matched-users">
 				<h2>MATCHED USERS</h2>
@@ -139,11 +131,14 @@ $(document).ready(function() {
 											<div class="matched-user-profiles">
 												<% next if users.id == current_user.id %>
 												<% if users.user_profile  %> 
-													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:medium)%>);"></div>
 													<div class="matched-user-profiles-description">
-														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-														<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
+														<%if current_user.first_name.blank? %>
+														<%else%>
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+														<%end%>
+														<h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
+														<h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
 													</div>
 												<% end %>
 											</div>
@@ -235,36 +230,11 @@ $(document).ready(function() {
   				</div>
   			</div>
   		</div>
+		</div>
+	</div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 
-					
-			
-			</div>
+#NOT SURE IF THIS IS THE CORRECT DIV NUMBER
 
 			<script>
 			$(document).ready(function() {

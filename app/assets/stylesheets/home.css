@@ -18,40 +18,58 @@
 }
 
 .row.user-appointments {
-	height: 250px;
-	border-bottom: 1px dashed gray;
+	height: 320px;
+	/*border-bottom: 1px dashed gray;*/
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 20px;
+  margin-left: 5px;
+  padding-left: 10px;
+  overflow: scroll;
 }
 
-.matched-users {
-	height: 330px;
-	border-bottom: 1px dashed gray;
+
+.row.matched-users {
+	height: 350px;
+	/*border-bottom: 1px dashed gray;*/
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 30px;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+
+.row.topics {
+  height: 400px;
+  border-left: 7px solid #a1f4ea ;
+  margin-top: 30px;
+  margin-left: 5px;
+  padding-left: 10px;
 }
 
 .matched-user-profiles {
+  background-color: white;
+  border-radius: 9px;
+  height:240px;
+  text-align: center;
+}
+
+.matched-user-profile-pic {
+  width: 100%;
+  height: 140px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #999999;
+}
+
+.matched-user-profiles-description {
 	border-style:solid;
 	border-width:1px;
 	border-color:#EAE8E8;
 	background-color: white;
-	border-radius: 9px;
-	height:240px;
-	text-align: center;
-}
-
-.matched-user-profile-pic {
-	width: 100%;
-	height: 140px;
-	border-top-right-radius: 7px;
-	border-top-left-radius: 7px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-color: #999999;
-}
-
-.matched-user-profiles-description {
-	background-color: white;
-	border-radius: 7px;
-	margin: 5px 10px;
-	padding: 2px;
+	border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+	padding: 7px 14px;
 }	
 .matched-user-profiles-description a {
 	color: #A3ACB2;
@@ -69,9 +87,7 @@
 	color: #5F6B6B;
 }
 
-.row.topics {
-	height: 300px;
-}
+
 
 .home-page-avatar-info {
 	text-align: center;
@@ -83,11 +99,12 @@
 
 .profile-pic-holder{
   margin-top: 20px;
-  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #999999;
   border-radius: 7px 7px 0px 0px;
+  background-size: cover;
+  border: 1px solid #F8F8F8;
   height: 200px;
 }
 
@@ -99,6 +116,7 @@
 .quick-info{
   text-align: left;
   padding-left: 20px;
+  font-size: 12px;
 }
 
 .user-name{
@@ -124,7 +142,7 @@
 	font-size: 18px;
 	margin: 15px 0px;
 	padding-left: 12px;
-	color:#a1f4ea;
+	color:#5F6B6B;
 /*	letter-spacing: 1px;*/
 }
 
@@ -134,6 +152,10 @@
 
 .calendar-container {
 	float: left;
+}
+
+.calendar-wrap{
+margin-top: 20px;
 }
 
 .thumbnail {
@@ -149,10 +171,10 @@
 }
 
 .carousel-control {
-  position: absolute;
+/*  position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 0;*/
   width: 15%;
   opacity: .5;
   font-size: 20px;
@@ -160,7 +182,7 @@
   text-align: center;
   text-shadow: none;
   height: 10%;
-  margin-top: 30%;
+  margin-top: 470px;
 }
 .carousel-control.left {
 	background-image: none;
@@ -184,4 +206,5 @@
 .row .thumbnail {
   border: none;
 }
+
 
