@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     get_topics if @user
     get_hours if @user
     get_reviews if @user
+    get_bookings if @user
   	if @user
 	  	@bookings.each do |x|
 	  		if x.user_id == @user.id || x.student_id == @user.id

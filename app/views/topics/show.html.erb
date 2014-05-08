@@ -2,26 +2,98 @@
 	<%= @topic.name %>
 </h3>
 <br>
+
 <div class ='topics-completed-users'>
-	<% if @topic.completed_users.count == 0 %>
-		<p>This topic hasn't yet been discussed</p>
-		<div class='be-the-first'>
-			Be the first!
+	<% if @topic.incompleted_users.count == 0 %>
+		<p>This topic hasbeen finished by everyone!</p>
+	<% else %>
+		Total users who have not completed this topic:<br> 
+		<h1><%=  @topic.incompleted_users.count %> </h1>
+			<div class="well-none">
+        <div id="myCarousel" class="carousel slide">
+        	<div class="carousel-inner">
+          	<div class="item active">
+           		<div class="row" >
+								<% @topic.incompleted_users_first.each do |users| %>
+	                <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+										<div class="matched-user-profiles">
+											<% if users.user_profile  %> 
+												<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:medium)%>);"></div>
+												<div class="matched-user-profiles-description">
+													<%if current_user.first_name.blank? %>
+													<%else%>
+														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+													<%end%>
+													<h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
+													<h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
+												</div>
+											<% end %>
+										</div>
+	           	    </div>
+	       	      <% end %>
+	            </div>
+            </div>
+            <% if @topic.incompleted_users_second %>
+		        	<div class="item">
+		        		<div class="row">
+		        			<% @topic.incompleted_users_second.each do |users| %>
+		                <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+											<div class="matched-user-profiles">
+												<% if users.user_profile  %> 
+													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+													<div class="matched-user-profiles-description">
+														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+														<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
+													</div>
+												<% end %>
+											</div>
+		              	</div>
+		            	<% end %>
+		          	</div>
+		        	</div>
+		        <% end %>
+		        <% if @topic.incompleted_users_third %>
+		        	<div class="item">
+		        		<div class="row">
+		        			<% @topic.incompleted_users_third.each do |users| %>
+		                <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+											<div class="matched-user-profiles">
+												<% if users.user_profile  %> 
+													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+													<div class="matched-user-profiles-description">
+														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+														<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
+													</div>
+												<% end %>
+											</div>
+		              	</div>
+		            	<% end %>
+		          	</div>
+		        	</div>
+		        <% end %>
+		      </div>
+        </div>
+        <a class="carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left move-up"></i></a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right move-up"></i></a>
+			</div>
 		</div>
 	<% end %>
-	<% else %>
-		Total users who have completed this topic:<br> 
-		<h1>
-			<%= @topic.completed_users.count %>
-		</h1>
-	<% if @topic.completed_users.any? %>
-	<% @topic.completed_users.each do |x| %>
-			<%= link_to x.username, user_profile_path(x) %>
-	<% end %>
-	<% end %>
-</div>
-<%= link_to "View all topics", topics_path, class: "btn btn-info" %>
+	<%= link_to "View all topics", topics_path, class: "btn btn-info" %>
 
+</div>
+    </div>
+
+
+
+
+
+
+
+
+
+		
 
 
 

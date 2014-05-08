@@ -78,9 +78,9 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
+						Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
 						<span class="glyphicon glyphicon-time"></span> 
-						<% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
+						<% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
 						<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
 					</div>
 
@@ -96,6 +96,7 @@ $(document).ready(function() {
 			<div class="row user-appointments">
 				
 					<h2>UPCOMING APPOINTMENTS</h2>
+
 					<!-- <div class="col-md-9"> -->
             <div class ="welcome-table-wrapper">
   						<table class="table bookings_table">
@@ -129,6 +130,7 @@ $(document).ready(function() {
   						</table>
             </div>
 					<!-- </div> -->
+
 
 			</div>
 			<div class="row matched-users">
