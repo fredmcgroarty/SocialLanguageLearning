@@ -22,11 +22,11 @@
               <td><%= f.check_box :accepted %></td>
             </tr>
           <% elsif @booking.user_id == current_user.id && @booking.accepted? %>
-            <%= "You have already confirmed this booking!" %>
+            <h5><%= "You have already confirmed this booking!" %></h5>
           <% elsif @booking.student_id == current_user.id && @booking.accepted? %>
-            <%= "This booking has been confirmed!" %>
+            <h5><%= "This booking has been confirmed!" %></h5>
           <% else %>
-            <%= "Awaiting confirmation" %>
+            <h5><%= "Awaiting confirmation" %></h5>
           <% end %>
         <tr>
           <th><%= (f.submit 'Submit', class: "btn btn-info") if @booking.user_id == current_user.id && !@booking.accepted?  %></th>
