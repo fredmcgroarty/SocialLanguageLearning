@@ -26,13 +26,13 @@
 <div class="col-md-3">
   <h2 class="edit-profile-titles"> PROFILE PICTURE </h2>
 
-  <%= form_for @user_profile, html: { multipart: true }, url: '/user_profile', method: :patch do |f| %>
+  <%= form_for @user_profile, html: { multipart: true }, url: picture_user_profile_path, method: :patch do |f| %>
     
     <%= image_tag @user_profile.picture.url(:medium) %><br>   
     <%= f.file_field :picture, :class => 'menu-choices glyphicon glyphicon-upload' %><br>
     Only .JPEG, .JPG, & .PNG files allowed
     <br>
-    <%= f.submit 'Update Profile Picture', :class => 'menu-choices' %>
+    <%= f.submit 'Update Profile Picture' %>
     <% end %>
 
 </div>
