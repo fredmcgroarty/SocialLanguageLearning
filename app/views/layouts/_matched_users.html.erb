@@ -1,0 +1,75 @@
+<div class="row matched-users">
+				<h2>MATCHED USERS</h2>
+        <div class="well-none">
+        	<div id="myCarousel" class="carousel slide">
+          	<div class="carousel-inner">
+            	<div class="item active">
+             		<div class="row" >
+									<% current_user.compatible_users_first.each do |users| %>
+	                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+											<div class="matched-user-profiles">
+												<% next if users.id == current_user.id %>
+												<% if users.user_profile  %> 
+													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:medium)%>);"></div>
+													<div class="matched-user-profiles-description">
+														<%if current_user.first_name.blank? %>
+														<%else%>
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+														<%end%>
+														<h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
+														<h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
+													</div>
+												<% end %>
+											</div>
+	             	    </div>
+	         	      <% end %>
+	              </div>
+              </div>
+		          <% if current_user.compatible_users_second %>
+		          	<div class="item">
+		          		<div class="row">
+		          			<% current_user.compatible_users_second.each do |users| %>
+		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+												<div class="matched-user-profiles">
+													<% next if users.id == current_user.id %>
+													<% if users.user_profile  %> 
+														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+														<div class="matched-user-profiles-description">
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+															<h5> What to Learn <%= users.user_profile.first_lang %></h5> 
+														</div>
+													<% end %>
+												</div>
+		                	</div>
+		              	<% end %>
+		            	</div>
+		          	</div>
+		          <% end %>
+		          <% if current_user.compatible_users_third %>
+		          	<div class="item">
+		          		<div class="row">
+		          			<% current_user.compatible_users_third.each do |users| %>
+		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+												<div class="matched-user-profiles">
+													<% next if users.id == current_user.id %>
+													<% if users.user_profile  %> 
+														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+														<div class="matched-user-profiles-description">
+															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
+															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+															<h5> What to Learn <%= users.user_profile.first_lang %></h5>
+														</div>
+													<% end %>
+												</div>
+		                	</div>
+		              	<% end %>
+		            	</div>
+		          	</div>
+		          <% end %>
+		        </div>
+          </div>
+          <a class="carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+				</div>
+			</div>
