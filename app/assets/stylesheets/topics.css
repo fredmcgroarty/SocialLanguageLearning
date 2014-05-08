@@ -12,6 +12,7 @@
   font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   font-size: 22px;
+  height: 500px;
 }
 
 .topic-page-index-header {
@@ -39,5 +40,10 @@
   height:35px;
   color:white;
   padding:10px;
- text-align: center;
+}
+  
+.button-holder{
+  margin-left:auto;
+  margin-right: auto;
+  text-align: center;
 }
