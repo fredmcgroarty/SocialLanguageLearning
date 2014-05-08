@@ -1,0 +1,46 @@
+<% if user_signed_in? %>
+	<% unless browser.chrome? %>
+		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="logo modal-content modalContents">
+      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       		<center><h3>Please reload this page using Google Chrome!</h3></center>
+          	<div class ='instruction-signup'>
+							<center><br>
+								<h4>This page utilizes WebRTC and other technologies that are currently only available with Google Chrome.<br>
+								<h5> You may continue to browse this site, however many features will remain unavailable </h5>
+								<h6> If you wish to fully utilize this site, please reload using <%= link_to "Google Chrome", "https://www.google.co.uk/intl/en_uk/chrome/browser/" %> </h6>
+							</center>
+						</div>
+					</center>
+        </div>
+     	</div>
+    </div>
+  <% end %>
+ <% end %>
+	<% if @user.native_lang.nil? %>
+		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="logo modal-content modalContents">
+      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       		<center><h3>Please complete your registration to continue!</h3></center>
+          	<div class ='instruction-signup'>
+							<center><br>
+								<h4>Before you can continue to use POLYGLT you need to <%= link_to "create your personal language profile.", edit_user_profile_path(current_user) %>
+									You need to provide the following:</h4><br>
+							</center>
+							<ul>
+								<li>Your name</li>
+								<li>Your profile picture</li>
+								<li>Your native language</li>
+								<li>The language you want to practice speaking</li>
+							</ul>
+							<center>
+								<%= image_tag("instructionone.png", :class => 'image-direction-logo')  %>
+							</center>
+						</div>
+					</center>
+        </div>
+     	</div>
+    </div>
+	<% end %>

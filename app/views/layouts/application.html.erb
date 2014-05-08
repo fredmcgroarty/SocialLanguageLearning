@@ -11,33 +11,16 @@
 	</head>
 <body>
 	
+
   <%= render 'layouts/header' %>
 
-  <% if notice %>
-    <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content modalContents">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h5><%= notice %></h5>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'layouts/notices' %>
   
-  <% if alert %>
-    <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content modalContents">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h5><%= alert %></h5>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'layouts/alerts' %>
 
-
-	<p class="yield"><%= yield %></p>
-
+	<p class="yield">
+    <%= yield %>
+  </p>
 
 <script>
   $('#noticeModal').modal()
