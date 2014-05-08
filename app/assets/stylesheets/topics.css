@@ -12,6 +12,7 @@
   font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   font-size: 22px;
+  height: 500px;
 }
 
 .topic-page-index-header {
@@ -30,4 +31,19 @@
 
 .search-topics.form-control {
 	margin-top: 3px;
+}
+
+.view-all-topics-btn{
+  background-color: #a1f4ea;
+  border:none;
+  border-radius:7px;
+  height:35px;
+  color:white;
+  padding:10px;
+}
+  
+.button-holder{
+  margin-left:auto;
+  margin-right: auto;
+  text-align: center;
 }
