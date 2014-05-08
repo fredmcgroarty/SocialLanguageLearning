@@ -208,7 +208,7 @@ $(document).ready(function() {
       				<input placeholder="Filter Topics" id="box" type="text" class ='navbar-form  glyphicon glyphicon-search' >
     				</div>
     				<div id="collapseOne" class="panel-collapse collapse in">
-      				<div class="panel-body">
+      				<div class="topics panel-body">
         				<div class="row topics">
 									<% @topics.in_groups(3, false).each do |topic_group| %>
 										<div class='col-md-4'>
@@ -234,7 +234,6 @@ $(document).ready(function() {
 	</div>
 </div>
 
-#NOT SURE IF THIS IS THE CORRECT DIV NUMBER
 
 			<script>
 			$(document).ready(function() {

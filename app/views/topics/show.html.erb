@@ -1,7 +1,11 @@
 <h3 class="topic-name"><%= @topic.name %></h3>
+<br>
+<div class ='topics-completed-users'>
+	Total users who have completed this topic:<br> 
+	<h1><%= @topic.completed_users.count %></h1>
+</div>
 <div class="col-md-4">
-	<h4>Total users completed: <%= @topic.completed_users.count %></h4>
-<% if @topic.completed_users.each do |x| %>
+	<% if @topic.completed_users.each do |x| %>
 		<ul class="list-group">
 			<li class="list-group-item">
 				<span class="badge">✔</span>
@@ -9,10 +13,10 @@
 			</li>
 		</ul>
 	<% end %>
-<% else %>
-	Nobody has completed this topic yet, why not get to work on it? <br />
-<% end %>
-
+	<% else %>
+		Nobody has completed this topic yet, why not get to work on it? <br />
+	<% end %>
+</div>
 <%= link_to "View all topics", topics_path, class: "btn btn-info" %>
 <%= link_to "View all languages", languages_path, class: "btn btn-warning" %>
 
