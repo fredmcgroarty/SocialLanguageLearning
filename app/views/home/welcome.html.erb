@@ -199,12 +199,71 @@ $(document).ready(function() {
 					<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 				</div>
 			</div>
-			<div class="row topics">
-				<h2>TOPICS</h2>
+			<br>
+			<div class='row-topics-choice'>	
+				<div class="panel-group" id="accordion">
+  				<div class="panel panel-default">
 
-		
-<%= fiddle %>
+    				<div class="panel-heading clearfix">
+      				<h2 class="panel-title topics-heading">
+        				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class='topic-headings'>
+        					TOPICS
+        				</a>
+      				</h2>
+      				<input placeholder="Filter Topics" id="box" type="text" class ='navbar-form  glyphicon glyphicon-search' >
+    				</div>
+    				<div id="collapseOne" class="panel-collapse collapse in">
+      				<div class="panel-body">
+        				<div class="row topics">
+									<% @topics.in_groups(3, false).each do |topic_group| %>
+										<div class='col-md-4'>
+											<% topic_group.each do |x| %>
+												<ul class="topics list-group">
+													<li class="list-group-item"><%= link_to x.name, topic_path(x) %>
+														<h6>Users completed this topic: 
+														<span class="badge">
+															<%= x.completed_users.count %></h6>
+														</span>
+													</li>	
+												</ul>
+											<% end %>
+										</div>
+									<% end %>
+								</div>
+      				</div>
+    				</div>
+  				</div>
+  			</div>
+  		</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+					
+			
 			</div>
 
 			<script>
@@ -212,26 +271,15 @@ $(document).ready(function() {
 
 			$('#box').keyup(function(){
    var valThis = $(this).val().toLowerCase();
-    $('.navList>li').each(function(){
+    $('.list-group>li').each(function(){
      var text = $(this).text().toLowerCase();
-        (text.indexOf(valThis) == 0) ? $(this).show() : $(this).hide();            
+        (text.indexOf(valThis) == 0) ? $(this).animate({opacity: 1}) : $(this).animate({opacity: 0.3});            
    });
 });
 		});
 </script>
 
 
-<ul class="navList">
-    <li>apples</li>
-    <li>apricots</li>
-    <li>acai</li>
-    <li>blueberry</li>
-    <li>bananas</li>
-    <li>cherry</li>
-    <li>coconut</li>
-    <li>donut</li>
-    <li>durean</li>
-</ul>
 <% else %>
 	<%= render 'not_logged_in'  %>
 <% end %>
