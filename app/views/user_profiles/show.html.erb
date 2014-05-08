@@ -7,20 +7,6 @@
   </div>
 
 
-<!--   <table class="table table-bordered">
-    <tr>
-      <th>Hours Completed</th>
-      <th>Topics Completed</th>
-      <th>Average Rating</th>
-    </tr>
-    <tr>
-      <td><%= @total_length %></td>
-      <td><%= @completed_topics.count %></td>
-      <td><%= @average_score %>/5</td>
-    </tr>
-  </table>
- -->
-
 </div>
 
 <div class='col-md-9'>
@@ -30,7 +16,7 @@
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
     <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
-      <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
+      <li><a href="#booking" class='booking-tab' data-toggle="tab">Tandem with <%= @user.first_name %> </a></li>
     <% end %>
   </ul>
   <div class="tab-content">

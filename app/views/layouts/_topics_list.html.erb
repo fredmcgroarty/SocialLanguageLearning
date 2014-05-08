@@ -1,0 +1,34 @@
+<div class='row-topics-choice'>	
+				<div class="panel-group" id="accordion">
+  				<div class="panel panel-default">
+    				<div class="panel-heading clearfix">
+      				<h2 class="panel-title topics-heading">
+        				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class='topic-headings'>
+        					Topics
+        				</a>
+      				</h2>
+      				<input placeholder="Filter Topics" id="box" type="text" class ='welcome-topic form-control' >
+    				</div>
+    				<div id="collapseOne" class="panel-collapse collapse in">
+      				<div class="topics panel-body">
+        				<div class="row topics">
+									<% @topics.in_groups(3, false).each do |topic_group| %>
+										<div class='col-md-4'>
+											<% topic_group.each do |x| %>
+												<ul class="topics list-group">
+													<li class="list-group-item"><%= link_to x.name, topic_path(x) %>
+														<h6>Users completed this topic: 
+														<span class="badge">
+															<%= x.completed_users.count %></h6>
+														</span>
+													</li>	
+												</ul>
+											<% end %>
+										</div>
+									<% end %>
+								</div>
+      				</div>
+    				</div>
+  				</div>
+  			</div>
+  		</div>
