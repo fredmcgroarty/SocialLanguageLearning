@@ -208,14 +208,13 @@ $(document).ready(function() {
 			<div class='row-topics-choice'>	
 				<div class="panel-group" id="accordion">
   				<div class="panel panel-default">
-
-    				<div class="panel-heading clearfix topics-panel-head">
+    				<div class="panel-heading clearfix">
       				<h2 class="panel-title topics-heading">
         				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class='topic-headings'>
         					Topics
         				</a>
       				</h2>
-      				<input placeholder="Filter Topics" id="box" type="text" class ='navbar-form  glyphicon glyphicon-search' >
+      				<input placeholder="Filter Topics" id="box" type="text" class ='welcome-topic form-control' >
     				</div>
     				<div id="collapseOne" class="panel-collapse collapse in">
       				<div class="topics panel-body">
@@ -243,21 +242,6 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-
-
-			<script>
-			$(document).ready(function() {
-
-			$('#box').keyup(function(){
-   var valThis = $(this).val().toLowerCase();
-    $('.list-group>li').each(function(){
-     var text = $(this).text().toLowerCase();
-        (text.indexOf(valThis) == 0) ? $(this).animate({opacity: 1}) : $(this).animate({opacity: 0.3});            
-   });
-});
-		});
-</script>
-
 
 <% else %>
 	<%= render 'not_logged_in'  %>

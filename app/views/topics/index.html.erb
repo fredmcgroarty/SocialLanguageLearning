@@ -1,15 +1,31 @@
-<div id="topic-container">
-	<% if @topics.any? %>
-		<div class="topic">
-			<% @topics.each do |x| %> 
-					<%= link_to "#{x.name}", topic_path(x) %> <br />
-			<% end %>
+<div class='topic-page-index-header'> TOPICS </div>
+	<form class="bs-example bs-example-form" role="form">
+		<div class=" search-topics input-group">
+	  	<span class="glyphicon glyphicon-search input-group-addon">
+	  	</span>
+	  	<input type="text" class="search-topics form-control" placeholder="Filter Topics" id="box">
 		</div>
-	<% else %>
-		<strong>No topics added yet!!!</strong>
-	<% end %>
+	</form>
+  <div class="topics panel-body">
+    <div class="row topics">
+			<% @topics.in_groups(3, false).each do |topic_group| %>
+					<div class='col-md-4'>
+						<% topic_group.each do |x| %>
+							<ul class="topics list-group">
+								<li class="list-group-item"><%= link_to x.name, topic_path(x) %>
+									<h6>Users completed this topic: 
+										<span class="badge">
+											<%= x.completed_users.count %>
+										</span>
+									</h6>
+								</li>	
+							</ul>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-<%= link_to "View all languages", languages_path, class: "btn btn-warning" %>
+  		</div>

@@ -13,3 +13,21 @@
   letter-spacing: 2px;
   font-size: 22px;
 }
+
+.topic-page-index-header {
+	  font-family: 'Oswald', sans-serif;
+	  font-size: 30px;
+	  color: #a3acb2;
+	  margin-bottom: 20px;
+	  text-align: center;
+}
+
+.search-topics.input-group {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.search-topics.form-control {
+	margin-top: 3px;
+}
