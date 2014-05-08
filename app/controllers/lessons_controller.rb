@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
     @lessons = Lesson.find_by(uid: params[:id])
     @time_in_seconds = @lessons.time_to_seconds
     @lessons_topic_name = Lesson.find_by(uid: params[:id]).booking.topic.name
+    @questions_for_topic = 
     raise 'Oops' unless @lessons
   end 
 

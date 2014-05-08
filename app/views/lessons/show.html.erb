@@ -22,7 +22,9 @@
 
 <div class="container">
   <div class="conversation-suggestions">
-  Suggested conversational questions here
+    <% @topic_questions.each do |x| %>
+      <%= x.text %>
+    <% end %>
   </div>
 </div>
 

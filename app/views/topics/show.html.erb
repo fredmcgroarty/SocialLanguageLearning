@@ -14,8 +14,10 @@
 		<h1>
 			<%= @topic.completed_users.count %>
 		</h1>
+	<% if @topic.completed_users.any? %>
 	<% @topic.completed_users.each do |x| %>
 			<%= link_to x.username, user_profile_path(x) %>
+	<% end %>
 	<% end %>
 </div>
 <%= link_to "View all topics", topics_path, class: "btn btn-info" %>
