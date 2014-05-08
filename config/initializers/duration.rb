@@ -1,3 +1,3 @@
 
 
-DURATIONS = [["1 hour", 60]]
+DURATIONS = [["1 hour", 1]]

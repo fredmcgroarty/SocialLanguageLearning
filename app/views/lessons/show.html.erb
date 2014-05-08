@@ -22,7 +22,10 @@
 
 <div class="container">
   <div class="conversation-suggestions">
-  Suggested conversational questions here
+    <h3>Here are some suggested topics to get you started: </h3>
+    <% @questions_for_topic.each do |x|%>
+      <li><%= x.text %></li>
+    <%end%>
   </div>
 </div>
 
@@ -35,12 +38,13 @@
 
   function timeAlerts()
   {
+    setTimeout(function(){alert("welcome!")},'<%= (@time_in_seconds  / 2 - 10) * 1000 %>');
     setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
     setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
     setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
     setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
     setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
-    setTimeout("location.href = '/users/"+ '<%= @current_user.id %>'  + "user_views/new?lesson_id=" + '<%= @lessons.id %>' ,'<%= (@time_in_seconds) * 1000 %>');
+    setTimeout(function(){location.href = '/users/'+ '<%= @current_user.id %>'  + "/user_reviews/new?lesson_id=" + '<%= @lessons.id %>'},'<%= (@time_in_seconds) * 1000 %>');
   }
   // End for time alerts
 

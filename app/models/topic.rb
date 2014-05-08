@@ -2,23 +2,48 @@ class Topic < ActiveRecord::Base
 	has_and_belongs_to_many :languages
 	has_many :bookings
 	has_many :user_reviews
+	has_many :questions
 
 	def completed_users
-		user_reviews.where(completed: true).map(&:for_user)
-		
-		# @reviews = UserReview.all
-		# @topic = Topic.find (self.id)
-		# @completed = 0
-		# @users_completed = []
-		# @reviews.each do |x|
-		# 	if @topic.id == x.topic_id && x.completed == true
-		# 		@completed += 1
-		# 		a = x.for_user_id
-		# 		@users_completed << User.find(a)
-		# 	end
-		# end
-		# @users_completed
-		# @completed
+		@completed_users = user_reviews.where(completed: true).map(&:for_user)
+	end
+
+	def incompleted_users
+		@users = User.all
+		@completed_users = user_reviews.where(completed: true).map(&:for_user)
+		@incompleted_users = @users - @completed_users
+	end
+
+	def completed_users_first
+		completed_users.uniq[0..3]
+	end
+
+	def completed_users_second
+		completed_users.uniq[4..7]
+	end
+
+	def completed_users_third
+		completed_users.uniq[8..11]
+	end
+
+	def completed_users_fourth
+		completed_users.uniq[12..15]
+	end
+
+	def incompleted_users_first
+		incompleted_users.uniq[0..3]
+	end
+
+	def incompleted_users_second
+		incompleted_users.uniq[4..7]
+	end
+
+	def incompleted_users_third
+		incompleted_users.uniq[8..11]
+	end
+
+	def incompleted_users_fourth
+		incompleted_users.uniq[12..15]
 	end
 
 	def get_topics
@@ -37,4 +62,16 @@ class Topic < ActiveRecord::Base
 		end
 	end
 
+
+	def get_questions
+		@questions = Question.all
+		@topic_questions = []
+		@questions.each do |x|
+			if x.topic_id == @topic.id
+				@topic_questions << x
+			end
+		end
+		@topic_questions
+	end
+	
 end
