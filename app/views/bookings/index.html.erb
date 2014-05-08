@@ -51,7 +51,7 @@
                 <% with = @users.find(booking.user_id == @user.id ? booking.student_id : booking.user_id) %>
                 <%= with.first_name %> <%= with.last_name %>
               </td>
-              <td><%= pluralize(booking.length, "hour") %></td>
+              <td><%= pluralize(booking.length, "Minutes") %></td>
             </tr>
           <% end %>
         </table>
