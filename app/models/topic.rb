@@ -14,35 +14,35 @@ class Topic < ActiveRecord::Base
 	end
 
 	def completed_users_first
-		completed_users[0..3]
+		completed_users.uniq[0..3]
 	end
 
 	def completed_users_second
-		completed_users[4..7]
+		completed_users.uniq[4..7]
 	end
 
 	def completed_users_third
-		completed_users[8..11]
+		completed_users.uniq[8..11]
 	end
 
 	def completed_users_fourth
-		completed_users[12..15]
+		completed_users.uniq[12..15]
 	end
 
 	def incompleted_users_first
-		incompleted_users[0..3]
+		incompleted_users.uniq[0..3]
 	end
 
 	def incompleted_users_second
-		incompleted_users[4..7]
+		incompleted_users.uniq[4..7]
 	end
 
 	def incompleted_users_third
-		incompleted_users[8..11]
+		incompleted_users.uniq[8..11]
 	end
 
 	def incompleted_users_fourth
-		incompleted_users[12..15]
+		incompleted_users.uniq[12..15]
 	end
 
 	def get_topics
