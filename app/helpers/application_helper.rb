@@ -12,12 +12,4 @@ module ApplicationHelper
   def get_topics
 		@topics = Topic.all
 	end
-
-	def fiddle
-		content_tag(:ul) do
-  		@topics.each do |item|
-    		concat(content_tag(:li, item.title))
-  		end
-		end
-	end
 end
