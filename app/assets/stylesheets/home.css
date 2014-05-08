@@ -39,7 +39,7 @@
 
 .row.topics {
   height: 400px;
-  border-left: 7px solid #a1f4ea ;
+ /* border-left: 7px solid #a1f4ea ;*/
   margin-top: 30px;
   margin-left: 5px;
   padding-left: 10px;
@@ -93,7 +93,7 @@
 	text-align: center;
 	background-color: #F8F8F8;
 	border-radius: 7px;
-	height: 1400px;
+	height: 1800px;
 }
 
 
@@ -107,6 +107,7 @@
   border: 1px solid #F8F8F8;
   height: 200px;
 }
+
 
 
 .profile-info-holder{
@@ -207,4 +208,11 @@ margin-top: 20px;
   border: none;
 }
 
+.row-topics-choice{
+  margin-top: 30px;
+}
+
+/*.row-topics-choice#box{
+margin-top: 20px;
+}*/
 
