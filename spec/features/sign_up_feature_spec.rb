@@ -9,11 +9,11 @@ describe 'registering' do
 
     it 'successfully signs up the user and redirects to profile page' do
       visit '/'
-      within(:css, ".sign-up") do
+      within(:css, "col-md-7.welcome-right") do
         fill_in 'Email', with: 'a@example.com'
         fill_in 'Password', with: '12345678'
         fill_in 'Password confirmation', with: '12345678'
-        click_button 'Sign up'
+        click_button 'Join POLYGLT'
       end
       expect(current_path).to eq '/'
       expect(page).to have_content "You need to create your language profile"    
