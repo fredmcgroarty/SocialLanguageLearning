@@ -24,9 +24,14 @@
   margin-top: 20px;
   margin-left: 5px;
   padding-left: 10px;
-  overflow: scroll;
+  
 }
 
+.welcome-table-wrapper{
+  height: 260px;
+  overflow: scroll;
+  margin-top: 5px;
+}
 
 .row.matched-users {
 	height: 350px;
@@ -35,6 +40,10 @@
   margin-top: 30px;
   margin-left: 5px;
   padding-left: 10px;
+}
+
+.row.matched-users h2{
+  margin-bottom: 35px;
 }
 
 .row.topics {
