@@ -108,13 +108,26 @@ float: right;
   border: 1px solid #ccc;
 }
 
-a .topic-headings {
+a.topic-headings {
     font-family: 'Oswald', sans-serif;
 
 }
 .topics.panel-body {
-  /*background: linear-gradient(to left, #a1f4ea , white);*/ /* Standard syntax */
- /* background-image: image-url("polyglt_logo.png");*/
-/*  background-repeat: no-repeat;
-  background-position: center;*/
+background: linear-gradient(to left, #a1f4ea , white); /* Standard syntax */
+background-image: image-url("polyglt_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.welcome-topic.form-control {
+  width: 30%;
+  margin-top: 8px;
+}
+
+.glyphicon.glyphicon-chevron-left.move-up{
+  margin-top: -130px;
+}
+
+.glyphicon.glyphicon-chevron-right.move-up{
+  margin-top: -130px;
 }

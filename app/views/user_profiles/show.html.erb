@@ -30,14 +30,12 @@
     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
     <% if @user != current_user %>
       <li><a href="#messaging" data-toggle="tab">Send a message </a></li>
-      <li><a href="#booking" class='booking-tab' data-toggle="tab">Set up a conversation session </a></li>
+      <li><a href="#booking" class='booking-tab' data-toggle="tab">Tandem with <%= @user.first_name %> </a></li>
     <% end %>
   </ul>
-
   <div class="tab-content">
     <div class="tab-pane active" id="about-me">
       <div class="topics-wrap">
-
         <div class="col-md-4">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -48,15 +46,13 @@
                 <span class="glyphicon glyphicon-stats"></span> 
                 <% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
                 <span class="glyphicon glyphicon-time"></span> 
-                <% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
-                <span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
+                <% if @total_length %> Hours Spent Tandeming: <%= @total_hours %> <% end %> <br>
+                <span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
                 <span class="glyphicon glyphicon-certificate"></span>  Average Rating: <%= @average_score %>/5<br>
-                
               </div>
             </div>
           </div>
         </div>
-
         <div class="col-md-7">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -67,10 +63,8 @@
             </div>
           </div>
         </div>
-
       </div>  
     </div>
-
     <div class="tab-pane" id="topics">
       <div class="col-md-5">
         <div class="topics-wrap">
@@ -112,24 +106,21 @@
                   <li class="list-group-item"><%= link_to "#{y.name}", topic_path(y.id)%></li>
                 <% end %>
               <% else %>
-                <li class="list-group-item">Information not available yet. Start a conversation!</li>
+                <li class="list-group-item">No information available yet. Start Tandeming!</li>
               <% end %>
             </ul> 
           </div>
         </div>
       </div>
-
-    </div>  
-
+    </div> 
     <div class="tab-pane" id="reviews">
       <div class="reviews-wrap">
         <div class="positive-reviews-wrap">
           <div class="panel panel-default">
-            <div class="panel-heading"> Reviews </div>
-            <div class="panel-body">
-              <p> What <%= @user.first_name%>'s friends thought was good about their conversation. Set up a conversation to learn more about <%= @user.first_name%>!</p>
-            </div>
-            
+            <div class="positive panel-heading"> Positive Areas <br> </div>
+              <div class="panel-body">
+                See what <%= @user.first_name%>'s friends think are <%= @user.gendered_possessive %> strengths from previous Tandem sessions. <br>
+              </div>
               <ul class="list-group">
                 <% if @rev1.any? %>
                   <% @rev1.each do |x| %>
@@ -139,13 +130,11 @@
                   <li class="list-group-item">Information not available yet. Start a conversation!</li>
                 <% end %>
               </ul> 
+            </div>
           </div>
-        </div>
-
-
         <div class="suggestions-reviews-wrap">
           <div class="panel panel-default">
-            <div class="panel-heading"> Suggested Focus Areas</div>
+            <div class="negative panel-heading"> Suggested areas for improvment </div>
             <div class="panel-body">
               <p>See how you can help <%=@user.first_name%> based on these suggested focus areas!</p>
             </div>

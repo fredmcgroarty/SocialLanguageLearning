@@ -78,9 +78,9 @@ $(document).ready(function() {
 						<span class="glyphicon glyphicon-envelope"></span> 
 						<%= link_to " #{ pluralize(@unread_count, " Unread Message")} ", conversations_path %> <br>
 						<span class="glyphicon glyphicon-stats"></span> 
-						<% if @bookings_count %> Lessons Booked: <%= @bookings_count %><% end %> <br>
+						Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
 						<span class="glyphicon glyphicon-time"></span> 
-						<% if @total_length %> Hours Booked: <%= @total_length.to_i / 60 %> <% end %> <br>
+						<% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
 						<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
 					</div>
 
@@ -96,37 +96,41 @@ $(document).ready(function() {
 			<div class="row user-appointments">
 				
 					<h2>UPCOMING APPOINTMENTS</h2>
-					<div class="col-md-9">
-						<table class="table bookings_table">
-		          <tr>
-		            <th>Start</th>
-		            <th>End</th>
-		            <th>With</th>
-		            <th>Length</th>
-		            <th>Delete</th>
-		            <th>Edit</th>
-		            <th>Link to Lesson</th>
-		          </tr>
-							<% @userbookings.each do |booking| %>
-            		<% next if booking.end_time <= Time.now %>
-            		<tr>
-		              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
-		              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
-		              <td>
-		                <%= booking.not_you(current_user).first_name %>
-		              </td>
-		              <td><%= pluralize(booking.length, "Minutes") %></td>
-		              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
-		              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
-		              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
-										<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
-									<%else%>	
-										<td>Link not available yet</td>
-									<% end%>	
-            		</tr>
-          		<% end %>
-						</table>
-					</div>
+
+					<!-- <div class="col-md-9"> -->
+            <div class ="welcome-table-wrapper">
+  						<table class="table bookings_table">
+  		          <tr>
+  		            <th>Start</th>
+  		            <th>End</th>
+  		            <th>With</th>
+  		            <th>Length</th>
+  		            <th>Delete</th>
+  		            <th>Edit</th>
+  		            <th>Link to Lesson</th>
+  		          </tr>
+  							<% @userbookings.each do |booking| %>
+              		<% next if booking.end_time <= Time.now %>
+              		<tr>
+  		              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+  		              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+  		              <td>
+  		                <%= booking.not_you(current_user).first_name %>
+  		              </td>
+  		              <td><%= pluralize(booking.length, "hour") %></td>
+  		              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+  		              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+  		              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
+  										<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
+  									<%else%>	
+  										<td>Link not available yet</td>
+  									<% end%>	
+              		</tr>
+            		<% end %>
+  						</table>
+            </div>
+					<!-- </div> -->
+
 
 			</div>
 			<div class="row matched-users">
@@ -208,14 +212,13 @@ $(document).ready(function() {
 			<div class='row-topics-choice'>	
 				<div class="panel-group" id="accordion">
   				<div class="panel panel-default">
-
-    				<div class="panel-heading clearfix topics-panel-head">
+    				<div class="panel-heading clearfix">
       				<h2 class="panel-title topics-heading">
         				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class='topic-headings'>
         					Topics
         				</a>
       				</h2>
-      				<input placeholder="Filter Topics" id="box" type="text" class ='navbar-form  glyphicon glyphicon-search' >
+      				<input placeholder="Filter Topics" id="box" type="text" class ='welcome-topic form-control' >
     				</div>
     				<div id="collapseOne" class="panel-collapse collapse in">
       				<div class="topics panel-body">
@@ -243,21 +246,6 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-
-
-			<script>
-			$(document).ready(function() {
-
-			$('#box').keyup(function(){
-   var valThis = $(this).val().toLowerCase();
-    $('.list-group>li').each(function(){
-     var text = $(this).text().toLowerCase();
-        (text.indexOf(valThis) == 0) ? $(this).animate({opacity: 1}) : $(this).animate({opacity: 0.3});            
-   });
-});
-		});
-</script>
-
 
 <% else %>
 	<%= render 'not_logged_in'  %>

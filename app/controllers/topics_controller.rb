@@ -52,10 +52,15 @@ class TopicsController < ApplicationController
 	def show
 		return redirect_to_sign_in if missing_information
 		@topic = Topic.find params[:id]
+		get_questions
 	end
 
 	def topic_params
 		params[:topic].permit(:name, :english, :french, :spanish)
 	end
 
+
+
+
+	
 end
