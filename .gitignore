@@ -14,5 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+config/secrets.yml
 /public/system/*
-/config/secrets.yml
+
