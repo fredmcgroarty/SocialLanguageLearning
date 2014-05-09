@@ -208,27 +208,40 @@ UserReview.create(for_user_id: 2, by_user_id: 1, score: 4, rev1: "Pretty good", 
 UserReview.create(for_user_id: 2, by_user_id: 1, score: 4, rev1: "He really captured my attention", rev2: "His come to bed eyes were too distracting", topic_id: 2, completed: true)
 UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Excellent", rev2: "Accent was a bit off", topic_id: 1, completed: true)
 UserReview.create(for_user_id: 2, by_user_id: 1, score: 1, rev1: "Poor", rev2: "He wouldn't stop eating so I couldn't understand him", topic_id: 16, completed: false)
-UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Accent was very good", rev2: "You can't improve on perfection", topic_id: 20, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Accent was very good", rev2: "He started very well but had difficulty with some of the more complex questions. I recommend using www.britishcouncil.co.uk for more indepth resources. 
+", topic_id: 20, completed: true)
 UserReview.create(for_user_id: 4, by_user_id: 1, score: 5, rev1: "Good grasp of the subject", rev2: "You can't improve on perfection", topic_id: 20, completed: true)
 UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "Excellent vocabulary", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 4, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 5, completed: true)
-UserReview.create(for_user_id: 7, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 8, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 7, by_user_id: 1, score: 5, rev1: "He is great fun. Although I am still confused as to why greengrocers refer to ‘new potatoes’ as being ‘new’. They’ve been around for years! Ahhh the English! Anyway thank you!
+", rev2: "Concentrate on your use of the future tense. You did very well today but the future tense is giving you difficulties.", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 8, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You needs to work on his past tenses. REMEMBER! +ed for regular, then all those irregular ones that are difficult to learn, LEARN THEM!
+", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 9, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 10, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 3, completed: true)
-UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 2, completed: true)
-UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
-UserReview.create(for_user_id: 4, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "He demonstrated good conversational ability. Boss, I think you should concentrate on your pronunciation in future sessions. 
+", rev2: "You can't improve on perfection", topic_id: 3, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Sessions with Boss are always an enjoyable experience. We discussed a range of topics including French history and early British cinema. I recommend Boss as an ideal language-learning partner. 
+", rev2: "Concentrate on your use of the future tense. You did very well today but the future tense is giving you difficulties.", topic_id: 2, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "Concentrate on your use of the future tense. You did very well today but the future tense is giving you difficulties.
+", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 4, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "What a pain the arse! all you did was talk about Miley Cyrus! so Boring", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 6, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 7, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 8, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 9, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
-UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
-UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
-UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 6, by_user_id: 1, score: 5, rev1: "She kept the conversation flowing and taught me some very useful vocabulary I will definitely use the next time I visit France. We debated recent events in Ukraine and whilst our views differed greatly, we came to the very natural conclusion that it is nothing to do with us as I am from England and she is from France. A good lesson all round. Thanks!
+", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 7, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "Does Azpilacueta really deserve his spot above Ashely", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 8, by_user_id: 1, score: 5, rev1: "He is very jolly and engaging. She has set me homework – things to concentrate on before my next tandem session – which I really appreciate. I hope to see her again soon on polyglt. 
+", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 9, by_user_id: 1, score: 5, rev1: "So our lessons revolved around British Soap operas. What strange people you are, watching all that misery on television twenty-four hours a day! Still, a fascinating insight into British culture and a valuable language lesson. 
+", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "He is a really helpful conversationalist who has helped me progress massively. I hope she could say the same for me.
+", rev2: "Concentrate on your use of the future tense. You did very well today but the future tense is giving you difficulties.", topic_id: 6, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "What a time waster, he didn’t turn up! That’s the last time ill arrange a lesson with you again!  
+", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "He showed me that there is more to France than garlic, baguettes and the accordion. I can now string a sentence together that isn’t culturally insensitive or offensive. Thanks!
+", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "She helped me understand the present perfect, a tense I have had great difficulty understanding. We used the subject of holidays to give context. It worked! Merci J! 
+", rev2: "What a time waster, he didn’t turn up! That’s the last time ill arrange a lesson with you again!  ", topic_id: 15, completed: true)
 
 Question.create(text: "What's your favourite season?", topic_id: 1)
 Question.create(text: "Why do you prefer it?", topic_id: 1)
