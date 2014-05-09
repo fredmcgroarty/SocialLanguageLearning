@@ -13,7 +13,7 @@
         <div id="myCarousel" class="carousel slide">
         	<div class="carousel-inner">
           	<div class="item active">
-           		<div class="row" >
+           		<div class="row" >s
 								<% @topic.incompleted_users_first.each do |users| %>
 	                <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
 										<div class="matched-user-profiles">
@@ -24,8 +24,8 @@
 													<%else%>
 														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 													<%end%>
-													<h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
-													<h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
+													<h5>Wants to Tearn: <%= users.user_profile.native_lang %></h5>
+													<h5>Wants to Learn: <%= users.user_profile.first_lang %></h5> 
 												</div>
 											<% end %>
 										</div>
@@ -43,8 +43,8 @@
 													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
 													<div class="matched-user-profiles-description">
 														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-														<h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
+														<h5 >Wants to Tearn: <%= users.user_profile.native_lang %></h5>
+														<h5> Wants to Learn: <%= users.user_profile.first_lang %></h5> 
 													</div>
 												<% end %>
 											</div>
@@ -64,8 +64,8 @@
 													<div class="matched-user-profiles-description">
 													<% if users.first_name %>
 														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-														<h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
+														<h5 >Wants to Tearn: <%= users.user_profile.native_lang %></h5>
+														<h5> Wants to Learn: <%= users.user_profile.first_lang %></h5> 
 													<% end %>
 													</div>
 												<% end %>

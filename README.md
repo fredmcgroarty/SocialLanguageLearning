@@ -6,7 +6,7 @@
 
 **POLYGLT** was written using Ruby on Rails 4. 
 
-Using the devise gem users sign up and log in, create a language profile to select their native language and the language they want to learn.
+Using the devise gem users sign up and log in, create a language profile to select their native language and the language they Wants to Learn.
 
 **POLYGLT** uses a matching algorithm to match the native language of one user against the languages to learn of the user pool, and vice versa, to creata a list of "matched users" for each user.
 
