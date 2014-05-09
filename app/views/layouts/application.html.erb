@@ -7,6 +7,7 @@
    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <meta name="google-translate-customization" content="e6aff7833d789627-ba911b4d84341294-gbf0b7fe90ad344f2-16"></meta>
   
     <title>Polyglt</title>
 
@@ -24,6 +25,8 @@
 	<p class="yield">
     <%= yield %>
   </p>
+
+  <%= render 'layouts/footer' %>
 
 <script>
   $('#noticeModal').modal()
