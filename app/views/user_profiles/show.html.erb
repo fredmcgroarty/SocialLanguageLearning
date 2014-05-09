@@ -1,3 +1,4 @@
+<% if @user.first_name %>
 <div class='col-md-3'>
   <div class="profile-pic-main" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);"></div>
   <div class="user-information">
@@ -5,6 +6,7 @@
     <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
     <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
+  <% end %>
 
 
 </div>

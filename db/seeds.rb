@@ -218,7 +218,7 @@ UserReview.create(for_user_id: 9, by_user_id: 1, score: 5, rev1: "Top notch", re
 UserReview.create(for_user_id: 10, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 3, completed: true)
 UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 2, completed: true)
-UserReview.create(for_user_id: 3, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
 UserReview.create(for_user_id: 4, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 6, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
@@ -228,7 +228,7 @@ UserReview.create(for_user_id: 9, by_user_id: 1, score: 5, rev1: "Top notch", re
 UserReview.create(for_user_id: 5, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 6, completed: true)
 UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
 UserReview.create(for_user_id: 2, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
-UserReview.create(for_user_id: 3, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
+UserReview.create(for_user_id: 1, by_user_id: 1, score: 5, rev1: "Top notch", rev2: "You can't improve on perfection", topic_id: 15, completed: true)
 
 Question.create(text: "What's your favourite season?", topic_id: 1)
 Question.create(text: "Why do you prefer it?", topic_id: 1)
