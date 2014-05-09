@@ -20,7 +20,7 @@
           <td>
             <%= booking.not_you(current_user).first_name %>
           </td>
-          <td><%= pluralize(booking.length, "Minutes") %></td>
+          <td><%= pluralize(booking.length, "hour") %></td>
           <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
           <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
           <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
