@@ -130,11 +130,12 @@
 }
 
 .user-name {
+
   margin-top: 0px;
   text-align: left;
   padding-left: 20px;
   font-family: 'Oswald', sans-serif;
-  color: black;
+
 }
 
 .home-page-avatar-info h4 {
@@ -222,13 +223,9 @@ margin-top: 20px;
   margin-top: 30px;
 }
 
+
 .user-name a {
   color: black;
   font-family: 'Oswald', sans-serif;
   text-decoration: none;
 }
-/*.row-topics-choice#box{
-margin-top: 20px;
-}*/
-
-

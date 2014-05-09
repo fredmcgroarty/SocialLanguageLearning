@@ -1,15 +1,14 @@
-
 <title>
-	Welcome to POLYGLT.com
+  Welcome to POLYGLT.com
 </title>
 <script>
 $(document).ready(function() {
-	$('#myCarousel').carousel({
-	interval: 0
-	})
+  $('#myCarousel').carousel({
+  interval: 0
+  })
     $('#myCarousel').on('slid.bs.carousel', function() {
-    	//alert("slid");
-	});  
+      //alert("slid");
+  });  
 });
 </script>
 <script type="text/javascript">
@@ -25,227 +24,227 @@ $(document).ready(function() {
 <%= render 'layouts/left' %>
 <!-- =======
 <% if user_signed_in? %>
-	<% unless browser.chrome? %>
-		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
-  		<div class="modal-dialog">
-    		<div class="logo modal-content modalContents">
-      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       		<center><h3>Please reload this page using Google Chrome!</h3></center>
-          	<div class ='instruction-signup'>
-							<center><br>
-								<h4>This page utilizes WebRTC and other technologies that are currently only available with Google Chrome.<br>
-								<h5> You may continue to browse this site, however many features will remain unavailable </h5>
-								<h6> If you wish to fully utilize this site, please reload using <%= link_to "Google Chrome", "https://www.google.co.uk/intl/en_uk/chrome/browser/" %> </h6>
-							</center>
-						</div>
-					</center>
+  <% unless browser.chrome? %>
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="logo modal-content modalContents">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <center><h3>Please reload this page using Google Chrome!</h3></center>
+            <div class ='instruction-signup'>
+              <center><br>
+                <h4>This page utilizes WebRTC and other technologies that are currently only available with Google Chrome.<br>
+                <h5> You may continue to browse this site, however many features will remain unavailable </h5>
+                <h6> If you wish to fully utilize this site, please reload using <%= link_to "Google Chrome", "https://www.google.co.uk/intl/en_uk/chrome/browser/" %> </h6>
+              </center>
+            </div>
+          </center>
         </div>
-     	</div>
+      </div>
     </div>
   <% end %>
-	<% if @user.native_lang.nil? %>
-		<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
-  		<div class="modal-dialog">
-    		<div class="logo modal-content modalContents">
-      		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       		<center><h3>Please complete your registration to continue!</h3></center>
-          	<div class ='instruction-signup'>
-							<center><br>
-								<h4>Before you can continue to use POLYGLT you need to <%= link_to "create your personal language profile.", edit_user_profile_path(current_user) %>
-									You need to provide the following:</h4><br>
-							</center>
-							<ul>
-								<li>Your name</li>
-								<li>Your profile picture</li>
-								<li>Your native language</li>
-								<li>The language you want to practice speaking</li>
-							</ul>
-							<center>
-								<%= image_tag("instructionone.png", :class => 'image-direction-logo')  %>
-							</center>
-						</div>
-					</center>
-        </div>
-     	</div>
-    </div>
-	<% end %>
-	<div class="col-md-2">
-		<div class='home-page-avatar-info'>
-			<% if @user %>
-				<div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);">
-				</div>
-				<div class="profile-info-holder">
-					<%if current_user.first_name.blank? %>
-						<h4 class="user-name">WELCOME TO POLYGLT</h4>
-					<%else%>
-						<h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
-					<%end%>
-					<div class="quick-info">
-						<span class="glyphicon glyphicon-envelope"></span> 
-						<%= link_to " #{ pluralize(@unread_count, " Inbox Message")} ", conversations_path %> <br>
-						<span class="glyphicon glyphicon-stats"></span> 
-						Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
-						<span class="glyphicon glyphicon-time"></span> 
-						<% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
-						<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
-					</div>
-
-				</div>	
-			<% end %>	
-		</div>
-	</div>
-	<div class="col-md-10">
-		<div class='main-splash-container'>
-			<% if @user && @user.native_lang.nil? %>
-				<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
-			<% end %>
-			<div class="row user-appointments">
-				
-					<h2>UPCOMING APPOINTMENTS</h2>
-					
-            <div class ="welcome-table-wrapper">
-  						<table class="table bookings_table">
-  		          <tr>
-  		            <th>Start</th>
-  		            <th>End</th>
-  		            <th>With</th>
-  		            <th>Length</th>
-  		            <th>Delete</th>
-  		            <th>Edit</th>
-  		            <th>Link to Lesson</th>
-  		          </tr>
-  							<% @userbookings.each do |booking| %>
-              		<% next if booking.end_time <= Time.now %>
-              		<tr>
-  		              <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
-  		              <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
-  		              <td>
-  		                <%= booking.not_you(current_user).first_name %>
-  		              </td>
-  		              <td><%= pluralize(booking.length, "hour") %></td>
-  		              <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
-  		              <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
-  		              <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
-  										<td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
-  									<%else%>	
-  										<td>Link not available yet</td>
-  									<% end%>	
-              		</tr>
-            		<% end %>
-  						</table>
+  <% if @user.native_lang.nil? %>
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="logo modal-content modalContents">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <center><h3>Please complete your registration to continue!</h3></center>
+            <div class ='instruction-signup'>
+              <center><br>
+                <h4>Before you can continue to use POLYGLT you need to <%= link_to "create your personal language profile.", edit_user_profile_path(current_user) %>
+                  You need to provide the following:</h4><br>
+              </center>
+              <ul>
+                <li>Your name</li>
+                <li>Your profile picture</li>
+                <li>Your native language</li>
+                <li>The language you want to practice speaking</li>
+              </ul>
+              <center>
+                <%= image_tag("instructionone.png", :class => 'image-direction-logo')  %>
+              </center>
             </div>
-					
+          </center>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-2">
+    <div class='home-page-avatar-info'>
+      <% if @user %>
+        <div class="profile-pic-holder" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);">
+        </div>
+        <div class="profile-info-holder">
+          <%if current_user.first_name.blank? %>
+            <h4 class="user-name">WELCOME TO POLYGLT</h4>
+          <%else%>
+            <h4 class="user-name"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h4>
+          <%end%>
+          <div class="quick-info">
+            <span class="glyphicon glyphicon-envelope"></span> 
+            <%= link_to " #{ pluralize(@unread_count, " Inbox Message")} ", conversations_path %> <br>
+            <span class="glyphicon glyphicon-stats"></span> 
+            Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
+            <span class="glyphicon glyphicon-time"></span> 
+            <% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
+            <span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
+          </div>
+
+        </div>  
+      <% end %> 
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class='main-splash-container'>
+      <% if @user && @user.native_lang.nil? %>
+        <%= link_to 'You need to create your language profile',   edit_user_profile_path %>
+      <% end %>
+      <div class="row user-appointments">
+        
+          <h2>UPCOMING APPOINTMENTS</h2>
+          
+            <div class ="welcome-table-wrapper">
+              <table class="table bookings_table">
+                <tr>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>With</th>
+                  <th>Length</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+                  <th>Link to Lesson</th>
+                </tr>
+                <% @userbookings.each do |booking| %>
+                  <% next if booking.end_time <= Time.now %>
+                  <tr>
+                    <td><%= booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+                    <td><%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+                    <td>
+                      <%= booking.not_you(current_user).first_name %>
+                    </td>
+                    <td><%= pluralize(booking.length, "hour") %></td>
+                    <td><%= link_to "Delete", user_booking_path(@user, booking), data: { confirm: 'Are you sure?' }, method: :delete %></td>
+                    <td><%= link_to "Edit", edit_user_booking_path(@user, booking) %></td>
+                    <%if (Time.now >= booking.start_time.to_time-120.minutes) && ( Time.now <= booking.end_time.to_time) %>
+                      <td><%= link_to 'Click to enter lesson!', lesson_path(id: booking.lesson.uid)%></td>
+                    <%else%>  
+                      <td>Link not available yet</td>
+                    <% end%>  
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+          
 >>>>>>> topic_fix -->
 
 <div class="col-md-10">
-	<div class='main-splash-container'>
-		<% if @user && @user.native_lang.nil? %>
-			<%= link_to 'You need to create your language profile', 	edit_user_profile_path %>
-		<% end %>
-		<% if @user %>
-			<%= render 'layouts/appointments' %>
+  <div class='main-splash-container'>
+    <% if @user && @user.native_lang.nil? %>
+      <%= link_to 'You need to create your language profile',   edit_user_profile_path %>
+    <% end %>
+    <% if @user %>
+      <%= render 'layouts/appointments' %>
 
 <!-- <<<<<<< HEAD -->
-			<%= render 'layouts/matched_users' %>
-			
+      <%= render 'layouts/matched_users' %>
+
 <!-- =======
-			</div>
-			<div class="row matched-users">
-				<h2>MATCHED USERS</h2>
+      </div>
+      <div class="row matched-users">
+        <h2>MATCHED USERS</h2>
         <div class="well-none">
-        	<div id="myCarousel" class="carousel slide">
-          	<div class="carousel-inner">
-            	<div class="item active">
-             		<div class="row" >
-									<% current_user.compatible_users_first.each do |users| %>
-	                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
-											<div class="matched-user-profiles">
-												<% next if users.id == current_user.id %>
-												<% if users.user_profile  %> 
-													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:medium)%>);"></div>
-													<div class="matched-user-profiles-description">
-														<%if current_user.first_name.blank? %>
-														<%else%>
-															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-														<%end%>
-														<h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
-														<h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
-													</div>
-												<% end %>
-											</div>
-	             	    </div>
-	         	      <% end %>
-	              </div>
+          <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <div class="row" >
+                  <% current_user.compatible_users_first.each do |users| %>
+                    <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+                      <div class="matched-user-profiles">
+                        <% next if users.id == current_user.id %>
+                        <% if users.user_profile  %> 
+                          <div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:medium)%>);"></div>
+                          <div class="matched-user-profiles-description">
+                            <%if current_user.first_name.blank? %>
+                            <%else%>
+                              <%= link_to users.first_name.upcase, user_profile_path(users) %> 
+                            <%end%>
+                            <h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
+                            <h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
               </div>
-		          <% if current_user.compatible_users_second %>
-		          	<div class="item">
-		          		<div class="row">
-		          			<% current_user.compatible_users_second.each do |users| %>
-		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
-												<div class="matched-user-profiles">
-													<% next if users.id == current_user.id %>
-													<% if users.user_profile  %> 
-														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
-														<div class="matched-user-profiles-description">
-															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
-														</div>
-													<% end %>
-												</div>
-		                	</div>
-		              	<% end %>
-		            	</div>
-		          	</div>
-		          <% end %>
-		          <% if current_user.compatible_users_third %>
-		          	<div class="item">
-		          		<div class="row">
-		          			<% current_user.compatible_users_third.each do |users| %>
-		                  <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
-												<div class="matched-user-profiles">
-													<% next if users.id == current_user.id %>
-													<% if users.user_profile  %> 
-														<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
-														<div class="matched-user-profiles-description">
-															<%= link_to users.first_name.upcase, user_profile_path(users) %> 
-															<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-															<h5> Want to Learn: <%= users.user_profile.first_lang %></h5>
-														</div>
-													<% end %>
-												</div>
-		                	</div>
-		              	<% end %>
-		            	</div>
-		          	</div>
-		          <% end %>
-		        </div>
+              <% if current_user.compatible_users_second %>
+                <div class="item">
+                  <div class="row">
+                    <% current_user.compatible_users_second.each do |users| %>
+                      <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+                        <div class="matched-user-profiles">
+                          <% next if users.id == current_user.id %>
+                          <% if users.user_profile  %> 
+                            <div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+                            <div class="matched-user-profiles-description">
+                              <%= link_to users.first_name.upcase, user_profile_path(users) %> 
+                              <h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+                              <h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if current_user.compatible_users_third %>
+                <div class="item">
+                  <div class="row">
+                    <% current_user.compatible_users_third.each do |users| %>
+                      <div class="col-sm-3 col-xs-6 col-md-2 thumbnail">
+                        <div class="matched-user-profiles">
+                          <% next if users.id == current_user.id %>
+                          <% if users.user_profile  %> 
+                            <div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
+                            <div class="matched-user-profiles-description">
+                              <%= link_to users.first_name.upcase, user_profile_path(users) %> 
+                              <h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
+                              <h5> Want to Learn: <%= users.user_profile.first_lang %></h5>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
           <a class="carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-				</div>
-			</div>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+      </div>
 >>>>>>> topic_fix -->
-			<br>
+      <br>
 
-			<%= render 'layouts/topics_list' %>
+      <%= render 'layouts/topics_list' %>
 
-		<% end %>
+    <% end %>
   <% end %>
-	</div>
+  </div>
 </div>
 
 
 
 <script>
 $(document).ready(function() {
-	$('#myCarousel').carousel({
-	interval: 0
-	})
+  $('#myCarousel').carousel({
+  interval: 0
+  })
     
     $('#myCarousel').on('slid.bs.carousel', function() {
-    	//alert("slid");
-	});
+      //alert("slid");
+  });
     
     
 });
