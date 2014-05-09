@@ -7,7 +7,7 @@
 				<%if current_user.first_name.blank? %>
 					<h4 class="user-name">WELCOME TO POLYGLT</h4>
 				<%else%>
-					<h4 class="user-name"><%= link_to "#{@user.first_name.upcase} #{@user.last_name.upcase}", user_profile_path(@user) %></h4>
+					<h4 class="user-name"><%= link_to "#{@user.first_name.upcase} #{@user.last_name.upcase}", user_profile_path(@user)%></h4>
 				<%end%>
 				<div class="quick-info">
 					<span class="glyphicon glyphicon-envelope"></span> 
