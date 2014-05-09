@@ -7,12 +7,12 @@
     <th>Level</th>
   </tr>
   <tr>
-    <td><%= f.label :native_tongue %></td>
+    <td><%= f.label 'Wants to Teach' %></td>
     <td><%= f.select :native_lang, options_for_select(LANGUAGE_COUNTRY, @user_profile.native_lang)%></td>
      <td>N/A</td>
   </tr>
   <tr>
-    <td><%= f.label :first_language %></td>
+    <td><%= f.label 'Wants to Learn' %></td>
     <td><%= f.select :first_lang, options_for_select(LANGUAGE_COUNTRY, @user_profile.first_lang)%></td>
     <td><%= f.select :first_lang_lvl, options_for_select(LANGLEVEL) %></td>
   </tr>

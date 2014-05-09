@@ -167,8 +167,8 @@ $(document).ready(function() {
                             <%else%>
                               <%= link_to users.first_name.upcase, user_profile_path(users) %> 
                             <%end%>
-                            <h5>Want to Teach: <%= users.user_profile.native_lang %></h5>
-                            <h5>Want to Learn: <%= users.user_profile.first_lang %></h5> 
+                            <h5>Wants to Teach: <%= users.user_profile.native_lang %></h5>
+                            <h5>Wants to Learn: <%= users.user_profile.first_lang %></h5> 
                           </div>
                         <% end %>
                       </div>
@@ -187,8 +187,8 @@ $(document).ready(function() {
                             <div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
                             <div class="matched-user-profiles-description">
                               <%= link_to users.first_name.upcase, user_profile_path(users) %> 
-                              <h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-                              <h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
+                              <h5 >Wants to Teach: <%= users.user_profile.native_lang %></h5>
+                              <h5> Wants to Learn: <%= users.user_profile.first_lang %></h5> 
                             </div>
                           <% end %>
                         </div>
@@ -208,8 +208,8 @@ $(document).ready(function() {
                             <div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
                             <div class="matched-user-profiles-description">
                               <%= link_to users.first_name.upcase, user_profile_path(users) %> 
-                              <h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
-                              <h5> Want to Learn: <%= users.user_profile.first_lang %></h5>
+                              <h5 >Wants to Teach: <%= users.user_profile.native_lang %></h5>
+                              <h5> Wants to Learn: <%= users.user_profile.first_lang %></h5>
                             </div>
                           <% end %>
                         </div>

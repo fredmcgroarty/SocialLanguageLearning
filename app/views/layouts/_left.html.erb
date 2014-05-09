@@ -17,8 +17,8 @@
 					<span class="glyphicon glyphicon-stats"></span> 
 					Lessons Booked: <%= @bookings_count ? @bookings_count : 0%><br>
 					<span class="glyphicon glyphicon-time"></span> 
-					<% if @total_length %> Hours Booked: <%= @total_hours %> <% end %> <br>
-					<span class="glyphicon glyphicon-pencil"></span>  Topics Booked: <%= @completed_topics.count %><br>
+					<% if @total_length %> Hours Completed: <%= @total_hours %> <% end %> <br>
+					<span class="glyphicon glyphicon-pencil"></span>  Topics Completed: <%= @completed_topics.count %><br>
 				</div>
 			</div>	
 		<% end %>	

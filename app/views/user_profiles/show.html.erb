@@ -3,8 +3,8 @@
   <div class="profile-pic-main" style="background-image: url(<%=@user.user_profile.picture.url(:large)%>);"></div>
   <div class="user-information">
     <h3 class="user-name-h3"><%=@user.first_name.upcase%> <%=@user.last_name.upcase%></h3>
-    <h4 class="user-information-language"> Wants to teach: <%=@user.native_lang%></h4>
-    <h4 class="user-information-language"> Wants to learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
+    <h4 class="user-information-language"> Wants to Teach: <%=@user.native_lang%></h4>
+    <h4 class="user-information-language"> Wants to Learn: <%=@user.first_lang%> (Level <%=@user.first_lang_lvl%>)</h4>
   </div>
   <% end %>
 
