@@ -74,11 +74,11 @@
       if(e.keyCode !== 13)
         return;
       var value = this.value; 
-      $.post('/lesson_texts', {message: value})
+      $.post('/lesson_texts', {message: value, uid: '<%= @lessons.uid %>'})
       $('#message').val('')
     });
 
-    var channel = ws.subscribe('chat');
+    var channel = ws.subscribe('chat_<%= @lessons.uid %>');
 
     channel.bind('new', function(chat) {
       var el = $('#chat');
