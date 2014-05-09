@@ -10,7 +10,6 @@
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <% if current_user.first_name.blank? %>
-          <%= link_to "Complete Profile", edit_user_profile_path(current_user) %>
         <%else%>
           <li>
             <%= link_to current_user.first_name.capitalize, user_profile_path(current_user) %>

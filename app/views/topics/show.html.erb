@@ -62,9 +62,11 @@
 												<% if users.user_profile  %> 
 													<div class='matched-user-profile-pic' style="background-image: url(<%=users.user_profile.picture.url(:thumb)%>);"></div>
 													<div class="matched-user-profiles-description">
+													<% if users.first_name %>
 														<%= link_to users.first_name.upcase, user_profile_path(users) %> 
 														<h5 >Want to Teach: <%= users.user_profile.native_lang %></h5>
 														<h5> Want to Learn: <%= users.user_profile.first_lang %></h5> 
+													<% end %>
 													</div>
 												<% end %>
 											</div>

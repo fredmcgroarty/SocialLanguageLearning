@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
     @rev1 = []
     @rev2 = []
     @reviews.each do |x|
-      if x.for_user_id = @user.id
+      if x.for_user_id == @user.id
         @rev1 << x.rev1
         @rev2 << x.rev2
       end
