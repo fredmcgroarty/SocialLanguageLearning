@@ -10,7 +10,7 @@ Using the devise gem users sign up and log in, create a language profile to sele
 
 **POLYGLT** uses a matching algorithm to match the native language of one user against the languages to learn of the user pool, and vice versa, to creata a list of "matched users" for each user.
 
-![screenshot](app/public/polyglt_screenshot.png)
+![screenshot](app/assets/images/polyglt_screenshot.png)
 
 
 The user can then message one of their matches and book a 1-to-1 lesson with a selected topic, utilising the bookable and mailboxer gems. Each chosen topic has a selection of questions as prompts for each lesson.
