@@ -19,6 +19,8 @@ The 1-to-1 lessons use live video chat via built in webcam and realtime text cha
 
 During the 1-to-1 lesson, half of the lessons allocated time is designated to speaking each of the users native languages. In this way one user will be a student and the other a teacher. 
 
+![screenshot](app/public/web_rtc.png)
+
 After each lesson, users rate each others progress and receive their own ratings. These rating can be seen by all users and determines whether the topic has been completed by that user.
 
 In this way **POLYGLT** provides a social network for immersive language learning.
