@@ -6,18 +6,17 @@
 
 **POLYGLT** was written using Ruby on Rails 4. 
 
-Using the devise gem users sign up and log in, create a language profile to select their native language and the language they Wants to Learn.
+Using the devise gem users sign up and log in, create a language profile to select their native language and the language they want to Learn.
 
-**POLYGLT** uses a matching algorithm to match the native language of one user against the languages to learn of the user pool, and vice versa, to creata a list of "matched users" for each user.
+**POLYGLT** uses a matching algorithm to match the native language of one user against the languages to learn of the user pool, and vice versa, creating a list of "matched users" for each user.
 
 ![screenshot](app/assets/images/polyglt_screenshot.png)
 
-
 The user can then message one of their matches and book a 1-to-1 lesson with a selected topic, utilising the bookable and mailboxer gems. Each chosen topic has a selection of questions as prompts for each lesson.
 
-The 1-to-1 lessons use live video chat via built in webcam and realtime text chat. This is all through websockets and SimpleWebRTC. This allows the use of a TURN server and removes the need for increased server hosting by **POLYGLT**. The use of SimpleWebRTC and a TURN server allows peer-to-peer connections while maintaining a secure connection.
+The 1-to-1 lessons use live video chat via built in webcam and realtime text chat. This is achieved through websockets and SimpleWebRTC. This allows the use of a TURN server and removes the need for increased server hosting by **POLYGLT**. The use of SimpleWebRTC and a TURN server allows peer-to-peer connections while maintaining a secure connection.
 
-During the 1-to-1 lesson, half of the lessons allocated time is designated to speaking each of the users native languages. In this way one user will be a student and the other a teacher. 
+During the 1-to-1 lesson, half of the lesson's allocated time is designated to speaking each of the users native languages. In this way one user will be a student and the other a teacher. 
 
 ![screenshot](app/public/web_rtc.png)
 
